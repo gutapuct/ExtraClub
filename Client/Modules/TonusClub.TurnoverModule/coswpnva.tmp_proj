@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95446900-911D-4C26-A994-F306CDC75CD2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TonusClub.TurnoverModule</RootNamespace>
+    <AssemblyName>TonusClub.TurnoverModule</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\TonusClub.TurnoverModule.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\TonusClub.TurnoverModule.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\CashierDocumentsViewModel.cs" />
+    <Compile Include="Views\BarModule.xaml.cs">
+      <DependentUpon>BarModule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BarPointViewModel.cs" />
+    <Compile Include="ViewModels\ConsignmentViewModel.cs" />
+    <Compile Include="Views\ContainedControls\CashierBookControl.xaml.cs">
+      <DependentUpon>CashierBookControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\CashierDocumentsControl.xaml.cs">
+      <DependentUpon>CashierDocumentsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\CashInOrdersControl.xaml.cs">
+      <DependentUpon>CashInOrdersControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\CashOutOrdersControl.xaml.cs">
+      <DependentUpon>CashOutOrdersControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\CashPaymentsControl.xaml.cs">
+      <DependentUpon>CashPaymentsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\CertificatesControl.xaml.cs">
+      <DependentUpon>CertificatesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\CompanyFinancesControl.xaml.cs">
+      <DependentUpon>CompanyFinancesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\IncomesControl.xaml.cs">
+      <DependentUpon>IncomesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\ProviderOrders.xaml.cs">
+      <DependentUpon>ProviderOrders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\SalesControl.xaml.cs">
+      <DependentUpon>SalesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\SalesPlanControl.xaml.cs">
+      <DependentUpon>SalesPlanControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\SpendingsControl.xaml.cs">
+      <DependentUpon>SpendingsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\FinancesClubControl.xaml.cs">
+      <DependentUpon>FinancesClubControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\Windows\MarkdownWindow.xaml.cs">
+      <DependentUpon>MarkdownWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\Windows\NewCashInOrderWindow.xaml.cs">
+      <DependentUpon>NewCashInOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\Windows\NewCashOutOrderWindow.xaml.cs">
+      <DependentUpon>NewCashOutOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\Windows\NewEditCompanyFinanceWindow.xaml.cs">
+      <DependentUpon>NewEditCompanyFinanceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\Windows\NewEditDivisionFinanceWindow.xaml.cs">
+      <DependentUpon>NewEditDivisionFinanceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\Windows\NewIncomeWindow.xaml.cs">
+      <DependentUpon>NewIncomeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FinancesControl.xaml.cs">
+      <DependentUpon>FinancesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GoodsListControl.xaml.cs">
+      <DependentUpon>GoodsListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TurnoverAndProvidersControl.xaml.cs">
+      <DependentUpon>TurnoverAndProvidersControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\FRReturnWindow.xaml.cs">
+      <DependentUpon>FRReturnWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\KKMOperations.xaml.cs">
+      <DependentUpon>KKMOperations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewCertificateWindow.xaml.cs">
+      <DependentUpon>NewCertificateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditDeductionConsignment.xaml.cs">
+      <DependentUpon>NewEditDeductionConsignment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\TurnoverLargeViewModel.cs" />
+    <Compile Include="Views\BarPointView.xaml.cs">
+      <DependentUpon>BarPointView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\ConsignmentsControl.xaml.cs">
+      <DependentUpon>ConsignmentsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\GoodsControl.xaml.cs">
+      <DependentUpon>GoodsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\ProvidersControl.xaml.cs">
+      <DependentUpon>ProvidersControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Converter.cs" />
+    <Compile Include="Views\Windows\NewConsignment.xaml.cs">
+      <DependentUpon>NewConsignment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditPriceWindow.xaml.cs">
+      <DependentUpon>NewEditPriceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditSalesPlanWindow.xaml.cs">
+      <DependentUpon>NewEditSalesPlanWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewGoodActionWindow.xaml.cs">
+      <DependentUpon>NewGoodActionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewProviderPaymentWindow.xaml.cs">
+      <DependentUpon>NewProviderPaymentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditGoodWindow.xaml.cs">
+      <DependentUpon>NewEditGoodWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditMoveConsignment.xaml.cs">
+      <DependentUpon>NewEditMoveConsignment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditProviderFolderWindow.xaml.cs">
+      <DependentUpon>NewEditProviderFolderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditProviderOrderWindow.xaml.cs">
+      <DependentUpon>NewEditProviderOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditProviderWindow.xaml.cs">
+      <DependentUpon>NewEditProviderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewSpendingWindow.xaml.cs">
+      <DependentUpon>NewSpendingWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\TonusClub.ServiceModel\TonusClub.ServiceModel.csproj">
+      <Project>{97cc15a7-fc9a-4c5c-8098-44d11b6392db}</Project>
+      <Name>TonusClub.ServiceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TonusClub.Infrastructure\TonusClub.Infrastructure.csproj">
+      <Project>{0eac7b49-5998-4f41-ba70-33f0a636aeaa}</Project>
+      <Name>TonusClub.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TonusClub.UIControls\TonusClub.UIControls.csproj">
+      <Project>{a3082956-9ee4-4b35-9b4e-b07d0c4c8b56}</Project>
+      <Name>TonusClub.UIControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TonusClub.CashRegisterModule\TonusClub.CashRegisterModule.csproj">
+      <Project>{cd79a91a-f217-483d-8250-92c9a6d81773}</Project>
+      <Name>TonusClub.CashRegisterModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TonusClub.DictionaryManager\TonusClub.DictionaryManager.csproj">
+      <Project>{B485A745-5EE8-4DB1-8D6A-457AA484B496}</Project>
+      <Name>TonusClub.DictionaryManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <ReferencePath Include="C:\src\asu\lib\Design\FlagmaxControls.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\Microsoft.CSharp.dll" />
+    <ReferencePath Include="C:\src\asu\lib\Prism\Microsoft.Practices.Composite.dll" />
+    <ReferencePath Include="C:\src\asu\lib\Prism\Microsoft.Practices.Composite.Presentation.dll" />
+    <ReferencePath Include="C:\src\asu\lib\Unity\Microsoft.Practices.Unity.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\mscorlib.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\PresentationFramework.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Configuration.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Data.DataSetExtensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Data.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Drawing.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.ServiceModel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\src\asu\lib\Telerik\Telerik.Windows.Controls.dll" />
+    <ReferencePath Include="C:\src\asu\lib\Telerik\Telerik.Windows.Controls.GridView.dll" />
+    <ReferencePath Include="C:\src\asu\lib\Telerik\Telerik.Windows.Controls.Input.dll" />
+    <ReferencePath Include="C:\src\asu\lib\Telerik\Telerik.Windows.Controls.Navigation.dll" />
+    <ReferencePath Include="C:\src\asu\lib\Telerik\Telerik.Windows.Data.dll" />
+    <ReferencePath Include="C:\src\asu\Client\Modules\TonusClub.CashRegisterModule\bin\Debug\TonusClub.CashRegisterModule.dll" />
+    <ReferencePath Include="C:\src\asu\Client\Modules\TonusClub.DictionaryManager\bin\Debug\TonusClub.DictionaryManager.dll" />
+    <ReferencePath Include="C:\src\asu\Client\TonusClub.Infrastructure\bin\Debug\TonusClub.Infrastructure.dll" />
+    <ReferencePath Include="C:\src\asu\Common\TonusClub.ServiceModel\bin\Debug\TonusClub.ServiceModel.dll" />
+    <ReferencePath Include="C:\src\asu\Client\TonusClub.UIControls\bin\Debug\TonusClub.UIControls.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\WindowsBase.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\BarModule.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\CashierBookControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\CashierDocumentsControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\CashInOrdersControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\CashOutOrdersControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\CashPaymentsControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\CertificatesControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\CompanyFinancesControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\IncomesControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\ProviderOrders.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\SalesControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\SalesPlanControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\SpendingsControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\FinancesClubControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\Windows\MarkdownWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\Windows\NewCashInOrderWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\Windows\NewCashOutOrderWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\Windows\NewEditCompanyFinanceWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\Windows\NewEditDivisionFinanceWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\Windows\NewIncomeWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\FinancesControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\GoodsListControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\TurnoverAndProvidersControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\FRReturnWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\KKMOperations.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\NewCertificateWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\NewEditDeductionConsignment.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\BarPointView.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\ConsignmentsControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\GoodsControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\ContainedControls\ProvidersControl.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\NewConsignment.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\NewEditPriceWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\NewEditSalesPlanWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\NewGoodActionWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\NewProviderPaymentWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\NewEditGoodWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\NewEditMoveConsignment.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\NewEditProviderFolderWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\NewEditProviderOrderWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\NewEditProviderWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\Views\Windows\NewSpendingWindow.g.cs" />
+    <Compile Include="C:\src\asu\Client\Modules\TonusClub.TurnoverModule\obj\Debug\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
+</Project>

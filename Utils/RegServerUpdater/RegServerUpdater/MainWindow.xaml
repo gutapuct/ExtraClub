@@ -1,0 +1,29 @@
+﻿<Window x:Class="RegServerUpdater.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" SizeToContent="Height"
+        Title="Обновление регионального сервера v5.0" Width="525">
+    <StackPanel>
+        <GroupBox Header="Параметры сервера">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Путь к файлам сервера</TextBlock>
+                <TextBox Text="{Binding ServerFiles, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox Header="Параметры БД">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Имя сервера</TextBlock>
+                <TextBox Text="{Binding SqlAddr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBlock VerticalAlignment="Center">Имя пользователя</TextBlock>
+                <TextBox Text="{Binding SqlLogin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <TextBlock VerticalAlignment="Center">Пароль</TextBlock>
+                <TextBox Text="{Binding SqlPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <Label />
+                <Button Click="TestConnection">Проверить соединение</Button>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox Header="Лог">
+            <TextBox Text="{Binding Log}" IsReadOnly="True" AcceptsReturn="True" Height="300"></TextBox>
+        </GroupBox>
+        <Button Click="StartPatch">Приступить</Button>
+    </StackPanel>
+</Window>

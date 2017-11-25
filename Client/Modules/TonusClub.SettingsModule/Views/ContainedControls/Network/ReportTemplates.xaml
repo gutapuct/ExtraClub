@@ -1,0 +1,36 @@
+﻿<usr:ModuleViewBase x:Class="TonusClub.SettingsModule.Views.ContainedControls.ReportTemplates"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="300" d:DesignWidth="700">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25" usr:AuthorizationManager.AuthorizationKey="NetTemplatesMgmt">
+            <Button Margin="2 0" Click="EditTemplateButton_Click">Редактировать выделенный шаблон</Button>
+        </StackPanel>
+        <telerik:RadGridView
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ActionOnLostFocus="CommitEdit"
+                                        ShowGroupPanel="False"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        IsFilteringAllowed="False"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding TemplatesView}"
+                                        MouseDoubleClick="TemplatesGrid_MouseDoubleClick"
+                                        x:Name="TemplatesGrid">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Width="*" Header="Название" DataMemberBinding="{Binding DisplayName}"/>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </DockPanel>
+</usr:ModuleViewBase>

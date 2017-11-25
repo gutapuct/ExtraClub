@@ -1,0 +1,38 @@
+﻿<usr:ModuleViewBase x:Class="TonusClub.EmployeesModule.Views.ContainedControls.Employees.SalaryControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="328" d:DesignWidth="613">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+            <Button Margin="2 0" Click="NewSheetClick" usr:AuthorizationManager.AuthorizationKey="NewSalarySheet">Новая ведомость</Button>
+        </StackPanel>
+        <telerik:RadGridView
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ActionOnLostFocus="CommitEdit"
+                                        ShowGroupPanel="False"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        IsFilteringAllowed="True"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding SalariesView}"
+            MouseDoubleClick="SalariesViewGrid_MouseDoubleClick"
+                                        x:Name="SalariesViewGrid">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Width="*" IsFilterable="True" Header="Период" DataMemberBinding="{Binding PeriodStart}" DataFormatString="{}{0:MMM yyyy}"/>
+                <telerik:GridViewDataColumn Width="*" IsFilterable="True" Header="Дата утверждения" DataMemberBinding="{Binding CreatedOn}" DataFormatString="{}{0:dd.MM.yyyy}"/>
+                <telerik:GridViewDataColumn Width="*" IsFilterable="True" Header="Утвердил" DataMemberBinding="{Binding SerializedCreatedBy}" />
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </DockPanel>
+    </usr:ModuleViewBase>
+

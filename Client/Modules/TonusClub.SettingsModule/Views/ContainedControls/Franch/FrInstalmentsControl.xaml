@@ -1,0 +1,68 @@
+﻿<usr:ModuleViewBase x:Class="TonusClub.SettingsModule.Views.ContainedControls.Franch.FrInstalmentsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="348" d:DesignWidth="600">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+            <Button Margin="2 0" Click="EnableInstalmentButton_Click">Разрешить выделенную</Button>
+            <Button Margin="2 0" Click="DisableInstalmentButton_Click">Запретить выделенную</Button>
+        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="3" />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <telerik:RadTreeView ItemsSource="{Binding FrInstalmentFoldersView}" Selected="Tree_Selected" SelectedItem="{Binding FrCurrentInstalmentTreeItem}" x:Name="Tree">
+                <telerik:RadTreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding SettingsFolders1}">
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                    </HierarchicalDataTemplate>
+                </telerik:RadTreeView.ItemTemplate>
+
+            </telerik:RadTreeView>
+            <GridSplitter Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{DynamicResource ControlBorder}"/>
+
+            <telerik:RadGridView Grid.Column="2"
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ActionOnLostFocus="CommitEdit"
+                                        ShowGroupPanel="False"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        IsFilteringAllowed="False"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding FrInstalmentsView}"
+                                        x:Name="InstalmentsGrid">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Width="Auto" Header="Активность" DataMemberBinding="{Binding Helper}" >
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox HorizontalAlignment="Center" IsChecked="{Binding Helper, Mode=OneWay}" IsEnabled="False"/>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Width="2*" Header="Название" DataMemberBinding="{Binding Name}"/>
+                    <telerik:GridViewDataColumn Width="*" Header="Первый взнос, %" DataMemberBinding="{Binding ContribPercent}" DataFormatString="{}{0:p}"/>
+                    <telerik:GridViewDataColumn Width="*" Header="Первый взнос, руб" DataMemberBinding="{Binding ContribAmount}" DataFormatString="{}{0:c}"/>
+                    <telerik:GridViewDataColumn Width="*" Header="Длительность" DataMemberBinding="{Binding Length}"/>
+                    <telerik:GridViewDataColumn Width="*" Header="Второй взнос, %" DataMemberBinding="{Binding SecondPercent}" DataFormatString="{}{0:p}"/>
+                    <telerik:GridViewDataColumn Width="*" Header="Вторая длительность" DataMemberBinding="{Binding SecondLength}"/>
+                    <telerik:GridViewDataColumn Width="*" Header="Единиц доступно до выплаты" DataMemberBinding="{Binding AvailableUnitsPercent}" DataFormatString="{}{0:p}"/>
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+        </Grid>
+    </DockPanel>
+    </usr:ModuleViewBase>
+

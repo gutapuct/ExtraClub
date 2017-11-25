@@ -1,0 +1,2783 @@
+<ResourceDictionary 
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		
+
+		xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+		xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls.Primitives;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+		xmlns:telerikChromes="clr-namespace:Telerik.Windows.Controls.Chromes;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+		xmlns:local="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.ScheduleView,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+		xmlns:dragDrop="clr-namespace:Telerik.Windows.DragDrop;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+		xmlns:external="clr-namespace:Telerik.Windows.Controls.External"
+
+
+>
+
+	<external:SummerThemeExternal x:Key="Theme" />
+<ImageSource x:Key="EditAppointmentTemplate_Recurrence">/Telerik.Windows.Controls.ScheduleView;component/Themes/Images/Recurrence.png</ImageSource>
+<SolidColorBrush x:Key="RadScheduleForeground" Color="#FF312E25" />
+<SolidColorBrush x:Key="MonthViewTimeRulerItemForeground_Normal" Color="#FF312E25" />
+<SolidColorBrush x:Key="GroupHeaderHeaderOuterBorder" Color="#FFD4CCB0" />
+<LinearGradientBrush x:Key="GroupHeaderHeaderBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFEFECE1"/>
+        <GradientStop Color="#FFD4CCB0" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="MonthViewTimeRulerItemInnerBorder" Color="Transparent" />
+<LinearGradientBrush x:Key="MonthViewTimeRulerItemBackground_MouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="Transparent"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="MonthViewTimeRulerItemInnerBorder_MouseOver" Color="Transparent" />
+<SolidColorBrush x:Key="MonthViewTimeRulerItemForeground_MouseOver" Color="Transparent" />
+<LinearGradientBrush x:Key="MonthViewTimeRulerItemBackground_Pressed" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="Transparent"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="MonthViewTimeRulerItemInnerBorder_Pressed" Color="Transparent" />
+<SolidColorBrush x:Key="GroupHeaderHeaderOuterBorder_Vertical" Color="#FFD4CCB0" />
+<LinearGradientBrush x:Key="GroupHeaderHeaderBackground_Vertical" EndPoint="1,0.5" StartPoint="0,0.5">
+        <GradientStop Color="#FFEFECE1"/>
+        <GradientStop Color="#FFD4CCB0" Offset="1"/>
+    </LinearGradientBrush>
+<SolidColorBrush x:Key="GroupHeaderHeaderInnerBorder_Vertical" Color="Transparent" />
+<LinearGradientBrush x:Key="MonthViewTimeRulerItemBackgroundVertical_MouseOver" EndPoint="1,0.5" StartPoint="0,0.5">
+        <GradientStop Color="#FFD4CCB0"/>
+        <GradientStop Color="#FFEFECE1" Offset="1"/>
+    </LinearGradientBrush>
+<SolidColorBrush x:Key="MonthViewTimeRulerItemInnerBorderVertical_MouseOver" Color="Transparent" />
+<LinearGradientBrush x:Key="MonthViewTimeRulerItemBackgroundVertical_Pressed" EndPoint="1,0.5" StartPoint="0,0.5">
+        <GradientStop Color="Transparent"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="MonthViewTimeRulerItemInnerBorderVertical_Pressed" Color="#FFD4CCB0" />
+<SolidColorBrush x:Key="MonthViewTimeRulerItemForeground_Today" Color="#FF312E25" />
+<SolidColorBrush x:Key="MonthViewTimeRulerItemOuterBorder_Today" Color="#FFD4CCB0" />
+<LinearGradientBrush x:Key="MonthViewTimeRulerItemBackground_Today" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFD4CCB0"/>
+        <GradientStop Color="#FFEFECE1" Offset="1"/>
+    </LinearGradientBrush>
+<SolidColorBrush x:Key="MonthViewTimeRulerItemInnerBorder_Today" Color="Transparent" />
+<LinearGradientBrush x:Key="MonthViewTimeRulerItemBackground_TodayMouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="Transparent"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="MonthViewTimeRulerItemInnerBorder_TodayMouseOver" Color="Transparent" />
+<LinearGradientBrush x:Key="MonthViewTimeRulerItemBackground_TodayPressed" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="Transparent"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="MonthViewTimeRulerItemInnerBorder_TodayPressed" Color="Transparent" />
+<SolidColorBrush x:Key="GroupHeaderHeaderOuterBorder_VerticalToday" Color="#FFD4CCB0" />
+<LinearGradientBrush x:Key="GroupHeaderHeaderBackground_VerticalToday" EndPoint="1,0.5" StartPoint="0,0.5">
+        <GradientStop Color="#FFD4CCB0"/>
+        <GradientStop Color="#FFEFECE1" Offset="1"/>
+    </LinearGradientBrush>
+<SolidColorBrush x:Key="GroupHeaderHeaderInnerBorder_VerticalToday" Color="Transparent" />
+<SolidColorBrush x:Key="MonthViewTimeRulerItemForeground_TodayMouseOver" Color="Red" />
+<SolidColorBrush x:Key="MonthViewExpandOuterBorder" Color="Red" />
+<SolidColorBrush x:Key="MonthViewExpandButtonBackground" Color="Red" />
+<SolidColorBrush x:Key="MonthViewExpandInnerBorder" Color="Red" />
+<SolidColorBrush x:Key="MonthViewExpandIconStroke" Color="Red" />
+<SolidColorBrush x:Key="MonthViewExpandOuterBorder_MouseOver" Color="Red" />
+<LinearGradientBrush x:Key="MonthViewExpandButtonBackground_MouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="Red" />
+        <GradientStop Color="Red" Offset="1" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="MonthViewExpandInnerBorder_MouseOver" Color="Red" />
+<SolidColorBrush x:Key="MonthViewExpandIconStroke_MouseOver" Color="Red" />
+<SolidColorBrush x:Key="MonthViewExpandOuterBorder_Pressed" Color="Red" />
+<LinearGradientBrush x:Key="MonthViewExpandButtonBackground_Pressed" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="Red" Offset="0" />
+		<GradientStop Color="Red" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="MonthViewExpandInnerBorder_Pressed" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="Red" Offset="0" />
+        <GradientStop Color="Red" Offset="0.143" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="MonthViewExpandIconStroke_Pressed" Color="Red" />
+<SolidColorBrush x:Key="TimeRulerGroupItemForeground" Color="Green" />
+<SolidColorBrush x:Key="TimeRulerItemMajorTickStroke" Color="#FFD4CCB0" />
+<SolidColorBrush x:Key="TimeRulerItemMinorTickStroke" Color="#AAD4CCB0" />
+<SolidColorBrush x:Key="TimeRulerItemMajorTickStroke_Vertical" Color="#FFD4CCB0" />
+<SolidColorBrush x:Key="TimeRulerItemMinorTickStroke_Vertical" Color="#AAD4CCB0" />
+<SolidColorBrush x:Key="TimeRulerLineStroke" Color="#FFD4CCB0" />
+<SolidColorBrush x:Key="GroupHeaderBorderBrush_Today" Color="#FFD4CCB0" />
+<Thickness x:Key="HorizontalGroupHeaderTodayBorderThickness">2 0 2 2</Thickness>
+<Thickness x:Key="VerticalGroupHeaderTodayBorderThickness">0 2 2 2</Thickness>
+<SolidColorBrush x:Key="HorizontalBottomLevelTodayForeground" Color="Red" />
+<SolidColorBrush x:Key="GroupHeaderBorderBrush" Color="#FFD4CCB0" />
+<SolidColorBrush x:Key="AppointmentItemOuterBorder" Color="#FFB8D6FB" />
+<LinearGradientBrush x:Key="AppointmentItemInnerBorder" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="Transparent"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="AppointmentItemBackground_MouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFDCEBFC"/>
+		<GradientStop Color="#FFC1DBFC" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="AppointmentItemOuterBorder_MouseOver" Color="#FFB8D6FB" />
+<LinearGradientBrush x:Key="AppointmentItemInnerBorder_MouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="Transparent"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="AppoinmtentItemBackground_ReadOnly" Color="#999D9D9D" />
+<SolidColorBrush x:Key="AppointmentItemIndicatorFill" Color="#FF000000" />
+<ImageSource x:Key="AppointmentItem_Recurrence">/Telerik.Windows.Controls.ScheduleView;component/Themes/Images/AppointmentException.png</ImageSource>
+<ImageSource x:Key="AppointmentItem_Exception">/Telerik.Windows.Controls.ScheduleView;component/Themes/Images/AppointmentRecurrence.png</ImageSource>
+<SolidColorBrush x:Key="AppointmentItemResizeGripBackground" Color="#FFDCEBFC" />
+<SolidColorBrush x:Key="AppointmentItemResizeGripStroke" Color="#FF839AB5" />
+<LinearGradientBrush x:Key="AppointmentItemDeleteIconStroke" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FF4F637C" Offset="0"/>
+		<GradientStop Color="#FF8CA0B9" Offset="1"/>
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="AppointmentItemBackground_Selected" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFDCEBFC"/>
+		<GradientStop Color="#FFC1DBFC" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="AppointmentItemOuterBorder_Selected" Color="#FF7DA2CE" />
+<LinearGradientBrush x:Key="AppointmentItemInnerBorder_Selected" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="Transparent"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="AppointmentItemBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFFAFBFD" Offset="0.004"/>
+		<GradientStop Color="#FFEBF3FD" Offset="1"/>
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="AppointmentItemBackground_Drag" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#BBDCEBFC"/>
+		<GradientStop Color="#BBC1DBFC" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="AppointmentItemOuterBorder_Drag" Color="#FF7DA2CE" />
+<LinearGradientBrush x:Key="AppointmentItemInnerBorder_Drag" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="Transparent"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="DecorationRectangleBackground" Color="Red" />
+<LinearGradientBrush x:Key="DecorationRectangleBackground_DragOver" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="Red"/>
+		<GradientStop Color="#88C1DBFC" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="DecorationRectangleOuterBorder_DragOver" Color="#887DA2CE" />
+<SolidColorBrush x:Key="DecorationRectangleInnerBorder_DragOver" Color="Transparent" />
+<LinearGradientBrush x:Key="AppointmentResizeCueTopLeftMarkStroke" StartPoint="0 0" EndPoint="1 1">
+		<GradientStop Offset="0.33" Color="#FF4F637C" />
+		<GradientStop Offset="1" Color="#004F637C" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="AppointmentResizeCueBottomRightMarkStroke" StartPoint="1 1" EndPoint="0 0">
+		<GradientStop Offset="0.33" Color="#FF4F637C" />
+		<GradientStop Offset="1" Color="#004F637C" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="DecorationRectangleBackground_MouseOver" Color="#19126E8B" />
+<SolidColorBrush x:Key="DecorationRectangleOuterBorder_MouseOver" Color="#00FFFFFF" />
+<SolidColorBrush x:Key="DecorationRectangleInnerBorder_MouseOver" Color="Transparent" />
+<SolidColorBrush x:Key="DecorationRectangleBackground_Selected" Color="#330E7194" />
+<SolidColorBrush x:Key="DecorationRectangleOuterBorder_Selected" Color="#00FFFFFF" />
+<SolidColorBrush x:Key="DecorationRectangleInnerBorder_Selected" Color="Transparent" />
+<SolidColorBrush x:Key="SpecialSlotBackground" Color="Red" />
+<SolidColorBrush x:Key="SpecialSlotBackground_ReadOnly" Color="#667A7A7A" />
+<SolidColorBrush x:Key="ViewModeButtonForeground" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="ViewModeButtonOuterBorder" Color="{DynamicResource ControlBorderColor}" />
+<SolidColorBrush x:Key="ViewModeButtonBackground" Color="#00000000" />
+<SolidColorBrush x:Key="ViewModeButtonInnerBorder" Color="Transparent" />
+<SolidColorBrush x:Key="ViewModeButtonForeground_MouseOver" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="ViewModeButtonOuterBorder_MouseOver" Color="{DynamicResource ControlBorderColor}" />
+<LinearGradientBrush x:Key="ViewModeButtonBackground_MouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FF008D1D"/>
+		<GradientStop Color="#FF259D3E" Offset="1"/>
+	</LinearGradientBrush>
+    
+<LinearGradientBrush x:Key="ViewModeButtonInnerBorder_MouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="Transparent" Offset="0"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+	</LinearGradientBrush>
+    <SolidColorBrush x:Key="ViewModeButtonOuterBorder_Pressed" Color="{DynamicResource ControlBorderColor}" />
+<LinearGradientBrush x:Key="ViewModeButtonBackground_Pressed" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FF2FA700"/>
+		<GradientStop Color="#FF4DB325" Offset="1"/>
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="ViewModeButtonInnerBorder_Pressed" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="Transparent" Offset="0"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+	</LinearGradientBrush>
+    
+    
+<SolidColorBrush x:Key="ViewModeButtonForeground_Pressed" Color="#FFFFFFFF" />
+<SolidColorBrush x:Key="NavigationIconBackground_Normal" Color="#00000000" />
+<SolidColorBrush x:Key="NavigationIconForeground_Normal" Color="#FFFFFFFF" />
+<SolidColorBrush x:Key="NavigationIconForeground_Highlighted" Color="#FFFFFFFF" />
+<SolidColorBrush x:Key="NavigationIconBackground_Highlighted" Color="#00000000" />
+<ControlTemplate x:Key="CalendarIcon" TargetType="ContentControl">
+		<Image  Source="/Telerik.Windows.Controls.ScheduleView;component/Themes/Images/CalendarIcon-Blue.png" 
+				Width="16" Height="15"
+				
+				RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"
+				/>
+	</ControlTemplate>
+    
+<SolidColorBrush x:Key="NavigationIntervalForegroundRear" Color="#00000000" />
+<SolidColorBrush x:Key="NavigationIntervalForegroundFront" Color="#FFFFFFFF" />
+<SolidColorBrush x:Key="DragVisualForeground" Color="Black" />
+<SolidColorBrush x:Key="DragVisualBorder" Color="#FF848484" />
+<LinearGradientBrush x:Key="DragVisualBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="White" Offset="0"/>
+		<GradientStop Color="#FFDEDEDE" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="DragVisualMultyItemBorder" Color="#FF848484" />
+<SolidColorBrush x:Key="DragVisualMultyItemBackground" Color="White" />
+<SolidColorBrush x:Key="DragVisualEffectImportant" Color="#FFDC000C" />
+<SolidColorBrush x:Key="DragVisualEffectNormal" Color="#FF353535" />
+<SolidColorBrush x:Key="SchedulerHeaderOuterBorder" Color="#FFD4CCB0" />
+<LinearGradientBrush x:Key="SchedulerHeaderBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FF1E9A38"/>
+		<GradientStop Color="#FF008D1D" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="SchedulerHeaderInnerBorder" Color="Transparent" />
+<LinearGradientBrush x:Key="RedCategoryBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFE8807D" Offset="0" />
+		<GradientStop Color="#FFF7D4D2" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="GreenCategoryBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FF99CC66" Offset="0" />
+		<GradientStop Color="#FFCCFF99" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="BlueCategoryBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FF6C92BF" Offset="0" />
+		<GradientStop Color="#FFC3D6EC" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="PurpleCategoryBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFB687B8" Offset="0" />
+		<GradientStop Color="#FFE9D7EB" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="YellowCategoryBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFFFD351" Offset="0" />
+		<GradientStop Color="#FFFFFF99" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="OliveCategoryBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFA3AD70" Offset="0" />
+		<GradientStop Color="#FFE5F0CA" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="PinkCategoryBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFCE66A2" Offset="0" />
+		<GradientStop Color="#FFF8A2D3" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="OrangeCategoryBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFF57238" Offset="0" />
+		<GradientStop Color="#FFFFCC00" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="FreeMarkerBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FF00C800" Offset="0" />
+		<GradientStop Color="#FF1E841E" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="TentativeMarkerBrush" EndPoint="9,9" StartPoint="2,2" SpreadMethod="Repeat" MappingMode="Absolute">
+		<GradientStop Color="#FF05529D" Offset="0" />
+		<GradientStop Color="#FF05529D" Offset="1" />
+		<GradientStop Color="White" Offset="0.25" />
+		<GradientStop Color="#FF05529D" Offset="0.5" />
+		<GradientStop Color="White" Offset="0.741" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="BusyMarkerBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFFF0606" />
+		<GradientStop Color="#FFBF0303" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="OutOfOfficeMarkerBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFF1A202" Offset="1" />
+		<GradientStop Color="#FFFFF502" />
+	</LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="RadScheduleBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFCFCFA" />
+        <GradientStop Color="#FFFAFAF4" Offset="1" />
+    </LinearGradientBrush>
+<SolidColorBrush x:Key="RadScheduleBorderBrush" Color="#00FFFFFF" />
+
+	
+
+	<telerik:InvertedBooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter" />
+	<local:InvertedNullToVisibilityConverter x:Key="InvertedNullToVisibilityConverter" />
+	<local:InvertedVisibilityConverter x:Key="InvertedVisibilityConverter" />
+	<telerik:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+	<local:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
+	<local:BoolToInputModeConverter x:Key="BoolToInputModeConverter" />
+	<local:ResourcesSeparatorConverter x:Key="ResourcesSeparatorConverter" />
+	<local:EnumToBooleanConverter x:Key="EnumToBoolConverter" />
+	<local:EnumToVisibilityConverter x:Key="EnumToVisibilityConverter" />
+	<local:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
+	<local:RecurrenceStateIsExeptionToVisibilityConverter x:Key="RecurrenceStateIsExeptionToVisibilityConverter" />
+	<local:RecurrenceStateIsOccurenceToVisibilityConverter x:Key="RecurrenceStateIsOccurenceToVisibilityConverter" />
+
+	<local:DraggedAppointmentsToLocalizedStringConverter x:Key="DraggedAppointmentsToLocalizedStringConverter" />
+	<local:EnumerableCountToVisibilityConverter x:Key="EnumerableCountToVisibilityConverter" />
+	
+	<telerik:LocalizationManager x:Key="LocalizationManager"/>
+
+	<!-- Styles and Templates -->
+
+	<!-- DIALOGS >> -->
+	<!--EditAppointmentStyle-->
+	<local:ResourceTypeTemplateSelector x:Key="ResourcesEditorItemTemplateSelector">
+		<local:ResourceTypeTemplateSelector.SingleSelectionTemplate>
+			<DataTemplate>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						
+						
+						<ColumnDefinition MinWidth="100" SharedSizeGroup="LabelsGroup" />
+						
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<TextBlock Text="{Binding ResourceType.DisplayName}" Margin="6" />
+					<telerik:RadComboBox Grid.Column="1" Margin="3" ItemsSource="{Binding ResourceItems}" ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="{Binding ClearAllButtonContent}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" DisplayMemberPath="Resource.DisplayName" telerik:StyleManager.Theme="{StaticResource Theme}" />
+				</Grid>
+			</DataTemplate>
+		</local:ResourceTypeTemplateSelector.SingleSelectionTemplate>
+		<local:ResourceTypeTemplateSelector.MultipleSelectionTemplate>
+			<DataTemplate>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						
+						
+						<ColumnDefinition MinWidth="100" SharedSizeGroup="LabelsGroup" />
+						
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<TextBlock Text="{Binding ResourceType.DisplayName}" Margin="6" />
+					<telerik:RadComboBox Grid.Column="1" Margin="3" ItemsSource="{Binding ResourceItems}" ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="{Binding ClearAllButtonContent}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}">
+						<telerik:RadComboBox.ItemContainerStyle>
+							<Style TargetType="telerik:RadComboBoxItem">
+								<Setter Property="Template">
+									<Setter.Value>
+										<ControlTemplate>
+											<CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" Content="{Binding Resource.DisplayName}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</telerik:RadComboBox.ItemContainerStyle>
+						<telerik:RadComboBox.SelectionBoxTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding Owner.CheckedItems, Converter={StaticResource ResourcesSeparatorConverter}}" />
+							</DataTemplate>
+						</telerik:RadComboBox.SelectionBoxTemplate>
+					</telerik:RadComboBox>
+				</Grid>
+			</DataTemplate>
+		</local:ResourceTypeTemplateSelector.MultipleSelectionTemplate>
+	</local:ResourceTypeTemplateSelector>
+	<DataTemplate x:Key="TimeMarkerComboBoxItemContentTemplate">
+		<StackPanel Orientation="Horizontal">
+			<Rectangle Fill="{Binding TimeMarkerBrush}" Margin="2 0" Width="12" Height="12" />
+			<TextBlock telerik:LocalizationManager.ResourceKey="{Binding TimeMarkerName}" Margin="2 0" />
+		</StackPanel>
+	</DataTemplate>
+	<DataTemplate x:Key="CategoryComboBoxItemContentTemplate">
+		<StackPanel Orientation="Horizontal">
+			<Rectangle Fill="{Binding CategoryBrush}" Margin="2 0" Width="12" Height="12" />
+			<TextBlock Text="{Binding DisplayName}" Margin="2 0" />
+		</StackPanel>
+	</DataTemplate>
+	<ControlTemplate x:Key="EditAppointmentTemplate" TargetType="local:SchedulerDialog">
+		<Grid IsSharedSizeScope="True"
+			 >
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+
+			<telerik:RadToolBar x:Name="AppointmentToolbar" FocusManager.IsFocusScope="False"  GripVisibility="Collapsed" Grid.Row="0" Margin="-1 -1 -1 3" telerik:StyleManager.Theme="{StaticResource Theme}">
+				<telerik:RadButton x:Name="EditRecurrenceButton" Command="local:RadScheduleViewCommands.EditRecurrenceRule" Visibility="{Binding CanEditParentAppointment, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+					<ToolTipService.ToolTip>
+						<ToolTip telerik:LocalizationManager.ResourceKey="EditRecurrence" telerik:StyleManager.Theme="{StaticResource Theme}" />
+					</ToolTipService.ToolTip>
+					<StackPanel Orientation="Horizontal" Margin="2 0">
+						<Image Margin="2 0" Stretch="None" Source="{StaticResource EditAppointmentTemplate_Recurrence}" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"
+							 />
+							<TextBlock Margin="4 0" telerik:LocalizationManager.ResourceKey="EditRecurrence" Foreground="{StaticResource RadScheduleForeground}" />
+					</StackPanel>
+				</telerik:RadButton>
+				<telerik:RadButton x:Name="EditParentAppointmentButton" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" Command="local:RadScheduleViewCommands.EditParentAppointment" Visibility="{Binding CanEditParentAppointment, Converter={StaticResource BooleanToVisibilityConverter}}">
+					<ToolTipService.ToolTip>
+						<TextBlock telerik:LocalizationManager.ResourceKey="EditParentAppointment" telerik:StyleManager.Theme="{StaticResource Theme}" />
+					</ToolTipService.ToolTip>
+					<TextBlock Margin="4 0" telerik:LocalizationManager.ResourceKey="EditParentAppointment" Foreground="{StaticResource RadScheduleForeground}" />
+				</telerik:RadButton>
+				<telerik:RadToolBarSeparator />
+				<TextBlock x:Name="ShowAs" telerik:LocalizationManager.ResourceKey="ShowAs" Margin="6 0" VerticalAlignment="Center" Foreground="{StaticResource RadScheduleForeground}" />
+				<telerik:RadComboBox x:Name="PART_TimeMarkers" Margin="2 1" Width="110" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" EmptyText="{Binding TimeMarkersEmptyText}" ItemsSource="{Binding TimeMarkers}" SelectedItem="{Binding Occurrence.Appointment.TimeMarker, Mode=TwoWay}" ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="{Binding ClearSelectionButtonContent}" ItemTemplate="{StaticResource TimeMarkerComboBoxItemContentTemplate}" SelectionBoxTemplate="{StaticResource TimeMarkerComboBoxItemContentTemplate}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+				<telerik:RadComboBox x:Name="PART_Categories" Margin="2 1" Width="120" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" EmptyText="{Binding CategoriesEmptyText}" ItemsSource="{Binding Categories}" SelectedItem="{Binding Occurrence.Appointment.Category, Mode=TwoWay}" ClearSelectionButtonVisibility="Visible" ClearSelectionButtonContent="{Binding ClearSelectionButtonContent}" ItemTemplate="{StaticResource CategoryComboBoxItemContentTemplate}" SelectionBoxTemplate="{StaticResource CategoryComboBoxItemContentTemplate}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+				<telerik:RadToggleButton x:Name="HighImportaceButton" Width="22" Height="22" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" IsChecked="{Binding IsHighImportance, Mode=TwoWay}">
+					<ToolTipService.ToolTip>
+						<ToolTip telerik:LocalizationManager.ResourceKey="HighImportance" telerik:StyleManager.Theme="{StaticResource Theme}" />
+					</ToolTipService.ToolTip>
+					<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+						<Path Stretch="Fill" Height="10" HorizontalAlignment="Center" Width="5.451" Data="M200.39647,58.840393 C200.39337,58.336426 201.14566,57.683922 202.56244,57.684292 C204.06589,57.684685 204.73764,58.357765 204.72783,58.992363 C205.04649,61.795574 203.04713,64.181099 202.47388,66.133446 C201.93753,64.154961 199.9471,61.560352 200.39647,58.840393 z">
+							<Path.Fill>
+								<LinearGradientBrush EndPoint="1.059,0.375" StartPoint="-0.457,0.519">
+									<GradientStop Color="#FFFF0606" Offset="0.609" />
+									<GradientStop Color="#FFBF0303" Offset="0.927" />
+								</LinearGradientBrush>
+							</Path.Fill>
+						</Path>
+						<Ellipse Width="3" Height="3" HorizontalAlignment="Center">
+							<Ellipse.Fill>
+								<RadialGradientBrush>
+									<GradientStop Color="#FFFF0606" Offset="0" />
+									<GradientStop Color="#FFBF0303" Offset="1" />
+								</RadialGradientBrush>
+							</Ellipse.Fill>
+						</Ellipse>
+					</StackPanel>
+				</telerik:RadToggleButton>
+				<telerik:RadToggleButton x:Name="LowImportaceButton" Width="22" Height="22" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" IsChecked="{Binding IsLowImportance, Mode=TwoWay}">
+					<ToolTipService.ToolTip>
+						<ToolTip telerik:LocalizationManager.ResourceKey="LowImportance" telerik:StyleManager.Theme="{StaticResource Theme}" />
+					</ToolTipService.ToolTip>
+					<Path Stretch="Fill" Height="12" HorizontalAlignment="Center" VerticalAlignment="Center" Width="9" Stroke="#FF0365A7" Data="M222.40353,60.139881 L226.65768,60.139843 L226.63687,67.240196 L229.15347,67.240196 L224.37816,71.394943 L219.65274,67.240196 L222.37572,67.219345 z">
+						<Path.Fill>
+							<LinearGradientBrush EndPoint="1.059,0.375" StartPoint="-0.457,0.519">
+								<GradientStop Color="#FFBBE4FF" />
+								<GradientStop Color="#FF024572" Offset="0.836" />
+								<GradientStop Color="#FF43ADF4" Offset="0.466" />
+							</LinearGradientBrush>
+						</Path.Fill>
+					</Path>
+				</telerik:RadToggleButton>
+			</telerik:RadToolBar>
+			<Border x:Name="AppointmentCategory" Grid.Row="1" Height="20" Margin="6 6" CornerRadius="3" Background="{Binding SelectedItem.CategoryBrush, ElementName=PART_Categories}" Visibility="{Binding SelectedItem, ElementName=PART_Categories,Converter={StaticResource NullToVisibilityConverter}}">
+				<TextBlock Margin="6 0" Text="{Binding SelectedItem.DisplayName, ElementName=PART_Categories}" VerticalAlignment="Center"  />
+			</Border>
+
+			<Grid x:Name="Details" Grid.Row="2" Margin="6">
+				<Grid.Resources>
+					<telerik:InputMode x:Key="RadDateTimePickerInputModeDatePicker">DatePicker</telerik:InputMode>
+				</Grid.Resources>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					
+					
+					<ColumnDefinition MinWidth="100" SharedSizeGroup="LabelsGroup" />
+					
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<TextBlock	Grid.Row="0" Grid.Column="0" Margin="6" telerik:LocalizationManager.ResourceKey="Subject" />
+                <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="3" IsReadOnly="{Binding IsReadOnly}"  Text="{Binding Occurrence.Appointment.Subject, ValidatesOnDataErrors=True, NotifyOnValidationError=True, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+
+				<TextBlock	Grid.Row="1" Grid.Column="0" Margin="6" telerik:LocalizationManager.ResourceKey="Body" />
+                <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="3" Height="70" IsReadOnly="{Binding IsReadOnly}" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" VerticalScrollBarVisibility="Visible" Text="{Binding Occurrence.Appointment.Body,ValidatesOnDataErrors=True, NotifyOnValidationError=True, Mode=TwoWay}" TextWrapping="Wrap" telerik:StyleManager.Theme="{StaticResource Theme}"  />
+
+				<TextBlock	Grid.Row="2" Grid.Column="0" Margin="6" telerik:LocalizationManager.ResourceKey="StartTime" />
+				
+                <telerik:RadDateTimePicker  Grid.Row="2" Grid.Column="1" Margin="3" IsReadOnly="{Binding IsReadOnly}" Culture="{Binding DefaultCulture,Source={StaticResource LocalizationManager}}"  SelectedValue="{Binding  ActualStart, Mode=TwoWay, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" IsEnabled="{Binding IsNotRecurrent}" InputMode="{Binding IsAllDayEvent, Converter={StaticResource BoolToInputModeConverter}, ConverterParameter={x:Static telerik:InputMode.DatePicker}}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+				
+				
+
+				<TextBlock	Grid.Row="3" Grid.Column="0" Margin="6" VerticalAlignment="Center" telerik:LocalizationManager.ResourceKey="EndTime"  telerik:StyleManager.Theme="{StaticResource Theme}" />
+				
+                <telerik:RadDateTimePicker Grid.Row="3" SelectedValue="{Binding ActualEnd,ValidatesOnDataErrors=true, NotifyOnValidationError=true, Mode=TwoWay}" Grid.Column="1" Margin="3" IsReadOnly="{Binding IsReadOnly}" Culture="{Binding DefaultCulture,Source={StaticResource LocalizationManager}}" IsEnabled="{Binding IsNotRecurrent}" InputMode="{Binding IsAllDayEvent, Converter={StaticResource BoolToInputModeConverter}, ConverterParameter={x:Static telerik:InputMode.DatePicker}}" telerik:StyleManager.Theme="{StaticResource Theme}" >
+				
+				</telerik:RadDateTimePicker>
+				
+				
+
+				<!-- DEPRECATED: No more visual support for all day events
+					<Path Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" HorizontalAlignment="Left" Margin="-3 0 0 0" Width="12" Height="22" Stroke="DarkGray" Data="M0,0 L12,0 M0,22 L12,22 M8,0 L8,22 M8,22 L10,18 M8,22 L6,18" SnapsToDevicePixels="true" />
+					<CheckBox x:Name="AllDayEventCheckbox" Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Margin="18 0 0 0" VerticalAlignment="Center" IsChecked="{Binding Path=IsAllDayEvent, Mode=TwoWay}" IsEnabled="{Binding IsNotRecurrent}" telerik:LocalizationManager.ResourceKey="AllDayEvent" telerik:StyleManager.Theme="{StaticResource Theme}" />-->
+
+			</Grid>
+
+			<!-- Resource Editor -->
+			<Grid Grid.Row="3" Margin="3" Visibility="{Binding ResourceTypesVisibility}">
+				
+				
+				<ItemsControl x:Name="PART_Resources" Margin="3" IsTabStop="false" BorderBrush="{x:Null}" BorderThickness="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" ItemsSource="{Binding ResourceTypes}" ItemTemplateSelector="{StaticResource ResourcesEditorItemTemplateSelector}" Visibility="{Binding ResourceTypesVisibility}" />
+				
+				<TextBlock HorizontalAlignment="Center" Text="You can only change the resources by opening the series" Margin="3" Visibility="{Binding ResourceTypesVisibility, Converter={StaticResource InvertedVisibilityConverter}}" />
+			</Grid>
+
+			<StackPanel Grid.Row="4" Margin="13 6" HorizontalAlignment="Right" Orientation="Horizontal">
+				<telerik:RadButton Margin="2" MinWidth="84" Command="telerik:WindowCommands.Confirm" telerik:LocalizationManager.ResourceKey="Ok" telerik:RadWindow.ResponseButton="Accept" telerik:StyleManager.Theme="{StaticResource Theme}">
+					<ToolTipService.ToolTip>
+						<TextBlock telerik:LocalizationManager.ResourceKey="SaveAndClose" telerik:StyleManager.Theme="{StaticResource Theme}" />
+					</ToolTipService.ToolTip>
+				</telerik:RadButton>
+				<telerik:RadButton Margin="2" MinWidth="84" IsCancel="true"
+					 Command="telerik:WindowCommands.Cancel" telerik:LocalizationManager.ResourceKey="Cancel" telerik:RadWindow.ResponseButton="Cancel" telerik:StyleManager.Theme="{StaticResource Theme}" />
+			</StackPanel>
+		</Grid>
+	</ControlTemplate>
+	<Style x:Key="EditAppointmentDialogStyle" TargetType="local:SchedulerDialog">
+		<Setter Property="Foreground" Value="{StaticResource RadScheduleForeground}" />
+		<Setter Property="Width" Value="560" />
+		<Setter Property="IsTabStop" Value="False" />
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+		<Setter Property="Template" Value="{StaticResource EditAppointmentTemplate}" />
+		<Setter Property="HeaderTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal" MaxWidth="400" HorizontalAlignment="Left">
+						<TextBlock telerik:LocalizationManager.ResourceKey="Event" Visibility="{Binding Occurrence.Appointment.IsAllDayEvent, Converter={StaticResource BooleanToVisibilityConverter}}" />
+						<TextBlock telerik:LocalizationManager.ResourceKey="Appointment" Visibility="{Binding Occurrence.Appointment.IsAllDayEvent, Converter={StaticResource InvertedBooleanToVisibilityConverter}}" />
+						<TextBlock Text=" - " />
+						<TextBlock x:Name="SubjectTextBlock" Text="{Binding Occurrence.Appointment.Subject}" Visibility="{Binding Occurrence.Appointment.Subject, Converter={StaticResource NullToVisibilityConverter}}" />
+						<TextBlock telerik:LocalizationManager.ResourceKey="Untitled" Visibility="{Binding Occurrence.Appointment.Subject, Converter={StaticResource InvertedNullToVisibilityConverter}}" />
+					</StackPanel>
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="IconTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<Image Stretch="None" Source="/Telerik.Windows.Controls.ScheduleView;component/Themes/Images/EditAppointment.png" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"
+						 />
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!--EditRecurrenceStyle-->
+	<Style x:Key="RepeatSelectionTabItemControlStyle"  TargetType="telerik:RadTabItem">
+		<Setter Property="Margin" Value="3" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadTabItem">
+					<RadioButton IsChecked="{Binding IsSelected, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}">
+						<ContentPresenter RecognizesAccessKey="True" telerik:LocalizationManager.ResourceKey="{TemplateBinding Header}"/>
+					</RadioButton>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="RepeatSelectionTabControlStyle" TargetType="telerik:RadTabControl">
+		<Setter Property="TabStripPlacement" Value="Top" />
+		<Setter Property="ItemContainerStyle" Value="{StaticResource RepeatSelectionTabItemControlStyle}" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadTabControl">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<ItemsPresenter Grid.Column="0" Margin="3 6 30 6" VerticalAlignment="Center" />
+						<telerik:RadTransitionControl x:Name="ContentElement" Grid.Column="1" IsTabStop="False" Duration="0:0:0.200" 
+													  Content="{TemplateBinding SelectedContent}" 
+													  ContentTemplate="{TemplateBinding SelectedContentTemplate}">
+							<telerik:RadTransitionControl.Transition>
+								<telerik:SlideAndZoomTransition />
+							</telerik:RadTransitionControl.Transition>
+						</telerik:RadTransitionControl>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+
+		<Setter Property="ItemsPanel">
+			<Setter.Value>
+				<ItemsPanelTemplate>
+					<StackPanel />
+				</ItemsPanelTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<ControlTemplate x:Key="EditRecurrenceTemplate" TargetType="local:SchedulerDialog">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<telerik:GroupBox x:Name="StartEndTimes" Margin="3" telerik:LocalizationManager.ResourceKey="AppointmentTime" telerik:StyleManager.Theme="{StaticResource Theme}">
+				<Grid HorizontalAlignment="Center">
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+
+					<telerik:Label Grid.Row="0" Grid.Column="0" MinWidth="65" VerticalAlignment="Center" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" Target="{Binding ElementName=StartTimePicker}" telerik:LocalizationManager.ResourceKey="StartColon" telerik:StyleManager.Theme="{StaticResource Theme}" />
+					<telerik:RadDateTimePicker x:Name="StartTimePicker" Grid.Row="0" Grid.Column="1" Margin="3" Width="120" IsReadOnly="{Binding IsReadOnly}" SelectedValue="{Binding Start, Mode=TwoWay}" InputMode="TimePicker" telerik:StyleManager.Theme="{StaticResource Theme}" />
+
+					<telerik:Label Grid.Row="1" Grid.Column="0" MinWidth="65" VerticalAlignment="Center" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" Target="{Binding ElementName=EndTimePicker}" telerik:LocalizationManager.ResourceKey="EndColon" telerik:StyleManager.Theme="{StaticResource Theme}" />
+					<telerik:RadDateTimePicker x:Name="EndTimePicker" Grid.Row="1" Grid.Column="1" Margin="3" Width="120" IsReadOnly="{Binding IsReadOnly}" SelectedValue="{Binding End, Mode=TwoWay}" InputMode="TimePicker" telerik:StyleManager.Theme="{StaticResource Theme}" />
+
+					<telerik:Label Grid.RowSpan="2" Grid.Column="2" MinWidth="65" VerticalAlignment="Center" Margin="18 0 0 0" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" Target="{Binding ElementName=DurationPicker}" telerik:LocalizationManager.ResourceKey="DurationColon" telerik:StyleManager.Theme="{StaticResource Theme}" />
+					<local:DurationPicker x:Name="DurationPicker" Grid.RowSpan="2" Grid.Column="3" Margin="3" Width="120" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" VerticalAlignment="Center"  SelectedDuration="{Binding Path=Duration, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+
+				</Grid>
+			</telerik:GroupBox>
+			<telerik:GroupBox x:Name="RepeatsGroup" Margin="3" Grid.Row="1" telerik:LocalizationManager.ResourceKey="RecurrencePattern" telerik:StyleManager.Theme="{StaticResource Theme}">
+				<telerik:RadTabControl IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" IsDefaultItemSelected="False" Style="{StaticResource RepeatSelectionTabControlStyle}">
+					<telerik:RadTabItem x:Name="RepeatDaily" Style="{StaticResource RepeatSelectionTabItemControlStyle}" Header="Daily" IsSelected="{Binding Path=RecurrenceType, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Daily;WeekDays, Mode=TwoWay}">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*" />
+								<RowDefinition Height="*" />
+							</Grid.RowDefinitions>
+							<StackPanel Grid.Row="0" Orientation="Horizontal">
+								<RadioButton x:Name="DailyRB" Margin="3" VerticalAlignment="Center" GroupName="DailyGroup" telerik:LocalizationManager.ResourceKey="Every" IsChecked="{Binding Path=RecurrenceType, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Daily, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<telerik:RadNumericUpDown x:Name="DailyDetailsUpDown" Margin="3" VerticalAlignment="Center" MinWidth="70" IsInteger="True" Maximum="999" Value="{Binding Interval, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<TextBlock Margin="3" VerticalAlignment="Center" telerik:LocalizationManager.ResourceKey="Days" Foreground="{StaticResource RadScheduleForeground}" />
+							</StackPanel>
+							<RadioButton x:Name="WorkdaysRB" Grid.Row="1" Margin="3" VerticalAlignment="Center" GroupName="DailyGroup" telerik:LocalizationManager.ResourceKey="EveryWeekday" IsChecked="{Binding Path=RecurrenceType, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=WeekDays, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+						</Grid>
+					</telerik:RadTabItem>
+					<telerik:RadTabItem x:Name="RepeatWeekly" Style="{StaticResource RepeatSelectionTabItemControlStyle}" Header="Weekly" IsSelected="{Binding Path=RecurrenceType, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Weekly, Mode=TwoWay}">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<StackPanel Grid.Row="0" Orientation="Horizontal">
+								<telerik:Label Margin="3" VerticalAlignment="Center" Target="{Binding ElementName=EveryWeekUpDown}" telerik:LocalizationManager.ResourceKey="RecurEvery" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<telerik:RadNumericUpDown x:Name="EveryWeekUpDown" Margin="3" VerticalAlignment="Center" MinWidth="70" IsInteger="True" Maximum="99" Value="{Binding Interval, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" SnapsToDevicePixels="True"
+									 >
+								</telerik:RadNumericUpDown>
+								<TextBlock Margin="3" VerticalAlignment="Center" telerik:LocalizationManager.ResourceKey="WeeksOn" Foreground="{StaticResource RadScheduleForeground}" />
+							</StackPanel>
+							<ItemsControl Grid.Row="1" ItemsSource="{Binding WeekDays}" IsTabStop="False">
+								<ItemsControl.ItemsPanel>
+									<ItemsPanelTemplate>
+										<telerik:RadUniformGrid Rows="2" />
+									</ItemsPanelTemplate>
+								</ItemsControl.ItemsPanel>
+								<ItemsControl.ItemTemplate>
+									<DataTemplate>
+										<CheckBox Margin="3 3 12 3" Content="{Binding Name}" IsChecked="{Binding  IsSelected, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</ItemsControl>
+						</Grid>
+					</telerik:RadTabItem>
+					<telerik:RadTabItem x:Name="RepeatMonthly" Style="{StaticResource RepeatSelectionTabItemControlStyle}" Header="Monthly" IsSelected="{Binding Path=RecurrenceType, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Monthly;MonthlyNth, Mode=TwoWay}">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*" />
+								<RowDefinition Height="*" />
+							</Grid.RowDefinitions>
+							<StackPanel Grid.Row="0" Orientation="Horizontal">
+								<RadioButton x:Name="MonthlyRB" Margin="3" VerticalAlignment="Center" GroupName="MonthlyButtons" telerik:LocalizationManager.ResourceKey="Day" IsChecked="{Binding RecurrenceType, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Monthly, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<telerik:RadNumericUpDown x:Name="MonthlyDetailsUpDown1" Margin="3" VerticalAlignment="Center" MinWidth="70" IsInteger="True" Maximum="31" Value="{Binding DayOfMonth, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<TextBlock Margin="3" VerticalAlignment="Center" telerik:LocalizationManager.ResourceKey="OfEvery" Foreground="{StaticResource RadScheduleForeground}" />
+								<telerik:RadNumericUpDown Name="MonthlyDetailsUpDown2" Margin="3" VerticalAlignment="Center" MinWidth="70" IsInteger="True" Maximum="99" Value="{Binding Interval, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<TextBlock Margin="3" VerticalAlignment="Center" telerik:LocalizationManager.ResourceKey="Months" Foreground="{StaticResource RadScheduleForeground}" />
+							</StackPanel>
+							<StackPanel Grid.Row="1" Orientation="Horizontal">
+								<RadioButton x:Name="MonthlyNthRB" Margin="3" VerticalAlignment="Center" GroupName="MonthlyButtons" telerik:LocalizationManager.ResourceKey="The" IsChecked="{Binding RecurrenceType, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=MonthlyNth, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<telerik:RadComboBox Margin="3" VerticalAlignment="Center" Width="70" ItemsSource="{Binding WeekOfMonths}" DisplayMemberPath="Name" SelectedValuePath="Value" SelectedValue="{Binding WeekOfMonth, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<telerik:RadComboBox Margin="3" VerticalAlignment="Center" Width="100" ItemsSource="{Binding NthRecurrenceDays}" DisplayMemberPath="Name" SelectedValuePath="Value" SelectedValue="{Binding NthRecurrenceDay, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<TextBlock Margin="3" VerticalAlignment="Center" telerik:LocalizationManager.ResourceKey="OfEvery" Foreground="{StaticResource RadScheduleForeground}" />
+								<telerik:RadNumericUpDown Name="MonthlyDetailsUpDown3" Margin="3" VerticalAlignment="Center" MinWidth="70" IsInteger="True" Maximum="99" Value="{Binding Interval, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<TextBlock Margin="3" VerticalAlignment="Center" telerik:LocalizationManager.ResourceKey="Months" Foreground="{StaticResource RadScheduleForeground}" />
+							</StackPanel>
+						</Grid>
+					</telerik:RadTabItem>
+					<telerik:RadTabItem x:Name="RepeatYearly" Style="{StaticResource RepeatSelectionTabItemControlStyle}" Header="Yearly" IsSelected="{Binding Path=RecurrenceType, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Yearly;YearlyNth, Mode=TwoWay}">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="50*" />
+								<RowDefinition Height="50*" />
+							</Grid.RowDefinitions>
+							<StackPanel Grid.Row="0" Orientation="Horizontal">
+								<RadioButton x:Name="YearlyRB" GroupName="YearlyGroup" Margin="3" VerticalAlignment="Center" telerik:LocalizationManager.ResourceKey="Every" IsChecked="{Binding RecurrenceType, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Yearly, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<telerik:RadComboBox x:Name="YearlyDetails12" Margin="3" VerticalAlignment="Center" Width="100" ItemsSource="{Binding NamesOfMonths}" DisplayMemberPath="Value" SelectedValuePath="Key" SelectedValue="{Binding MonthOfYear, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<telerik:RadNumericUpDown x:Name="YearlyDetailsUpDown3" Margin="3" VerticalAlignment="Center" Width="70" IsInteger="True" Maximum="31" Value="{Binding DayOfMonth, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+							</StackPanel>
+							<StackPanel Grid.Row="1" Orientation="Horizontal">
+								<RadioButton x:Name="YearlyNthRB" GroupName="YearlyGroup" Margin="3" VerticalAlignment="Center" telerik:LocalizationManager.ResourceKey="The" IsChecked="{Binding RecurrenceType, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=YearlyNth, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<telerik:RadComboBox x:Name="YearlyDetails21" Margin="3" VerticalAlignment="Center" Width="80" ItemsSource="{Binding WeekOfMonths}" DisplayMemberPath="Name" SelectedValuePath="Value" SelectedValue="{Binding WeekOfMonth, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<telerik:RadComboBox x:Name="YearlyDetails22" Margin="3" VerticalAlignment="Center" Width="100" ItemsSource="{Binding NthRecurrenceDays}" DisplayMemberPath="Name" SelectedValuePath="Value" SelectedValue="{Binding NthRecurrenceDay, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+								<TextBlock Margin="3" VerticalAlignment="Center" telerik:LocalizationManager.ResourceKey="Of" Foreground="{StaticResource RadScheduleForeground}" />
+								<telerik:RadComboBox x:Name="YearlyDetails23" Margin="3" VerticalAlignment="Center" Width="100" ItemsSource="{Binding NamesOfMonths}" DisplayMemberPath="Value" SelectedValuePath="Key" SelectedValue="{Binding MonthOfYear, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+							</StackPanel>
+						</Grid>
+					</telerik:RadTabItem>
+				</telerik:RadTabControl>
+			</telerik:GroupBox>
+			<telerik:GroupBox x:Name="RangeGroup" Margin="3" Grid.Row="2" telerik:LocalizationManager.ResourceKey="RangeOfRecurrence" telerik:StyleManager.Theme="{StaticResource Theme}">
+				<Grid Grid.IsSharedSizeScope="True"
+					 >
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="1*" />
+						<ColumnDefinition Width="2*" />
+					</Grid.ColumnDefinitions>
+
+					<StackPanel Grid.Column="0" Orientation="Horizontal">
+						<telerik:Label Margin="3" VerticalAlignment="Center" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" Target="{Binding ElementName=StartDate}" telerik:LocalizationManager.ResourceKey="StartColon" telerik:StyleManager.Theme="{StaticResource Theme}" />
+						<telerik:RadDatePicker x:Name="StartDate" Margin="3" VerticalAlignment="Center" Width="100" IsReadOnly="{Binding IsReadOnly}" SelectedValue="{Binding Start, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+					</StackPanel>
+
+					<telerik:RadUniformGrid Grid.Column="1" Columns="1">
+						<RadioButton x:Name="NoEndDate" Margin="3" VerticalAlignment="Center" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" telerik:LocalizationManager.ResourceKey="NoEndDate" IsChecked="{Binding RecurrenceRangeType, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=NoEndDate, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+
+						<StackPanel Orientation="Horizontal">
+							<RadioButton x:Name="EndAfter" Margin="3" MinWidth="100" VerticalAlignment="Center" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" telerik:LocalizationManager.ResourceKey="EndAfter" IsChecked="{Binding Path=RecurrenceRangeType, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=MaxOccurrences, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+							<telerik:RadNumericUpDown x:Name="OccurencesUpDown" Margin="3" VerticalAlignment="Center" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" IsInteger="True" MinWidth="70" Maximum="9999" Value="{Binding MaxOccurrences, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+							<TextBlock Margin="3" VerticalAlignment="Center" telerik:LocalizationManager.ResourceKey="Occurrences" Foreground="{StaticResource RadScheduleForeground}" />
+						</StackPanel>
+
+						<StackPanel Orientation="Horizontal">
+							<RadioButton x:Name="EndBy" Margin="3" MinWidth="70" VerticalAlignment="Center" IsEnabled="{Binding IsReadOnly, Converter={StaticResource InvertedBooleanConverter}}" telerik:StyleManager.Theme="{StaticResource Theme}" telerik:LocalizationManager.ResourceKey="EndBy" IsChecked="{Binding Path=RecurrenceRangeType, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=RepeatUntil, Mode=TwoWay}" />
+							<telerik:RadDatePicker Margin="3" VerticalAlignment="Center" Width="120" IsReadOnly="{Binding IsReadOnly}" SelectedValue="{Binding RecursUntil, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+						</StackPanel>
+					</telerik:RadUniformGrid>
+				</Grid>
+			</telerik:GroupBox>
+			<StackPanel x:Name="WindowButtons" Grid.Row="3" Margin="13 6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
+				<telerik:RadButton x:Name="RemoveRecurrenceBtn" Margin="2" MinWidth="84" telerik:LocalizationManager.ResourceKey="RemoveRecurrence" Command="local:RadScheduleViewCommands.DeleteRecurrenceRule" Visibility="{Binding IsEnabled, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+				<telerik:RadButton x:Name="OKButton" Margin="2" MinWidth="84" telerik:LocalizationManager.ResourceKey="Ok" Command="telerik:WindowCommands.Confirm" telerik:RadWindow.ResponseButton="Accept" telerik:StyleManager.Theme="{StaticResource Theme}" />
+				<telerik:RadButton x:Name="CancelButton" Margin="2" MinWidth="84" telerik:LocalizationManager.ResourceKey="Cancel" Command="telerik:WindowCommands.Cancel" telerik:RadWindow.ResponseButton="Cancel" telerik:StyleManager.Theme="{StaticResource Theme}" />
+			</StackPanel>
+		</Grid>
+	</ControlTemplate>
+	<Style x:Key="EditRecurrenceDialogStyle" TargetType="local:SchedulerDialog">
+		<Setter Property="Foreground" Value="{StaticResource RadScheduleForeground}" />
+		<Setter Property="Width" Value="550" />
+		<Setter Property="IsTabStop" Value="False" />
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+		<Setter Property="Template" Value="{StaticResource EditRecurrenceTemplate}" />
+		<Setter Property="IconTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<Image Stretch="None" Source="/Telerik.Windows.Controls.ScheduleView;component/Themes/Images/EditAppointment.png" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"
+						 />
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="HeaderTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal" MaxWidth="450" HorizontalAlignment="Left">
+						<TextBlock telerik:LocalizationManager.ResourceKey="Event" Visibility="{Binding Appointment.IsAllDayEvent, Converter={StaticResource BooleanToVisibilityConverter}}" Foreground="{StaticResource RadScheduleForeground}" />
+						<TextBlock telerik:LocalizationManager.ResourceKey="Appointment" Visibility="{Binding Appointment.IsAllDayEvent, Converter={StaticResource InvertedBooleanToVisibilityConverter}}" Foreground="{StaticResource RadScheduleForeground}" />
+						<TextBlock Text=" - " Foreground="{StaticResource RadScheduleForeground}" />
+						<TextBlock x:Name="SubjectTextBlock" Text="{Binding Appointment.Subject}" Visibility="{Binding Appointment.Subject, Converter={StaticResource NullToVisibilityConverter}}" Foreground="{StaticResource RadScheduleForeground}"/>
+						<TextBlock telerik:LocalizationManager.ResourceKey="Untitled" Visibility="{Binding Appointment.Subject, Converter={StaticResource InvertedNullToVisibilityConverter}}" Foreground="{StaticResource RadScheduleForeground}"/>
+					</StackPanel>
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- DeleteAppointmentConfirmStyle-->
+	<ControlTemplate x:Key="DeleteAppointmentConfirmTemplate" TargetType="local:SchedulerDialog">
+		<StackPanel>
+			<Grid>
+				<Image Margin="15" HorizontalAlignment="Left" VerticalAlignment="Center" Stretch="None" Source="/Telerik.Windows.Controls.ScheduleView;component/Themes/Images/del_big.png" />
+				<TextBlock Margin="85 15 15 15" TextWrapping="Wrap" VerticalAlignment="Center" telerik:LocalizationManager.ResourceKey="DeleteItemQuestion" />
+			</Grid>
+			<StackPanel x:Name="FooterControls" Grid.Row="2" Margin="13 6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
+				<telerik:RadButton Margin="2" MinWidth="84" telerik:LocalizationManager.ResourceKey="Ok" Command="telerik:WindowCommands.Confirm" telerik:RadWindow.ResponseButton="Accept" telerik:StyleManager.Theme="{StaticResource Theme}" />
+				<telerik:RadButton Margin="2" MinWidth="84" telerik:LocalizationManager.ResourceKey="Cancel" Command="telerik:WindowCommands.Cancel" telerik:RadWindow.ResponseButton="Cancel" telerik:StyleManager.Theme="{StaticResource Theme}" IsCancel="true"
+					 />
+			</StackPanel>
+		</StackPanel>
+	</ControlTemplate>
+	<Style x:Key="DeleteAppointmentConfirmDialogStyle" TargetType="local:SchedulerDialog">
+		<Setter Property="Foreground" Value="{StaticResource RadScheduleForeground}" />
+		<Setter Property="Width" Value="300" />
+		<Setter Property="HeaderTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<TextBlock MaxWidth="200" HorizontalAlignment="Left" telerik:LocalizationManager.ResourceKey="DeleteItem" />
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template" Value="{StaticResource DeleteAppointmentConfirmTemplate}" />
+	</Style>
+
+	<!--RecurrenceChoiceStyle-->
+	<ControlTemplate x:Key="RecurrenceChoiceTemplate" TargetType="local:SchedulerDialog">
+		<StackPanel>
+			<Grid>
+				<Image Margin="15" HorizontalAlignment="Left" VerticalAlignment="Center" Stretch="None" Source="/Telerik.Windows.Controls.ScheduleView;component/Themes/Images/del_big.png" />
+				<StackPanel Margin="85 15 15 15" VerticalAlignment="Top">
+					<TextBlock x:Name="SubjectTextBlock" Margin="3" Text="{Binding Occurrence.Appointment.Subject}" Visibility="{Binding Occurrence.Appointment.Subject, Converter={StaticResource NullToVisibilityConverter}}" />
+					<TextBlock x:Name="Untitled" Margin="3" telerik:LocalizationManager.ResourceKey="Untitled" Visibility="{Binding Occurrence.Appointment.Subject, Converter={StaticResource InvertedNullToVisibilityConverter}}"/>
+					<RadioButton  Margin="3" telerik:LocalizationManager.ResourceKey="OpenOccurrence" GroupName="RecurrenceModeChoice" IsChecked="{Binding IsOccurrenceModeSelected, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+					<RadioButton  Margin="3" telerik:LocalizationManager.ResourceKey="OpenSeries" GroupName="RecurrenceModeChoice" IsChecked="{Binding IsSeriesModeSelected, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+				</StackPanel>
+			</Grid>
+			<StackPanel x:Name="FooterControls" Grid.Row="2" Margin="13 6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
+				<telerik:RadButton Margin="2" MinWidth="84" telerik:LocalizationManager.ResourceKey="Ok" Command="telerik:WindowCommands.Confirm" telerik:RadWindow.ResponseButton="Accept" telerik:StyleManager.Theme="{StaticResource Theme}" IsDefault="True"
+					 >
+				</telerik:RadButton>
+				<telerik:RadButton Margin="2" MinWidth="84" telerik:LocalizationManager.ResourceKey="Cancel" Command="telerik:WindowCommands.Cancel" telerik:RadWindow.ResponseButton="Cancel" telerik:StyleManager.Theme="{StaticResource Theme}" IsCancel="true"
+					 >
+				</telerik:RadButton>
+			</StackPanel>
+		</StackPanel>
+	</ControlTemplate>
+	<ControlTemplate x:Key="RecurrenceChoiceDeletingTemplate" TargetType="local:SchedulerDialog">
+		<StackPanel>
+			<Grid>
+				<Image Margin="15" HorizontalAlignment="Left" VerticalAlignment="Center" Stretch="None" Source="/Telerik.Windows.Controls.ScheduleView;component/Themes/Images/del_big.png" />
+				<StackPanel Margin="85 15 15 15" VerticalAlignment="Top">
+					<TextBlock x:Name="SubjectTextBlock" Margin="3" Text="{Binding Occurrence.Appointment.Subject}" Visibility="{Binding Occurrence.Appointment.Subject, Converter={StaticResource NullToVisibilityConverter}}" />
+					<TextBlock x:Name="Untitled" Margin="3" telerik:LocalizationManager.ResourceKey="Untitled" Visibility="{Binding Occurrence.Appointment.Subject, Converter={StaticResource InvertedNullToVisibilityConverter}}"/>
+					<RadioButton  Margin="3 9 3 3" telerik:LocalizationManager.ResourceKey="DeleteOccurrence" GroupName="RecurrenceModeChoiceDel" IsChecked="{Binding IsOccurrenceModeSelected, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+					<RadioButton  Margin="3" telerik:LocalizationManager.ResourceKey="DeleteSeries" GroupName="RecurrenceModeChoiceDel" IsChecked="{Binding IsSeriesModeSelected, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+				</StackPanel>
+			</Grid>
+			<StackPanel x:Name="FooterControls" Grid.Row="2" Margin="13 6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
+				<telerik:RadButton Margin="2" MinWidth="84" telerik:LocalizationManager.ResourceKey="Ok" Command="telerik:WindowCommands.Confirm" telerik:RadWindow.ResponseButton="Accept" telerik:StyleManager.Theme="{StaticResource Theme}" IsDefault="True"
+					 >
+				</telerik:RadButton>
+				<telerik:RadButton Margin="2" MinWidth="84" telerik:LocalizationManager.ResourceKey="Cancel" Command="telerik:WindowCommands.Cancel" telerik:RadWindow.ResponseButton="Cancel" telerik:StyleManager.Theme="{StaticResource Theme}" IsCancel="true"
+					 >
+				</telerik:RadButton>
+			</StackPanel>
+		</StackPanel>
+	</ControlTemplate>
+	<ControlTemplate x:Key="RecurrenceChoiceResizeTemplate" TargetType="local:SchedulerDialog">
+		<StackPanel>
+			<StackPanel Margin="15 15 15 15" VerticalAlignment="Top">
+				<TextBlock x:Name="SubjectTextBlock" Margin="3" Text="{Binding Occurrence.Appointment.Subject}" Visibility="{Binding Occurrence.Appointment.Subject, Converter={StaticResource NullToVisibilityConverter}}" />
+				<TextBlock x:Name="Untitled" Margin="3" telerik:LocalizationManager.ResourceKey="Untitled" Visibility="{Binding Occurrence.Appointment.Subject, Converter={StaticResource InvertedNullToVisibilityConverter}}"/>
+				<TextBlock Margin="3" telerik:LocalizationManager.ResourceKey="ResizeRecurringItemQuestion" TextWrapping="Wrap"/>
+				<RadioButton Margin="3 9 3 3" telerik:LocalizationManager.ResourceKey="ResizeOccurrence" GroupName="RecurrenceModeChoice" IsChecked="{Binding IsOccurrenceModeSelected, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+				<RadioButton Margin="3" telerik:LocalizationManager.ResourceKey="ResizeSeries" GroupName="RecurrenceModeChoice" IsChecked="{Binding IsSeriesModeSelected, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+			</StackPanel>
+			<StackPanel x:Name="FooterControls" Grid.Row="2" Margin="13 6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
+				<telerik:RadButton Margin="2" MinWidth="84" telerik:LocalizationManager.ResourceKey="Ok" Command="telerik:WindowCommands.Confirm" telerik:RadWindow.ResponseButton="Accept" telerik:StyleManager.Theme="{StaticResource Theme}" IsDefault="True"
+					 >
+				</telerik:RadButton>
+				<telerik:RadButton Margin="2" MinWidth="84" telerik:LocalizationManager.ResourceKey="Cancel" Command="telerik:WindowCommands.Cancel" telerik:RadWindow.ResponseButton="Cancel" telerik:StyleManager.Theme="{StaticResource Theme}" IsCancel="true"
+					 >
+				</telerik:RadButton>
+			</StackPanel>
+		</StackPanel>
+	</ControlTemplate>
+	<ControlTemplate x:Key="RecurrenceChoiceDragDropTemplate" TargetType="local:SchedulerDialog">
+		<StackPanel>
+			<StackPanel Margin="15 15 15 15">
+				<TextBlock x:Name="SubjectTextBlock" Margin="3" Text="{Binding Occurrence.Appointment.Subject}" Visibility="{Binding Occurrence.Appointment.Subject, Converter={StaticResource NullToVisibilityConverter}}" />
+				<TextBlock x:Name="Untitled" Margin="3" telerik:LocalizationManager.ResourceKey="Untitled" Visibility="{Binding Occurrence.Appointment.Subject, Converter={StaticResource InvertedNullToVisibilityConverter}}"/>
+				<TextBlock  Margin="3" telerik:LocalizationManager.ResourceKey="DragRecurringItemQuestion" TextWrapping="Wrap" />
+				<RadioButton  Margin="3 9 3 3" telerik:LocalizationManager.ResourceKey="DragDropOccurrence" GroupName="RecurrenceModeChoice" IsChecked="{Binding IsOccurrenceModeSelected, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+				<RadioButton  Margin="3" telerik:LocalizationManager.ResourceKey="DragDropSeries" GroupName="RecurrenceModeChoice" IsChecked="{Binding IsSeriesModeSelected, Mode=TwoWay}" telerik:StyleManager.Theme="{StaticResource Theme}" />
+			</StackPanel>
+			<StackPanel x:Name="FooterControls" Grid.Row="2" Margin="13 6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
+				<telerik:RadButton Margin="2" MinWidth="84" telerik:LocalizationManager.ResourceKey="Ok" Command="telerik:WindowCommands.Confirm" telerik:RadWindow.ResponseButton="Accept" telerik:StyleManager.Theme="{StaticResource Theme}" IsDefault="True"
+					 >
+				</telerik:RadButton>
+				<telerik:RadButton Margin="2" MinWidth="84" telerik:LocalizationManager.ResourceKey="Cancel" Command="telerik:WindowCommands.Cancel" telerik:RadWindow.ResponseButton="Cancel" telerik:StyleManager.Theme="{StaticResource Theme}" IsCancel="true"
+					 >
+				</telerik:RadButton>
+			</StackPanel>
+		</StackPanel>
+	</ControlTemplate>
+	<Style x:Key="RecurrenceChoiceDialogStyle" TargetType="local:SchedulerDialog">
+		<Setter Property="Foreground" Value="{StaticResource RadScheduleForeground}" />
+		<Setter Property="Width" Value="300" />
+		<Setter Property="HeaderTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<TextBlock MaxWidth="200" HorizontalAlignment="Left" telerik:LocalizationManager.ResourceKey="AppointmentRecurrence" />
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template" Value="{StaticResource RecurrenceChoiceTemplate}" />
+	</Style>
+	<Style x:Key="RecurrenceChoiceDeleteDialogStyle" TargetType="local:SchedulerDialog">
+		<Setter Property="Foreground" Value="{StaticResource RadScheduleForeground}" />
+		<Setter Property="Width" Value="300" />
+		<Setter Property="HeaderTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<TextBlock MaxWidth="200" HorizontalAlignment="Left" telerik:LocalizationManager.ResourceKey="AppointmentRecurrence" />
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template" Value="{StaticResource RecurrenceChoiceDeletingTemplate}" />
+	</Style>
+	<Style x:Key="RecurrenceChoiceResizeDialogStyle" TargetType="local:SchedulerDialog">
+		<Setter Property="Foreground" Value="{StaticResource RadScheduleForeground}" />
+		<Setter Property="Width" Value="350" />
+		<Setter Property="HeaderTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<TextBlock MaxWidth="200" HorizontalAlignment="Left" telerik:LocalizationManager.ResourceKey="AppointmentRecurrence" />
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template" Value="{StaticResource RecurrenceChoiceResizeTemplate}" />
+	</Style>
+	<Style x:Key="RecurrenceChoiceDragDropDialogStyle" TargetType="local:SchedulerDialog">
+		<Setter Property="Foreground" Value="{StaticResource RadScheduleForeground}" />
+		<Setter Property="Width" Value="350" />
+		<Setter Property="HeaderTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<TextBlock MaxWidth="200" HorizontalAlignment="Left" telerik:LocalizationManager.ResourceKey="AppointmentRecurrence" />
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template" Value="{StaticResource RecurrenceChoiceDragDropTemplate}" />
+	</Style>
+	<!-- << DIALOGS -->
+		
+	<!-- TimeRuler -->
+	<Style x:Key="GoToDayButtonStyle" TargetType="telerik:RadButton">
+		<Setter Property="Foreground" Value="{StaticResource MonthViewTimeRulerItemForeground_Normal}" />
+		<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+		<Setter Property="VerticalContentAlignment" Value="Stretch" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadButton">
+					<Border x:Name="OuterBorder" BorderBrush="{StaticResource GroupHeaderHeaderOuterBorder}" Background="{StaticResource GroupHeaderHeaderBackground}" BorderThickness="1">
+						
+						<Border x:Name="InnerBorder" BorderBrush="{StaticResource MonthViewTimeRulerItemInnerBorder}" BorderThickness="0" Padding="{TemplateBinding Padding}">
+							<ContentControl x:Name="Content" Content="{TemplateBinding Content}" Margin="-2" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"  />
+						</Border>
+					</Border>
+					
+					<!-- TODO: Silverlight - visual states -->
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource MonthViewTimeRulerItemBackground_MouseOver}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource MonthViewTimeRulerItemInnerBorder_MouseOver}" />
+							<Setter TargetName="Content" Property="TextBlock.Foreground" Value="{StaticResource MonthViewTimeRulerItemForeground_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource MonthViewTimeRulerItemBackground_Pressed}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource MonthViewTimeRulerItemInnerBorder_Pressed}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="GoToDayVerticalButtonStyle" TargetType="telerik:RadButton">
+		<Setter Property="Foreground" Value="{StaticResource MonthViewTimeRulerItemForeground_Normal}" />
+		<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+		<Setter Property="VerticalContentAlignment" Value="Stretch" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadButton">
+					<Border x:Name="OuterBorder" BorderBrush="{StaticResource GroupHeaderHeaderOuterBorder_Vertical}" Background="{StaticResource GroupHeaderHeaderBackground_Vertical}" BorderThickness="1">
+						
+						<Border x:Name="InnerBorder" BorderBrush="{StaticResource GroupHeaderHeaderInnerBorder_Vertical}" BorderThickness="0" Padding="{TemplateBinding Padding}">
+							<ContentControl x:Name="Content" Content="{TemplateBinding Content}" Margin="-2" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"  />
+						</Border>
+					</Border>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource MonthViewTimeRulerItemBackgroundVertical_MouseOver}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource MonthViewTimeRulerItemInnerBorderVertical_MouseOver}" />
+							<Setter TargetName="Content" Property="TextBlock.Foreground" Value="{StaticResource MonthViewTimeRulerItemForeground_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource MonthViewTimeRulerItemBackgroundVertical_Pressed}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource MonthViewTimeRulerItemInnerBorderVertical_Pressed}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="GoToDayTodayButtonStyle" TargetType="telerik:RadButton">
+		<Setter Property="Foreground" Value="{StaticResource MonthViewTimeRulerItemForeground_Today}" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadButton">
+					<Border x:Name="OuterBorder" BorderBrush="{StaticResource MonthViewTimeRulerItemOuterBorder_Today}" Background="{StaticResource MonthViewTimeRulerItemBackground_Today}" BorderThickness="1">
+						
+						<Border x:Name="InnerBorder" BorderBrush="{StaticResource MonthViewTimeRulerItemInnerBorder_Today}" BorderThickness="0" Padding="{TemplateBinding Padding}">
+							<ContentPresenter Margin="-2" />
+						</Border>
+					</Border>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource MonthViewTimeRulerItemBackground_TodayMouseOver}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource MonthViewTimeRulerItemInnerBorder_TodayMouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource MonthViewTimeRulerItemBackground_TodayPressed}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource MonthViewTimeRulerItemInnerBorder_TodayPressed}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="GoToDayTodayVerticalButtonStyle" TargetType="telerik:RadButton">
+		<Setter Property="Foreground" Value="{StaticResource MonthViewTimeRulerItemForeground_Today}" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadButton">
+					<Border x:Name="OuterBorder" BorderBrush="{StaticResource GroupHeaderHeaderOuterBorder_VerticalToday}" Background="{StaticResource GroupHeaderHeaderBackground_VerticalToday}" BorderThickness="1">
+						
+						<Border x:Name="InnerBorder" BorderBrush="{StaticResource GroupHeaderHeaderInnerBorder_VerticalToday}" BorderThickness="0" Padding="{TemplateBinding Padding}">
+							<ContentControl x:Name="Content" Content="{TemplateBinding Content}" Margin="-2"  />
+						</Border>
+					</Border>
+					
+					<!-- TODO: Silverlight - visual states -->
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource MonthViewTimeRulerItemBackgroundVertical_MouseOver}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource MonthViewTimeRulerItemInnerBorderVertical_MouseOver}" />
+							<Setter TargetName="Content" Property="TextBlock.Foreground" Value="{StaticResource MonthViewTimeRulerItemForeground_TodayMouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource MonthViewTimeRulerItemBackgroundVertical_Pressed}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource MonthViewTimeRulerItemInnerBorderVertical_Pressed}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="ExpandMonthViewButtonStyle" TargetType="telerik:RadToggleButton">
+		<Setter Property="Foreground" Value="{StaticResource MonthViewTimeRulerItemForeground_Normal}" />
+		
+		<Setter Property="Margin" Value="3 2 3 4" />
+		<Setter Property="MinWidth" Value="13" />
+		<Setter Property="MinHeight" Value="13" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadToggleButton">
+					<Grid x:Name="Root">
+						
+						<Border x:Name="CheckOuterBorder" CornerRadius="1" BorderThickness="1" BorderBrush="{StaticResource MonthViewExpandOuterBorder}" 
+								Background="{StaticResource MonthViewExpandButtonBackground}">
+						</Border>
+
+						<Path x:Name="Expand" Data="M0,0 L7,0 L3.5,4 Z" Fill="{StaticResource MonthViewExpandIconStroke}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+						<Path x:Name="Collapse" Visibility="Collapsed" Data="M0,4 L7,4 L3.5,0 Z" Fill="{StaticResource MonthViewExpandIconStroke}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+					</Grid>
+					
+					<!-- TODO: Silverlight - visual states -->
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="CheckOuterBorder" Property="BorderBrush" Value="{StaticResource MonthViewExpandOuterBorder_MouseOver}" />
+							<Setter TargetName="CheckOuterBorder" Property="Background" Value="{StaticResource MonthViewExpandButtonBackground_MouseOver}" />
+							<Setter TargetName="Expand" Property="Fill" Value="{StaticResource MonthViewExpandIconStroke_MouseOver}" />
+							<Setter TargetName="Collapse" Property="Fill" Value="{StaticResource MonthViewExpandIconStroke_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="CheckOuterBorder" Property="BorderBrush" Value="{StaticResource MonthViewExpandOuterBorder_Pressed}" />
+							<Setter TargetName="CheckOuterBorder" Property="Background" Value="{StaticResource MonthViewExpandButtonBackground_Pressed}" />
+							<Setter TargetName="Expand" Property="Fill" Value="{StaticResource MonthViewExpandIconStroke_Pressed}" />
+							<Setter TargetName="Collapse" Property="Fill" Value="{StaticResource MonthViewExpandIconStroke_Pressed}" />
+						</Trigger>
+						<Trigger Property="IsChecked" Value="True">
+							<Setter TargetName="Collapse" Property="Visibility" Value="Visible" />
+							<Setter TargetName="Expand" Property="Visibility" Value="Collapsed" />
+						</Trigger>
+						<Trigger Property="IsChecked" Value="{x:Null}">
+							<Setter Property="Visibility" Value="Collapsed" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="TimeRulerGroupItemStyle" TargetType="local:TimeRulerGroupItem">
+		<Setter Property="Foreground" Value="{StaticResource TimeRulerGroupItemForeground}" />
+		<Setter Property="Background" Value="{StaticResource GroupHeaderHeaderBackground}" />
+		<Setter Property="BorderBrush" Value="{StaticResource GroupHeaderHeaderOuterBorder}" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="HorizontalContentAlignment" Value="Left" />
+		<Setter Property="VerticalContentAlignment" Value="Top" />
+		<Setter Property="Margin" Value="0 0 -1 -1" />
+		<Setter Property="Padding" Value="4 2" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:TimeRulerGroupItem">
+					<telerik:RadButton Style="{StaticResource GoToDayButtonStyle}" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Command="local:RadScheduleViewCommands.SetDayViewMode" CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content.DateTime.Date}">
+						<ContentPresenter x:Name="Content" />
+					</telerik:RadButton>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="TimeRulerGroupItemStyle_Vertical" TargetType="local:TimeRulerGroupItem" BasedOn="{StaticResource TimeRulerGroupItemStyle}">
+		<Setter Property="Background" Value="{StaticResource GroupHeaderHeaderBackground_Vertical}" />
+		<Setter Property="BorderBrush" Value="{StaticResource GroupHeaderHeaderOuterBorder_Vertical}" />
+		<Setter Property="VerticalAlignment" Value="Stretch" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="HorizontalContentAlignment" Value="Left" />
+		<Setter Property="VerticalContentAlignment" Value="Top" />
+		<Setter Property="Orientation" Value="Vertical" />
+		<Setter Property="Margin" Value="0 0 -1 -1" />
+		<Setter Property="Padding" Value="2 4" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:TimeRulerGroupItem">
+					<telerik:RadButton Style="{StaticResource GoToDayVerticalButtonStyle}" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Command="local:RadScheduleViewCommands.SetDayViewMode" CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content.DateTime.Date}">
+						<ContentPresenter x:Name="Content" />
+					</telerik:RadButton>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="MajorHorizontalTimeRulerItemStyle" TargetType="local:TimeRulerItem">
+		<Setter Property="Foreground" Value="{StaticResource MonthViewTimeRulerItemForeground_Normal}" />
+		<Setter Property="BorderBrush" Value="{StaticResource TimeRulerItemMajorTickStroke}" />
+		<Setter Property="BorderThickness" Value="1 0 0 0" />
+		<Setter Property="VerticalContentAlignment" Value="Top" />
+		<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:TimeRulerItem">
+					<Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+						<ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="MinorHorizontalTimeRulerItemStyle" TargetType="local:TimeRulerItem">
+		<Setter Property="Foreground" Value="{StaticResource MonthViewTimeRulerItemForeground_Normal}" />
+		<Setter Property="BorderBrush" Value="{StaticResource TimeRulerItemMinorTickStroke}" />
+		<Setter Property="BorderThickness" Value="1 0 0 0" />
+		<Setter Property="VerticalContentAlignment" Value="Top" />
+		<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:TimeRulerItem">
+					<Grid>
+						<Border Height="5" VerticalAlignment="Bottom" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" />
+						<ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="MajorVerticalTimeRulerItemStyle" TargetType="local:TimeRulerItem">
+		<Setter Property="Foreground" Value="{StaticResource MonthViewTimeRulerItemForeground_Normal}" />
+		<Setter Property="BorderBrush" Value="{StaticResource TimeRulerItemMajorTickStroke_Vertical}" />
+		<Setter Property="BorderThickness" Value="0 1 0 0" />
+		<Setter Property="VerticalContentAlignment" Value="Top" />
+		<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:TimeRulerItem">
+					<Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+						<ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="MinorVerticalTimeRulerItemStyle" TargetType="local:TimeRulerItem">
+		<Setter Property="Foreground" Value="{StaticResource MonthViewTimeRulerItemForeground_Normal}" />
+		<Setter Property="BorderBrush" Value="{StaticResource TimeRulerItemMinorTickStroke_Vertical}" />
+		<Setter Property="BorderThickness" Value="0 1 0 0" />
+		<Setter Property="VerticalContentAlignment" Value="Top" />
+		<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:TimeRulerItem">
+					<Grid>
+						<Border Width="20" HorizontalAlignment="Right" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" />
+						<ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="TimeRulerLineStyle" TargetType="local:TimeRulerLine">
+		<Setter Property="BorderBrush" Value="{StaticResource TimeRulerLineStroke}" />
+		<Setter Property="Background" Value="White" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:TimeRulerLine">
+
+					<Border x:Name="LineVisual" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="0 1 0 0">
+						
+					</Border>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="Orientation" Value="Horizontal">
+							<Setter TargetName="LineVisual" Property="BorderThickness" Value="1 0 0 0" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="TimeRulerMonthViewGroupItemStyle" TargetType="local:TimeRulerMonthViewGroupItem">
+		<Setter Property="Foreground" Value="{StaticResource TimeRulerGroupItemForeground}" />
+		<Setter Property="Background" Value="{x:Null}" />
+		<Setter Property="BorderBrush" Value="{x:Null}" />
+		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:TimeRulerMonthViewGroupItem">
+					<Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+						<ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="TimeRulerMonthViewItemStyle" TargetType="local:TimeRulerMonthViewItem">
+		<Setter Property="Foreground" Value="{StaticResource MonthViewTimeRulerItemForeground_Normal}" />
+		<Setter Property="Margin" Value="0 -1 -1 0" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:TimeRulerMonthViewItem">
+					<Grid>
+						<telerik:RadButton Padding="0" VerticalAlignment="Top" Height="22" Style="{StaticResource GoToDayButtonStyle}" Command="local:RadScheduleViewCommands.SetDayViewMode" CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content.DateTime.Date}">
+							<ContentPresenter Margin="{TemplateBinding Padding}" />
+						</telerik:RadButton>
+						<telerik:RadToggleButton Visibility="{Binding ExpandButtonVisibility}" IsChecked="{Binding IsExpanded, Mode=TwoWay}" Style="{StaticResource ExpandMonthViewButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="TimeRulerMonthViewTodayItemStyle" TargetType="local:TimeRulerMonthViewItem">
+		<Setter Property="Foreground" Value="{StaticResource MonthViewTimeRulerItemForeground_Normal}" />
+		<Setter Property="Margin" Value="0 -1 -1 0" />
+		
+		<Setter Property="Panel.ZIndex" Value="1" />
+		
+		
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:TimeRulerMonthViewItem">
+					<Grid>
+						<Border BorderBrush="{StaticResource GroupHeaderBorderBrush_Today}" SnapsToDevicePixels="True" BorderThickness="{StaticResource HorizontalGroupHeaderTodayBorderThickness}" />
+						<telerik:RadButton Padding="0" VerticalAlignment="Top" Height="22" Style="{StaticResource GoToDayTodayButtonStyle}" Command="local:RadScheduleViewCommands.SetDayViewMode" CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content.DateTime.Date}">
+							<ContentPresenter Margin="{TemplateBinding Padding}" />
+						</telerik:RadButton>
+						<telerik:RadToggleButton Visibility="{Binding ExpandButtonVisibility}" IsChecked="{Binding IsExpanded, Mode=TwoWay}" Style="{StaticResource ExpandMonthViewButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<local:TimeRulerItemTemplateSelector x:Key="TimeRulerItemTemplateSelector">
+		<local:TimeRulerItemTemplateSelector.HorizontalDayMajorItemTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="2" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.HorizontalDayMajorItemTemplate>
+		<local:TimeRulerItemTemplateSelector.HorizontalDayMinorItemTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="2" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.HorizontalDayMinorItemTemplate>
+		<local:TimeRulerItemTemplateSelector.HorizontalWeekMajorItemTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="2" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.HorizontalWeekMajorItemTemplate>
+		<local:TimeRulerItemTemplateSelector.HorizontalWeekMinorItemTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="2" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.HorizontalWeekMinorItemTemplate>
+		<local:TimeRulerItemTemplateSelector.VerticalDayMajorItemTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="2" MinWidth="50" TextAlignment="Right" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.VerticalDayMajorItemTemplate>
+		<local:TimeRulerItemTemplateSelector.VerticalDayMinorItemTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="2" MinWidth="50" TextAlignment="Right" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.VerticalDayMinorItemTemplate>
+		<local:TimeRulerItemTemplateSelector.VerticalWeekMajorItemTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="2" MinWidth="50" TextAlignment="Right" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.VerticalWeekMajorItemTemplate>
+		<local:TimeRulerItemTemplateSelector.VerticalWeekMinorItemTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="2" MinWidth="50" TextAlignment="Right" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.VerticalWeekMinorItemTemplate>
+		<local:TimeRulerItemTemplateSelector.HorizontalTimelineGroupTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="2 1" TextAlignment="Left" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.HorizontalTimelineGroupTemplate>
+		<local:TimeRulerItemTemplateSelector.HorizontalTimelineMajorItemTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="2" TextAlignment="Left" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.HorizontalTimelineMajorItemTemplate>
+		<local:TimeRulerItemTemplateSelector.HorizontalTimelineMinorItemTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="2" TextAlignment="Left" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.HorizontalTimelineMinorItemTemplate>
+		<local:TimeRulerItemTemplateSelector.VerticalTimelineGroupTemplate>
+			<DataTemplate>
+				
+				<TextBlock Text="{Binding FormattedValue}" Margin="1 2" TextAlignment="Right">
+					<TextBlock.LayoutTransform>
+						<RotateTransform Angle="-90" />
+					</TextBlock.LayoutTransform>
+				</TextBlock>
+				
+				
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.VerticalTimelineGroupTemplate>
+		<local:TimeRulerItemTemplateSelector.VerticalTimelineMajorItemTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="2" MinWidth="50" TextAlignment="Right" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.VerticalTimelineMajorItemTemplate>
+		<local:TimeRulerItemTemplateSelector.VerticalTimelineMinorItemTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="2" MinWidth="50" TextAlignment="Right" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.VerticalTimelineMinorItemTemplate>
+		<local:TimeRulerItemTemplateSelector.MonthGroupTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="6 2" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.MonthGroupTemplate>
+		<local:TimeRulerItemTemplateSelector.MonthItemTemplate>
+			<DataTemplate>
+				<TextBlock Text="{Binding FormattedValue}" Margin="6 2" />
+			</DataTemplate>
+		</local:TimeRulerItemTemplateSelector.MonthItemTemplate>
+	</local:TimeRulerItemTemplateSelector>
+	<local:OrientedTimeRulerItemStyleSelector x:Key="TimeRulerItemStyleSelector"
+			MonthViewGroupStyle="{StaticResource TimeRulerMonthViewGroupItemStyle}"
+			MonthViewTickStyle="{StaticResource TimeRulerMonthViewItemStyle}"
+			MonthViewTodayTickStyle="{StaticResource TimeRulerMonthViewTodayItemStyle}"
+			HorizontalGroupItemStyle="{StaticResource TimeRulerGroupItemStyle}"
+			VerticalGroupItemStyle="{StaticResource TimeRulerGroupItemStyle_Vertical}"
+			MajorHorizontalTickStyle="{StaticResource MajorHorizontalTimeRulerItemStyle}"
+			MajorVerticalTickStyle="{StaticResource MajorVerticalTimeRulerItemStyle}"
+			MinorHorizontalTickStyle="{StaticResource MinorHorizontalTimeRulerItemStyle}"
+			MinorVerticalTickStyle="{StaticResource MinorVerticalTimeRulerItemStyle}"
+			HorizontalLineStyle="{StaticResource TimeRulerLineStyle}"
+			VerticalLineStyle="{StaticResource TimeRulerLineStyle}">
+	</local:OrientedTimeRulerItemStyleSelector>
+
+	<!-- Group headers -->
+	<ControlTemplate x:Key="GroupHeaderTemplate"  TargetType="local:GroupHeader">
+		<Grid>
+			
+
+			<Border x:Name="Border" IsHitTestVisible="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+				
+				 Background="{TemplateBinding Background}">
+			</Border>
+
+			<telerik:RadButton x:Name="Header" VerticalAlignment="Top" Style="{StaticResource GoToDayButtonStyle}" Command="local:RadScheduleViewCommands.SetDayViewMode" CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content.Name}">
+				<ContentPresenter Margin="-1" />
+			</telerik:RadButton>
+		</Grid>
+		
+		<ControlTemplate.Triggers>
+			<Trigger Property="Orientation" Value="Horizontal">
+				<Setter TargetName="Header" Property="VerticalAlignment" Value="Stretch" />
+				<Setter TargetName="Header" Property="HorizontalAlignment" Value="Left" />
+				<Setter TargetName="Header" Property="Style" Value="{StaticResource GoToDayVerticalButtonStyle}" />
+			</Trigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="Orientation" Value="Vertical" />
+					<Condition Property="IsToday" Value="True" />
+				</MultiTrigger.Conditions>
+				<Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource GroupHeaderBorderBrush_Today}" />
+				<Setter TargetName="Border" Property="BorderThickness" Value="{StaticResource HorizontalGroupHeaderTodayBorderThickness}" />
+				<Setter TargetName="Header" Property="Style" Value="{StaticResource GoToDayTodayButtonStyle}" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="Orientation" Value="Horizontal" />
+					<Condition Property="IsToday" Value="True" />
+				</MultiTrigger.Conditions>
+				<Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource GroupHeaderBorderBrush_Today}" />
+				<Setter TargetName="Border" Property="BorderThickness" Value="{StaticResource VerticalGroupHeaderTodayBorderThickness}" />
+				<Setter TargetName="Header" Property="Style" Value="{StaticResource GoToDayTodayVerticalButtonStyle}" />
+			</MultiTrigger>
+		</ControlTemplate.Triggers>
+		
+	</ControlTemplate>
+
+	<ControlTemplate x:Key="GroupHeaderWeekTemplate"  TargetType="local:GroupHeader">
+		<Grid>
+			
+
+			<Border x:Name="Border" IsHitTestVisible="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+				
+				 Background="{TemplateBinding Background}">
+			</Border>
+
+			<telerik:RadButton x:Name="Header" VerticalAlignment="Top" Style="{StaticResource GoToDayButtonStyle}" Command="local:RadScheduleViewCommands.SetWeekViewMode" CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content.Name}">
+				<ContentPresenter Margin="-1" />
+			</telerik:RadButton>
+
+		</Grid>
+		
+		<ControlTemplate.Triggers>
+			<Trigger Property="Orientation" Value="Horizontal">
+				<Setter TargetName="Header" Property="VerticalAlignment" Value="Stretch" />
+				<Setter TargetName="Header" Property="HorizontalAlignment" Value="Left" />
+				<Setter TargetName="Header" Property="Style" Value="{StaticResource GoToDayVerticalButtonStyle}" />
+			</Trigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="Orientation" Value="Vertical" />
+					<Condition Property="IsToday" Value="True" />
+				</MultiTrigger.Conditions>
+				<Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource GroupHeaderBorderBrush_Today}" />
+				<Setter TargetName="Border" Property="BorderThickness" Value="{StaticResource HorizontalGroupHeaderTodayBorderThickness}" />
+				<Setter TargetName="Header" Property="Style" Value="{StaticResource GoToDayTodayButtonStyle}" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="Orientation" Value="Horizontal" />
+					<Condition Property="IsToday" Value="True" />
+				</MultiTrigger.Conditions>
+				<Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource GroupHeaderBorderBrush_Today}" />
+				<Setter TargetName="Border" Property="BorderThickness" Value="{StaticResource VerticalGroupHeaderTodayBorderThickness}" />
+				<Setter TargetName="Header" Property="Style" Value="{StaticResource GoToDayTodayVerticalButtonStyle}" />
+			</MultiTrigger>
+		</ControlTemplate.Triggers>
+		
+	</ControlTemplate>
+
+	<Style x:Key="GroupHeaderBaseStyle" TargetType="local:GroupHeader">
+		<Setter Property="Foreground" Value="{StaticResource TimeRulerGroupItemForeground}" />
+		<Setter Property="BorderBrush" Value="{StaticResource GroupHeaderBorderBrush}" />
+		<Setter Property="Background" Value="{x:Null}" />
+		<Setter Property="BorderThickness" Value="1" />
+		
+		<Setter Property="Panel.ZIndex" Value="-2" />
+		
+		
+		<Setter Property="Template" Value="{StaticResource GroupHeaderTemplate}" />
+	</Style>
+	<Style TargetType="local:GroupHeader" BasedOn="{StaticResource GroupHeaderBaseStyle}" />
+	<Style x:Key="HorizontalGroupHeaderStyle" TargetType="local:GroupHeader" BasedOn="{StaticResource GroupHeaderBaseStyle}">
+		<Setter Property="Margin" Value="0 0 -1 0" />
+		<Setter Property="Padding" Value="-1 0 0 0" />
+		
+		<Setter Property="Panel.ZIndex" Value="-2" />
+		
+		
+	</Style>
+	<Style x:Key="HorizontalTodayGroupHeaderStyle" TargetType="local:GroupHeader" BasedOn="{StaticResource GroupHeaderBaseStyle}">
+		<Setter Property="Margin" Value="0 0 -1 0" />
+		<Setter Property="Padding" Value="-1 0 0 0" />
+		
+		<Setter Property="Panel.ZIndex" Value="-1" />
+		
+		
+	</Style>
+	<Style x:Key="HorizontalBottomLevelGroupHeaderStyle" TargetType="local:GroupHeader" BasedOn="{StaticResource GroupHeaderBaseStyle}">
+		<Setter Property="Margin" Value="0 0 -1 0" />
+		<Setter Property="Padding" Value="0 0 5 0" />
+		
+		<Setter Property="Panel.ZIndex" Value="-2" />
+		
+		
+	</Style>
+	<Style x:Key="HorizontalBottomLevelTodayGroupHeaderStyle" TargetType="local:GroupHeader" BasedOn="{StaticResource GroupHeaderBaseStyle}">
+		<Setter Property="Margin" Value="0 0 -1 0" />
+		<Setter Property="Padding" Value="1 0 5 0" />
+		
+		<Setter Property="Panel.ZIndex" Value="-1" />
+		
+		
+		<Setter Property="Foreground" Value="{StaticResource HorizontalBottomLevelTodayForeground}" />
+	</Style>
+	<Style x:Key="VerticalGroupHeaderStyle" TargetType="local:GroupHeader" BasedOn="{StaticResource GroupHeaderBaseStyle}">
+		<Setter Property="Margin" Value="0 0 0 -1" />
+		<Setter Property="Padding" Value="0 -1 0 0" />
+		
+		<Setter Property="Panel.ZIndex" Value="-2" />
+		
+		
+	</Style>
+	<Style x:Key="VerticalTodayGroupHeaderStyle" TargetType="local:GroupHeader" BasedOn="{StaticResource GroupHeaderBaseStyle}">
+		<Setter Property="Margin" Value="0 0 0 -1" />
+		
+		<Setter Property="Padding" Value="0 -1 0 0" />
+		<Setter Property="Panel.ZIndex" Value="-1" />
+		
+		
+	</Style>
+	<Style x:Key="VerticalBottomLevelGroupHeaderStyle" TargetType="local:GroupHeader" BasedOn="{StaticResource GroupHeaderBaseStyle}">
+		<Setter Property="Margin" Value="0 0 0 -1" />
+		<Setter Property="Padding" Value="0 0 0 5" />
+		
+		<Setter Property="Panel.ZIndex" Value="-2" />
+		
+		
+	</Style>
+	<Style x:Key="VerticalBottomLevelTodayGroupHeaderStyle" TargetType="local:GroupHeader" BasedOn="{StaticResource GroupHeaderBaseStyle}">
+		<Setter Property="Margin" Value="0 0 0 -1" />
+		<Setter Property="Padding" Value="0 1 0 5" />
+		
+		<Setter Property="Panel.ZIndex" Value="-1" />
+		
+		
+	</Style>
+	<Style x:Key="MonthViewWeekGroupStyle" TargetType="local:GroupHeader" BasedOn="{StaticResource GroupHeaderBaseStyle}">
+		<Setter Property="Margin" Value="0 0 0 -1" />
+		<Setter Property="Padding" Value="0 -1 0 0" />
+		<Setter Property="Template" Value="{StaticResource GroupHeaderWeekTemplate}" />
+	</Style>
+	<Style x:Key="MonthViewBottomLevelWeekGroupStyle" TargetType="local:GroupHeader" BasedOn="{StaticResource GroupHeaderBaseStyle}">
+		<Setter Property="Margin" Value="0 0 0 -1" />
+		<Setter Property="Padding" Value="0 21 0 18" />
+		<Setter Property="MinHeight" Value="85" />
+		<Setter Property="Template" Value="{StaticResource GroupHeaderWeekTemplate}" />
+	</Style>
+	<local:OrientedGroupHeaderStyleSelector x:Key="GroupHeaderStyleSelector"
+			HorizontalStyle="{StaticResource HorizontalGroupHeaderStyle}"
+			HorizontalTodayStyle="{StaticResource HorizontalTodayGroupHeaderStyle}"
+			HorizontalBottomLevelStyle="{StaticResource HorizontalBottomLevelGroupHeaderStyle}"
+			HorizontalTodayBottomLevelStyle="{StaticResource HorizontalBottomLevelTodayGroupHeaderStyle}"
+			
+			VerticalStyle="{StaticResource VerticalGroupHeaderStyle}"
+			VerticalTodayStyle="{StaticResource VerticalTodayGroupHeaderStyle}"
+			VerticalBottomLevelStyle="{StaticResource VerticalBottomLevelGroupHeaderStyle}"
+			VerticalTodayBottomLevelStyle="{StaticResource VerticalBottomLevelTodayGroupHeaderStyle}"
+			
+			MonthViewWeekGroupStyle="{StaticResource MonthViewWeekGroupStyle}"
+			MonthViewBottomLevelWeekGroupStyle="{StaticResource MonthViewBottomLevelWeekGroupStyle}">
+	</local:OrientedGroupHeaderStyleSelector>
+
+	<local:GroupHeaderTemplateSelector x:Key="GroupHeaderContentTemplateSelector">
+
+		<local:GroupHeaderTemplateSelector.HorizontalTemplate>
+			<DataTemplate>
+				<ContentPresenter Content="{Binding FormattedName}" Height="16" Margin="4" />
+			</DataTemplate>
+		</local:GroupHeaderTemplateSelector.HorizontalTemplate>
+
+		<local:GroupHeaderTemplateSelector.VerticalTemplate>
+			<DataTemplate>
+				
+				<ContentPresenter Content="{Binding FormattedName}" Margin="4" Height="16" VerticalAlignment="Top">
+					<ContentPresenter.LayoutTransform>
+						<RotateTransform Angle="-90" />
+					</ContentPresenter.LayoutTransform>
+				</ContentPresenter>
+				
+				
+			</DataTemplate>
+		</local:GroupHeaderTemplateSelector.VerticalTemplate>
+
+	</local:GroupHeaderTemplateSelector>
+
+        <!-- AppointmentItem -->
+	<Storyboard x:Key="MouseOverEnterStoryboard">
+		<ObjectAnimationUsingKeyFrames Duration="0:0:0.400" Storyboard.TargetName="MouseOverOverlay" Storyboard.TargetProperty="Visibility">
+			<DiscreteObjectKeyFrame KeyTime="0:0:0.0">
+				<DiscreteObjectKeyFrame.Value>
+					<Visibility>Visible</Visibility>
+				</DiscreteObjectKeyFrame.Value>
+			</DiscreteObjectKeyFrame>
+		</ObjectAnimationUsingKeyFrames>
+		<DoubleAnimation BeginTime="0:0:0.200" Duration="0:0:0.200" To="1" Storyboard.TargetName="MouseOverOverlay" Storyboard.TargetProperty="Opacity" />
+	</Storyboard>
+	<Storyboard x:Key="MouseOverExitStoryboard">
+		<ObjectAnimationUsingKeyFrames Duration="0:0:0.200" Storyboard.TargetName="MouseOverOverlay" Storyboard.TargetProperty="Visibility">
+			<DiscreteObjectKeyFrame KeyTime="0:0:0.200">
+				<DiscreteObjectKeyFrame.Value>
+					<Visibility>Collapsed</Visibility>
+				</DiscreteObjectKeyFrame.Value>
+			</DiscreteObjectKeyFrame>
+		</ObjectAnimationUsingKeyFrames>
+		<DoubleAnimation BeginTime="0:0:0.0" Duration="0:0:0.200" To="0" Storyboard.TargetName="MouseOverOverlay" Storyboard.TargetProperty="Opacity" />
+	</Storyboard>
+	<ControlTemplate x:Key="AppointmentItemHorizontalControlTemplate" TargetType="local:AppointmentItem">
+        <Grid x:Name="Root">
+            
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- small appointment rending visual-->
+            <Border x:Name="DurationMarkerVisual" Visibility="{TemplateBinding DurationMarkerVisibility}" Margin="{TemplateBinding DurationMarkerMargin}">
+                <Border Background="{StaticResource AppointmentItemOuterBorder}" Margin="0 0 0 -1" CornerRadius="1 1 0 0" Height="4" />
+            </Border>
+            
+            <Grid Grid.Row="1">               
+                
+                <Grid.InputBindings>
+                    <MouseBinding MouseAction="LeftDoubleClick" Command="local:RadScheduleViewCommands.EditAppointment" />
+                </Grid.InputBindings>
+                
+                
+
+                <Border CornerRadius="2" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <Border CornerRadius="1" BorderBrush="{StaticResource AppointmentItemInnerBorder}" BorderThickness="0" />
+                </Border>
+
+                <Border x:Name="CommonStatesVisual" Visibility="Collapsed" CornerRadius="2" Background="{StaticResource AppointmentItemBackground_MouseOver}" BorderBrush="{StaticResource AppointmentItemOuterBorder_MouseOver}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <Border x:Name="CommonStatesVisualInnerBorder" CornerRadius="1" BorderBrush="{StaticResource AppointmentItemInnerBorder_MouseOver}" BorderThickness="0" />
+                </Border>
+
+                <Border x:Name="PART_Category" Margin="2" Background="{Binding Path=Category.CategoryBrush}" />
+
+                <Rectangle x:Name="ReadOnlyVisual" Margin="2" Visibility="Collapsed" Fill="{StaticResource AppoinmtentItemBackground_ReadOnly}" />
+
+                <Grid Margin="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border x:Name="PART_TimeMarker" Grid.Column="0" Width="5" HorizontalAlignment="Left" Background="{Binding Path=TimeMarker.TimeMarkerBrush}" Visibility="{Binding Path=TimeMarker, Converter={StaticResource NullToVisibilityConverter}}" />
+
+                    <Path Grid.Column="1" Data="M-919.69031,2003.9496 L-919.69031,2010.7375 L-923.7619,2007.4564 z" Fill="{StaticResource AppointmentItemIndicatorFill}" Margin="4 0 2 0"
+                      HorizontalAlignment="Left" Height="7" Stretch="Fill" VerticalAlignment="Center" Width="4" Visibility="{TemplateBinding StartIndicatorVisibility}"/>
+
+                    <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="0 3 0 0">
+                        <Image x:Name="RecurrenceMark" Grid.Column="0" Margin="2 1 1 0" Width="10" Height="10" Visibility="{Binding Path=RecurrenceState, Converter={StaticResource RecurrenceStateIsExeptionToVisibilityConverter}}" HorizontalAlignment="Left" Source="{StaticResource AppointmentItem_Recurrence}" />
+                        <Image x:Name="ExceptionMark" Grid.Column="0" Margin="2 1 1 0" Width="10" Height="10" Visibility="{Binding Path=RecurrenceState, Converter={StaticResource RecurrenceStateIsOccurenceToVisibilityConverter}}" HorizontalAlignment="Left" Source="{StaticResource AppointmentItem_Exception}" />
+                    </StackPanel>
+
+                    <ContentPresenter Grid.Column="3" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+
+                    <Path Grid.Column="4" Data="M1109.0469,332.70313 L1113.0469,336.29663 L1109.0469,339.68823 z" Margin="2 0 4 0" Fill="{StaticResource AppointmentItemIndicatorFill}"
+                      HorizontalAlignment="Right" Height="6.984" Stretch="Fill" VerticalAlignment="Center" Width="4" Visibility="{TemplateBinding EndIndicatorVisibility}"/>
+                </Grid>
+
+                <Grid x:Name="MouseOverOverlay" Visibility="Collapsed" Opacity="0">
+                    <Border x:Name="PART_StartResizeGrip" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Stretch" Cursor="SizeWE" dragDrop:DragDropManager.AllowDrag="True"
+						Visibility="{Binding IsAllDay, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+                        <StackPanel x:Name="StartResizeGrip" Margin="1" 
+								HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border Background="{StaticResource AppointmentItemResizeGripBackground}"
+									BorderBrush="{StaticResource AppointmentItemResizeGripStroke}"
+									BorderThickness="0,0,1,1"
+									Width="3" Height="3" Margin="1" />
+                            <Border Background="{StaticResource AppointmentItemResizeGripBackground}"
+									BorderBrush="{StaticResource AppointmentItemResizeGripStroke}"
+									BorderThickness="0,0,1,1"
+									Width="3" Height="3" Margin="1" />
+                            <Border Background="{StaticResource AppointmentItemResizeGripBackground}"
+									BorderBrush="{StaticResource AppointmentItemResizeGripStroke}"
+									BorderThickness="0,0,1,1"
+									Width="3" Height="3" Margin="1" />
+                        </StackPanel>
+                    </Border>
+                    <Border x:Name="PART_EndResizeGrip" Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Stretch" Cursor="SizeWE" dragDrop:DragDropManager.AllowDrag="True"
+						Visibility="{Binding IsAllDay, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+                        <StackPanel x:Name="EndResizeGrip" Margin="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border Background="{StaticResource AppointmentItemResizeGripBackground}"
+								BorderBrush="{StaticResource AppointmentItemResizeGripStroke}"
+								BorderThickness="0,0,1,1"
+								Width="3" Height="3" Margin="1" />
+                            <Border Background="{StaticResource AppointmentItemResizeGripBackground}"
+								BorderBrush="{StaticResource AppointmentItemResizeGripStroke}"
+								BorderThickness="0,0,1,1"
+								Width="3" Height="3" Margin="1" />
+                            <Border Background="{StaticResource AppointmentItemResizeGripBackground}"
+								BorderBrush="{StaticResource AppointmentItemResizeGripStroke}"
+								BorderThickness="0,0,1,1"
+								Width="3" Height="3" Margin="1" />
+                        </StackPanel>
+                    </Border>
+                    <telerik:RadButton x:Name="DeleteButton" Width="11" Height="11" Margin="5 5 6 5" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Top" 
+							Command="local:RadScheduleViewCommands.DeleteAppointment"  ClickMode="Press"
+							CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+							Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}"
+							IsTabStop="False"
+							telerik:StyleManager.Theme="{StaticResource Theme}">
+                        <Path Stroke="{StaticResource AppointmentItemDeleteIconStroke}" Data="M0,0 L5,5 M5,0 L0,5" />
+                    </telerik:RadButton>
+                </Grid>
+            </Grid>
+        </Grid>
+            
+		<ControlTemplate.Triggers>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="IsReadOnly" Value="True" />
+					<Condition Property="IsEnabled" Value="True" />
+				</MultiTrigger.Conditions>
+				<Setter TargetName="ReadOnlyVisual" Property="Visibility" Value="Visible" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="IsReadOnly" Value="False" />
+                    <Condition Property="IsInInlineEditingMode" Value="False" />
+					<Condition Property="IsMouseOver" Value="True" />
+					<Condition Property="IsEnabled" Value="True" />
+				</MultiTrigger.Conditions>
+				<Setter TargetName="CommonStatesVisual" Property="Visibility" Value="Visible" />
+				<Setter TargetName="MouseOverOverlay" Property="Visibility" Value="Visible" />
+				<MultiTrigger.EnterActions>
+					<BeginStoryboard Storyboard="{StaticResource MouseOverEnterStoryboard}" />
+				</MultiTrigger.EnterActions>
+				<MultiTrigger.ExitActions>
+					<BeginStoryboard Storyboard="{StaticResource MouseOverExitStoryboard}" />
+				</MultiTrigger.ExitActions>
+			</MultiTrigger>
+			<Trigger Property="IsSelected" Value="True">
+				<Setter TargetName="CommonStatesVisual" Property="Visibility" Value="Visible" />
+				<Setter TargetName="CommonStatesVisual" Property="Background" Value="{StaticResource AppointmentItemBackground_Selected}" />
+				<Setter TargetName="CommonStatesVisual" Property="BorderBrush" Value="{StaticResource AppointmentItemOuterBorder_Selected}" />
+				<Setter TargetName="CommonStatesVisualInnerBorder" Property="BorderBrush" Value="{StaticResource AppointmentItemInnerBorder_Selected}" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+		
+	</ControlTemplate>
+	<ControlTemplate x:Key="AppointmentItemVerticalControlTemplate" TargetType="local:AppointmentItem">
+        <Grid x:Name="Root">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!-- small appointment rending visual-->
+            <Border x:Name="DurationMarkerVisual" Visibility="{TemplateBinding DurationMarkerVisibility}" Margin="{TemplateBinding DurationMarkerMargin}">
+                <Border Background="{StaticResource AppointmentItemOuterBorder}" Margin="0 0 -1 0" CornerRadius="1 0 0 1" Width="4" />
+            </Border>
+            
+            <Grid Grid.Column="1">               
+                
+                <Grid.InputBindings>
+                    <MouseBinding MouseAction="LeftDoubleClick" Command="local:RadScheduleViewCommands.EditAppointment" />
+                </Grid.InputBindings>
+                
+                
+
+                <Border CornerRadius="2" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <Border CornerRadius="1" BorderBrush="{StaticResource AppointmentItemInnerBorder}" BorderThickness="0" />
+                </Border>
+
+                <Border x:Name="CommonStatesVisual" Visibility="Collapsed" CornerRadius="2" Background="{StaticResource AppointmentItemBackground_MouseOver}" BorderBrush="{StaticResource AppointmentItemOuterBorder_MouseOver}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <Border x:Name="CommonStatesVisualInnerBorder" CornerRadius="1" BorderBrush="{StaticResource AppointmentItemInnerBorder_MouseOver}" BorderThickness="0" />
+                </Border>
+
+                <Border x:Name="PART_Category" Margin="2" Background="{Binding Path=Category.CategoryBrush}" />
+
+                <Rectangle x:Name="ReadOnlyVisual" Margin="2" Visibility="Collapsed" Fill="{StaticResource AppoinmtentItemBackground_ReadOnly}" />
+
+                <Grid Margin="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Border x:Name="PART_TimeMarker" Grid.Column="0" Grid.RowSpan="3" Width="5" HorizontalAlignment="Left" Background="{Binding Path=TimeMarker.TimeMarkerBrush}" Visibility="{Binding Path=TimeMarker, Converter={StaticResource NullToVisibilityConverter}}" />
+
+                    <Path Grid.ColumnSpan="3" Grid.Row="0" Data="M3.5,0 L7,4 L0,4 z" Fill="{StaticResource AppointmentItemIndicatorFill}" Margin="2 4 2 2"
+                      Height="4" Width="7" VerticalAlignment="Top" Stretch="Fill" HorizontalAlignment="Center" Visibility="{TemplateBinding StartIndicatorVisibility}" />
+
+                    <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0 3 0 0">
+                        <Image x:Name="RecurrenceMark" Grid.Column="0" Margin="2 1 1 0" Width="10" Height="10" Visibility="{Binding Path=RecurrenceState, Converter={StaticResource RecurrenceStateIsExeptionToVisibilityConverter}}" HorizontalAlignment="Left" Source="{StaticResource AppointmentItem_Recurrence}" />
+                        <Image x:Name="ExceptionMark" Grid.Column="0" Margin="2 1 1 0" Width="10" Height="10" Visibility="{Binding Path=RecurrenceState, Converter={StaticResource RecurrenceStateIsOccurenceToVisibilityConverter}}" HorizontalAlignment="Left" Source="{StaticResource AppointmentItem_Exception}" />
+                    </StackPanel>
+
+                    <ContentPresenter Grid.Column="2" Grid.Row="1" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+
+                    <Path Grid.ColumnSpan="3" Grid.Row="2" Data="M7,0 L3.5,4 L0,0 z" Height="4" Width="7" Stretch="Fill" Fill="{StaticResource AppointmentItemIndicatorFill}" Margin="2 2 2 4"
+                      VerticalAlignment="Bottom" HorizontalAlignment="Center" Visibility="{TemplateBinding EndIndicatorVisibility}"/>
+                </Grid>
+
+                <Grid x:Name="MouseOverOverlay" Visibility="Collapsed" Opacity="0">
+                    <Border x:Name="PART_StartResizeGrip" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Top" Cursor="SizeNS" dragDrop:DragDropManager.AllowDrag="True" 
+						Visibility="{Binding IsAllDay, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+                        <StackPanel x:Name="StartResizeGrip" Margin="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border Background="{StaticResource AppointmentItemResizeGripBackground}"
+							BorderBrush="{StaticResource AppointmentItemResizeGripStroke}"
+							BorderThickness="0,0,1,1"
+							Width="3" Height="3" Margin="1" />
+                            <Border Background="{StaticResource AppointmentItemResizeGripBackground}"
+								BorderBrush="{StaticResource AppointmentItemResizeGripStroke}"
+								BorderThickness="0,0,1,1"
+								Width="3" Height="3" Margin="1" />
+                            <Border Background="{StaticResource AppointmentItemResizeGripBackground}"
+								BorderBrush="{StaticResource AppointmentItemResizeGripStroke}"
+								BorderThickness="0,0,1,1"
+								Width="3" Height="3" Margin="1" />
+                        </StackPanel>
+                    </Border>
+                    <Border x:Name="PART_EndResizeGrip" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Cursor="SizeNS" dragDrop:DragDropManager.AllowDrag="True"
+						Visibility="{Binding IsAllDay, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+                        <StackPanel x:Name="EndResizeGrip" Margin="1" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border Background="{StaticResource AppointmentItemResizeGripBackground}"
+								BorderBrush="{StaticResource AppointmentItemResizeGripStroke}"
+								BorderThickness="0,0,1,1"
+								Width="3" Height="3" Margin="1" />
+                            <Border Background="{StaticResource AppointmentItemResizeGripBackground}"
+								BorderBrush="{StaticResource AppointmentItemResizeGripStroke}"
+								BorderThickness="0,0,1,1"
+								Width="3" Height="3" Margin="1" />
+                            <Border Background="{StaticResource AppointmentItemResizeGripBackground}"
+								BorderBrush="{StaticResource AppointmentItemResizeGripStroke}"
+								BorderThickness="0,0,1,1"
+								Width="3" Height="3" Margin="1" />
+                        </StackPanel>
+                    </Border>
+                    <telerik:RadButton x:Name="DeleteButton" Width="11" Height="11" Margin="5 5 6 5" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Top"
+							Command="local:RadScheduleViewCommands.DeleteAppointment" ClickMode="Press"   
+							CommandParameter="{Binding RelativeSource={RelativeSource TemplatedParent}}" 
+							Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}"
+							IsTabStop="False"
+							telerik:StyleManager.Theme="{StaticResource Theme}">
+                        <Path Stroke="{StaticResource AppointmentItemDeleteIconStroke}" Data="M0,0 L5,5 M5,0 L0,5" />
+                    </telerik:RadButton>
+                </Grid>
+            </Grid>
+        </Grid>
+		
+		
+		<!-- TODO: Silverlight - visual states -->
+		<ControlTemplate.Triggers>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="IsReadOnly" Value="True" />
+					<Condition Property="IsEnabled" Value="True" />
+				</MultiTrigger.Conditions>
+				<Setter TargetName="ReadOnlyVisual" Property="Visibility" Value="Visible" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="IsReadOnly" Value="False" />
+                    <Condition Property="IsInInlineEditingMode" Value="False" />
+					<Condition Property="IsMouseOver" Value="True" />
+					<Condition Property="IsEnabled" Value="True" />
+				</MultiTrigger.Conditions>
+				<Setter TargetName="CommonStatesVisual" Property="Visibility" Value="Visible" />
+				<Setter TargetName="MouseOverOverlay" Property="Visibility" Value="Visible" />
+				<MultiTrigger.EnterActions>
+					<BeginStoryboard Storyboard="{StaticResource MouseOverEnterStoryboard}" />
+				</MultiTrigger.EnterActions>
+				<MultiTrigger.ExitActions>
+					<BeginStoryboard Storyboard="{StaticResource MouseOverExitStoryboard}" />
+				</MultiTrigger.ExitActions>
+			</MultiTrigger>
+			<Trigger Property="IsSelected" Value="True">
+				<Setter TargetName="CommonStatesVisual" Property="Visibility" Value="Visible" />
+				<Setter TargetName="CommonStatesVisual" Property="Background" Value="{StaticResource AppointmentItemBackground_Selected}" />
+				<Setter TargetName="CommonStatesVisual" Property="BorderBrush" Value="{StaticResource AppointmentItemOuterBorder_Selected}" />
+				<Setter TargetName="CommonStatesVisualInnerBorder" Property="BorderBrush" Value="{StaticResource AppointmentItemInnerBorder_Selected}" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+		
+	</ControlTemplate>
+	<DataTemplate x:Key="AppointmentItemTemplate">
+		<TextBlock Text="{Binding Subject}" TextWrapping="Wrap" TextTrimming="WordEllipsis" dragDrop:DragDropManager.AllowDrag="False" />
+	</DataTemplate>
+	<DataTemplate x:Key="InlineEditTemplate">
+		<TextBox VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding Appointment.Subject, Mode=TwoWay}" TextWrapping="Wrap" telerik:StyleManager.Theme="{StaticResource Theme}" />
+	</DataTemplate>
+	<DataTemplate x:Key="ToolTipTemplate">
+		<StackPanel Orientation="Horizontal">
+			<TextBlock Text="{Binding Subject}" TextWrapping="Wrap" MaxWidth="200" />
+			<StackPanel x:Name="HighImportanceMark" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Visibility="{Binding Importance, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=High}" Margin="5 0 0 0">
+				<Path Stretch="Fill" Width="5.451" Height="10" HorizontalAlignment="Center" VerticalAlignment="Top" Data="M200.39647,58.840393 C200.39337,58.336426 201.14566,57.683922 202.56244,57.684292 C204.06589,57.684685 204.73764,58.357765 204.72783,58.992363 C205.04649,61.795574 203.04713,64.181099 202.47388,66.133446 C201.93753,64.154961 199.9471,61.560352 200.39647,58.840393 z">
+					<Path.Fill>
+						<LinearGradientBrush EndPoint="1.059,0.375" StartPoint="-0.457,0.519">
+							<GradientStop Color="#FFFF0606" Offset="0.609" />
+							<GradientStop Color="#FFBF0303" Offset="0.927" />
+						</LinearGradientBrush>
+					</Path.Fill>
+				</Path>
+				<Ellipse Height="3" HorizontalAlignment="Center" Margin="0,-1,0,0" VerticalAlignment="Top" Width="3">
+					<Ellipse.Fill>
+						<RadialGradientBrush>
+							<GradientStop Color="#FFFF0606" Offset="0" />
+							<GradientStop Color="#FFBF0303" Offset="1" />
+						</RadialGradientBrush>
+					</Ellipse.Fill>
+				</Ellipse>
+			</StackPanel>
+			<Path x:Name="LowImportanceMark" Margin="5 0 0 0" Grid.Column="1" Width="9" Height="12" HorizontalAlignment="Right" VerticalAlignment="Center" Stretch="Fill" Stroke="#FF0365A7" Visibility="{Binding Importance, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Low}" Data="M222.40353,60.139881 L226.65768,60.139843 L226.63687,67.240196 L229.15347,67.240196 L224.37816,71.394943 L219.65274,67.240196 L222.37572,67.219345 z">
+				<Path.Fill>
+					<LinearGradientBrush EndPoint="1.059,0.375" StartPoint="-0.457,0.519">
+						<GradientStop Color="#FFBBE4FF" />
+						<GradientStop Color="#FF024572" Offset="0.836" />
+						<GradientStop Color="#FF43ADF4" Offset="0.466" />
+					</LinearGradientBrush>
+				</Path.Fill>
+			</Path>
+		</StackPanel>
+	</DataTemplate>
+
+	<local:AppointmentItemContentTemplateSelector x:Key="AppointmentItemTemplateSelector" DefaultTemplate="{StaticResource AppointmentItemTemplate}" />
+
+	<Style x:Key="AppointmentItemBaseStyle" TargetType="local:AppointmentItem">
+		<Setter Property="Background" Value="{StaticResource AppointmentItemBackground}" />
+		<Setter Property="BorderBrush" Value="{StaticResource AppointmentItemOuterBorder}" />
+		<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+		<Setter Property="VerticalContentAlignment" Value="Stretch" />
+		<Setter Property="Foreground" Value="{StaticResource RadScheduleForeground}" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Padding" Value="2 0 0 0" />
+		
+		<Setter Property="Focusable" Value="True" />
+		<Setter Property="ContentTemplateSelector" Value="{StaticResource AppointmentItemTemplateSelector}" />
+		
+		
+		<Setter Property="Template" Value="{StaticResource AppointmentItemHorizontalControlTemplate}" />
+		
+		<Setter Property="Panel.ZIndex" Value="1" />
+		
+		
+	</Style>
+
+	<local:OrientedAppointmentItemStyleSelector x:Key="AppointmentItemStyleSelector">
+		<local:OrientedAppointmentItemStyleSelector.MonthViewStyle>
+			<Style TargetType="local:AppointmentItem" BasedOn="{StaticResource AppointmentItemBaseStyle}">
+				<Setter Property="Margin" Value="2 1 2 0" />
+			</Style>
+		</local:OrientedAppointmentItemStyleSelector.MonthViewStyle>
+		<local:OrientedAppointmentItemStyleSelector.HorizontalStyle>
+			<Style TargetType="local:AppointmentItem" BasedOn="{StaticResource AppointmentItemBaseStyle}">
+				<Setter Property="Margin" Value="0 1 0 0" />
+			</Style>
+		</local:OrientedAppointmentItemStyleSelector.HorizontalStyle>
+		<local:OrientedAppointmentItemStyleSelector.VerticalStyle>
+			<Style TargetType="local:AppointmentItem" BasedOn="{StaticResource AppointmentItemBaseStyle}">
+				<Setter Property="Template" Value="{StaticResource AppointmentItemVerticalControlTemplate}" />
+				<Setter Property="Margin" Value="1 0 0 0" />
+			</Style>
+		</local:OrientedAppointmentItemStyleSelector.VerticalStyle>
+	</local:OrientedAppointmentItemStyleSelector>
+
+	<DataTemplate x:Key="DragVisualCueItemTemplate">
+		<Grid>
+			<Border Background="{StaticResource AppointmentItemBackground_Drag}" 
+					BorderBrush="{StaticResource AppointmentItemOuterBorder_Drag}" BorderThickness="1" CornerRadius="2">
+				<Border BorderBrush="{StaticResource AppointmentItemInnerBorder_Drag}" BorderThickness="0" />
+			</Border>
+			<TextBlock Margin="8 2 8 2" Text="{Binding Subject}" Foreground="{StaticResource RadScheduleForeground}" TextWrapping="Wrap" TextTrimming="WordEllipsis" />
+		</Grid>
+	</DataTemplate>
+
+	<!-- Highlights -->
+	<Style x:Key="HighlightItemStyle" TargetType="local:HighlightItem">
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="BorderBrush" Value="{x:Null}" />
+		<Setter Property="Background" Value="{StaticResource DecorationRectangleBackground}" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:HighlightItem">
+					<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="local:HighlightItem" BasedOn="{StaticResource HighlightItemStyle}" />
+	<Style x:Key="ResizeHighlightStyle" TargetType="local:HighlightItem">
+		<Setter Property="Background" Value="{StaticResource DecorationRectangleBackground_DragOver}" />
+		<Setter Property="BorderBrush" Value="{StaticResource DecorationRectangleOuterBorder_DragOver}" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+						<Grid>
+							<Border BorderBrush="{StaticResource DecorationRectangleInnerBorder_DragOver}" BorderThickness="0" />
+							<Path Width="8" Height="8" Margin="-2" HorizontalAlignment="Left" VerticalAlignment="Top" SnapsToDevicePixels="False"
+								 Stroke="{StaticResource AppointmentResizeCueTopLeftMarkStroke}">
+								<Path.Data>
+									<GeometryGroup>
+										<EllipseGeometry RadiusX="2" RadiusY="2" Center="2 2" />
+										<LineGeometry StartPoint="3 3" EndPoint="8 8" />
+									</GeometryGroup>
+								</Path.Data>
+							</Path>
+
+							<TextBlock x:Name="StartTextBox" Margin="4 2" Foreground="{StaticResource RadScheduleForeground}" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding ActualStart,StringFormat=t}" />
+								<Path Width="8" Height="8" Margin="-2" HorizontalAlignment="Right" VerticalAlignment="Bottom" SnapsToDevicePixels="False"
+								 Stroke="{StaticResource AppointmentResizeCueBottomRightMarkStroke}">
+								<Path.Data>
+									<GeometryGroup>
+										<EllipseGeometry RadiusX="2" RadiusY="2" Center="6 6" />
+										<LineGeometry StartPoint="0 0" EndPoint="5 5" />
+									</GeometryGroup>
+								</Path.Data>
+							</Path>
+							<TextBlock x:Name="EndTextBox" Margin="4 2" Foreground="{StaticResource RadScheduleForeground}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Text="{Binding ActualEnd,StringFormat=t}" />
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="DragDropHighlightStyle" TargetType="local:HighlightItem">
+		<Setter Property="Background" Value="{StaticResource DecorationRectangleBackground_DragOver}" />
+		<Setter Property="BorderBrush" Value="{StaticResource DecorationRectangleOuterBorder_DragOver}" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+						<Grid>
+							<Border BorderBrush="{StaticResource DecorationRectangleInnerBorder_DragOver}" BorderThickness="0" />
+							<Path Width="8" Height="8" Margin="-2" HorizontalAlignment="Left" VerticalAlignment="Top" SnapsToDevicePixels="False"
+								 Stroke="{StaticResource AppointmentResizeCueTopLeftMarkStroke}">
+								<Path.Data>
+									<GeometryGroup>
+										<EllipseGeometry RadiusX="2" RadiusY="2" Center="2 2" />
+										<LineGeometry StartPoint="3 3" EndPoint="8 8" />
+									</GeometryGroup>
+								</Path.Data>
+							</Path>
+
+							<TextBlock x:Name="StartTextBox" Margin="4 2" Foreground="{StaticResource RadScheduleForeground}" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding ActualStart,StringFormat=t}" />
+							
+							<Path Width="8" Height="8" Margin="-2" HorizontalAlignment="Right" VerticalAlignment="Bottom" SnapsToDevicePixels="False"
+								 Stroke="{StaticResource AppointmentResizeCueBottomRightMarkStroke}">
+								<Path.Data>
+									<GeometryGroup>
+										<EllipseGeometry RadiusX="2" RadiusY="2" Center="6 6" />
+										<LineGeometry StartPoint="0 0" EndPoint="5 5" />
+									</GeometryGroup>
+								</Path.Data>
+							</Path>
+							<TextBlock x:Name="EndTextBox" Margin="4 2" Foreground="{StaticResource RadScheduleForeground}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Text="{Binding ActualEnd,StringFormat=t}" />
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="MouseOverHighlightStyle" TargetType="local:HighlightItem">
+		<Setter Property="Background" Value="{StaticResource DecorationRectangleBackground_MouseOver}" />
+		<Setter Property="BorderBrush" Value="{StaticResource DecorationRectangleOuterBorder_MouseOver}" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+						<Border BorderBrush="{StaticResource DecorationRectangleInnerBorder_MouseOver}" BorderThickness="0" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="SelectionHighlightStyle" TargetType="local:HighlightItem">
+		<Setter Property="Background" Value="{StaticResource DecorationRectangleBackground_Selected}" />
+		<Setter Property="BorderBrush" Value="{StaticResource DecorationRectangleOuterBorder_Selected}" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+						<Border BorderBrush="{StaticResource DecorationRectangleInnerBorder_Selected}" BorderThickness="0" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<local:SpecialSlotStyleSelector x:Key="SpecialSlotStyleSelector">
+		<local:SpecialSlotStyleSelector.DefaultStyle>
+			<Style TargetType="local:HighlightItem" BasedOn="{StaticResource HighlightItemStyle}">
+				<Setter Property="BorderThickness" Value="0" />
+				<Setter Property="Background" Value="{StaticResource SpecialSlotBackground}" />
+			</Style>
+		</local:SpecialSlotStyleSelector.DefaultStyle>
+		<local:SpecialSlotStyleSelector.ReadOnlyStyle>
+			<Style TargetType="local:HighlightItem" BasedOn="{StaticResource HighlightItemStyle}">
+				<Setter Property="BorderThickness" Value="0" />
+				<Setter Property="Background" Value="{StaticResource SpecialSlotBackground_ReadOnly}" />
+			</Style>
+		</local:SpecialSlotStyleSelector.ReadOnlyStyle>
+	</local:SpecialSlotStyleSelector>
+
+	<!-- ViewModeSelection -->
+	<Style x:Key="ViewModeSelectionListBoxItemStyle" TargetType="ListBoxItem">
+		<Setter Property="IsTabStop" Value="False" />
+		<Setter Property="Margin" Value="2" />
+		<Setter Property="Padding" Value="6 3" />
+		<Setter Property="MinWidth" Value="84" />
+		<Setter Property="Foreground" Value="{StaticResource ViewModeButtonForeground}"  />
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="IsTabStop" Value="False" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ListBoxItem">
+					<Grid>
+						
+						<Border x:Name="CheckOuterBorder" CornerRadius="1" BorderThickness="1" BorderBrush="{StaticResource ViewModeButtonOuterBorder}" Background="{StaticResource ViewModeButtonBackground}">
+						</Border>
+						
+						<ContentPresenter x:Name="Content" telerik:LocalizationManager.ResourceKey="{Binding Title, FallbackValue={x:Null}}" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" />
+						
+						
+					</Grid>
+					
+					<!-- TODO: Silverlight - visual states -->
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Foreground" Value="{StaticResource ViewModeButtonForeground_MouseOver}" />
+							<Setter TargetName="CheckOuterBorder" Property="BorderBrush" Value="{StaticResource ViewModeButtonOuterBorder_MouseOver}" />
+							<Setter TargetName="CheckOuterBorder" Property="Background" Value="{StaticResource ViewModeButtonBackground_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsSelected" Value="True">
+							<Setter TargetName="CheckOuterBorder" Property="BorderBrush" Value="{StaticResource ViewModeButtonOuterBorder_Pressed}" />
+							<Setter TargetName="CheckOuterBorder" Property="Background" Value="{StaticResource ViewModeButtonBackground_Pressed}" />
+							<Setter Property="Foreground" Value="{StaticResource ViewModeButtonForeground_Pressed}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="ViewModeSelectionListBoxStyle" TargetType="ListBox">
+		<Setter Property="BorderBrush" Value="{x:Null}" />
+		<Setter Property="Background" Value="{x:Null}" />
+		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="Margin" Value="2" />
+		<Setter Property="IsTabStop" Value="False" />
+		<Setter Property="ItemContainerStyle" Value="{StaticResource ViewModeSelectionListBoxItemStyle}" />
+		<Setter Property="ItemsPanel">
+			<Setter.Value>
+				<ItemsPanelTemplate>
+					<telerikPrimitives:RadUniformGrid Rows="1" />
+				</ItemsPanelTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- ScheduleView -->
+	<!-- Navigation -->
+	<Style x:Key="NavigationButtonBaseStyle" TargetType="FrameworkElement">
+		<Setter Property="Margin" Value="2" />
+		<Setter Property="Width" Value="22" />
+		<Setter Property="Height" Value="22" />
+		
+		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
+		
+		<Setter Property="HorizontalAlignment" Value="Center" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+	</Style>
+	<Style x:Key="NavigationButtonBackStyle" TargetType="telerik:RadButton" BasedOn="{StaticResource NavigationButtonBaseStyle}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadButton">
+					<Grid>
+						
+						<Border x:Name="CheckOuterBorder" CornerRadius="1" BorderThickness="1" BorderBrush="{StaticResource ViewModeButtonOuterBorder}" Background="{StaticResource ViewModeButtonBackground}">
+						</Border>
+						<Path x:Name="IconBackground" Width="4" Height="7" Margin="0 1 0 0" Fill="{StaticResource NavigationIconBackground_Normal}" Data="M4,0 L0,3.5 4,7 Z" />
+						<Path x:Name="IconForeground" Width="4" Height="7" Margin="0 0 0 1" Fill="{StaticResource NavigationIconForeground_Normal}" Data="M4,0 L0,3.5 4,7 Z" />
+					</Grid>
+					
+					<!-- TODO: Silverlight - visual states -->
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="IconForeground" Property="Fill" Value="{StaticResource NavigationIconForeground_Highlighted}" />
+							<Setter TargetName="IconBackground" Property="Fill" Value="{StaticResource NavigationIconBackground_Highlighted}" />
+							<Setter TargetName="CheckOuterBorder" Property="BorderBrush" Value="{StaticResource ViewModeButtonOuterBorder_MouseOver}" />
+							<Setter TargetName="CheckOuterBorder" Property="Background" Value="{StaticResource ViewModeButtonBackground_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="IconForeground" Property="Fill" Value="{StaticResource NavigationIconForeground_Highlighted}" />
+							<Setter TargetName="IconBackground" Property="Fill" Value="{StaticResource NavigationIconBackground_Highlighted}" />
+							<Setter TargetName="CheckOuterBorder" Property="BorderBrush" Value="{StaticResource ViewModeButtonOuterBorder_Pressed}" />
+							<Setter TargetName="CheckOuterBorder" Property="Background" Value="{StaticResource ViewModeButtonBackground_Pressed}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="NavigationButtonNextStyle" TargetType="telerik:RadButton" BasedOn="{StaticResource NavigationButtonBaseStyle}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadButton">
+					<Grid>
+						
+						<Border x:Name="CheckOuterBorder" CornerRadius="1" BorderThickness="1" BorderBrush="{StaticResource ViewModeButtonOuterBorder}" Background="{StaticResource ViewModeButtonBackground}">
+						</Border>
+						<Path x:Name="IconBackground" Width="4" Height="7" Margin="0 1 0 0" Fill="{StaticResource NavigationIconBackground_Normal}" Data="M0,0 L4,3.5 0,7 Z" />
+						<Path x:Name="IconForeground" Width="4" Height="7" Margin="0 0 0 1" Fill="{StaticResource NavigationIconForeground_Normal}" Data="M0,0 L4,3.5 0,7 Z" />
+					</Grid>
+					
+					<!-- TODO: Silverlight - visual states -->
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="IconForeground" Property="Fill" Value="{StaticResource NavigationIconForeground_Highlighted}" />
+							<Setter TargetName="IconBackground" Property="Fill" Value="{StaticResource NavigationIconBackground_Highlighted}" />
+							<Setter TargetName="CheckOuterBorder" Property="BorderBrush" Value="{StaticResource ViewModeButtonOuterBorder_MouseOver}" />
+							<Setter TargetName="CheckOuterBorder" Property="Background" Value="{StaticResource ViewModeButtonBackground_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="IconForeground" Property="Fill" Value="{StaticResource NavigationIconForeground_Highlighted}" />
+							<Setter TargetName="IconBackground" Property="Fill" Value="{StaticResource NavigationIconBackground_Highlighted}" />
+							<Setter TargetName="CheckOuterBorder" Property="BorderBrush" Value="{StaticResource ViewModeButtonOuterBorder_Pressed}" />
+							<Setter TargetName="CheckOuterBorder" Property="Background" Value="{StaticResource ViewModeButtonBackground_Pressed}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="NavigationCalendarToggleButton" TargetType="telerik:RadDropDownButton" BasedOn="{StaticResource NavigationButtonBaseStyle}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadDropDownButton">
+					<Grid>
+						
+						<Border x:Name="CheckOuterBorder" CornerRadius="1" BorderThickness="1" BorderBrush="{StaticResource ViewModeButtonOuterBorder}" Background="{StaticResource ViewModeButtonBackground}">
+						</Border>
+						<ContentControl x:Name="CalendarIcon" IsTabStop="False" Margin="0 0 0 1"  HorizontalContentAlignment="Center" Template="{StaticResource CalendarIcon}" Background="{StaticResource NavigationIconBackground_Normal}" Foreground="{StaticResource NavigationIconForeground_Normal}" />
+						<Popup x:Name="DropDownPopup" AllowsTransparency="True" StaysOpen="False" Focusable="false" Placement="Bottom"
+							 IsOpen="{Binding Path=IsOpen, RelativeSource={RelativeSource TemplatedParent}}">
+							<ContentPresenter x:Name="DropDownPopupContent" Content="{TemplateBinding DropDownContent}" ContentTemplate="{TemplateBinding DropDownContentTemplate}" DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=DataContext}"/>
+						</Popup>
+					</Grid>
+					
+					<!-- TODO: Silverlight - visual states -->
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="CalendarIcon" Property="Foreground" Value="{StaticResource NavigationIconForeground_Highlighted}" />
+							<Setter TargetName="CalendarIcon" Property="Background" Value="{StaticResource NavigationIconBackground_Highlighted}" />
+							<Setter TargetName="CheckOuterBorder" Property="BorderBrush" Value="{StaticResource ViewModeButtonOuterBorder_MouseOver}" />
+							<Setter TargetName="CheckOuterBorder" Property="Background" Value="{StaticResource ViewModeButtonBackground_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="CalendarIcon" Property="Foreground" Value="{StaticResource NavigationIconForeground_Highlighted}" />
+							<Setter TargetName="CalendarIcon" Property="Background" Value="{StaticResource NavigationIconBackground_Highlighted}" />
+							<Setter TargetName="CheckOuterBorder" Property="BorderBrush" Value="{StaticResource ViewModeButtonOuterBorder_Pressed}" />
+							<Setter TargetName="CheckOuterBorder" Property="Background" Value="{StaticResource ViewModeButtonBackground_Pressed}" />
+						</Trigger>
+						<Trigger Property="IsOpen" Value="True">
+							<Setter TargetName="CalendarIcon" Property="Foreground" Value="{StaticResource NavigationIconForeground_Highlighted}" />
+							<Setter TargetName="CalendarIcon" Property="Background" Value="{StaticResource NavigationIconBackground_Highlighted}" />
+							<Setter TargetName="CheckOuterBorder" Property="BorderBrush" Value="{StaticResource ViewModeButtonOuterBorder_Pressed}" />
+							<Setter TargetName="CheckOuterBorder" Property="Background" Value="{StaticResource ViewModeButtonBackground_Pressed}" />
+							<Setter TargetName="CheckOuterBorder" Property="Visibility" Value="Visible" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="NavigationDateTimePickerStyle" TargetType="telerik:RadDatePicker">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadDatePicker">
+					<telerik:RadDropDownButton Style="{StaticResource NavigationCalendarToggleButton}" DropDownIndicatorVisibility="Collapsed" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+						<telerik:RadDropDownButton.DropDownContent>
+							<telerik:RadCalendar x:Name="PART_Calendar" IsReadOnly="{TemplateBinding IsReadOnly}" DateSelectionMode="{TemplateBinding DateSelectionMode}" Culture="{TemplateBinding Culture}" SelectionMode="Single" DisplayDateStart="{TemplateBinding DisplayDateStart}" DisplayDateEnd="{TemplateBinding DisplayDateEnd}" SelectableDateStart="{TemplateBinding SelectableDateStart}" SelectableDateEnd="{TemplateBinding SelectableDateEnd}" DisplayDate="{Binding DisplayDate, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" SelectedDate="{Binding SelectedDate, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" telerik:StyleManager.Theme="{StaticResource Theme}"/>
+						</telerik:RadDropDownButton.DropDownContent>
+					</telerik:RadDropDownButton>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="NavigationIntervalStyle" TargetType="ContentControl">
+		<Setter Property="Margin" Value="5" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Right" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="ContentTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<Grid>
+						<TextBlock Margin="0 1 0 0" Text="{Binding}" Foreground="{StaticResource NavigationIntervalForegroundRear}" />
+						<TextBlock Margin="0 0 0 1" Text="{Binding}" Foreground="{StaticResource NavigationIntervalForegroundFront}" />
+					</Grid>
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<DataTemplate x:Key="DragVisualContentTemplate">
+		<TextBlock Text="{Binding Converter={StaticResource DraggedAppointmentsToLocalizedStringConverter}}" TextWrapping="Wrap" MaxWidth="200" MaxHeight="66" TextTrimming="WordEllipsis" />
+	</DataTemplate>
+			
+	<Style TargetType="local:DragVisual" x:Key="DragVisualStyle" >
+		<Setter Property="Foreground" Value="{StaticResource DragVisualForeground}" />
+		<Setter Property="BorderBrush" Value="{StaticResource DragVisualBorder}" />
+		<Setter Property="Background" Value="{StaticResource DragVisualBackground}" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Margin" Value="10 0 0 0" />
+		<Setter Property="Padding" Value="0 0 6 0" />
+		<Setter Property="HorizontalContentAlignment" Value="Left" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:DragVisual">
+					<Grid>
+						
+						<Border x:Name="SecondItemVisual" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=DraggedItemsSource, Converter={StaticResource EnumerableCountToVisibilityConverter}, ConverterParameter=3}" CornerRadius="2" Margin="4 4 0 0" BorderBrush="{StaticResource DragVisualMultyItemBorder}" Background="{StaticResource DragVisualMultyItemBackground}" BorderThickness="1" />
+						<Border x:Name="ThirdthItemVisual" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=DraggedItemsSource, Converter={StaticResource EnumerableCountToVisibilityConverter}, ConverterParameter=2}" CornerRadius="2" Margin="2 2 2 2" BorderBrush="{StaticResource DragVisualMultyItemBorder}" Background="{StaticResource DragVisualMultyItemBackground}" BorderThickness="1" />
+						<Border x:Name="DragBackgroundVisual" CornerRadius="2" Margin="0 0 4 4" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" />
+						<Border Margin="0 0 4 4" Padding="{TemplateBinding BorderThickness}">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto" />
+									<ColumnDefinition Width="*" />
+								</Grid.ColumnDefinitions>
+
+								<Path x:Name="NoneEffect" Visibility="Collapsed" Margin="5" Width="10" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Data="M2,8 L8,2 M9,5 C9,7.2 7.2,9 5,9 C2.7,9 1,7 1,5 C1,2.8 2.8,1 5,1 C7.2,1 9,2.8 9,5 z" Stroke="{StaticResource DragVisualEffectImportant}" StrokeThickness="2" />
+								<Path x:Name="MoveEffect" Visibility="Collapsed" Margin="5" Width="10" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Data="M0,5 L8,5 M4,1 L8,5 4,9" Stroke="{StaticResource DragVisualEffectNormal}" StrokeThickness="2" />
+								<Path x:Name="CopyEffect" Visibility="Collapsed" Margin="5" Width="10" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Data="M5,1 L5,9 M1,5 L9,5" Stroke="{StaticResource DragVisualEffectNormal}" StrokeThickness="2" />
+								<Path x:Name="LinkEffect" Visibility="Collapsed" Margin="5 7 4 7" Height="6" Width="11" HorizontalAlignment="Left" VerticalAlignment="Top" Data="M8,0.5 C9.4,0.5 10.5,1.6 10.5,3 C10.5,4.4 9.4,5.5 8,5.5 C6.6,5.5 5.5,4.4 5.5,3 C5.5,1.6 6.6,0.5 8,0.5 z M3,0.5 C4.4,0.5 5.5,1.6 5.5,3 C5.5,4.4 4.4,5.5 3,5.5 C1.6,5.5 0.5,4.4 0.5,3 C0.5,1.6 1.6,0.5 3,0.5 z" Stroke="{StaticResource DragVisualEffectImportant}" StrokeThickness="1" />
+								<Path x:Name="ScrollEffect" Visibility="Collapsed" Margin="5 4" Width="10" Height="12" HorizontalAlignment="Left" VerticalAlignment="Top" Data="M0,5 L5,0 10,5Z M0,7 L5,12 10,7Z" Fill="{StaticResource DragVisualEffectNormal}" />
+
+								<ContentPresenter x:Name="Content" Grid.Column="1" Margin="{TemplateBinding Padding}" Content="{TemplateBinding DraggedItemsSource}" ContentTemplate="{TemplateBinding ContentTemplate}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+							</Grid>
+						</Border>
+					</Grid>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="Effects" Value="None">
+							<Setter TargetName="NoneEffect" Property="Visibility" Value="Visible" />
+						</Trigger>
+						<Trigger Property="Effects" Value="All">
+							<Setter TargetName="MoveEffect" Property="Visibility" Value="Visible" />
+						</Trigger>
+						<Trigger Property="Effects" Value="Move">
+							<Setter TargetName="MoveEffect" Property="Visibility" Value="Visible" />
+						</Trigger>
+						<Trigger Property="Effects" Value="Copy">
+							<Setter TargetName="CopyEffect" Property="Visibility" Value="Visible" />
+						</Trigger>
+						<Trigger Property="Effects" Value="Move, Scroll">
+							<Setter TargetName="MoveEffect" Property="Visibility" Value="Visible" />
+						</Trigger>
+						<Trigger Property="Effects" Value="Copy, Scroll">
+							<Setter TargetName="CopyEffect" Property="Visibility" Value="Visible" />
+						</Trigger>
+						<Trigger Property="Effects" Value="Link">
+							<Setter TargetName="LinkEffect" Property="Visibility" Value="Visible" />
+						</Trigger>
+						<Trigger Property="Effects" Value="Scroll">
+							<Setter TargetName="ScrollEffect" Property="Visibility" Value="Visible" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<ControlTemplate x:Key="RadScheduleViewControlTemplate" TargetType="local:RadScheduleView">
+		<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+			
+			<Grid>
+				
+				<Grid.InputBindings>
+					<KeyBinding Key="Del" Command="local:RadScheduleViewCommands.DeleteAppointment" />
+					<KeyBinding Command="local:RadScheduleViewCommands.CreateAppointment" Key="O" Modifiers="Alt" />
+					<KeyBinding Command="local:RadScheduleViewCommands.CreateInlineAppointment" Key="Insert" />
+				</Grid.InputBindings>
+				
+				
+
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<Border x:Name="NavigationHeader" Visibility="{TemplateBinding NavigationHeaderVisibility}" BorderBrush="{StaticResource SchedulerHeaderOuterBorder}" Background="{StaticResource SchedulerHeaderBackground}" BorderThickness="1">
+					<Border BorderBrush="{StaticResource SchedulerHeaderInnerBorder}" BorderThickness="0">
+						<Grid x:Name="ScheduleViewHeader">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+							<ListBox x:Name="ViewModeSelection" Grid.Column="0" Style="{StaticResource ViewModeSelectionListBoxStyle}" SelectionMode="Single" ItemsSource="{TemplateBinding ViewDefinitions}"
+									SelectedIndex="{Binding ActiveViewDefinitionIndex, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+							<StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+								<ContentControl x:Name="CurrentInterval" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource NavigationIntervalStyle}" Content="{TemplateBinding CurrentVisibleRangeText}" />
+								<telerik:RadButton Style="{StaticResource NavigationButtonBackStyle}" Command="local:RadScheduleViewCommands.DecreaseVisibleDateLarge" />
+								<telerik:RadDatePicker x:Name="PART_NavigationPicker" Style="{StaticResource NavigationDateTimePickerStyle}" SelectedValue="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CurrentDate, Mode=TwoWay}" />
+								<telerik:RadButton Style="{StaticResource NavigationButtonNextStyle}" Command="local:RadScheduleViewCommands.IncreaseVisibleDateLarge" />
+							</StackPanel>
+						</Grid>
+					</Border>
+				</Border>
+
+				<telerik:RadTransitionControl x:Name="PART_TranstionControl" Grid.Row="1" Duration="00:00:00.500">
+
+					<telerik:RadTransitionControl.Transition>
+						<telerik:SlideAndZoomTransition MinZoom="1" />
+					</telerik:RadTransitionControl.Transition>
+
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+
+						<Border x:Name="HeadersHeight" Grid.ColumnSpan="3" Height="{TemplateBinding HeadersLength}" />
+						<Border x:Name="HeadersWidth" Grid.RowSpan="3" Width="{TemplateBinding HeadersLength}" />
+					
+						<!-- TODO: Silverlight - workaround ClipToBounds -->
+						<local:TimeRulerPanel x:Name="PART_TimeRulerPanel" Grid.Row="0" Grid.Column="1" ClipToBounds="True"
+							 Orientation="{TemplateBinding EffectiveOrientation}" Offset="{Binding HorizontalOffset, RelativeSource={RelativeSource TemplatedParent}}" />
+							<local:AppointmentsPanel x:Name="PART_ItemsHost" Panel.ZIndex="1"
+								
+								 Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="{x:Null}" Orientation="{TemplateBinding EffectiveOrientation}">
+
+							</local:AppointmentsPanel>
+
+							<telerikPrimitives:LayoutTransformControl
+									Grid.Row="1" Grid.Column="1"
+									VerticalAlignment="Center" HorizontalAlignment="Right" 
+									Visibility="{TemplateBinding ComputedAppointmentNavigationButtonsVisibility}"
+									Canvas.ZIndex="1"
+									>
+								<telerikPrimitives:LayoutTransformControl.LayoutTransform>
+									<RotateTransform Angle="-90" />
+								</telerikPrimitives:LayoutTransformControl.LayoutTransform>
+								<telerik:RadButton CornerRadius="2 2 0 0" HorizontalContentAlignment="Stretch" Command="local:RadScheduleViewCommands.GoToNextAppointment" telerik:StyleManager.Theme="{StaticResource Theme}">
+									<Grid Width="160">
+										<TextBlock telerik:LocalizationManager.ResourceKey="NextAppointment" HorizontalAlignment="Center" VerticalAlignment="Center" />
+										<TextBlock Text="▼" FontSize="8" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8 0" />
+									</Grid>
+								</telerik:RadButton>
+							</telerikPrimitives:LayoutTransformControl>
+
+							<telerikPrimitives:LayoutTransformControl
+									Grid.Row="1" Grid.Column="1"
+									VerticalAlignment="Center" HorizontalAlignment="Left"
+									Visibility="{TemplateBinding ComputedAppointmentNavigationButtonsVisibility}"
+									Canvas.ZIndex="1"
+									>
+								<telerikPrimitives:LayoutTransformControl.LayoutTransform>
+									<RotateTransform Angle="-90" />
+								</telerikPrimitives:LayoutTransformControl.LayoutTransform>
+
+								<telerik:RadButton CornerRadius="0 0 2 2" Command="local:RadScheduleViewCommands.GoToPreviousAppointment" telerik:StyleManager.Theme="{StaticResource Theme}">
+									<Grid Width="160">
+										<TextBlock telerik:LocalizationManager.ResourceKey="Prev Appointment" HorizontalAlignment="Center" VerticalAlignment="Center" />
+										<TextBlock Text="▲" FontSize="8" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="8 0" />
+									</Grid>
+								</telerik:RadButton>
+								
+							</telerikPrimitives:LayoutTransformControl>
+
+									<!-- TODO: Silverlight - workaround ClipToBounds -->
+									<local:TimeRulerLinesPanel x:Name="PART_TimeRulerLinesPanel" Grid.Row="1" Grid.Column="1" ClipToBounds="True"
+										 Orientation="{TemplateBinding EffectiveOrientation}" PixelLength="{TemplateBinding EffectivePixelLength}">
+                            <local:TimeRulerLinesPanel.Background>
+                                <SolidColorBrush Color="Transparent"></SolidColorBrush>
+                                <!--GRADIENT<LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStopCollection>
+                                        <GradientStop Color="Green" Offset="0"></GradientStop>
+                                        <GradientStop Color="Red" Offset="1"></GradientStop>
+                                    </GradientStopCollection>
+                                </LinearGradientBrush>-->
+                            </local:TimeRulerLinesPanel.Background>
+
+                                <!-- TODO: Silverlight - workaround InputBindings -->
+										<local:TimeRulerLinesPanel.InputBindings>
+											<KeyBinding Command="local:RadScheduleViewCommands.CreateAppointment" Key="O" Modifiers="Ctrl" />
+								
+									<MouseBinding MouseAction="LeftDoubleClick" Command="local:RadScheduleViewCommands.CreateAppointment" />
+										</local:TimeRulerLinesPanel.InputBindings>
+										
+										
+									</local:TimeRulerLinesPanel>
+
+									<!-- TODO: Silverlight - workaround ClipToBounds -->
+									<local:HighlightPanel 
+							x:Name="PART_HighlightPanel" 
+							Grid.Row="1" 
+							Grid.Column="1" 
+							HorizontalAlignment="Left" 
+							VerticalAlignment="Top" 
+							Background="Transparent" 
+							Orientation="{TemplateBinding EffectiveOrientation}" 
+							PixelLength="{TemplateBinding EffectivePixelLength}"
+							IsHitTestVisible="False"
+							
+										ClipToBounds="True" 
+							Panel.ZIndex="1"
+										
+										 >
+									</local:HighlightPanel>
+
+									<Border x:Name="AppointmentsBorder" Grid.Row="1" Grid.Column="1" SnapsToDevicePixels="True" BorderBrush="{StaticResource GroupHeaderBorderBrush}" BorderThickness="1" />
+
+									<Border x:Name="VerticalHeadersBorder" Grid.Row="1" Grid.Column="0" BorderBrush="{StaticResource GroupHeaderHeaderOuterBorder_Vertical}" BorderThickness="0 1" Panel.ZIndex="3"
+										
+										 />
+										<Border x:Name="HorizontalHeadersBorder" Grid.Row="0" Grid.Column="1" BorderBrush="{StaticResource GroupHeaderHeaderOuterBorder}" BorderThickness="1 0" Panel.ZIndex="3"
+											
+											 />
+
+											<ScrollBar x:Name="PART_HorizontalScrollBar"
+								Grid.Row="2" Grid.Column="1"
+								Orientation="Horizontal"
+								ViewportSize="{TemplateBinding ViewportWidth}"
+								Maximum="{TemplateBinding ExtentWidth}"
+								Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+								SmallChange="{TemplateBinding HorizontalSmallChange}"
+								LargeChange="{TemplateBinding HorizontalLargeChange}"
+								telerik:StyleManager.Theme="{StaticResource Theme}" />
+
+											<ScrollBar x:Name="PART_VerticalScrollBar"
+								Grid.Row="1" Grid.Column="2"
+								Orientation="Vertical"
+								ViewportSize="{TemplateBinding ViewportHeight}"
+								Maximum="{TemplateBinding ExtentHeight}"
+								Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+								SmallChange="{TemplateBinding VerticalSmallChange}"
+								LargeChange="{TemplateBinding VerticalLargeChange}"
+								telerik:StyleManager.Theme="{StaticResource Theme}" />
+
+											<Grid x:Name="WarningsPanel" Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="3" Panel.ZIndex="2"
+												
+												 >
+												<Grid x:Name="ViewDefinitionWarning" Background="White" Visibility="{Binding ActiveViewDefinition, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource InvertedNullToVisibilityConverter}}">
+													<TextBlock Text="Please select a View definition" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" />
+												</Grid>
+												<Grid x:Name="AppointmentSourceWarning" Background="White" Visibility="{Binding AppointmentsSource, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource InvertedNullToVisibilityConverter}}">
+													<TextBlock Text="Please provide an AppointmentsSource" FontSize="32" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" />
+												</Grid>
+											</Grid>
+					</Grid>
+				</telerik:RadTransitionControl>
+			</Grid>
+		</Border>
+		
+		<ControlTemplate.Triggers>
+			<Trigger Property="EffectiveOrientation" Value="Horizontal">
+				<Setter TargetName="HeadersHeight" Property="Visibility" Value="Collapsed" />
+
+			</Trigger>
+			<Trigger Property="EffectiveOrientation" Value="Vertical">
+				<Setter TargetName="HeadersWidth" Property="Visibility" Value="Collapsed" />
+
+				<Setter TargetName="PART_ItemsHost" Property="Grid.Column" Value="1" />
+				<Setter TargetName="PART_ItemsHost" Property="Grid.ColumnSpan" Value="1" />
+				<Setter TargetName="PART_ItemsHost" Property="Grid.Row" Value="0" />
+				<Setter TargetName="PART_ItemsHost" Property="Grid.RowSpan" Value="2" />
+
+				<Setter TargetName="PART_TimeRulerPanel" Property="Grid.Column" Value="0" />
+				<Setter TargetName="PART_TimeRulerPanel" Property="Grid.Row" Value="1" />
+				<Setter TargetName="PART_TimeRulerPanel" Property="Offset" Value="{Binding VerticalOffset, RelativeSource={RelativeSource TemplatedParent}}" />
+				<!--
+				<Setter TargetName="GroupHeadersBorder" Property="Grid.Row" Value="0" />
+				<Setter TargetName="GroupHeadersBorder" Property="Grid.Column" Value="1" />
+				<Setter TargetName="GroupHeadersBorder" Property="Margin" Value="0 0 0 -1" />
+				<Setter TargetName="GroupHeadersBorder" Property="BorderBrush" Value="{StaticResource GroupHeaderHeaderOuterBorder}" />
+				-->
+			</Trigger>
+		</ControlTemplate.Triggers>
+		
+	</ControlTemplate>
+
+	<local:CategoryCollection x:Key="DefaultCategoryCollection">
+		<local:Category CategoryName="Red Category" CategoryBrush="{StaticResource RedCategoryBrush}" />
+		<local:Category CategoryName="Green Category" CategoryBrush="{StaticResource GreenCategoryBrush}" />
+		<local:Category CategoryName="Blue Category" CategoryBrush="{StaticResource BlueCategoryBrush}" />
+		<local:Category CategoryName="Purple Category" CategoryBrush="{StaticResource PurpleCategoryBrush}" />
+		<local:Category CategoryName="Yellow Category" CategoryBrush="{StaticResource YellowCategoryBrush}" />
+		<local:Category CategoryName="Olive Category" CategoryBrush="{StaticResource OliveCategoryBrush}" />
+		<local:Category CategoryName="Pink Category" CategoryBrush="{StaticResource PinkCategoryBrush}" />
+		<local:Category CategoryName="Orange Category" CategoryBrush="{StaticResource OrangeCategoryBrush}" />
+	</local:CategoryCollection>
+	<local:TimeMarkerCollection x:Key="DefaultTimeMarkerCollection">
+		<local:TimeMarker TimeMarkerName="Free" TimeMarkerBrush="{StaticResource FreeMarkerBrush}" />
+		<local:TimeMarker TimeMarkerName="Tentative" TimeMarkerBrush="{StaticResource TentativeMarkerBrush}" />
+		<local:TimeMarker TimeMarkerName="Busy" TimeMarkerBrush="{StaticResource BusyMarkerBrush}" />
+		<local:TimeMarker TimeMarkerName="OutOfOffice" TimeMarkerBrush="{StaticResource OutOfOfficeMarkerBrush}" />
+	</local:TimeMarkerCollection>
+
+	<Style x:Key="ScheduleViewBaseStyle" TargetType="local:ScheduleViewBase">
+
+		<Setter Property="Foreground" Value="{StaticResource RadScheduleForeground}" />
+		<Setter Property="Background" Value="{StaticResource RadScheduleBackground}" />
+		<Setter Property="BorderBrush" Value="{StaticResource RadScheduleBorderBrush}" />
+		<Setter Property="BorderThickness" Value="0" />
+
+		<!-- GroupHeaders -->
+		<Setter Property="GroupHeaderStyleSelector" Value="{StaticResource GroupHeaderStyleSelector}" />
+		<Setter Property="GroupHeaderContentTemplateSelector" Value="{StaticResource GroupHeaderContentTemplateSelector}" />
+
+		<!-- TimeRuler -->
+		<Setter Property="TimeRulerItemStyleSelector" Value="{StaticResource TimeRulerItemStyleSelector}" />
+		<Setter Property="TimeRulerItemTemplateSelector" Value="{StaticResource TimeRulerItemTemplateSelector}" />
+
+		<!-- TimeSlot decorations -->
+		<Setter Property="ResizeHighlightStyle" Value="{StaticResource ResizeHighlightStyle}" />
+		<Setter Property="DragDropHighlightStyle" Value="{StaticResource DragDropHighlightStyle}" />
+		<Setter Property="MouseOverHighlightStyle" Value="{StaticResource MouseOverHighlightStyle}" />
+		<Setter Property="SelectionHighlightStyle" Value="{StaticResource SelectionHighlightStyle}" />
+		<Setter Property="SpecialSlotStyleSelector" Value="{StaticResource SpecialSlotStyleSelector}" />
+
+		<!-- AppointmentItem and decorations -->
+		<Setter Property="MinAppointmentWidth" Value="50" />
+		<Setter Property="AppointmentStyleSelector" Value="{StaticResource AppointmentItemStyleSelector}" />
+		<Setter Property="InlineEditingTemplate" Value="{StaticResource InlineEditTemplate}" />
+		<Setter Property="ToolTipTemplate" Value="{StaticResource ToolTipTemplate}" />
+
+		<!-- Drag Visual -->
+		<Setter Property="DragVisualStyle" Value="{StaticResource DragVisualStyle}"/>
+		<Setter Property="DragVisualTemplate" Value="{StaticResource DragVisualContentTemplate}" />
+		
+		<!-- Categories&Markers -->
+		<Setter Property="CategoriesSource" Value="{StaticResource DefaultCategoryCollection}" />
+		<Setter Property="TimeMarkersSource" Value="{StaticResource DefaultTimeMarkerCollection}" />
+
+		<!-- Dialog styles -->
+		<Setter Property="EditAppointmentDialogStyle" Value="{StaticResource EditAppointmentDialogStyle}" />
+		<Setter Property="EditRecurrenceDialogStyle" Value="{StaticResource EditRecurrenceDialogStyle}" />
+		<Setter Property="DeleteAppointmentConfirmDialogStyle" Value="{StaticResource DeleteAppointmentConfirmDialogStyle}" />
+		<Setter Property="RecurrenceChoiceDialogStyle" Value="{StaticResource RecurrenceChoiceDialogStyle}" />
+		<Setter Property="RecurrenceChoiceDeleteDialogStyle" Value="{StaticResource RecurrenceChoiceDeleteDialogStyle}" />
+		<Setter Property="RecurrenceChoiceResizeDialogStyle" Value="{StaticResource RecurrenceChoiceResizeDialogStyle}" />
+		<Setter Property="RecurrenceChoiceDragDropDialogStyle" Value="{StaticResource RecurrenceChoiceDragDropDialogStyle}" />
+	
+
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+	</Style>
+
+	<Style x:Key="RadScheduleViewStyle" TargetType="local:RadScheduleView">
+
+		<Setter Property="Foreground" Value="{StaticResource RadScheduleForeground}" />
+		<Setter Property="Background" Value="{StaticResource RadScheduleBackground}" />
+		<Setter Property="BorderBrush" Value="{StaticResource RadScheduleBorderBrush}" />
+		<Setter Property="BorderThickness" Value="0" />
+
+		<Setter Property="Template" Value="{StaticResource RadScheduleViewControlTemplate}" />
+
+		<!-- GroupHeaders -->
+		<Setter Property="GroupHeaderStyleSelector" Value="{StaticResource GroupHeaderStyleSelector}" />
+		<Setter Property="GroupHeaderContentTemplateSelector" Value="{StaticResource GroupHeaderContentTemplateSelector}" />
+
+		<!-- TimeRuler -->
+		<Setter Property="TimeRulerItemStyleSelector" Value="{StaticResource TimeRulerItemStyleSelector}" />
+		<Setter Property="TimeRulerItemTemplateSelector" Value="{StaticResource TimeRulerItemTemplateSelector}" />
+
+		<!-- TimeSlot decorations -->
+		<Setter Property="ResizeHighlightStyle" Value="{StaticResource ResizeHighlightStyle}" />
+		<Setter Property="DragDropHighlightStyle" Value="{StaticResource DragDropHighlightStyle}" />
+		<Setter Property="MouseOverHighlightStyle" Value="{StaticResource MouseOverHighlightStyle}" />
+		<Setter Property="SelectionHighlightStyle" Value="{StaticResource SelectionHighlightStyle}" />
+		<Setter Property="SpecialSlotStyleSelector" Value="{StaticResource SpecialSlotStyleSelector}" />
+
+		<!-- AppointmentItem and decorations -->
+		<Setter Property="MinAppointmentWidth" Value="50" />
+		<Setter Property="AppointmentStyleSelector" Value="{StaticResource AppointmentItemStyleSelector}" />
+		<Setter Property="InlineEditingTemplate" Value="{StaticResource InlineEditTemplate}" />
+		<Setter Property="ToolTipTemplate" Value="{StaticResource ToolTipTemplate}" />
+
+		<!-- Drag Visual -->
+		<Setter Property="DragVisualStyle" Value="{StaticResource DragVisualStyle}"/>
+		<Setter Property="DragVisualTemplate" Value="{StaticResource DragVisualContentTemplate}" />
+
+		<!-- Categories&Markers -->
+		<Setter Property="CategoriesSource" Value="{StaticResource DefaultCategoryCollection}" />
+		<Setter Property="TimeMarkersSource" Value="{StaticResource DefaultTimeMarkerCollection}" />
+
+		<!-- Dialog styles -->
+		<Setter Property="EditAppointmentDialogStyle" Value="{StaticResource EditAppointmentDialogStyle}" />
+		<Setter Property="EditRecurrenceDialogStyle" Value="{StaticResource EditRecurrenceDialogStyle}" />
+		<Setter Property="DeleteAppointmentConfirmDialogStyle" Value="{StaticResource DeleteAppointmentConfirmDialogStyle}" />
+		<Setter Property="RecurrenceChoiceDialogStyle" Value="{StaticResource RecurrenceChoiceDialogStyle}" />
+		<Setter Property="RecurrenceChoiceDeleteDialogStyle" Value="{StaticResource RecurrenceChoiceDeleteDialogStyle}" />
+		<Setter Property="RecurrenceChoiceResizeDialogStyle" Value="{StaticResource RecurrenceChoiceResizeDialogStyle}" />
+		<Setter Property="RecurrenceChoiceDragDropDialogStyle" Value="{StaticResource RecurrenceChoiceDragDropDialogStyle}" />
+
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+	</Style>
+
+	<!-- Theme style setter -->
+	<Style TargetType="local:RadScheduleView" BasedOn="{StaticResource RadScheduleViewStyle}" />
+	<Style TargetType="local:AppointmentItem" BasedOn="{StaticResource AppointmentItemBaseStyle}" />
+
+	<Style TargetType="local:TimeRulerItem" BasedOn="{StaticResource MinorVerticalTimeRulerItemStyle}" />
+	<Style TargetType="local:TimeRulerLine" BasedOn="{StaticResource TimeRulerLineStyle}" />
+	<Style TargetType="local:TimeRulerGroupItem" BasedOn="{StaticResource TimeRulerGroupItemStyle}" />
+
+	
+	<Style  TargetType="local:RadScheduleView" BasedOn="{StaticResource RadScheduleViewStyle}"
+			x:Key="{telerik:ThemeResourceKey ThemeType=external:SummerThemeExternal, ElementType=local:RadScheduleView}" />
+	<Style  TargetType="local:AppointmentItem" BasedOn="{StaticResource AppointmentItemBaseStyle}"
+			x:Key="{telerik:ThemeResourceKey ThemeType=external:SummerThemeExternal, ElementType=local:AppointmentItem}" />
+	<Style  TargetType="local:GroupHeader" BasedOn="{StaticResource GroupHeaderBaseStyle}"
+			x:Key="{telerik:ThemeResourceKey ThemeType=external:SummerThemeExternal, ElementType=local:GroupHeader}" />
+
+	<Style  TargetType="local:TimeRulerItem" BasedOn="{StaticResource MajorVerticalTimeRulerItemStyle}"
+			x:Key="{telerik:ThemeResourceKey ThemeType=external:SummerThemeExternal, ElementType=local:TimeRulerItem}" />
+	<Style  TargetType="local:TimeRulerLine" BasedOn="{StaticResource TimeRulerLineStyle}"
+			x:Key="{telerik:ThemeResourceKey ThemeType=external:SummerThemeExternal, ElementType=local:TimeRulerLine}" />
+	<Style  TargetType="local:TimeRulerGroupItem" BasedOn="{StaticResource TimeRulerGroupItemStyle}"
+			x:Key="{telerik:ThemeResourceKey ThemeType=external:SummerThemeExternal, ElementType=local:TimeRulerGroupItem}" />
+	<Style  TargetType="local:TimeRulerMonthViewItem" BasedOn="{StaticResource TimeRulerMonthViewItemStyle}"
+			x:Key="{telerik:ThemeResourceKey ThemeType=external:SummerThemeExternal, ElementType=local:TimeRulerMonthViewItem}" />
+	<Style  TargetType="local:TimeRulerMonthViewGroupItem" BasedOn="{StaticResource TimeRulerMonthViewGroupItemStyle}"
+			x:Key="{telerik:ThemeResourceKey ThemeType=external:SummerThemeExternal, ElementType=local:TimeRulerMonthViewGroupItem}" />
+
+	<Style TargetType="local:HighlightItem" BasedOn="{StaticResource HighlightItemStyle}"
+			x:Key="{telerik:ThemeResourceKey ThemeType=external:SummerThemeExternal, ElementType=local:HighlightItem}" />
+	
+
+	
+	
+</ResourceDictionary>

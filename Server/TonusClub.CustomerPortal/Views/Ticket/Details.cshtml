@@ -1,0 +1,68 @@
+﻿@model TonusClub.ServiceModel.Ticket
+@{
+    ViewBag.Title = Model.Number;
+    ViewBag.BackActionUrl = Url.Action("Tickets", "Home");
+}
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Описание абонемента</li>
+    <li data-role="fieldcontain" style="white-space: normal;">@Model.TicketType.Name</li>
+    <li data-role="fieldcontain">Стоимость: @Model.Cost.ToString("c")</li>
+    @if (Model.InstalmentId.HasValue && Model.PaidAmount < Model.Cost)
+    {
+        <li data-role="fieldcontain" @((Model.LastInstalmentDay < DateTime.Today) ? "data-theme=c" : "data-theme=d")>Рассрочка до @Model.LastInstalmentDay.Value.ToString("d MMMM yyyy")</li>
+    }
+    <li data-role="fieldcontain">Время действия: @Model.TicketType.VistTimeString</li>
+</ul>
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Остаток единиц</li>
+    @if (@Model.UnitsAmount > 0)
+    {
+        <li data-role="fieldcontain"><a href="@Url.Action("Charges", new { id = @Model.Id, kind = 0 })">Основных единиц: @Model.UnitsLeft.ToString("n0")/@Model.UnitsAmount.ToString("n0")</a></li>
+    }
+    @if (@Model.GuestUnitsAmount > 0)
+    {
+        <li data-role="fieldcontain"><a href="@Url.Action("Charges", new { id = @Model.Id, kind = 1 })">Гостевых единиц: @Model.GuestUnitsLeft.ToString("n0")/@Model.GuestUnitsAmount.ToString("n0")</a></li>
+    }
+    @if (@Model.SolariumMinutes > 0)
+    {
+        <li data-role="fieldcontain"><a href="@Url.Action("SolCharges", new { id = @Model.Id })">Минут солярия: @Model.SolariumMinutesLeft.ToString("n0")/@Model.SolariumMinutes.ToString("n0")</a></li>
+    }
+</ul>
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Оплаты (@Model.PaidAmount.ToString("c"))</li>
+    @if (Model.PaidAmount < Model.Cost)
+    {
+        <li><a href="@Url.Action("Pay", new { id = @Model.Id, stamp = DateTime.Now.Ticks })" data-ajax="false">Оплатить абонемент (@((Model.Cost - Model.PaidAmount).ToString("c")))</a></li>
+    }
+    @foreach (var pmt in Model.TicketPayments.Where(i => i.Amount > 0 || i.RequestedAmount > 0).OrderByDescending(i => i.PaymentDate))
+    {
+        <li data-role="fieldcontain">
+            <div class="ui-grid-a">
+                <div class="ui-block-a">@pmt.PaymentDate.ToString("d MMMM yyyy")</div>
+                <div class="ui-block-b">@pmt.Amount.ToString("c")</div>
+            </div>
+            @if (pmt.RequestedAmount > 0 && pmt.Amount == 0 && pmt.IsRoboCompleted)
+            {
+                <p style="margin-top: 0.5em; white-space: normal;">Ваш платеж на сумму @pmt.RequestedAmount.ToString("c") был проведен, но данные о нем еще не поступили в систему. Пожалуйста, подождите некоторое время!</p>
+            }
+        </li>
+    }
+</ul>
+
+@if (Model.HasFreezes)
+{
+    <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">Заморозки</li>
+        @foreach (var freeze in Model.TicketFreezes)
+        {
+            <li data-role="fieldcontain">
+                <h2><strong>@freeze.StartDate.ToString("d MMMM yyyy") — @freeze.FinishDate.ToString("d MMMM yyyy")</strong></h2>
+                <p>@freeze.TicketFreezeReason.Name</p>
+            </li>
+        }
+    </ul>
+}
+

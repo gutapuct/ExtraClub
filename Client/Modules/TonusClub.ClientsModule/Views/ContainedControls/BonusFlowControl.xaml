@@ -1,0 +1,47 @@
+﻿<usr:ModuleViewBase x:Class="TonusClub.Clients.Views.ContainedControls.BonusFlowControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:res="clr-namespace:TonusClub.UIControls.Localization;assembly=TonusClub.UIControls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="409" d:DesignWidth="756">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+            <Button Margin="2 0" Click="AddBonus" Content="Начислить"/>
+            <Button Margin="2 0" Click="ChargeBonus" Content="Списать"/>
+            <Button Margin="2 0" Click="CompensateClick" Content="Компенсация"/>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.PeriodFrom}"></TextBlock>
+            <telerik:RadDatePicker Margin="10 0 10 0" SelectedDate="{Binding BonusStart, Mode=TwoWay}" VerticalAlignment="Center" Width="120"></telerik:RadDatePicker>
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.PeriodTo}"></TextBlock>
+            <telerik:RadDatePicker Margin="10 0 0 0"  SelectedDate="{Binding BonusEnd, Mode=TwoWay}" VerticalAlignment="Center" Width="120"></telerik:RadDatePicker>
+        </StackPanel>
+
+        <telerik:RadGridView HorizontalAlignment="Stretch"
+                                Margin="5 5 5 5"
+                                x:Name="BonusGrid"
+                                RowIndicatorVisibility="Collapsed"
+                                IsReadOnly="True"
+                                AutoGenerateColumns="False"
+                                CanUserFreezeColumns="True"
+                                CanUserResizeColumns="True"
+                                CanUserInsertRows="False"
+                                ShowInsertRow="False"
+                                ShowGroupPanel="False"
+                                ItemsSource="{Binding BonusView}">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Width="100" Header="{x:Static res:Resources.Date}" DataMemberBinding="{Binding CreatedOn, StringFormat={}{0:d}}" IsFilterable="True" />
+                <telerik:GridViewDataColumn Width="5*" Header="{x:Static res:Resources.Description}" DataMemberBinding="{Binding Description}" IsFilterable="False" />
+                <telerik:GridViewDataColumn Width="*" Header="{x:Static res:Resources.Sum}" DataMemberBinding="{Binding Amount}" DataFormatString="{}{0:n0}" IsFilterable="False" />
+                <telerik:GridViewDataColumn Width="2*" Header="{x:Static res:Resources.Cashier}" DataMemberBinding="{Binding SerializedCreatedBy}" IsFilterable="True" />
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </DockPanel>
+
+</usr:ModuleViewBase>
+

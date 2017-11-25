@@ -1,0 +1,34 @@
+﻿@model Sync.Models.RatingModel
+@{
+    Layout = null;
+}
+
+<style>
+    #mainContainer
+    {
+        text-align:center;
+        margin-top: 40px;
+    }
+</style>
+
+<div id="mainContainer">
+    @if (String.IsNullOrWhiteSpace(Model.Message))
+    {
+        <div>
+            <div>Спасибо за Вашу оценку.</div>
+            @if (Model.IsChange)
+            {
+                <div>Вы изменили оценку. Ваша новая оценка: @Model.Rating</div>
+            }
+            else
+            {
+                <div>Ваша оценка: @Model.Rating</div>
+            }
+        </div>
+    }
+    else
+    {
+        <div>ОШИБКА: @Model.Message</div>
+    }
+    <br /><div><a href="http://www.tonusclub.ru/">Перейти на сайт Европейской сети женских клубов<br />ТОНУС-КЛУБ®</a></div>
+</div>

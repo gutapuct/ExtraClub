@@ -1,0 +1,41 @@
+﻿<usr:WindowBase x:Class="TonusClub.TurnoverModule.Views.Windows.NewSpendingWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize"
+             xmlns:res="clr-namespace:TonusClub.UIControls.Localization;assembly=TonusClub.UIControls"
+             Width="500" Title="{x:Static res:Resources.Spending}" SizeToContent="Height">
+    <StackPanel Margin="5">
+        <UniformGrid Columns="2" Margin="3">
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.Title}"></TextBlock>
+            <TextBox Text="{Binding Spending.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="0 2"></TextBox>
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.Date}"></TextBlock>
+            <telerik:RadDatePicker Margin="0 2" SelectedDate="{Binding Path=Spending.CreatedOn, Mode=TwoWay}"/>
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.Category}"></TextBlock>
+            <telerik:RadComboBox IsEditable="False" Margin="0 2"
+                        ItemsSource="{Binding SpendingTypes}"
+                        SelectedValuePath="Id"
+                        SelectedValue="{Binding Path=Spending.SpendingTypeId, Mode=TwoWay}"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.AmountRur}"></TextBlock>
+            <TextBox Text="{Binding Spending.Amount, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="0 2"></TextBox>
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.PayWay}"></TextBlock>
+            <telerik:RadComboBox IsEditable="False" Margin="0 2"
+                        ItemsSource="{Binding PaymentTypes}"
+                        SelectedValue="{Binding Path=Spending.PaymentType, Mode=TwoWay}"
+                        IsReadOnly="True"/>
+
+        </UniformGrid>
+        <CheckBox Margin="2 3" IsChecked="{Binding IsCommon, Mode=TwoWay}" Content="{x:Static res:Resources.CommonProject}"></CheckBox>
+        <CheckBox Margin="2 3" Content="{x:Static res:Resources.Investment}" IsChecked="{Binding Spending.IsInvestment, Mode=TwoWay}"></CheckBox>
+        <!--<CheckBox Margin="2 3" Content="{x:Static res:Resources.FinAction}" IsChecked="{Binding Spending.IsFinAction, Mode=TwoWay}"></CheckBox>-->
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3" Padding="5" IsDefault="True" Click="CommitButton_Click"
+                               Content="{x:Static res:Resources.Process}"></Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click"
+                               Content="{x:Static res:Resources.Cancel}"></Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

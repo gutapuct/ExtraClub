@@ -1,0 +1,10 @@
+*/bin/*
+**/bin/*
+**/obj/*
+**/packages/*
+**/.vs/*
+*.user
+Server/TonusClub.WebService/wspub/*
+Server/Sync/pub_sync/*
+*.dbmdl
+Server/TonusClub.Database/TonusClub.Database.jfm

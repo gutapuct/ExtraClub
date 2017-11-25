@@ -1,0 +1,29 @@
+﻿@model TonusClub.ServiceModel.Customer
+
+@{
+    ViewBag.Title = "Мои данные";
+    ViewBag.BackActionUrl = Url.Action("Index", "Home");
+}
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">ФИО</li>
+    <li data-inset="true">@Model.FullName</li>
+    @if (Model.Birthday.HasValue)
+    {
+        <li data-role="list-divider">Дата рождения</li>
+        <li data-inset="true" style="white-space: normal;">@Model.Birthday.Value.ToString("d MMMM yyyy")</li>
+    }
+    @if (!String.IsNullOrEmpty(Model.PasspNumber))
+    {
+        <li data-role="list-divider">Паспортные данные</li>
+        <li data-inset="true" style="white-space: normal;">Паспорт @Model.PassportData</li>
+    }
+    <li data-role="list-divider">Контактная информация</li>
+    <li data-inset="true" style="white-space: normal;">Мобильный телефон: @Model.Phone2Formatted</li>
+    @if (!String.IsNullOrEmpty(Model.Phone1))
+    {
+        <li data-inset="true" style="white-space: normal;">Домашний телефон: @Model.Phone1</li>
+    }
+</ul>
+
+<p>Если какие-то из введенных данных недостоверны, обратитесь к администратору Вашего клуба для их уточнения!</p>

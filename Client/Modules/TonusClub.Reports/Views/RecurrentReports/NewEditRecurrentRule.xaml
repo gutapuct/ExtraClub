@@ -1,0 +1,110 @@
+﻿<usr:WindowBase x:Class="TonusClub.Reports.Views.RecurrentReports.NewEditRecurrentRule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" WindowStartupLocation="CenterScreen"
+             xmlns:local="clr-namespace:TonusClub.Reports.Views.ContainedControls"
+        Title="Правило" Width="757" SizeToContent="Height">
+    <usr:WindowBase.Resources>
+        <BooleanToVisibilityConverter x:Key="boolToVis" />
+        <DataTemplate x:Key="DateSelector">
+            <StackPanel Margin="0 5 0 0">
+                <TextBlock Text="{Binding DisplayName}"></TextBlock>
+                <telerik:RadDatePicker Margin="0 4" SelectedDate="{Binding InstanceValue, Mode=TwoWay}"></telerik:RadDatePicker>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="DivisionSelector">
+            <StackPanel Margin="0 5 0 0">
+                <TextBlock Text="{Binding DisplayName}"></TextBlock>
+                <telerik:RadComboBox IsEditable="False" Margin="0 4"
+                ItemsSource="{Binding List}"
+                SelectedValuePath="Key"
+                SelectedValue="{Binding InstanceValue, Mode=TwoWay}"
+                DisplayMemberPath="Value" IsReadOnly="True"
+                             ClearSelectionButtonVisibility="Visible"
+                             ClearSelectionButtonContent="Пусто"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="MultipleSelector">
+            <StackPanel Margin="0 5 0 0">
+                <TextBlock Text="{Binding DisplayName}"></TextBlock>
+                <ItemsControl Margin="0 4" ItemsSource="{Binding List}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Helper}">
+                                <TextBlock Text="{Binding Value}"></TextBlock>
+                            </CheckBox>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="MonthSelector">
+            <StackPanel Margin="0 5 0 0">
+                <TextBlock Text="{Binding DisplayName}"></TextBlock>
+                <telerik:RadDatePicker Margin="0 4" DateSelectionMode="Month" Culture="{Binding MonthCulture}" SelectedDate="{Binding InstanceValue, Mode=TwoWay}"></telerik:RadDatePicker>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="StringSelector">
+            <StackPanel Margin="0 5 0 0">
+                <TextBlock Text="{Binding DisplayName}"></TextBlock>
+                <TextBox Margin="0 4" Text="{Binding InstanceValue, Mode=TwoWay}"></TextBox>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="BooleanSelector">
+            <StackPanel Margin="0 5 0 0">
+                <CheckBox IsChecked="{Binding InstanceValue, Mode=TwoWay}">
+                    <TextBlock Text="{Binding DisplayName}" TextWrapping="Wrap"></TextBlock>
+                </CheckBox>
+            </StackPanel>
+        </DataTemplate>
+        <local:FilterTemplateSelector
+                   DateTemplate="{StaticResource ResourceKey=DateSelector}"
+                   DivisionTemplate="{StaticResource ResourceKey=DivisionSelector}"
+                   MultipleTemplate="{StaticResource ResourceKey=MultipleSelector}"
+                   MonthTemplate="{StaticResource ResourceKey=MonthSelector}"
+                   BooleanTemplate="{StaticResource ResourceKey=BooleanSelector}"
+                   StringTemplate="{StaticResource ResourceKey=StringSelector}"
+                   x:Key="selector" />
+    </usr:WindowBase.Resources>
+
+    <StackPanel>
+        <GroupBox Header="Что высылать">
+            <telerik:RadComboBox IsEditable="False" Margin="2"
+                        ItemsSource="{Binding Reports}"
+                        SelectedItem="{Binding SelectedReport}"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+        </GroupBox>
+        <GroupBox Header="Когда высылать">
+            <StackPanel>
+                <telerik:RadComboBox IsEditable="False" Margin="2"
+                        ItemsSource="{Binding Recurrencies}"
+                        SelectedValuePath="Key"
+                        SelectedValue="{Binding SelectedRecurrency}"
+                        DisplayMemberPath="Value" IsReadOnly="True"/>
+                <UniformGrid Rows="1" Margin="0 5">
+                    <TextBlock VerticalAlignment="Center">День выбранного периода</TextBlock>
+                    <TextBox Text="{Binding PeriodDay}"></TextBox>
+                </UniformGrid>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Параметры формирования">
+            <StackPanel>
+                <UniformGrid Rows="1"  Visibility="{Binding SelectedReport.HasDatePeriod, Converter={StaticResource boolToVis}}">
+                    <TextBlock VerticalAlignment="Center">Период</TextBlock>
+                    <telerik:RadComboBox IsEditable="False" Margin="2"
+                        ItemsSource="{Binding Periods}"
+                        SelectedValuePath="Key"
+                        SelectedValue="{Binding SelectedPeriod}"
+                        DisplayMemberPath="Value" IsReadOnly="True"/>
+                </UniformGrid>
+                <ItemsControl ItemsSource="{Binding SelectedReport.Parameters}" ItemTemplateSelector="{StaticResource ResourceKey=selector}">
+                </ItemsControl>
+            </StackPanel>
+        </GroupBox>
+        <UniformGrid Rows="1" DockPanel.Dock="Bottom">
+            <Button Height="28" Margin="2" Click="CreateButton_Click">Сохранить</Button>
+            <Button IsCancel="True" Margin="2" Click="CancelButton_Click">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

@@ -1,0 +1,62 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		            
+    
+    
+	xmlns:external="clr-namespace:Telerik.Windows.Controls.External"
+	xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls.Primitives;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"    
+    xmlns:dragDrop="clr-namespace:Telerik.Windows.Controls.DragDrop;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:telerikDragDrop="clr-namespace:Telerik.Windows.DragDrop;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:animation="clr-namespace:Telerik.Windows.Controls.Animation;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikChromes="clr-namespace:Telerik.Windows.Controls.Chromes;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	xmlns:telerikTransitions="clr-namespace:Telerik.Windows.Controls.TransitionEffects;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikTransitonControl="clr-namespace:Telerik.Windows.Controls.TransitionControl;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikQuickStart="clr-namespace:Telerik.Windows.Controls.QuickStart;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:filteringEditors="clr-namespace:Telerik.Windows.Controls.Filtering.Editors;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:telerikShapes="clr-namespace:Telerik.Windows.Shapes;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:transitionControl="clr-namespace:Telerik.Windows.Controls.TransitionControl;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    
+>
+    
+    
+    
+	<Style TargetType="telerik:RadFluidContentControl"
+           x:Key="{telerik:ThemeResourceKey ThemeType=
+		external:SummerThemeExternal , ElementType=telerik:RadFluidContentControl}"
+		 >
+		<Setter Property="Transition">
+			<Setter.Value>
+				<telerikTransitions:FadeTransition />
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadFluidContentControl">
+					<Grid>
+						<Border BorderBrush="#01000000"
+								BorderThickness="1" />
+						<Canvas IsHitTestVisible="False">
+							<Rectangle x:Name="OldContentPresenter"
+									   Width="{Binding OldVisualWidth,
+				                           ElementName=ContentElement}"
+									   Height="{Binding OldVisualHeight,
+				                            ElementName=ContentElement}"
+									   Fill="{Binding OldVisualBrush,
+				                          ElementName=ContentElement}"
+									   Opacity="0.0" />
+						</Canvas>
+						<transitionControl:TransitionPresenter x:Name="ContentElement"
+															   CurrentContent="{TemplateBinding VisibleContent}"
+															   CurrentContentTemplate="{TemplateBinding VisibleContentTemplate}"
+															   Transition="{TemplateBinding Transition}"
+															   Duration="{TemplateBinding TransitionDuration}">
+						</transitionControl:TransitionPresenter>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+</ResourceDictionary>

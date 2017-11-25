@@ -1,0 +1,113 @@
+﻿<usr:ModuleViewBase x:Class="TonusClub.SettingsModule.Views.ContainedControls.ClubControl"
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usrCC="clr-namespace:TonusClub.SettingsModule.Views.ContainedControls.Club"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="900">
+    <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <TabItem Header="Общие настройки клуба" usr:AuthorizationManager.AuthorizationKey="ClubCommonTab">
+            <TabItem.Content>
+                <usrCC:DivisionSettingsControl />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Доступные услуги">
+            <TabItem.Content>
+                <usrCC:DivisionAvailableTreatmentsControl />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Оборудование" usr:AuthorizationManager.AuthorizationKey="ClubTreatsTab">
+            <TabItem.Content>
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+                        <Button Click="NewFolderClick" usr:AuthorizationManager.AuthorizationKey="ClubTreatsMgmt" Visibility="Collapsed">Новая папка</Button>
+                        <Button Margin="6 0 0 0" Click="EditFolderClick" usr:AuthorizationManager.AuthorizationKey="ClubTreatsMgmt" Visibility="Collapsed">Редактировать папку</Button>
+                        <Button Margin="6 0 12 0" Click="RemoveFolder_Click" usr:AuthorizationManager.AuthorizationKey="ClubTreatsMgmt" Visibility="Collapsed">Удалить папку</Button>
+
+                        <Button Margin="2 0" Click="NewTreatmentButton_Click" usr:AuthorizationManager.AuthorizationKey="ClubTreatsMgmt">Новый тренажер</Button>
+                        <Button Margin="2 0" Click="EditTreatmentButton_Click" usr:AuthorizationManager.AuthorizationKey="ClubTreatsMgmt">Редактировать</Button>
+                        <Button Margin="2 0 12 0" Click="TreatmentTagButton_Click" usr:AuthorizationManager.AuthorizationKey="ClubTreatsService">Изменить метку</Button>
+                        <Button Margin="2 0" Click="DeleteTreatmentButton_Click" usr:AuthorizationManager.AuthorizationKey="ClubTreatsService">Сделать неактивным</Button>
+                        <Button Margin="2 0 12 0" Click="ActivateTreatmentButton_Click" usr:AuthorizationManager.AuthorizationKey="ClubTreatsService">Сделать активным</Button>
+
+                        <Button Margin="2 0" Click="UpPriority_Click" >Выше</Button>
+                        <Button Margin="2 0" Click="DownPriority_Click" >Ниже</Button>
+                        
+                    </StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0"/>
+                            <ColumnDefinition Width="0" />
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <telerik:RadTreeView Visibility="Collapsed" ItemsSource="{Binding TreatmentFoldersView}" Selected="TreatmentTree_Selected" SelectedItem="{Binding CurrentTreatmentTreeItem}" x:Name="TreatmentTree">
+                            <telerik:RadTreeView.ItemTemplate>
+                                <HierarchicalDataTemplate ItemsSource="{Binding CompanySettingsFolders1}">
+                                    <TextBlock Text="{Binding Name}"></TextBlock>
+                                </HierarchicalDataTemplate>
+                            </telerik:RadTreeView.ItemTemplate>
+
+                        </telerik:RadTreeView>
+                        <GridSplitter Visibility="Collapsed" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{DynamicResource ControlBorder}"/>
+
+                        <telerik:RadGridView Grid.Column="2"
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ShowGroupPanel="True"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding TreatmentsView}"
+                                        MouseDoubleClick="TreatmentsGrid_MouseDoubleClick"
+                                        x:Name="TreatmentsGrid">
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn Header="Тип" DataMemberBinding="{Binding Path=SerializedTreatmentType.Name}"/>
+                                <telerik:GridViewDataColumn Header="Метка" DataMemberBinding="{Binding Tag}" IsFilterable="False"/>
+                                <telerik:GridViewDataColumn Header="Мест" DataMemberBinding="{Binding MaxCustomers}"/>
+                                <telerik:GridViewDataColumn Header="Наименование модели" DataMemberBinding="{Binding ModelName}"/>
+                                <telerik:GridViewDataColumn Header="Комментарий" DataMemberBinding="{Binding Comment}" IsFilterable="False"/>
+                                <telerik:GridViewDataColumn Width="*" Header="Гарантия до" DataMemberBinding="{Binding GuaranteeExp}"  IsFilterable="False"/>
+                                <telerik:GridViewDataColumn Width="*" Header="Срок службы до" DataMemberBinding="{Binding UseExp}"  IsFilterable="False"/>
+                                <telerik:GridViewDataColumn Width="*" Header="Приоритет" DataMemberBinding="{Binding Order}" IsFilterable="False"/>
+
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                    </Grid>
+                </DockPanel>
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Солярии" usr:AuthorizationManager.AuthorizationKey="ClubSolsTab">
+            <TabItem.Content>
+                <usrCC:DivisionSolariumsControl />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Склады" usr:AuthorizationManager.AuthorizationKey="ClubStoresTab">
+            <TabItem.Content>
+                <usrCC:StorehousesControl />
+            </TabItem.Content>
+        </TabItem>
+
+        <TabItem Header="Типы затрат" usr:AuthorizationManager.AuthorizationKey="ClubSpendTypesTab">
+            <TabItem.Content>
+                <usrCC:SpendingTypesControl />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Типы доходов" usr:AuthorizationManager.AuthorizationKey="ClubIncTypesTab">
+            <TabItem.Content>
+                <usrCC:IncomeTypesControl />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Файлы" usr:AuthorizationManager.AuthorizationKey="ClubFilesTab">
+            <TabItem.Content>
+                <usrCC:FilesControl />
+            </TabItem.Content>
+        </TabItem>
+    </TabControl>
+</usr:ModuleViewBase>

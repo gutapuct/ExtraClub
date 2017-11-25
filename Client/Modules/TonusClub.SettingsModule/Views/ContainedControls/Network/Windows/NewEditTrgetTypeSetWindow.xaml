@@ -1,0 +1,82 @@
+﻿<usr:WindowBase x:Class="TonusClub.SettingsModule.Views.ContainedControls.Network.Windows.NewEditTrgetTypeSetWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize" Title="Программа занятий для цели" Width="500" Height="400">
+    <usr:WindowBase.Resources>
+        <Style x:Key="ItemContStyle" TargetType="ListViewItem">
+            <Style.Resources>
+                <LinearGradientBrush x:Key="MouseOverBrush" StartPoint="0.5, 0" EndPoint="0.5, 1">
+                    <GradientStop Color="#22000000" Offset="0" />
+                    <GradientStop Color="#44000000" Offset="0.4" />
+                    <GradientStop Color="#55000000" Offset="0.6" />
+                    <GradientStop Color="#33000000" Offset="0.9" />
+                    <GradientStop Color="#22000000" Offset="1" />
+                </LinearGradientBrush>
+            </Style.Resources>
+            <Setter Property="Padding" Value="0,4" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="Border.BorderThickness" Value="0,0,0,0.5" />
+            <Setter Property="Border.BorderBrush" Value="LightGray" />
+            <Style.Triggers>
+                <Trigger Property="usr:ListViewItemDragState.IsUnderDragCursor" Value="True">
+                    <Setter Property="Background" Value="{StaticResource MouseOverBrush}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </usr:WindowBase.Resources>
+
+    <DockPanel Margin="5">
+        <UniformGrid Columns="2" IsEnabled="{Binding TicketType.IsActive}" DockPanel.Dock="Top">
+            <TextBlock VerticalAlignment="Center">Название:</TextBlock>
+            <telerik:RadComboBox SelectedValuePath="Key" DisplayMemberPath="Value" ItemsSource="{Binding Targets}" SelectedValue="{Binding TargetId, Mode=TwoWay}"></telerik:RadComboBox>
+        </UniformGrid>
+        <UniformGrid Rows="1" DockPanel.Dock="Bottom">
+            <Button x:Name="CommitButton" Margin="3" Padding="5" IsDefault="True" Click="CommitButton_Click">Сохранить</Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+        <ListView Name="listView"  
+                  ItemsSource="{Binding SelectedTreatments}"
+                      ItemContainerStyle="{StaticResource ItemContStyle}"
+                      Padding="2"
+                      MinHeight="120" ScrollViewer.CanContentScroll="False"
+                      SelectionMode="Single" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0 0 2 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <telerik:RadComboBox DisplayMemberPath="Name" Grid.Column="0" Grid.ColumnSpan="3"
+                                                 SelectionChanged="TreatmentType_SelectionChanged"
+                                 IsEditable="False"
+                                 IsReadOnly="True"
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Center"
+                                 ItemsSource="{Binding TreatmentConfigs}"
+                                 SelectedValue="{Binding TreatmentConfigId, Mode=TwoWay}"
+                                 Margin="0 0 0 4"
+                                 SelectedValuePath="Id"/>
+                        <TextBlock VerticalAlignment="Center" Grid.Row="1" Text="Длительность"></TextBlock>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=DurationText}" VerticalAlignment="Center"/>
+
+                        <Button Click="RemoveTreatmentPlanButton_Click" Grid.Row="1" Grid.Column="3"
+                                                   Content="Удалить"></Button>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </DockPanel>
+    </usr:WindowBase>

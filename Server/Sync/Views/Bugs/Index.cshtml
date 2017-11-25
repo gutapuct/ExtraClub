@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Sync.Models.Bug>
+
+@{
+    ViewBag.Title = "Список багов";
+}
+
+<h2>Баги</h2>
+
+@if (ViewBag.ShowAll)
+{<text>
+    Все | @Html.ActionLink("Только открытые", "Index", new { showAll = false })
+    </text>
+}
+else
+{
+<text>
+    @Html.ActionLink("Все", "Index", new { showAll = true }) | Только открытые
+    </text>
+}
+<br /><br />
+<table>
+    <tr>
+        <th>
+            Номер
+        </th>
+        <th>
+            Приоритет
+        </th>
+        <th>
+            Категория
+        </th>
+        <th>
+            Тема
+        </th>
+        <th>
+            Создатель
+        </th>
+        <th>
+            Дата создания
+        </th>
+        <th>
+            Статус
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Id
+        </td>
+        <td>
+            @item.Priority
+        </td>
+        <td>
+            @item.Category
+        </td>
+        <td>
+            @item.Subject
+        </td>
+        <td>
+            @item.CreatedName
+        </td>
+        <td>
+            @item.CreatedOn
+        </td>
+        <td>
+            @item.Status
+        </td>
+        <td>
+        @if (item.StatusId == 0 || item.StatusId == 1)
+{
+    <text>
+    @Html.ActionLink("Править", "Edit", new { id = item.Id }) |
+    </text>
+}
+            @Html.ActionLink("Детали", "Details", new { id=item.Id })
+            @if (item.StatusId != 4)
+{
+    <text>
+        | @Html.ActionLink("Закрыть", "Close", new { id = item.Id })
+    </text>
+}        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Добавить", "Create")
+</p>
+

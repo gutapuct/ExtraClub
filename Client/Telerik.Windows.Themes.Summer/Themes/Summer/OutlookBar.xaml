@@ -1,0 +1,965 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		    
+    xmlns:animation="clr-namespace:Telerik.Windows.Controls.Animation;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikTransitions="clr-namespace:Telerik.Windows.Controls.TransitionEffects;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikChromes="clr-namespace:Telerik.Windows.Controls.Chromes;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    
+
+	xmlns:external="clr-namespace:Telerik.Windows.Controls.External"
+	xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:telerikNavigationPrimitives="clr-namespace:Telerik.Windows.Controls.Primitives;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls.Primitives;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:telerikToolBar="clr-namespace:Telerik.Windows.Controls.ToolBar;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:treeView="clr-namespace:Telerik.Windows.Controls.TreeView;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+	xmlns:themes="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:mscorlib="clr-namespace:System;assembly=mscorlib"
+	xmlns:dragDrop="clr-namespace:Telerik.Windows.Controls.DragDrop;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:telerikTabControl="clr-namespace:Telerik.Windows.Controls.TabControl;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:animationNavigation="clr-namespace:Telerik.Windows.Controls.Animation;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:book="clr-namespace:Telerik.Windows.Controls.Book;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:outlookBarPrimitives="clr-namespace:Telerik.Windows.Controls.OutlookBar;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+
+    xmlns:tileView="clr-namespace:Telerik.Windows.Controls.TileView;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	xmlns:local="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:carousel="clr-namespace:Telerik.Windows.Controls.Carousel;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:telerikBreadcrumb="clr-namespace:Telerik.Windows.Controls.Breadcrumb;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+
+
+>
+
+
+	<SolidColorBrush x:Key="ControlForeground_Normal" Color="#FF000000" />
+<external:SummerThemeExternal x:Key="Theme" />
+<SolidColorBrush x:Key="ControlElement_Normal" Color="#FF000000" />
+<SolidColorBrush x:Key="ControlElement_Disabled" Color="#FF9D9D9D" />
+<SolidColorBrush x:Key="ControlElement_Pressed" Color="#FF000000" />
+<SolidColorBrush x:Key="ControlElement_MouseOver" Color="#FF000000" />
+<LinearGradientBrush x:Key="OutlookBar_MinimizedContentButton_Background_Normal" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="White" />
+        <GradientStop Color="#FFE4E6E8" Offset="1" />
+    </LinearGradientBrush>
+<LinearGradientBrush x:Key="OutlookBar_MinimizedContentButton_Background_MouseOver" EndPoint="1,0.5" StartPoint="0,0.5">
+        <GradientStop Color="#FFE7F3F8" Offset="0" />
+        <GradientStop Color="#FFD4E7EE" Offset="1" />
+    </LinearGradientBrush>
+<LinearGradientBrush x:Key="OutlookBar_MinimizedContentButton_Background_Pressed" EndPoint="1,0.5" StartPoint="0,0.5">
+        <GradientStop Color="#FFB4D2DC" Offset="0" />
+        <GradientStop Color="#FFBEDEEA" Offset="1" />
+    </LinearGradientBrush>
+<SolidColorBrush x:Key="ControlOuterBorder" Color="#FFB2B2B2" />
+<LinearGradientBrush EndPoint="0.5,1" x:Key="ControlBackground" StartPoint="0.5,0">
+		<GradientStop Color="White" />
+		<GradientStop Color="#FFE4E6E8" Offset="1" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="TabControl_DropDownHeaderBrush" Color="Transparent" />
+<CornerRadius x:Key="ControlOuterBorder_CornerRadius">2</CornerRadius>
+<SolidColorBrush x:Key="ControlOuterBorder_MouseOver" Color="#FF6F9DB5" />
+<CornerRadius x:Key="ControlInnerBorder_CornerRadius">1</CornerRadius>
+<SolidColorBrush x:Key="ControlInnerBorder_MouseOver" Color="#FFFFFFFF" />
+<LinearGradientBrush x:Key="ControlBackground_MouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFD6E9F0" />
+		<GradientStop Color="#FFA6C8D4" Offset="1" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="ControlOuterBorder_Pressed" Color="#FF198FB0" />
+<LinearGradientBrush x:Key="ControlInnerBorder_Pressed" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FF65A5BB" Offset="0" />
+		<GradientStop Color="#FFCCEDF8" Offset="0.143" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="ControlBackground_Pressed" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FF8AAEBB" Offset="0" />
+		<GradientStop Color="#FFBBDBE6" Offset="0.15" />
+		<GradientStop Color="#FF7FBFD4" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="OutlookBar_HorizontalSplitterOpacityMask" EndPoint="0.5,0" StartPoint="0.5,1">
+		<GradientStop Color="Black" Offset="0" />
+		<GradientStop Color="White" Offset="1" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="OutlookBar_HorizontalSplitterPath_OuterBackground" Color="#FF000000" />
+<SolidColorBrush x:Key="OutlookBar_HorizontalSplitterPath_InnerBackground" Color="#FFE2F0FD" />
+<Thickness x:Key="OutlookBar_HorizontalSplitter_BorderThickness">0 1 0 0</Thickness>
+<SolidColorBrush x:Key="OutlookBar_HorizontalSplitterBackground" Color="#FFF0F0F0" />
+<Thickness x:Key="MenuSubItemMargin">2</Thickness>
+<CornerRadius x:Key="SplitButton_SpanCornerRadius">2</CornerRadius>
+<SolidColorBrush x:Key="OutlookBar_ForegroundHeader" Color="#000000" />
+<SolidColorBrush x:Key="OutlookBar_HeaderOuterBorder" Color="#FFB2B2B2" />
+<LinearGradientBrush x:Key="OutlookBar_HeaderBackground" StartPoint="0 0" EndPoint="0 1">
+		<GradientStop Color="#FFC5C5C5" Offset="1" />
+		<GradientStop Color="#FFE4E4E4" />
+	</LinearGradientBrush>
+<Thickness x:Key="OutlookBar_HeaderInnerBorder_Thickness">1</Thickness>
+<SolidColorBrush x:Key="OutlookBar_HeaderInnerBorder" Color="#FFFFFFFF" />
+<Thickness x:Key="OutlookBar_OuterBorderThickness">0 1 0 0</Thickness>
+<SolidColorBrush x:Key="OutlookBar_Footer_OuterItemBorderBrush" Color="#FFB2B2B2" />
+<LinearGradientBrush x:Key="OutlookBar_Footer_BackgroundItem" StartPoint="0 0" EndPoint="0 1">
+		<GradientStop Color="#FFE3E8EB" Offset="1" />
+		<GradientStop Color="White" />
+	</LinearGradientBrush>
+<Thickness x:Key="OutlookBar_InnerBorderThickness">1</Thickness>
+<SolidColorBrush x:Key="OutlookBar_Footer_InnerItemBorderBrush" Color="#FFFFFFFF" />
+<SolidColorBrush x:Key="ControlItem_InnerBorder_Normal" Color="#FFFFFFFF" />
+<SolidColorBrush x:Key="ControlItem_OuterBorder_MouseOver" Color="#FF6F9DB5" />
+<SolidColorBrush x:Key="ControlItem_InnerBorder_MouseOver" Color="#FFFFFFFF" />
+<LinearGradientBrush x:Key="ControlItem_Background_MouseOver" EndPoint="0.5,1"
+			StartPoint="0.5,0">
+		<GradientStop Color="#FFD6E9F0" />
+		<GradientStop Color="#FFA6C8D4" Offset="1" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="ControlItem_OuterBorder_Selected" Color="#FF198FB0" />
+<LinearGradientBrush x:Key="ControlItem_InnerBorder_Selected" EndPoint="0.5,1"
+			StartPoint="0.5,0">
+		<GradientStop Color="#FF71B4CB" Offset="0" />
+		<GradientStop Color="#FFCCEDF8" Offset="1" />
+		<GradientStop Color="#FFCCEDF8" Offset="0.112" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="ControlItem_Background_Selected" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFD6E9F0" Offset="0.101" />
+		<GradientStop Color="#FFA6C8D4" Offset="1" />
+		<GradientStop Color="#FF8AAEBB" Offset="0.027" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="ControlOuterBorder_Disabled" Color="#FFC9C9C9" />
+<SolidColorBrush x:Key="ControlInnerBorder_Disabled" Color="Transparent" />
+<LinearGradientBrush x:Key="ControlBackground_Disabled" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFE3E8EB" Offset="1" />
+		<GradientStop Color="White" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="ControlItem_OuterBorder_Normal" Color="#FFB2B2B2" />
+<LinearGradientBrush x:Key="ControlItem_Background_Normal" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFE3E8EB" Offset="1" />
+		<GradientStop Color="White" />
+	</LinearGradientBrush>
+
+	
+    <telerik:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <outlookBarPrimitives:ResizerAlignmentToHorizontalAlignmentConverter x:Key="AlignmentConverter" />
+
+    <Style TargetType="telerik:RadToggleButton" x:Key="MinimizeButtonStyle">
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource ControlForeground_Normal}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="3" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerik:RadToggleButton">
+                    <Grid>
+                        
+
+                        <telerikChromes:ButtonChrome
+								telerik:StyleManager.Theme="{StaticResource Theme}"
+								Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}"
+								BorderBrush="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderBrush}"
+								BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness}"
+								RenderEnabled="{TemplateBinding IsEnabled}" RenderNormal="False"
+								RenderMouseOver="{TemplateBinding IsMouseOver}"
+								RenderPressed="{TemplateBinding IsPressed}"
+								RenderFocused="False"
+								RenderChecked="{TemplateBinding IsChecked}"
+								CornerRadius="{TemplateBinding CornerRadius}" />
+
+                        <Path x:Name="arrow" Fill="{StaticResource ControlElement_Normal}" Width="8"
+						        Height="4" Stretch="None" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+						        Data="M0,0 L0.67,0 4,2.67 7.25,0 8,0 8,0.67 4,4 0,0.75 z"
+						        RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <RotateTransform x:Name="directionRotation" Angle="90" />
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="arrow" Property="Fill" Value="{StaticResource ControlElement_Disabled}" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="arrow" Property="Fill" Value="{StaticResource ControlElement_Pressed}" />
+                            <Setter TargetName="arrow" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="180" />
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="arrow" Property="Fill" Value="{StaticResource ControlElement_MouseOver}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="arrow" Property="Fill" Value="{StaticResource ControlElement_Pressed}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+    <Style TargetType="telerik:RadDropDownButton" x:Key="MinimizedContentButtonStyle" >
+        <Setter Property="IsOpen" Value="false" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Background" Value="{StaticResource OutlookBar_MinimizedContentButton_Background_Normal}" />
+        <Setter Property="Foreground" Value="{StaticResource ControlForeground_Normal}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="3" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerik:RadDropDownButton">
+                    <Grid>
+                        
+
+                        <!-- normal-->
+                        <Border Background="{TemplateBinding Background}"
+							    BorderBrush="{TemplateBinding BorderBrush}"
+							    BorderThickness="{TemplateBinding BorderThickness}"/>
+
+                        <!-- Hover -->
+                        <Border x:Name="MouseOverVisual" Opacity="0" 
+                                Background="{StaticResource OutlookBar_MinimizedContentButton_Background_MouseOver}" />
+
+                        <!-- pressed -->
+                        <Border x:Name="PressedVisual" Opacity="0" 
+                                Background="{StaticResource OutlookBar_MinimizedContentButton_Background_Pressed}" />
+
+                        <!-- checked -->
+                        <Border x:Name="CheckedVisual" Opacity="0" 
+                                Background="{StaticResource OutlookBar_MinimizedContentButton_Background_Pressed}" />
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ContentPresenter x:Name="Content"
+									Grid.Row="1" Grid.Column="1"
+									Margin="{TemplateBinding Padding}"
+									Content="{TemplateBinding Content}"
+									ContentTemplate="{TemplateBinding ContentTemplate}"
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+									HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									RecognizesAccessKey="True"
+                                 />
+                                <Path
+								x:Name="DropDownIndicator"
+								Grid.Row="2" Grid.Column="1"
+								IsHitTestVisible="False"
+								Visibility="{TemplateBinding DropDownIndicatorVisibility}"
+								Fill="{StaticResource ControlElement_Normal}"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								RenderTransformOrigin="0.5,0.5"
+								Margin="5,3,5,3"
+								Data="M0,0 L5,0 5,1 4,1 4,2 3,2 3,3 2,3 2,2 1,2 1,1 0,1 0,0 z"
+								 SnapsToDevicePixels="True"
+                                     />
+
+                        </Grid>
+                        <Popup x:Name="DropDownPopup" 
+                            AllowsTransparency="True" StaysOpen="False" Focusable="false" Placement="Bottom"
+							IsOpen="{Binding Path=IsOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                             >
+                            <Grid>
+                                <Border x:Name="DropDownPopupBorder"
+										BorderBrush="{StaticResource ControlOuterBorder}"
+										Background="{StaticResource ControlBackground}"
+										BorderThickness="1" 
+										CornerRadius="{TemplateBinding CornerRadius}" 
+										Margin="0,1,4,4" MinWidth="3" MinHeight="3"
+										Width="{TemplateBinding DropDownWidth}"
+										Height="{TemplateBinding DropDownHeight}"
+										MaxWidth="{TemplateBinding DropDownMaxWidth}"
+										MaxHeight="{TemplateBinding DropDownMaxHeight}">
+                                    <ContentPresenter
+										x:Name="DropDownPopupContent"
+										Content="{TemplateBinding DropDownContent}"
+										ContentTemplate="{TemplateBinding DropDownContentTemplate}"
+										HorizontalAlignment="Stretch"
+										VerticalAlignment="Stretch"
+										DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=DataContext}"/>
+                                </Border>
+                            </Grid>
+                        </Popup>
+
+                    </Grid>
+
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Opacity" TargetName="MouseOverVisual" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" TargetName="PressedVisual" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="Content" Value="0.5" />
+                        </Trigger>
+                        <Trigger Property="IsOpen" Value="True">
+                            <Setter TargetName="CheckedVisual" Property="Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger Property="DropDownButtonPosition" Value="Bottom" />
+                        <Trigger Property="DropDownButtonPosition" Value="Left">
+                            <Setter TargetName="DropDownIndicator" Property="Grid.Column" Value="0"/>
+                            <Setter TargetName="DropDownIndicator" Property="Grid.Row" Value="1"/>
+                        </Trigger>
+                        <Trigger Property="DropDownButtonPosition" Value="Top">
+                            <Setter TargetName="DropDownIndicator" Property="Grid.Column" Value="1"/>
+                            <Setter TargetName="DropDownIndicator" Property="Grid.Row" Value="0"/>
+                        </Trigger>
+                        <Trigger Property="DropDownButtonPosition" Value="Right">
+                            <Setter TargetName="DropDownIndicator" Property="Grid.Column" Value="2"/>
+                            <Setter TargetName="DropDownIndicator" Property="Grid.Row" Value="1"/>
+                        </Trigger>
+                        <Trigger Property="DropDownPlacement" Value="Absolute" />
+                        <Trigger Property="DropDownPlacement" Value="Bottom" />
+                        <Trigger Property="DropDownPlacement" Value="Center" />
+                        <Trigger Property="DropDownPlacement" Value="Top">
+                            <Setter TargetName="DropDownPopup" Property="Placement" Value="Top" />
+                            <Setter TargetName="DropDownIndicator" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="180" />
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="DropDownPlacement" Value="Left">
+                            <Setter TargetName="DropDownPopup" Property="Placement" Value="Left" />
+                            <Setter TargetName="DropDownIndicator" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="90" />
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="DropDownPlacement" Value="Right">
+                            <Setter TargetName="DropDownPopup" Property="Placement" Value="Right" />
+                            <Setter TargetName="DropDownIndicator" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="-90" />
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+    <!--DropDown Menu-->
+    <Style TargetType="telerikTabControl:DropDownMenu" x:Key="DropDownStyle">
+        <Setter Property="Background" Value="{StaticResource ControlBackground}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="MaxHeight" Value="500" />
+        <Setter Property="BorderBrush" Value="{StaticResource ControlOuterBorder}" />
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <telerik:RadWrapPanel Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerikTabControl:DropDownMenu">
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}"
+								BorderBrush="{TemplateBinding BorderBrush}"
+								BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Border BorderThickness="0 0 1 0" Width="26" Opacity="0.5"  HorizontalAlignment="Left" BorderBrush="{TemplateBinding BorderBrush}"/>
+                                <ItemsPresenter Margin="{TemplateBinding Padding}" 
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+									HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                            </Grid>
+                        </Border>
+                        <Rectangle Fill="{StaticResource TabControl_DropDownHeaderBrush}"
+								x:Name="BorderMaskElement" VerticalAlignment="Top"
+								HorizontalAlignment="Left" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--	
+			*******************************
+					OVERFLOW BUTTON
+			*******************************
+	-->
+    <Style TargetType="ToggleButton" x:Key="OutlookFooterToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border x:Name="ControlBorder" BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Background="{TemplateBinding Background}"
+							Padding="{TemplateBinding Padding}">
+                        
+                        <Grid>
+                            <telerikChromes:ButtonChrome
+									telerik:StyleManager.Theme="{StaticResource Theme}"
+									RenderNormal="False" RenderEnabled="{TemplateBinding IsEnabled}"
+									RenderMouseOver="{TemplateBinding IsMouseOver}"
+									RenderPressed="{TemplateBinding IsPressed}"
+									RenderChecked="{TemplateBinding IsChecked}"
+									CornerRadius="{StaticResource ControlOuterBorder_CornerRadius}" />
+                            <ContentPresenter Content="{TemplateBinding Content}"
+									ContentTemplate="{TemplateBinding ContentTemplate}"
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+									HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <!--	
+			*****************************************
+					MINIMIZED OUTLOOKBAR ITEM
+			*****************************************
+	-->
+    <Style TargetType="outlookBarPrimitives:MinimizedOutlookBarItem"
+           x:Key="{telerik:ThemeResourceKey ThemeType=
+        external:SummerThemeExternal , ElementType=outlookBarPrimitives:MinimizedOutlookBarItem}"
+         >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="outlookBarPrimitives:MinimizedOutlookBarItem">
+                    <Border x:Name="ControlBorder" BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Background="{TemplateBinding Background}" Margin="3 0 0 0">
+                        
+                        <Grid>
+                            <!-- MouseOver -->
+                            <Border x:Name="MouseOverElement" Visibility="Collapsed"
+									CornerRadius="{StaticResource ControlOuterBorder_CornerRadius}"
+									BorderThickness="1"
+									BorderBrush="{StaticResource ControlOuterBorder_MouseOver}">
+                                <Border
+										CornerRadius="{StaticResource ControlInnerBorder_CornerRadius}"
+										BorderThickness="1"
+										BorderBrush="{StaticResource ControlInnerBorder_MouseOver}"
+										Background="{StaticResource ControlBackground_MouseOver}" />
+                            </Border>
+                            <!-- Pressed -->
+                            <Border x:Name="PressedElement" Visibility="Collapsed"
+									CornerRadius="{StaticResource ControlOuterBorder_CornerRadius}"
+									BorderThickness="1"
+									BorderBrush="{StaticResource ControlOuterBorder_Pressed}">
+                                <Border
+										CornerRadius="{StaticResource ControlInnerBorder_CornerRadius}"
+										BorderThickness="1"
+										BorderBrush="{StaticResource ControlInnerBorder_Pressed}"
+										Background="{StaticResource ControlBackground_Pressed}" />
+                            </Border>
+                            <telerik:RadDockPanel Margin="{TemplateBinding Padding}">
+                                <Image Source="{TemplateBinding SmallIcon}"
+										VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+										telerik:RadDockPanel.Dock="Left" Stretch="None" />
+                                <ContentPresenter Content="{TemplateBinding Content}"
+										Grid.Column="1"
+										ContentTemplate="{TemplateBinding ContentTemplate}"
+										VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+										HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                            </telerik:RadDockPanel>
+                        </Grid>
+                    </Border>
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="MouseOverElement" Property="Visibility"
+									Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Visibility" TargetName="PressedElement"
+									Value="Visible" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="2 0 2 0" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <!--	
+			******************************
+					MINIMIZED AREA
+			******************************
+	-->
+    <Style TargetType="outlookBarPrimitives:MinimizedOutlookBarArea"
+            x:Key="{telerik:ThemeResourceKey ThemeType=
+        external:SummerThemeExternal , ElementType=outlookBarPrimitives:MinimizedOutlookBarArea}"
+         >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="outlookBarPrimitives:MinimizedOutlookBarArea">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Background="{TemplateBinding Background}">
+                        <ItemsPresenter />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <outlookBarPrimitives:OutlookBarPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--	
+			***********************************
+					HORIZONTAL SPLITTER
+			***********************************
+	-->
+    
+        
+        <Style TargetType="Thumb" x:Key="OutlookBarHorizontalSplitter">
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    
+                        
+                        <ControlTemplate TargetType="Thumb">
+                            
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+									BorderThickness="{TemplateBinding BorderThickness}"
+									Background="{TemplateBinding Background}"
+									Padding="{TemplateBinding Padding}"
+									OpacityMask="{StaticResource OutlookBar_HorizontalSplitterOpacityMask}">
+                                <Grid Height="3"
+										HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+										VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+										Width="15">
+                                    <Path
+											Fill="{StaticResource OutlookBar_HorizontalSplitterPath_OuterBackground}"
+											Stretch="Fill" StrokeThickness="0" Margin="0,0,1,1"
+											Data="M12,0 L13,0 L14,0 L14,1 L14,2 L13,2 L12,2 L12,1 z M8,0 L9,0 L10,0 L10,1 L10,2 L9,2 L8,2 L8,1 z M4,0 L5,0 L6,0 L6,1 L6,2 L5,2 L4,2 L4,1 z M0,0 L1,0 L2,0 L2,1 L2,2 L1,2 L0,2 L0,1 z" />
+                                    <Path
+											Fill="{StaticResource OutlookBar_HorizontalSplitterPath_InnerBackground}"
+											Stretch="Fill" StrokeThickness="0" Margin="1,1,0,0"
+											Data="M12,0 L13,0 L14,0 L14,1 L14,2 L13,2 L12,2 L12,1 z M8,0 L9,0 L10,0 L10,1 L10,2 L9,2 L8,2 L8,1 z M4,0 L5,0 L6,0 L6,1 L6,2 L5,2 L4,2 L4,1 z M0,0 L1,0 L2,0 L2,1 L2,2 L1,2 L0,2 L0,1 z" />
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush" Value="{StaticResource ControlOuterBorder}" />
+            <Setter Property="BorderThickness"
+					Value="{StaticResource OutlookBar_HorizontalSplitter_BorderThickness}" />
+            <Setter Property="Background"
+					Value="{StaticResource OutlookBar_HorizontalSplitterBackground}" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="0 2 0 2" />
+            <Setter Property="Cursor" Value="SizeNS" />
+        </Style>
+
+        <!--	
+			**************************
+					MenuItem
+			************************** 
+	-->
+        <Style TargetType="telerikNavigation:RadMenuItem" x:Key="MenuItemStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="telerikNavigation:RadMenuItem">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}" />
+                            <Grid Margin="{StaticResource MenuSubItemMargin}">
+                                <telerikChromes:ButtonChrome
+                                                            telerik:StyleManager.Theme="{StaticResource Theme}" Grid.ColumnSpan="3"
+                                                            RenderNormal="False"
+                                                            CornerRadius="{StaticResource SplitButton_SpanCornerRadius}"
+                                                            RenderHighlighted="{TemplateBinding IsHighlighted}" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Menu.IconColumnWidth}">
+                                        <Image Grid.Column="0" Margin="2 2 10 2" Height="14"  Source="{TemplateBinding Icon}" />
+                                    </Grid>
+                                    <ContentPresenter   Grid.Column="1"
+                                                        Margin="{TemplateBinding Padding}"
+                                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                        Content="{TemplateBinding Header}"
+                                                        ContentTemplate="{TemplateBinding HeaderTemplate}" 
+					                                
+                                        RecognizesAccessKey="True" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
+                                         >
+                                    </ContentPresenter>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+            
+        <DataTemplate x:Key="DefaultMinimizedButtonContentTemplate">
+            <TextBlock Text="{Binding}" FontWeight="Bold" />
+        </DataTemplate>
+
+        <!--	
+			**************************
+					OUTLOOKBAR
+			************************** 
+	-->
+        <Style TargetType="telerikNavigation:RadOutlookBar"
+			x:Key="{telerik:ThemeResourceKey ThemeType=
+            external:SummerThemeExternal , ElementType=telerikNavigation:RadOutlookBar}"
+             >
+            <Setter Property="TitleTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Grid>
+                            <ContentControl
+									HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+									Foreground="{StaticResource OutlookBar_ForegroundHeader}"
+									FontSize="12" FontWeight="Bold" IsTabStop="False"
+									Content="{Binding}" />
+                        </Grid>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="telerikNavigation:RadOutlookBar">
+                        <Grid x:Name="LayoutRoot">
+                            
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+									BorderThickness="{TemplateBinding BorderThickness}"
+									Background="{TemplateBinding Background}" x:Name="RootElement">
+                                
+                                    
+                                    <DockPanel>
+                                        
+                                        <Border BorderThickness="1"
+												BorderBrush="{StaticResource OutlookBar_HeaderOuterBorder}"
+												Background="{StaticResource OutlookBar_HeaderBackground}"
+												Margin="-1"
+												
+                                             DockPanel.Dock="Top"
+                                             Visibility="{TemplateBinding HeaderVisibility}">
+                                            <Border
+													BorderThickness="{StaticResource OutlookBar_HeaderInnerBorder_Thickness}"
+													BorderBrush="{StaticResource OutlookBar_HeaderInnerBorder}">
+                                                <Grid>
+                                                    <ContentControl x:Name="TitleElement"
+														HorizontalContentAlignment="Stretch"
+														VerticalContentAlignment="Stretch"
+														Margin="5 3 5 3"
+														IsTabStop="False"
+                                                        ContentTemplate="{TemplateBinding TitleTemplate}" />
+                                                    <telerik:RadToggleButton x:Name="MinimizeButton" Margin="0 0 3 0"
+                                                            HorizontalAlignment="Right" Width="19" Height="19"
+                                                            Style="{StaticResource MinimizeButtonStyle}"
+                                                            VerticalAlignment="Center"             
+                                                            IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsMinimized, Mode=TwoWay}"
+                                                            Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsMinimizable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                                </Grid>
+                                            </Border>
+                                        </Border>
+                                        <Border
+												Visibility="{TemplateBinding MinimizedAreaVisibility}"
+											
+                                             DockPanel.Dock="Bottom"
+                                             BorderThickness="{StaticResource OutlookBar_OuterBorderThickness}"
+											BorderBrush="{StaticResource OutlookBar_Footer_OuterItemBorderBrush}"
+											MinHeight="{TemplateBinding MinimizedAreaMinHeight}"
+											Background="{StaticResource OutlookBar_Footer_BackgroundItem}">
+                                            <Border Padding="0 2"
+													BorderThickness="{StaticResource OutlookBar_InnerBorderThickness}"
+													BorderBrush="{StaticResource OutlookBar_Footer_InnerItemBorderBrush}">
+                                                
+                                                    
+                                                    <DockPanel
+													HorizontalAlignment="Right">
+                                                        <ToggleButton x:Name="DropDownButtonElement"
+																MinWidth="15"
+														
+                                                             DockPanel.Dock="Right" ClickMode="Press"
+                                                             Style="{StaticResource OutlookFooterToggleButton}"
+															IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+															>
+                                                            <ToolTipService.ToolTip>
+                                                                <TextBlock Text="Configure buttons"
+																		telerik:LocalizationManager.ResourceKey="OutlookBarConfigureButtons" />
+                                                            </ToolTipService.ToolTip>
+                                                            <telerikNavigation:RadContextMenu.ContextMenu>
+                                                                <telerikTabControl:DropDownMenu
+																		x:Name="DropDownMenuElement"
+																		StaysOpen="False"
+																		Placement="Bottom"
+																		Style="{TemplateBinding DropDownStyle}"
+																		ItemTemplate="{TemplateBinding ItemDropDownContentTemplate}"
+																		ItemTemplateSelector="{TemplateBinding ItemDropDownContentTemplateSelector}"
+																		DisplayMemberPath="{TemplateBinding DropDownDisplayMemberPath}"
+                                                                        ItemContainerStyle="{StaticResource MenuItemStyle}"/>
+                                                            </telerikNavigation:RadContextMenu.ContextMenu>
+                                                            <Path Data="M0,0 L5,0 3,3 0,0"
+																	Fill="{StaticResource ControlElement_Normal}"
+																	Width="5" Height="3" />
+                                                        </ToggleButton>
+                                                        <outlookBarPrimitives:MinimizedOutlookBarArea
+																IsTabStop="False"
+																x:Name="MinimizedAreaControl"
+												
+                                                             DockPanel.Dock="Right"
+                                                             />
+                                                            
+                                                
+                                    </DockPanel>
+                                    
+                            </Border>
+                            </Border>
+                            <ItemsPresenter 
+								
+                                 DockPanel.Dock="Bottom"
+                                 x:Name="ItemsPresenterElement" />
+                                
+                                    
+                                    <Thumb x:Name="HorizontalSplitter" DockPanel.Dock="Bottom"
+								Style="{TemplateBinding HorizontalSplitterStyle}"
+								>
+                                        <ToolTipService.ToolTip>
+                                            <TextBlock
+													Text="Start dragging in order to change items' position"
+													telerik:LocalizationManager.ResourceKey="OutlookBarHorizontalSplitter" />
+                                        </ToolTipService.ToolTip>
+                                        
+                                
+                                </Thumb>
+                                
+                                <Grid>
+                                    <ContentPresenter x:Name="ContentElement"                                                  
+										ContentTemplate="{TemplateBinding SelectedContentTemplate}"
+										
+                                        ContentTemplateSelector="{TemplateBinding SelectedContentTemplateSelector}"
+                                        
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+										Margin="{TemplateBinding Padding}" />
+
+                                        <telerik:RadDropDownButton DropDownIndicatorVisibility="Collapsed" x:Name="MinimizedContentElement" 
+                                                               Style="{StaticResource MinimizedContentButtonStyle}" 
+                                                               Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsMinimized, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                                               DropDownPlacement="Right" Padding="4 0 0 0" Margin="0 1 0 0" >
+                                            <telerikPrimitives:LayoutTransformControl>
+                                                <telerikPrimitives:LayoutTransformControl.LayoutTransform>
+                                                    <RotateTransform Angle="-90" />
+                                                </telerikPrimitives:LayoutTransformControl.LayoutTransform>
+                                                <ContentPresenter Content="{TemplateBinding MinimizedButtonContent}"                                            
+										                          ContentTemplate="{TemplateBinding MinimizedButtonContentTemplate}" />
+                                            </telerikPrimitives:LayoutTransformControl>
+                                            <telerik:RadDropDownButton.DropDownContent>
+                                                <Grid>
+                                                    <ContentPresenter x:Name="MinimizedContentPresenter"
+                                                                      ContentTemplate="{TemplateBinding SelectedContentTemplate}"
+										                            
+                                                                    ContentTemplateSelector="{TemplateBinding SelectedContentTemplateSelector}"
+                                                                     />
+                                                    <Thumb x:Name="PopupResizer" VerticalAlignment="Stretch" Cursor="SizeWE" Opacity="0"  
+                                                           HorizontalAlignment="Right" Width="2" />
+                                                </Grid>
+                                            </telerik:RadDropDownButton.DropDownContent>
+                                        </telerik:RadDropDownButton>
+                                </Grid>
+                                
+                                
+                                </DockPanel>
+                                
+                                </Border>
+
+                                <Thumb x:Name="VerticalResizer" Opacity="0" Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsVerticalResizerVisible, Converter={StaticResource BooleanToVisibilityConverter}}" 
+                                       Cursor="SizeWE" VerticalAlignment="Stretch" Width="2"
+                                       HorizontalAlignment="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=VerticalResizerAlignment, Converter={StaticResource AlignmentConverter}}">
+                                    <ToolTipService.ToolTip>
+                                        <TextBlock
+													Text="Start dragging in order to resize the outlookbar"
+													telerik:LocalizationManager.ResourceKey="OutlookBarVerticalResizer" />
+                                    </ToolTipService.ToolTip>
+                                </Thumb>
+                        </Grid>
+                        
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMinimized" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0"
+                                                Storyboard.TargetName="ContentElement"
+                                                Storyboard.TargetProperty="(UIElement.Opacity)" From="1" To="0" />
+                                            <DoubleAnimation Duration="0"
+                                                Storyboard.TargetName="TitleElement"
+                                                Storyboard.TargetProperty="(UIElement.Opacity)" From="1" To="0" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="00:00:00.5000000"
+                                                Storyboard.TargetName="ContentElement"
+                                                Storyboard.TargetProperty="(UIElement.Opacity)" From="0" To="1" />
+                                            <DoubleAnimation Duration="00:00:00.5000000"
+                                                Storyboard.TargetName="TitleElement"
+                                                Storyboard.TargetProperty="(UIElement.Opacity)" From="0" To="1" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                        
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="MinimizedButtonContentTemplate" Value="{StaticResource DefaultMinimizedButtonContentTemplate}" />
+            <Setter Property="BorderBrush" Value="{StaticResource ControlOuterBorder}" />
+            <Setter Property="DropDownDisplayMode" Value="Visible" />
+            <Setter Property="DropDownStyle" Value="{StaticResource DropDownStyle}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <outlookBarPrimitives:OutlookBarPanel />
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="MinimizedAreaMinHeight" Value="31" />
+            <Setter Property="HorizontalSplitterStyle"
+					Value="{StaticResource OutlookBarHorizontalSplitter}" />
+            <Setter Property="Background" Value="{StaticResource ControlBackground}" />
+            
+            
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="Once" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            
+        </Style>
+        <!--	
+			*******************************
+					OUTLOOKBAR ITEM
+			******************************* 
+	-->
+        <Style TargetType="telerikNavigation:RadOutlookBarItem"
+			x:Key="{telerik:ThemeResourceKey ThemeType=
+            external:SummerThemeExternal , ElementType=telerikNavigation:RadOutlookBarItem}"
+             >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="telerikNavigation:RadOutlookBarItem">
+                        <Grid x:Name="wrapper">
+                            
+                            <!-- normal-->
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" Margin="-1 0 -1 -1"
+									BorderThickness="{TemplateBinding BorderThickness}">
+                                <Border
+										BorderBrush="{StaticResource ControlItem_InnerBorder_Normal}"
+										BorderThickness="1"
+										Background="{TemplateBinding Background}" />
+                            </Border>
+                            <!-- Hover -->
+                            <Border x:Name="MouseOverVisual" Opacity="0"
+									BorderBrush="{StaticResource ControlItem_OuterBorder_MouseOver}"
+									BorderThickness="1" Margin="-1 0 -1 -1">
+                                <Border
+										BorderBrush="{StaticResource ControlItem_InnerBorder_MouseOver}"
+										BorderThickness="1"
+										Background="{StaticResource ControlItem_Background_MouseOver}" />
+                            </Border>
+                            <!-- Select -->
+                            <Border x:Name="SelectVisual" Opacity="0" Margin="-1 0 -1 -1"
+									BorderBrush="{StaticResource ControlItem_OuterBorder_Selected}"
+									BorderThickness="1">
+                                <Border
+										BorderBrush="{StaticResource ControlItem_InnerBorder_Selected}"
+										BorderThickness="1"
+										Background="{StaticResource ControlItem_Background_Selected}" />
+                            </Border>
+                            <!-- Disabled -->
+                            <Border x:Name="DisabledVisual" Opacity="0" Margin="-1 0 -1 -1"
+									BorderBrush="{StaticResource ControlOuterBorder_Disabled}"
+									BorderThickness="1">
+                                <Border BorderBrush="{StaticResource ControlInnerBorder_Disabled}"
+										BorderThickness="1"
+										Background="{StaticResource ControlBackground_Disabled}" />
+                            </Border>
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <telerik:RadDockPanel>
+                                    <Image Source="{TemplateBinding Icon}"
+											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+											telerik:RadDockPanel.Dock="Left" Stretch="None" />
+                                    <ContentControl x:Name="HeaderElement" Margin="3 0 0 0"
+											FontWeight="{TemplateBinding FontWeight}"
+											Content="{TemplateBinding Header}"
+											ContentTemplate="{TemplateBinding HeaderTemplate}"
+											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+											Foreground="{TemplateBinding Foreground}"
+											IsTabStop="False" />
+                                </telerik:RadDockPanel>
+                            </Grid>
+                        </Grid>
+                        
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1" TargetName="MouseOverVisual" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Opacity" Value="1" TargetName="SelectVisual" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" Value="1" TargetName="DisabledVisual" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                        
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush" Value="{StaticResource ControlItem_OuterBorder_Normal}" />
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="Foreground" Value="{StaticResource ControlForeground_Normal}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="3" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <Setter Property="Background" Value="{StaticResource ControlItem_Background_Normal}" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        
+</ResourceDictionary>

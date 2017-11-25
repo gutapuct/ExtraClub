@@ -1,0 +1,28 @@
+﻿<usr:ModuleViewBase x:Class="TonusClub.TurnoverModule.Views.GoodsListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:usrC="clr-namespace:TonusClub.TurnoverModule.Views.ContainedControls"
+             usr:AuthorizationManager.AuthorizationKey="TurnoverCatalogPanel"
+                    xmlns:res="clr-namespace:TonusClub.UIControls.Localization;assembly=TonusClub.UIControls"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <TabControl>
+        <TabItem  Header="{x:Static res:Resources.GoodsList}"
+                                                      usr:AuthorizationManager.AuthorizationKey="GoodsListTab">
+            <TabItem.Content>
+                <usrC:GoodsControl  />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem   Header="{x:Static res:Resources.Repositories}"
+                                                       usr:AuthorizationManager.AuthorizationKey="TurnoverDictsTab">
+            <TabItem.Content>
+                <usr:DictionaryControl Margin="5 5 5 5" x:Name="DictControl">
+                </usr:DictionaryControl>
+            </TabItem.Content>
+        </TabItem>
+    </TabControl>
+</usr:ModuleViewBase>

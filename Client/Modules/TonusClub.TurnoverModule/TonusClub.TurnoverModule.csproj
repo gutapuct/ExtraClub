@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95446900-911D-4C26-A994-F306CDC75CD2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TonusClub.TurnoverModule</RootNamespace>
+    <AssemblyName>TonusClub.TurnoverModule</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\TonusClub.TurnoverModule.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\TonusClub.TurnoverModule.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FlagmaxControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Design\FlagmaxControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Composite">
+      <HintPath>..\..\..\lib\Prism\Microsoft.Practices.Composite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Composite.Presentation">
+      <HintPath>..\..\..\lib\Prism\Microsoft.Practices.Composite.Presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\lib\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Windows.Controls, Version=2010.1.319.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2010.1.319.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2010.1.319.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2010.1.319.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2010.1.319.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\CashierDocumentsViewModel.cs" />
+    <Compile Include="Views\BarModule.xaml.cs">
+      <DependentUpon>BarModule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BarPointViewModel.cs" />
+    <Compile Include="ViewModels\ConsignmentViewModel.cs" />
+    <Compile Include="Views\ContainedControls\CashierBookControl.xaml.cs">
+      <DependentUpon>CashierBookControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\CashierDocumentsControl.xaml.cs">
+      <DependentUpon>CashierDocumentsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\CashInOrdersControl.xaml.cs">
+      <DependentUpon>CashInOrdersControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\CashOutOrdersControl.xaml.cs">
+      <DependentUpon>CashOutOrdersControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\CashPaymentsControl.xaml.cs">
+      <DependentUpon>CashPaymentsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\CertificatesControl.xaml.cs">
+      <DependentUpon>CertificatesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\CompanyFinancesControl.xaml.cs">
+      <DependentUpon>CompanyFinancesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\IncomesControl.xaml.cs">
+      <DependentUpon>IncomesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\ProviderOrders.xaml.cs">
+      <DependentUpon>ProviderOrders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\SalesControl.xaml.cs">
+      <DependentUpon>SalesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\SalesPlanControl.xaml.cs">
+      <DependentUpon>SalesPlanControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\SpendingsControl.xaml.cs">
+      <DependentUpon>SpendingsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\FinancesClubControl.xaml.cs">
+      <DependentUpon>FinancesClubControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\Windows\MarkdownWindow.xaml.cs">
+      <DependentUpon>MarkdownWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\Windows\NewCashInOrderWindow.xaml.cs">
+      <DependentUpon>NewCashInOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\Windows\NewCashOutOrderWindow.xaml.cs">
+      <DependentUpon>NewCashOutOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\Windows\NewEditCompanyFinanceWindow.xaml.cs">
+      <DependentUpon>NewEditCompanyFinanceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\Windows\NewEditDivisionFinanceWindow.xaml.cs">
+      <DependentUpon>NewEditDivisionFinanceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\Windows\NewIncomeWindow.xaml.cs">
+      <DependentUpon>NewIncomeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FinancesControl.xaml.cs">
+      <DependentUpon>FinancesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GoodsListControl.xaml.cs">
+      <DependentUpon>GoodsListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TurnoverAndProvidersControl.xaml.cs">
+      <DependentUpon>TurnoverAndProvidersControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\FRReturnWindow.xaml.cs">
+      <DependentUpon>FRReturnWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\KKMOperations.xaml.cs">
+      <DependentUpon>KKMOperations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewCertificateWindow.xaml.cs">
+      <DependentUpon>NewCertificateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditDeductionConsignment.xaml.cs">
+      <DependentUpon>NewEditDeductionConsignment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\TurnoverLargeViewModel.cs" />
+    <Compile Include="Views\BarPointView.xaml.cs">
+      <DependentUpon>BarPointView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\ConsignmentsControl.xaml.cs">
+      <DependentUpon>ConsignmentsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\GoodsControl.xaml.cs">
+      <DependentUpon>GoodsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\ProvidersControl.xaml.cs">
+      <DependentUpon>ProvidersControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Converter.cs" />
+    <Compile Include="Views\Windows\NewConsignment.xaml.cs">
+      <DependentUpon>NewConsignment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditPriceWindow.xaml.cs">
+      <DependentUpon>NewEditPriceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditSalesPlanWindow.xaml.cs">
+      <DependentUpon>NewEditSalesPlanWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewGoodActionWindow.xaml.cs">
+      <DependentUpon>NewGoodActionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewProviderPaymentWindow.xaml.cs">
+      <DependentUpon>NewProviderPaymentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditGoodWindow.xaml.cs">
+      <DependentUpon>NewEditGoodWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditMoveConsignment.xaml.cs">
+      <DependentUpon>NewEditMoveConsignment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditProviderFolderWindow.xaml.cs">
+      <DependentUpon>NewEditProviderFolderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditProviderOrderWindow.xaml.cs">
+      <DependentUpon>NewEditProviderOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditProviderWindow.xaml.cs">
+      <DependentUpon>NewEditProviderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewSpendingWindow.xaml.cs">
+      <DependentUpon>NewSpendingWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\BarModule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\CashierBookControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\CashierDocumentsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\CashInOrdersControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\CashOutOrdersControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\CashPaymentsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\CertificatesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\CompanyFinancesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\IncomesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\ProviderOrders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\SalesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\SalesPlanControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ContainedControls\SpendingsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\FinancesClubControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\Windows\MarkdownWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\Windows\NewCashInOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\Windows\NewCashOutOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\Windows\NewEditCompanyFinanceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\Windows\NewEditDivisionFinanceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\Windows\NewIncomeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FinancesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GoodsListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TurnoverAndProvidersControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\FRReturnWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\KKMOperations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewCertificateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewEditDeductionConsignment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BarPointView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\ConsignmentsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\GoodsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\ProvidersControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewConsignment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewEditPriceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewEditSalesPlanWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Windows\NewGoodActionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewProviderPaymentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewEditGoodWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewEditMoveConsignment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewEditProviderFolderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewEditProviderOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewEditProviderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewSpendingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\TonusClub.ServiceModel\TonusClub.ServiceModel.csproj">
+      <Project>{97cc15a7-fc9a-4c5c-8098-44d11b6392db}</Project>
+      <Name>TonusClub.ServiceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TonusClub.Infrastructure\TonusClub.Infrastructure.csproj">
+      <Project>{0eac7b49-5998-4f41-ba70-33f0a636aeaa}</Project>
+      <Name>TonusClub.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TonusClub.UIControls\TonusClub.UIControls.csproj">
+      <Project>{a3082956-9ee4-4b35-9b4e-b07d0c4c8b56}</Project>
+      <Name>TonusClub.UIControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TonusClub.CashRegisterModule\TonusClub.CashRegisterModule.csproj">
+      <Project>{cd79a91a-f217-483d-8250-92c9a6d81773}</Project>
+      <Name>TonusClub.CashRegisterModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TonusClub.DictionaryManager\TonusClub.DictionaryManager.csproj">
+      <Project>{B485A745-5EE8-4DB1-8D6A-457AA484B496}</Project>
+      <Name>TonusClub.DictionaryManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Resources\gift-icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

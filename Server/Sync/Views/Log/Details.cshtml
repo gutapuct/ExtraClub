@@ -1,0 +1,33 @@
+﻿@model Sync.Models.LogItem
+
+@{
+    ViewBag.Title = "Отчет синхронизации";
+}
+
+<table>
+<tr>
+<th>Компания</th>
+<td>@ViewBag.CompanyName</td>
+</tr>
+<tr>
+<th>Клуб</th>
+<td>@ViewBag.DivisionName</td>
+</tr>
+<tr>
+<th>Дата</th>
+<td>@Html.DisplayFor(model => model.CreatedOn)</td>
+</tr>
+<tr>
+<th>Метод</th>
+<td>@Html.DisplayFor(model => model.MethodName)</td>
+</tr>
+<tr>
+<th>Отчет</th>
+<td>@Html.Raw(Model.Message.Replace("\n","<br />"))</td>
+</tr>
+</table>
+<br />
+
+<p>
+<input type="button" onClick="history.go(-1);return false;" Value="Назад" />
+</p>

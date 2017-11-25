@@ -1,0 +1,28 @@
+﻿<usr:WindowBase x:Class="TonusClub.Clients.Views.Windows.GoodOutWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen"
+             xmlns:res="clr-namespace:TonusClub.UIControls.Localization;assembly=TonusClub.UIControls"
+             Width="516" Title="Выберите способ распечатки чека" SizeToContent="Height" >
+    <StackPanel>
+        <UniformGrid Rows="1" usr:AuthorizationManager.AuthorizationKey="PrintPredAtClientComeIn">
+            <RadioButton x:Name="PrintFR" Margin="8 3" IsChecked="True" Content="Печатать на ФР"></RadioButton>
+            <RadioButton x:Name="PrintPDF" Margin="8 3" Content="Вывод в Pdf"></RadioButton>
+            <RadioButton x:Name="DoNotPrint" Margin="8 3" Content="Не печатать чек"></RadioButton>
+        </UniformGrid>
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3" Padding="5" IsEnabled="{Binding IsPostEnabled}" Click="CreateButton_Click"
+                               Content="OK"></Button>
+            <Button Margin="3" Padding="5" Click="CancelButton_Click"
+                               Content="{x:Static res:Resources.Cancel}"
+                               ></Button>
+        </UniformGrid>
+    </StackPanel>
+    </usr:WindowBase>
+

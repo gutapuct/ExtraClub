@@ -1,0 +1,25 @@
+﻿@model TonusClub.ServiceModel.Ticket
+
+@{
+    ViewBag.Title = Model.Number;
+    ViewBag.BackActionUrl = Url.Action("Details", "Ticket", new { id = Model.Id });
+}
+
+@if (!Model.UnitCharges.Where(i => (i.Charge > 0 && ViewBag.Kind == 0) || (i.GuestCharge > 0 && ViewBag.Kind == 1)).Any())
+{
+    <h1>По этому абонементу нет списаний единиц!</h1>
+}
+
+<ul data-role="listview" data-inset="true">
+    @foreach (var gr in Model.UnitCharges.Where(i => (i.Charge > 0 && ViewBag.Kind == 0) || (i.GuestCharge > 0 && ViewBag.Kind == 1)).GroupBy(i => i.Date.Date).OrderByDescending(i => i.Key))
+    {
+        <li data-role="list-divider">@gr.Key.ToString("d MMMM yyyy")</li>
+        foreach (var i in gr.OrderBy(j => j.Date))
+        {
+        <li>
+            <span style="white-space:normal;">@i.Reason</span>
+            <span class="ui-li-aside" style="line-height:10px;">@i.Charge</span>
+        </li>
+        }
+    }
+</ul>

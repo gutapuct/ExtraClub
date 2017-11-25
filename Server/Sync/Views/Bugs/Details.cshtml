@@ -1,0 +1,116 @@
+﻿@model Sync.Models.Bug
+
+@{
+    ViewBag.Title = "Бага №" + Model.Id;
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+        <table>
+    <tr>
+        <th>
+            Номер
+        </th>
+        <td>
+            @Model.Id
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Автор
+        </th>
+        <td>
+            @Model.CreatedName
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Дата создания
+        </th>
+        <td>
+            @Model.CreatedOn
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Дата изменения статуса
+        </th>
+        <td>
+            @Model.StatusChangedOn
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Категория
+        </th>
+        <td>
+            @Model.Category
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Приоритет
+        </th>
+        <td>
+            @Model.Priority
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Статус
+        </th>
+        <td>
+            @Model.Status
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Тема
+        </th>
+        <td>
+            @Model.Subject
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Описание
+        </th>
+        <td>
+            @Html.Raw(Model.Message.Replace("\n","<br />"))
+        </td>
+    </tr>
+</table>
+    <p>
+            @if (Model.StatusId == 0 || Model.StatusId == 1)
+{
+    <text>
+    @Html.ActionLink("Править", "Edit", new { id = Model.Id }) |
+    </text>
+}
+            @if (Model.StatusId == 3)
+{
+    <text>
+    @Html.ActionLink("Возобновить", "Reopen", new { id = Model.Id }) |
+    </text>
+}
+@if(User.Identity.Name=="max"){
+    <text>
+    @Html.ActionLink("Отказ", "Cancel", new { id = Model.Id }) |
+    @Html.ActionLink("В работу", "Start", new { id = Model.Id }) |
+    @Html.ActionLink("Завершить", "Finish", new { id = Model.Id }) |
+    </text>
+}
+            @if (Model.StatusId != 4)
+{
+    <text>
+        @Html.ActionLink("Закрыть", "Close", new { id = Model.Id }) |
+    </text>
+}
+        @Html.ActionLink("Назад", "Index")
+    </p>
+}
+

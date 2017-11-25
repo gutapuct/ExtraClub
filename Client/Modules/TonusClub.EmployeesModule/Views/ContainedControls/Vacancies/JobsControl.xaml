@@ -1,0 +1,61 @@
+﻿<usr:ModuleViewBase x:Class="TonusClub.EmployeesModule.Views.ContainedControls.Vacancies.JobsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="300" d:DesignWidth="850">
+    <usr:ModuleViewBase.Resources>
+        <BooleanToVisibilityConverter x:Key="boolToVis" />
+    </usr:ModuleViewBase.Resources>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+            <Button Margin="2 0" Click="NewButton_Click" usr:AuthorizationManager.AuthorizationKey="JobsManagementBtns">Новая должность</Button>
+            <Button Margin="2 0" Click="EditButton_Click" usr:AuthorizationManager.AuthorizationKey="JobsManagementBtns">Редактировать выделенную</Button>
+            <Button Margin="2 0" Click="DeleteButton_Click" usr:AuthorizationManager.AuthorizationKey="JobsManagementBtns">Удалить выделенную</Button>
+            <Button Margin="2 0" Padding="10 0" Click="PrintScheduleReport" usr:AuthorizationManager.AuthorizationKey="PrintShtatRaspBtn">Печать</Button>
+            <TextBlock Margin="10 0" VerticalAlignment="Center" Text="{Binding BaselineStatus}"></TextBlock>
+            <Button Margin="2 0" IsEnabled="{Binding IsNotBaselined}" Click="BaselineButton_Click" usr:AuthorizationManager.AuthorizationKey="BaselineJobListBtn">Утвердить расписание</Button>
+        </StackPanel>
+        <telerik:RadGridView 
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ActionOnLostFocus="CommitEdit"
+                                        ShowGroupPanel="False"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        IsFilteringAllowed="False"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding JobsView}"
+                                        MouseDoubleClick="JobsViewGrid_MouseDoubleClick"
+                                        x:Name="JobsViewGrid">
+            <telerik:RadGridView.Resources>
+                <!--<DataTemplate x:Key="MyToolTip">
+                        <TextBlock Text="{Binding Duties}"/>
+                </DataTemplate>-->
+                <Style x:Key="MyColumnStyle" TargetType="telerik:GridViewCell">
+                    <Setter Property="ToolTip"  
+                        Value="{Binding Duties}" />
+                </Style>
+            </telerik:RadGridView.Resources>
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Width="2*" Header="Название" DataMemberBinding="{Binding Name}" CellStyle="{StaticResource MyColumnStyle}"/>
+                <telerik:GridViewDataColumn Width="2*" Header="Подразделение" DataMemberBinding="{Binding Unit}" CellStyle="{StaticResource MyColumnStyle}"/>
+                <telerik:GridViewDataColumn Width="*" Header="Оклад" DataMemberBinding="{Binding Salary}" DataFormatString="{}{0:c}" CellStyle="{StaticResource MyColumnStyle}"/>
+                <telerik:GridViewDataColumn Width="*" Header="Кол-во" DataMemberBinding="{Binding Vacansies}" DataFormatString="{}{0:n0}" CellStyle="{StaticResource MyColumnStyle}"/>
+                <telerik:GridViewDataColumn Width="*" Header="Вместе" ToolTip="Количество одновременно в смене" DataMemberBinding="{Binding ParallelVacansies}" DataFormatString="{}{0:n0}" CellStyle="{StaticResource MyColumnStyle}"/>
+                <telerik:GridViewDataColumn Width="*" Header="Осн/совм" DataMemberBinding="{Binding MainWorkplaceText}" CellStyle="{StaticResource MyColumnStyle}"/>
+                <telerik:GridViewDataColumn Width="*" Header="График" DataMemberBinding="{Binding WorkGraph}" CellStyle="{StaticResource MyColumnStyle}"/>
+                <telerik:GridViewDataColumn Width="*" Header="Часы" DataMemberBinding="{Binding WorkGraphTimeText}" CellStyle="{StaticResource MyColumnStyle}"/>
+                <telerik:GridViewDataColumn Width="*" Header="Схема з/п" DataMemberBinding="{Binding SerializedSchemaName}" CellStyle="{StaticResource MyColumnStyle}"/>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </DockPanel>
+    </usr:ModuleViewBase>
+

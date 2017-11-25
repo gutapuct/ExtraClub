@@ -1,0 +1,1360 @@
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	    
+    xmlns:animation="clr-namespace:Telerik.Windows.Controls.Animation;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikTransitions="clr-namespace:Telerik.Windows.Controls.TransitionEffects;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikChromes="clr-namespace:Telerik.Windows.Controls.Chromes;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    
+
+	xmlns:external="clr-namespace:Telerik.Windows.Controls.External"
+	xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:telerikNavigationPrimitives="clr-namespace:Telerik.Windows.Controls.Primitives;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls.Primitives;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:telerikToolBar="clr-namespace:Telerik.Windows.Controls.ToolBar;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:treeView="clr-namespace:Telerik.Windows.Controls.TreeView;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+	xmlns:themes="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:mscorlib="clr-namespace:System;assembly=mscorlib"
+	xmlns:dragDrop="clr-namespace:Telerik.Windows.Controls.DragDrop;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:telerikTabControl="clr-namespace:Telerik.Windows.Controls.TabControl;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:animationNavigation="clr-namespace:Telerik.Windows.Controls.Animation;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:book="clr-namespace:Telerik.Windows.Controls.Book;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:outlookBarPrimitives="clr-namespace:Telerik.Windows.Controls.OutlookBar;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+
+    xmlns:tileView="clr-namespace:Telerik.Windows.Controls.TileView;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	xmlns:local="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:carousel="clr-namespace:Telerik.Windows.Controls.Carousel;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:telerikBreadcrumb="clr-namespace:Telerik.Windows.Controls.Breadcrumb;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+
+
+ >
+	
+   <SolidColorBrush x:Key="PickerBackground_Normal" Color="#FFFFFFFF" />
+<SolidColorBrush x:Key="ControlForeground_Normal" Color="#FF000000" />
+<SolidColorBrush x:Key="ControlOuterBorder_Normal" Color="#FFB2B2B2" />
+<CornerRadius x:Key="ControlOuterBorder_CornerRadius">2</CornerRadius>
+<SolidColorBrush x:Key="TextBoxBackground_ReadOnly" Color="#5EC9C9C9" />
+<external:SummerThemeExternal x:Key="Theme" />
+<SolidColorBrush x:Key="ControlOuterBorder_Disabled" Color="#FFC9C9C9" />
+<SolidColorBrush x:Key="ControlOuterBorder_MouseOver" Color="#FF6F9DB5" />
+<SolidColorBrush x:Key="ControlOuterBorder_Focused" Color="#FF00B1F0" />
+<SolidColorBrush Color="#FFEEEEEE" x:Key="CheckBox_Background" />
+<SolidColorBrush Color="#FF000000" x:Key="CheckBox_Foreground" />
+<SolidColorBrush Color="#FF979898" x:Key="CheckBox_Border" />
+<LinearGradientBrush x:Key="CheckBox_MiddleStroke" EndPoint="0.854,0.854" StartPoint="0.146,0.146">
+		<GradientStop Color="#FF9B9B9B" Offset="0" />
+		<GradientStop Color="#FFE6E6E8" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="CheckBox_MiddleFill" EndPoint="0.854,0.854" StartPoint="0.146,0.146">
+		<GradientStop Color="#FFBABFC6" Offset="0" />
+		<GradientStop Color="#FFFFFFFF" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="CheckBox_Path" EndPoint="0,1">
+		<GradientStop Offset="0" Color="#FF025B7C" />
+		<GradientStop Offset="1" Color="#FF2E7B96" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="CheckBox_MiddleInnerStrokeOver" Color="#FF448DCA" />
+<LinearGradientBrush x:Key="CheckBox_MiddleFillOver" EndPoint="0.854,0.854" StartPoint="0.146,0.146">
+		<GradientStop Color="#FFE5F6FD" Offset="0" />
+		<GradientStop Color="#FFC3DBE4" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="CheckBox_MiddleStrokeOver" EndPoint="0,1">
+		<GradientStop Offset="0" Color="#FF025B7C" />
+		<GradientStop Offset="1" Color="#FF2E7B96" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="CheckBox_MiddleFillPressed" EndPoint="0.854,0.854" StartPoint="0.146,0.146">
+		<GradientStop Color="#FFE5F6FD" Offset="0" />
+		<GradientStop Color="#FFC3DBE4" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="CheckBox_MiddleStrokePressed" EndPoint="0,1">
+		<GradientStop Offset="0" Color="#FF025B7C" />
+		<GradientStop Offset="1" Color="#FF2E7B96" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="ToolBar_OuterSeparator" Color="#FFC9C9C9" />
+<SolidColorBrush x:Key="ToolBar_InnerSeparator" Color="#FFFFFFFF" />
+<SolidColorBrush x:Key="ControlInnerBorder_Normal" Color="#FFFFFFFF" />
+<SolidColorBrush x:Key="ControlOuterBorder_Checked" Color="#FF198FB0" />
+<LinearGradientBrush x:Key="ControlBackground_Checked" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FF8AAEBB" Offset="0.027" />
+		<GradientStop Color="#FFBBDBE6" Offset="0.146" />
+		<GradientStop Color="#FF7FBFD4" Offset="1" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="ControlInnerBorder_Checked" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FF65A5BB" Offset="0" />
+		<GradientStop Color="#FFCCEDF8" Offset="0.143" />
+		<GradientStop Color="#FFCCEDF8" Offset="1" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="ControlInnerBorder_MouseOver" Color="#FFFFFFFF" />
+<LinearGradientBrush x:Key="ControlBackground_MouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFD6E9F0" />
+		<GradientStop Color="#FFA6C8D4" Offset="1" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="ControlOuterBorder_Pressed" Color="#FF198FB0" />
+<LinearGradientBrush x:Key="ControlInnerBorder_Pressed" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FF65A5BB" Offset="0" />
+		<GradientStop Color="#FFCCEDF8" Offset="0.143" />
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="ControlBackground_Pressed" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FF8AAEBB" Offset="0" />
+		<GradientStop Color="#FFBBDBE6" Offset="0.15" />
+		<GradientStop Color="#FF7FBFD4" Offset="1" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="ControlElement_Normal" Color="#FF000000" />
+<SolidColorBrush x:Key="ControlOuterBorder" Color="#FFB2B2B2" />
+<LinearGradientBrush EndPoint="0.5,1" x:Key="ControlBackground" StartPoint="0.5,0">
+		<GradientStop Color="White" />
+		<GradientStop Color="#FFE4E6E8" Offset="1" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="ControlElement_Disabled" Color="#FF9D9D9D" />
+<SolidColorBrush x:Key="ControlElement_Active" Color="#FF000000" />
+<SolidColorBrush x:Key="ToolBar_ToggleButton_normalOuterBorder" Color="#FFB2B2B2" />
+<LinearGradientBrush x:Key="ToolBar_ToggleButton_normalBackground" EndPoint="0.5,1"
+			StartPoint="0.5,0">
+		<GradientStop Color="#FFB1B7CB" Offset="1" />
+		<GradientStop Color="White" />
+	</LinearGradientBrush>
+<Thickness x:Key="ToolBar_ToggleButton_InnerBorderThickness">1</Thickness>
+<SolidColorBrush x:Key="ToolBar_ToggleButton_normalInnerBorder" Color="#FFFFFFFF" />
+<SolidColorBrush x:Key="OverflowBorderInnerBrush" Color="#FF9199A4" />
+<SolidColorBrush x:Key="OverflowContentBackgroundBrush" Color="#FFF6F6F6" />
+<SolidColorBrush x:Key="ToolBar_OuterBorder" Color="#FFB2B2B2" />
+<LinearGradientBrush x:Key="ToolBar_InnerBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFFEFEFE" Offset="0" />
+		<GradientStop Color="#FFE9E9E9" Offset="1" />
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="ToolBar_InnerBorder" Color="Transparent" />
+<SolidColorBrush x:Key="ToolBar_OuterGripOrnament" Color="#FFFFFFFF" />
+<SolidColorBrush x:Key="ToolBar_InnerGripOrnament" Color="#FF7A7A7A" />
+<LinearGradientBrush x:Key="ToolBar_InnerBackgroundV" EndPoint="1,0.5" StartPoint="0,0.5">
+		<GradientStop Color="#FFFEFEFE" Offset="0" />
+		<GradientStop Color="#FFE9E9E9" Offset="1" />
+	</LinearGradientBrush>
+
+   
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+        <Setter Property="Background" Value="{StaticResource PickerBackground_Normal}" />
+		<Setter Property="Foreground" Value="{StaticResource ControlForeground_Normal}" />
+		<Setter Property="BorderBrush" Value="{StaticResource ControlOuterBorder_Normal}" />
+		<Setter Property="FontStyle" Value="Normal" />
+		<Setter Property="FontWeight" Value="Normal" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+		<Setter Property="VerticalContentAlignment" Value="Stretch" />
+		
+		
+		<Setter Property="MinHeight" Value="22" />
+		<Setter Property="Padding" Value="3 2" />
+		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+		
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="TextBox">
+					<Grid x:Name="RootElement">
+						
+
+						<Border x:Name="OuterBorder" Background="{TemplateBinding Background}"
+								BorderBrush="{TemplateBinding BorderBrush}"
+								BorderThickness="{TemplateBinding BorderThickness}" 
+								CornerRadius="{StaticResource ControlOuterBorder_CornerRadius}">
+                            <Grid>
+                                <Border x:Name="ReadOnlyVisualElement" Background="{StaticResource TextBoxBackground_ReadOnly}" Opacity="0" />
+                                <ScrollViewer telerik:StyleManager.Theme="{StaticResource Theme}"
+									Padding="{TemplateBinding Padding}"
+									Foreground="{TemplateBinding Foreground}"
+									VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+									HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+									
+                                    x:Name="PART_ContentHost"
+                                    
+                                     />
+                            </Grid>
+						</Border>
+							
+						<Border x:Name="DisabledVisual" Visibility="Collapsed" BorderThickness="1"
+								CornerRadius="{StaticResource ControlOuterBorder_CornerRadius}"
+								BorderBrush="{StaticResource ControlOuterBorder_Disabled}" />
+						
+						
+
+					</Grid>
+					
+					<ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" TargetName="OuterBorder"
+									Value="{StaticResource ControlOuterBorder_MouseOver}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Visibility" TargetName="DisabledVisual"
+									Value="Visible" />
+                            <Setter Property="Opacity" TargetName="PART_ContentHost"
+									Value="0.5" />
+                        </Trigger>
+                        <Trigger Property="IsReadOnly" Value="True">
+                            <Setter Property="Opacity" TargetName="ReadOnlyVisualElement" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" TargetName="OuterBorder"
+									Value="{StaticResource ControlOuterBorder_Focused}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+    <Style  
+        x:Key="{telerik:ThemeResourceKey ThemeType=
+        external:SummerThemeExternal , ElementType=TextBox}"
+         BasedOn="{StaticResource TextBoxStyle}" TargetType="TextBox" >
+
+
+    </Style>
+
+    
+    
+
+	<!--  style for CheckBox -->
+	<Style x:Key="CheckBoxStyle" TargetType="CheckBox">
+		<Setter Property="Background" Value="{StaticResource CheckBox_Background}" />
+		<Setter Property="Foreground" Value="{StaticResource CheckBox_Foreground}" />
+		
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="BorderBrush" Value="{StaticResource CheckBox_Border}" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="CheckBox">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="16" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						
+						<Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+							<Rectangle x:Name="Background" Width="14" Height="14" RadiusX="0"
+									RadiusY="0" Stroke="{TemplateBinding BorderBrush}"
+									StrokeThickness="{TemplateBinding BorderThickness}"
+									Fill="{TemplateBinding Background}" Margin="1" />
+							<Rectangle x:Name="BoxMiddle" Width="10" Height="10" StrokeThickness="1" 
+									Stroke="{StaticResource CheckBox_MiddleStroke}"
+									Fill="{StaticResource CheckBox_MiddleFill}" />
+
+							<Rectangle x:Name="BoxMiddleLine" Width="10" Height="10" RadiusX="0"
+									RadiusY="0" Stroke="{TemplateBinding BorderBrush}"
+									StrokeThickness="1" Opacity=".2" />
+
+							<Path x:Name="CheckIcon" Margin="0,1,0,1.5" Stretch="Fill" Opacity="0"
+									Width="9" Height="8" Stroke="{StaticResource CheckBox_Path}" StrokeThickness="2"
+									Data="M32.192282,77.371554 L34.688632,80.304322 38.863374,72.720928" />
+							<Rectangle x:Name="IndeterminateIcon" Height="2" Fill="{StaticResource CheckBox_Path}"
+									Opacity="0" Width="6" />
+
+							<Rectangle x:Name="DisabledVisualElement" RadiusX="0" RadiusY="0"
+									Width="14" Height="14" Opacity="0" Fill="#FFFFFFFF" />
+							<Rectangle x:Name="ContentFocusVisualElement" RadiusX="0" RadiusY="0"
+									Stroke="#FF6DBDD1" StrokeThickness="0" Opacity="0"
+									IsHitTestVisible="false" Width="16" Height="16" />
+
+							
+						</Grid>
+						<ContentPresenter Grid.Column="1" x:Name="contentPresenter"
+							    
+								RecognizesAccessKey="True"
+								
+								Content="{TemplateBinding Content}"
+								ContentTemplate="{TemplateBinding ContentTemplate}"
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+								Margin="{TemplateBinding Padding}" />
+
+					</Grid>
+
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="Background" Property="Stroke" Value="{StaticResource CheckBox_MiddleInnerStrokeOver}" />
+							<Setter TargetName="BoxMiddle" Property="Fill" Value="{StaticResource CheckBox_MiddleFillOver}" />
+							<Setter TargetName="BoxMiddle" Property="Stroke" Value="{StaticResource CheckBox_MiddleStrokeOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="Background" Property="Stroke" Value="{StaticResource CheckBox_MiddleInnerStrokeOver}" />
+							<Setter TargetName="BoxMiddle" Property="Fill" Value="{StaticResource CheckBox_MiddleFillPressed}" />
+							<Setter TargetName="BoxMiddle" Property="Stroke" Value="{StaticResource CheckBox_MiddleStrokePressed}" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="contentPresenter" Property="Opacity" Value=".55" />
+							<Setter TargetName="DisabledVisualElement" Property="Opacity" Value=".55" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="True">
+							<Setter TargetName="contentPresenter" Property="Opacity" Value="1" />
+							<Setter TargetName="DisabledVisualElement" Property="Opacity" Value="0" />
+						</Trigger>
+						<Trigger Property="IsChecked" Value="True">
+							<Setter TargetName="CheckIcon" Property="Opacity" Value="1" />
+						</Trigger>
+						<Trigger Property="IsChecked" Value="False">
+							<Setter TargetName="CheckIcon" Property="Opacity" Value="0" />
+						</Trigger>
+						<Trigger Property="IsChecked" Value="{x:Null}">
+							<Setter TargetName="IndeterminateIcon" Property="Opacity" Value="1" />
+						</Trigger>
+						<Trigger Property="HasContent" Value="true">
+							<Setter Property="Padding" Value="4,0,0,0"/>
+						</Trigger>
+						<Trigger Property="IsFocused" Value="True">
+							<Setter TargetName="ContentFocusVisualElement" Property="Opacity" Value="1" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+    <Style x:Key="{telerik:ThemeResourceKey ThemeType=
+        external:SummerThemeExternal , ElementType=CheckBox}"
+         BasedOn="{StaticResource CheckBoxStyle}" TargetType="CheckBox" />
+        
+        
+    
+
+	<!-- style for RadioButton -->
+    <Style  x:Key="RadioButtonStyle" TargetType="RadioButton">
+		<Setter Property="Background" Value="{StaticResource CheckBox_Background}" />
+		<Setter Property="Foreground" Value="{StaticResource CheckBox_Foreground}" />
+		<Setter Property="HorizontalContentAlignment" Value="Left" />
+		<Setter Property="VerticalContentAlignment" Value="Top" />
+		<Setter Property="Padding" Value="4,1,0,0" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="BorderBrush" Value="{StaticResource CheckBox_Border}" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="RadioButton">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="16" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						
+						<Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+							<Ellipse x:Name="Background" Width="14" Height="14"
+									Stroke="{TemplateBinding BorderBrush}"
+									StrokeThickness="{TemplateBinding BorderThickness}"
+									Fill="{TemplateBinding Background}" Margin="1" />
+							<Ellipse x:Name="BoxMiddle" Width="10" Height="10" StrokeThickness="1"
+								Stroke="{StaticResource CheckBox_MiddleStroke}"
+								Fill="{StaticResource CheckBox_MiddleFill}" />
+
+							<Ellipse x:Name="CheckIcon" VerticalAlignment="Center"
+									HorizontalAlignment="Center"  Width="8"
+									Height="8" Opacity="0" StrokeThickness="1" 
+									Fill="{StaticResource CheckBox_Path}" />
+
+							<Ellipse x:Name="DisabledVisualElement" Width="14" Height="14"
+									Opacity="0" Fill="#FFFFFFFF" />
+							<Ellipse x:Name="ContentFocusVisualElement" Stroke="#006DBDD1"
+									StrokeThickness="1" Opacity="0" IsHitTestVisible="false"
+									Width="14" Height="14" />
+						</Grid>
+						<ContentPresenter Grid.Column="1" x:Name="contentPresenter"
+								Content="{TemplateBinding Content}"
+								
+								RecognizesAccessKey="True"
+								
+								ContentTemplate="{TemplateBinding ContentTemplate}"
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+								Margin="{TemplateBinding Padding}" />
+					</Grid>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="Background" Property="Stroke" Value="{StaticResource CheckBox_MiddleInnerStrokeOver}" />
+							<Setter TargetName="BoxMiddle" Property="Fill" Value="{StaticResource CheckBox_MiddleFillOver}" />
+							<Setter TargetName="BoxMiddle" Property="Stroke" Value="{StaticResource CheckBox_MiddleStrokeOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="Background" Property="Stroke" Value="{StaticResource CheckBox_MiddleInnerStrokeOver}" />
+							<Setter TargetName="BoxMiddle" Property="Fill" Value="{StaticResource CheckBox_MiddleFillPressed}" />
+							<Setter TargetName="BoxMiddle" Property="Stroke" Value="{StaticResource CheckBox_MiddleStrokePressed}" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="contentPresenter" Property="Opacity" Value=".55" />
+							<Setter TargetName="DisabledVisualElement" Property="Opacity" Value=".55" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="True">
+							<Setter TargetName="contentPresenter" Property="Opacity" Value="1" />
+							<Setter TargetName="DisabledVisualElement" Property="Opacity" Value="0" />
+						</Trigger>
+						<Trigger Property="IsChecked" Value="True">
+							<Setter TargetName="CheckIcon" Property="Opacity" Value="1" />
+						</Trigger>
+						<Trigger Property="IsChecked" Value="False">
+							<Setter TargetName="CheckIcon" Property="Opacity" Value="0" />
+						</Trigger>
+						<Trigger Property="IsFocused" Value="True">
+							<Setter TargetName="ContentFocusVisualElement" Property="Opacity" Value="1" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+    <Style  
+         x:Key="{telerik:ThemeResourceKey ThemeType=
+        external:SummerThemeExternal , ElementType=RadioButton}"
+         BasedOn="{StaticResource RadioButtonStyle}" TargetType="RadioButton" />
+        
+        
+   
+   
+    <Style x:Key="ToolBarTextBox"
+           TargetType="TextBox" 
+        BasedOn="{StaticResource {telerik:ThemeResourceKey  
+       ThemeType=
+        external:SummerThemeExternal , ElementType=TextBox}}"
+         >
+        <Setter Property="FontSize"
+                Value="11" />
+        <Setter Property="Foreground"
+                Value="Black" />
+        <Setter Property="FontStyle"
+                Value="Normal" />
+        <Setter Property="FontWeight"
+                Value="Normal" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="Margin"
+                Value="3 2" />
+        <Setter Property="BorderBrush"
+                Value="#FFFFFFFF" />
+    </Style>
+
+    <Style x:Key="ToolBarTextBox_Exspretion"
+           TargetType="TextBox" 
+         BasedOn="{StaticResource {telerik:ThemeResourceKey  
+       ThemeType=external:SummerThemeExternal , ElementType=TextBox}}"   >
+
+        <Setter Property="Foreground" Value="#DDDDDD" />
+
+    </Style>
+
+    <Style TargetType="CheckBox" x:Key="ToolBarCheckBox" 
+		 
+         BasedOn="{StaticResource {telerik:ThemeResourceKey  
+       ThemeType=
+        external:SummerThemeExternal , ElementType=CheckBox}}"
+         >
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="Padding" Value="4,0,0,0" />
+    </Style>
+
+    <Style TargetType="RadioButton" x:Key="ToolBarRadioButton" 
+		 
+         BasedOn="{StaticResource {telerik:ThemeResourceKey  
+		ThemeType=
+        external:SummerThemeExternal , ElementType=RadioButton}}"
+         >
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="Padding" Value="4,0,0,0" />
+    </Style>
+    
+   
+    <Style x:Key="ToolBarSeparator" TargetType="telerikNavigation:RadToolBarSeparator">
+        <Setter Property="Background" Value="{StaticResource ToolBar_OuterSeparator}" />
+        <Setter Property="BorderBrush" Value="{StaticResource ToolBar_InnerSeparator}" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerikNavigation:RadToolBarSeparator">
+                    <Grid MinWidth="2" MinHeight="2"
+						SnapsToDevicePixels="true"
+                         >
+                        <Rectangle Margin="1,1,0,0" Fill="{TemplateBinding BorderBrush}" />
+                        <Rectangle Margin="0,0,1,1" Fill="{TemplateBinding Background}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToolBarTextBlock" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="FontStyle" Value="Normal" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="3 1 3 0" />
+    </Style>
+
+    <Style x:Key="ToolBarButton" TargetType="Button">
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        
+                        <telerikChromes:ButtonChrome
+                                Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}"
+                                BorderBrush="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderBrush}"
+                                BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness}"
+                                telerik:StyleManager.Theme="{StaticResource Theme}" RenderNormal="False"
+                                RenderEnabled="{TemplateBinding IsEnabled}"
+                                RenderMouseOver="{TemplateBinding IsMouseOver}"
+                                RenderPressed="{TemplateBinding IsPressed}" RenderFocused="{TemplateBinding IsFocused}"
+                                CornerRadius="{StaticResource ControlOuterBorder_CornerRadius}" />
+                        <Border BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter x:Name="Content" Margin="{TemplateBinding Padding}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                        </Border>
+                    </Grid>
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true" />
+                        <Trigger Property="IsPressed" Value="True" />
+                        <Trigger Property="IsEnabled" Value="True">
+                            <Setter TargetName="Content" Property="Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Content" Property="Opacity" Value="0.5" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True" />
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="ToggleButton" x:Key="ToolBarToggleButton">
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Grid>
+                        
+                        <Border x:Name="Border" BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                            <Border x:Name="InnerBorder" BorderThickness="0"
+                                    BorderBrush="{StaticResource ControlInnerBorder_Normal}" />
+                        </Border>
+
+                        <!-- checked -->
+                        <Border x:Name="CheckedVisual" Opacity="0" BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{StaticResource ControlOuterBorder_Checked}"
+                                Background="{StaticResource ControlBackground_Checked}">
+                            <Border BorderThickness="1" BorderBrush="{StaticResource ControlInnerBorder_Checked}" />
+                        </Border>
+                        <Border BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter x:Name="Content" Margin="{TemplateBinding Padding}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                        </Border>
+                    </Grid>
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="CheckedVisual" Property="Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="CheckedVisual" Property="Opacity" Value="0" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Border" Property="BorderBrush"
+                                    Value="{StaticResource ControlOuterBorder_MouseOver}" />
+                            <Setter TargetName="InnerBorder" Property="BorderBrush"
+                                    Value="{StaticResource ControlInnerBorder_MouseOver}" />
+                            <Setter TargetName="Border" Property="Background"
+                                    Value="{StaticResource ControlBackground_MouseOver}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush"
+                                    Value="{StaticResource ControlOuterBorder_Pressed}" />
+                            <Setter TargetName="InnerBorder" Property="BorderBrush"
+                                    Value="{StaticResource ControlInnerBorder_Pressed}" />
+                            <Setter TargetName="Border" Property="Background"
+                                    Value="{StaticResource ControlBackground_Pressed}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="True">
+                            <Setter TargetName="Content" Property="Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Content" Property="Opacity" Value="0.5" />
+                            <Setter TargetName="CheckedVisual" Property="Opacity" Value="0.5" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True" />
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToolBarRadButton" TargetType="telerik:RadButton">
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerik:RadButton">
+                    <Grid>
+                        
+
+                        <telerikChromes:ButtonChrome telerik:StyleManager.Theme="{StaticResource Theme}"
+                                Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}"
+                                BorderBrush="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderBrush}"
+                                BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness}"
+                                RenderEnabled="{TemplateBinding IsEnabled}" RenderNormal="False"
+                                RenderMouseOver="{TemplateBinding IsMouseOver}"
+                                RenderPressed="{TemplateBinding IsPressed}" RenderFocused="{TemplateBinding IsFocused}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
+
+                        <Border BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter x:Name="Content" Margin="{TemplateBinding Padding}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									RecognizesAccessKey="True"
+                                 />
+                        </Border>
+                    </Grid>
+
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true" />
+                        <Trigger Property="IsPressed" Value="True" />
+                        <Trigger Property="IsEnabled" Value="True">
+                            <Setter TargetName="Content" Property="Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Content" Property="Opacity" Value="0.5" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True" />
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToolBarRadToggleButton" TargetType="telerik:RadToggleButton">
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerik:RadToggleButton">
+                    <Grid>
+                        
+
+                        <telerikChromes:ButtonChrome telerik:StyleManager.Theme="{StaticResource Theme}"
+                                Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}"
+                                BorderBrush="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderBrush}"
+                                BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness}"
+                                RenderEnabled="{TemplateBinding IsEnabled}" RenderNormal="False"
+                                RenderMouseOver="{TemplateBinding IsMouseOver}"
+                                RenderPressed="{TemplateBinding IsPressed}" RenderFocused="{TemplateBinding IsFocused}"
+                                RenderChecked="{TemplateBinding IsChecked}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
+                        <Border BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter x:Name="Content" Margin="{TemplateBinding Padding}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									RecognizesAccessKey="True"
+                                 />
+                        </Border>
+                    </Grid>
+
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True" />
+                        <Trigger Property="IsMouseOver" Value="true" />
+                        <Trigger Property="IsPressed" Value="True" />
+                        <Trigger Property="IsEnabled" Value="True">
+                            <Setter TargetName="Content" Property="Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Content" Property="Opacity" Value="0.5" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True" />
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToolBarRadRadioButton" TargetType="telerik:RadRadioButton">
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerik:RadRadioButton">
+                    <Grid>
+                        
+
+                        <telerikChromes:ButtonChrome telerik:StyleManager.Theme="{StaticResource Theme}"
+                                Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}"
+                                BorderBrush="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderBrush}"
+                                BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness}"
+                                RenderEnabled="{TemplateBinding IsEnabled}" RenderNormal="False"
+                                RenderMouseOver="{TemplateBinding IsMouseOver}"
+                                RenderPressed="{TemplateBinding IsPressed}" RenderFocused="{TemplateBinding IsFocused}"
+                                RenderChecked="{TemplateBinding IsChecked}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
+
+                        <Border BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter x:Name="Content" Margin="{TemplateBinding Padding}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									RecognizesAccessKey="True"
+                                 />
+                        </Border>
+                    </Grid>
+
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True" />
+                        <Trigger Property="IsMouseOver" Value="true" />
+                        <Trigger Property="IsPressed" Value="True" />
+                        <Trigger Property="IsEnabled" Value="True">
+                            <Setter TargetName="Content" Property="Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Content" Property="Opacity" Value="0.5" />
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True" />
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="telerik:RadDropDownButton" x:Key="ToolBarRadDropDownButton">
+        <Setter Property="Margin" Value="1" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerik:RadDropDownButton">
+                    <Grid>
+                        
+
+                        <telerikChromes:ButtonChrome telerik:StyleManager.Theme="{StaticResource Theme}"
+                                Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}"
+                                BorderBrush="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderBrush}"
+                                BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness}"
+                                RenderEnabled="{TemplateBinding IsEnabled}" RenderNormal="False"
+                                RenderMouseOver="{TemplateBinding IsMouseOver}"
+                                RenderPressed="{TemplateBinding IsPressed}" RenderFocused="{TemplateBinding IsFocused}"
+                                RenderChecked="{TemplateBinding IsOpen}" CornerRadius="{TemplateBinding CornerRadius}" />
+                        <Grid SnapsToDevicePixels="True"
+                             >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ContentPresenter x:Name="Content" Grid.Row="1" Grid.Column="1"
+                                    Margin="{TemplateBinding Padding}" Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									RecognizesAccessKey="True"
+                                 />
+                                <Path x:Name="DropDownIndicator" Grid.Row="2" Grid.Column="1" IsHitTestVisible="False"
+                                        Visibility="{TemplateBinding DropDownIndicatorVisibility}"
+                                        Fill="{StaticResource ControlElement_Normal}" HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="5,3,5,3"
+                                        Data="M0,0 L5,0 5,1 4,1 4,2 3,2 3,3 2,3 2,2 1,2 1,1 0,1 0,0 z" />
+                        </Grid>
+                        <Popup x:Name="DropDownPopup"
+							
+                            AllowsTransparency="True" StaysOpen="False" Focusable="false" Placement="Bottom"
+							IsOpen="{Binding Path=IsOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                            
+                            >
+                            <Grid>
+                                <Border x:Name="DropDownPopupBorder" BorderBrush="{StaticResource ControlOuterBorder}"
+                                        Background="{StaticResource ControlBackground}" BorderThickness="1"
+                                        CornerRadius="{TemplateBinding CornerRadius}" Margin="0" MinWidth="3"
+                                        MinHeight="3" Width="{TemplateBinding DropDownWidth}"
+                                        Height="{TemplateBinding DropDownHeight}"
+                                        MaxWidth="{TemplateBinding DropDownMaxWidth}"
+                                        MaxHeight="{TemplateBinding DropDownMaxHeight}">
+                                    <ContentPresenter x:Name="DropDownPopupContent"
+                                            Content="{TemplateBinding DropDownContent}"
+                                            ContentTemplate="{TemplateBinding DropDownContentTemplate}"
+                                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                            DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=DataContext}" />
+                                </Border>
+                            </Grid>
+                        </Popup>
+                    </Grid>
+
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="Content" Value="0.5" />
+                            <Setter Property="Fill" TargetName="DropDownIndicator"
+                                    Value="{StaticResource ControlElement_Disabled}" />
+                        </Trigger>
+                        <Trigger Property="IsOpen" Value="True">
+                            <Setter Property="Fill" TargetName="DropDownIndicator"
+                                    Value="{StaticResource ControlElement_Active}" />
+                        </Trigger>
+                        <Trigger Property="DropDownButtonPosition" Value="Bottom" />
+                        <Trigger Property="DropDownButtonPosition" Value="Left">
+                            <Setter TargetName="DropDownIndicator" Property="Grid.Column" Value="0" />
+                            <Setter TargetName="DropDownIndicator" Property="Grid.Row" Value="1" />
+                        </Trigger>
+                        <Trigger Property="DropDownButtonPosition" Value="Top">
+                            <Setter TargetName="DropDownIndicator" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="DropDownIndicator" Property="Grid.Row" Value="0" />
+                        </Trigger>
+                        <Trigger Property="DropDownButtonPosition" Value="Right">
+                            <Setter TargetName="DropDownIndicator" Property="Grid.Column" Value="2" />
+                            <Setter TargetName="DropDownIndicator" Property="Grid.Row" Value="1" />
+                        </Trigger>
+                        <Trigger Property="DropDownPlacement" Value="Absolute" />
+                        <Trigger Property="DropDownPlacement" Value="Bottom" />
+                        <Trigger Property="DropDownPlacement" Value="Center" />
+                        <Trigger Property="DropDownPlacement" Value="Top">
+                            <Setter TargetName="DropDownPopup" Property="Placement" Value="Top" />
+                            <Setter TargetName="DropDownIndicator" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="180" />
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="DropDownPlacement" Value="Left">
+                            <Setter TargetName="DropDownPopup" Property="Placement" Value="Left" />
+                            <Setter TargetName="DropDownIndicator" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="90" />
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="DropDownPlacement" Value="Right">
+                            <Setter TargetName="DropDownPopup" Property="Placement" Value="Right" />
+                            <Setter TargetName="DropDownIndicator" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="-90" />
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToolBarRadSplitButton" TargetType="telerik:RadSplitButton">
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="IsTabStop" Value="false" />
+        <Setter Property="IsOpen" Value="false" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerik:RadSplitButton">
+                    <Grid>
+
+                        
+
+                        <telerikChromes:ButtonChrome telerik:StyleManager.Theme="{StaticResource Theme}"
+                                Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}"
+                                BorderBrush="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderBrush}"
+                                BorderThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness}"
+                                RenderEnabled="{TemplateBinding IsEnabled}" RenderNormal="False"
+                                RenderActive="{TemplateBinding IsMouseOver}" RenderMouseOver="False"
+                                RenderPressed="False" RenderChecked="False"
+                                RenderFocused="{Binding IsFocused, ElementName=ButtonPart}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <telerik:RadToggleButton x:Name="DropDownPart" IsTabStop="false" Margin="0,-1,0,0"
+                                    Grid.Column="1" Grid.Row="2" MinWidth="11" MinHeight="7"
+                                    Visibility="{TemplateBinding DropDownIndicatorVisibility}"
+									
+                                
+                                IsChecked="{Binding Path=IsOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                 >
+                                <telerik:RadToggleButton.Template>
+                                    <ControlTemplate TargetType="telerik:RadToggleButton">
+                                        <ContentPresenter />
+                                    </ControlTemplate>
+                                </telerik:RadToggleButton.Template>
+                                <Grid>
+                                    <telerikChromes:ButtonChrome x:Name="DropDownPartChrome"
+                                            telerik:StyleManager.Theme="{StaticResource Theme}" CornerRadius="0 1 1 0"
+                                            RenderEnabled="{TemplateBinding IsEnabled}" RenderNormal="False"
+                                            RenderActive="{TemplateBinding IsMouseOver}"
+                                            RenderChecked="{TemplateBinding IsOpen}"
+                                            RenderMouseOver="{Binding IsMouseOver, ElementName=DropDownPart}"
+                                            RenderPressed="{Binding IsPressed, ElementName=DropDownPart}" />
+                                    <Path x:Name="DropDownIndicator" IsHitTestVisible="False"
+                                            Fill="{StaticResource ControlElement_Normal}" HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="5,3,5,3"
+                                            Data="M0,0 L5,0 5,1 4,1 4,2 3,2 3,3 2,3 2,2 1,2 1,1 0,1 0,0 z"
+											SnapsToDevicePixels="True"
+                                         />
+                                </Grid>
+                            </telerik:RadToggleButton>
+
+                            <telerik:RadButton x:Name="ButtonPart" Grid.Row="1" Grid.Column="1"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    Padding="{TemplateBinding Padding}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <telerik:RadButton.Template>
+                                    <ControlTemplate TargetType="telerik:RadButton">
+                                        <ContentPresenter />
+                                    </ControlTemplate>
+                                </telerik:RadButton.Template>
+                                <Grid>
+                                    <telerikChromes:ButtonChrome x:Name="ButtonPartChrome"
+                                            telerik:StyleManager.Theme="{StaticResource Theme}" CornerRadius="1 0 0 1"
+                                            RenderEnabled="{TemplateBinding IsEnabled}" RenderNormal="False"
+                                            RenderActive="{TemplateBinding IsMouseOver}"
+                                            RenderHighlighted="{TemplateBinding IsOpen}" RenderChecked="False"
+                                            RenderMouseOver="{Binding IsMouseOver, ElementName=ButtonPart}"
+                                            RenderPressed="{Binding IsPressed, ElementName=ButtonPart}" />
+                                    <ContentPresenter x:Name="Content" Margin="{TemplateBinding Padding}"
+                                            Content="{TemplateBinding Content}"
+                                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+												RecognizesAccessKey="True"
+                                         />
+                                </Grid>
+                            </telerik:RadButton>
+                        </Grid>
+                        <Popup x:Name="DropDownPopup"
+							
+                            AllowsTransparency="True" StaysOpen="False" Focusable="false" Placement="Bottom"
+							IsOpen="{Binding Path=IsOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                            
+                            >
+                            <Grid>
+                                <Border x:Name="DropDownPopupBorder" BorderThickness="1"
+                                        BorderBrush="{StaticResource ControlOuterBorder}"
+                                        Background="{StaticResource ControlBackground}"
+                                        CornerRadius="{TemplateBinding CornerRadius}" Margin="0" MinWidth="3"
+                                        MinHeight="3" Width="{TemplateBinding DropDownWidth}"
+                                        Height="{TemplateBinding DropDownHeight}"
+                                        MaxWidth="{TemplateBinding DropDownMaxWidth}"
+                                        MaxHeight="{TemplateBinding DropDownMaxHeight}">
+                                    <ContentPresenter x:Name="DropDownPopupContent"
+                                            Content="{TemplateBinding DropDownContent}"
+                                            ContentTemplate="{TemplateBinding DropDownContentTemplate}"
+                                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                            DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=DataContext}" />
+                                </Border>
+                            </Grid>
+                        </Popup>
+                    </Grid>
+
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="Content" Value="0.5" />
+                            <Setter Property="Fill" TargetName="DropDownIndicator"
+                                    Value="{StaticResource ControlElement_Disabled}" />
+                        </Trigger>
+                        <Trigger Property="IsOpen" Value="True">
+                            <Setter Property="Fill" TargetName="DropDownIndicator"
+                                    Value="{StaticResource ControlElement_Active}" />
+                            <Setter Property="Canvas.ZIndex" TargetName="DropDownPart" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True" />
+                        <Trigger Property="DropDownButtonPosition" Value="Bottom" />
+                        <Trigger Property="DropDownButtonPosition" Value="Left">
+                            <Setter TargetName="DropDownPart" Property="Grid.Column" Value="0" />
+                            <Setter TargetName="DropDownPart" Property="Grid.Row" Value="1" />
+                            <Setter TargetName="DropDownPart" Property="Margin" Value="0,0,-1,0" />
+                        </Trigger>
+                        <Trigger Property="DropDownButtonPosition" Value="Top">
+                            <Setter TargetName="DropDownPart" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="DropDownPart" Property="Grid.Row" Value="0" />
+                            <Setter TargetName="DropDownPart" Property="Margin" Value="0,0,0,-1" />
+                        </Trigger>
+                        <Trigger Property="DropDownButtonPosition" Value="Right">
+                            <Setter TargetName="DropDownPart" Property="Grid.Column" Value="2" />
+                            <Setter TargetName="DropDownPart" Property="Grid.Row" Value="1" />
+                            <Setter TargetName="DropDownPart" Property="Margin" Value="-1,0,0,0" />
+                        </Trigger>
+                        <Trigger Property="DropDownPlacement" Value="Absolute" />
+                        <Trigger Property="DropDownPlacement" Value="Bottom" />
+                        <Trigger Property="DropDownPlacement" Value="Center" />
+                        <Trigger Property="DropDownPlacement" Value="Top">
+                            <Setter TargetName="DropDownPopup" Property="Placement" Value="Top" />
+                            <Setter TargetName="DropDownIndicator" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="180" />
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="DropDownPlacement" Value="Left">
+                            <Setter TargetName="DropDownPopup" Property="Placement" Value="Left" />
+                            <Setter TargetName="DropDownIndicator" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="90" />
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="DropDownPlacement" Value="Right">
+                            <Setter TargetName="DropDownPopup" Property="Placement" Value="Right" />
+                            <Setter TargetName="DropDownIndicator" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="-90" />
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsToggle" Value="True" />
+                                <Condition Property="IsChecked" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ButtonPartChrome" Property="RenderChecked" Value="True" />
+                            <Setter TargetName="DropDownPartChrome" Property="RenderActive" Value="True" />
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate TargetType="ToggleButton" x:Key="ToolBarDropdownButtonH">
+        <Grid Background="Transparent">
+            
+            <Border BorderThickness="1" BorderBrush="{StaticResource ToolBar_ToggleButton_normalOuterBorder}"
+                    Background="{StaticResource ToolBar_ToggleButton_normalBackground}" x:Name="backgroundDecorator"
+                    CornerRadius="0 3 3 0">
+                <Border BorderThickness="{StaticResource ToolBar_ToggleButton_InnerBorderThickness}"
+                        CornerRadius="0 2 2 0" BorderBrush="{StaticResource ToolBar_ToggleButton_normalInnerBorder}" />
+            </Border>
+
+            <Border BorderThickness="1" BorderBrush="{StaticResource ControlOuterBorder_MouseOver}"
+                    Background="{StaticResource ControlBackground_MouseOver}" x:Name="MouseOverDecorator"
+                    CornerRadius="0 3 3 0" Opacity="0">
+                <Border BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="0 2 2 0"
+                        BorderBrush="{StaticResource ControlInnerBorder_MouseOver}" />
+            </Border>
+
+            <Border BorderThickness="1" BorderBrush="{StaticResource ControlOuterBorder_Pressed}"
+                    Background="{StaticResource ControlBackground_Pressed}" x:Name="backgroundDecoratorCheck"
+                    CornerRadius="0 3 3 0" Opacity="0">
+                <Border BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="0 2 2 0"
+                        BorderBrush="{StaticResource ControlInnerBorder_Pressed}" />
+            </Border>
+            <Grid x:Name="OrnamentGrid" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 3 3"
+                    Opacity="1">
+                <Path Fill="#FFFFFFFF" Stretch="Fill" Margin="2,5,0,0" HorizontalAlignment="Center"
+                        VerticalAlignment="Top" Width="5" Height="3"
+                        Data="M0,0 L5,0 5,1 4,1 4,2 3,2 3,3 2,3 2,2 1,2 1,1 0,1 0,0 z" />
+                <Path Fill="{StaticResource ControlElement_Normal}" Stretch="Fill" Margin="0,4,0,0"
+                        HorizontalAlignment="Center" VerticalAlignment="Top" Width="5" Height="3"
+                        Data="M0,0 L5,0 5,1 4,1 4,2 3,2 3,3 2,3 2,2 1,2 1,1 0,1 0,0 z" />
+                <Path Fill="#FFFFFFFF" Stretch="Fill" Margin="2,1,0,0" HorizontalAlignment="Center"
+                        VerticalAlignment="Top" Width="5" Height="1" Data="M0,0 L5,0 5,1 0,1 0,0 z" />
+                <Path Fill="{StaticResource ControlElement_Normal}" Stretch="Fill" Margin="0,0,0,0"
+                        HorizontalAlignment="Center" VerticalAlignment="Top" Width="5" Height="1"
+                        Data="M0,0 L5,0 5,1 0,1 0,0 z" />
+            </Grid>
+        </Grid>
+        
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="backgroundDecoratorCheck" Property="Opacity" Value="1" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="backgroundDecorator" Property="Opacity" Value="1" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="backgroundDecorator" Property="Opacity" Value="1" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="OrnamentGrid" Property="Opacity" Value="0.25" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+        
+    </ControlTemplate>
+
+    <Style TargetType="telerikNavigation:RadToolBar"
+		x:Key="{telerik:ThemeResourceKey ThemeType=
+        external:SummerThemeExternal , ElementType=telerikNavigation:RadToolBar}"
+         >
+        
+        <Setter Property="FocusManager.IsFocusScope"
+                Value="True" />
+        
+        <Setter Property="ItemContainerStyleSelector">
+            <Setter.Value>
+                <telerikNavigation:ToolBarContainerStyleSelector>
+                    <telerikNavigation:ToolBarContainerStyle TypeName="RadToolBarSeparator"
+                                                             ContainerStyle="{StaticResource ToolBarSeparator}" />
+                    <telerikNavigation:ToolBarContainerStyle TypeName="TextBlock"
+                                                             ContainerStyle="{StaticResource ToolBarTextBlock}" />
+                    <telerikNavigation:ToolBarContainerStyle TypeName="TextBox"
+                                                             ContainerStyle="{StaticResource ToolBarTextBox}" />
+                    <telerikNavigation:ToolBarContainerStyle TypeName="Button"
+                                                             ContainerStyle="{StaticResource ToolBarButton}" />
+                    <telerikNavigation:ToolBarContainerStyle TypeName="ToggleButton"
+                                                             ContainerStyle="{StaticResource ToolBarToggleButton}" />
+                    <telerikNavigation:ToolBarContainerStyle TypeName="CheckBox"
+                                                             ContainerStyle="{StaticResource ToolBarCheckBox}" />
+                    <telerikNavigation:ToolBarContainerStyle TypeName="RadioButton"
+                                                             ContainerStyle="{StaticResource ToolBarRadioButton}" />
+                    <telerikNavigation:ToolBarContainerStyle TypeName="RadButton"
+                                                             ContainerStyle="{StaticResource ToolBarRadButton}" />
+                    <telerikNavigation:ToolBarContainerStyle TypeName="RadToggleButton"
+                                                             ContainerStyle="{StaticResource ToolBarRadToggleButton}" />
+                    <telerikNavigation:ToolBarContainerStyle TypeName="RadRadioButton"
+                                                             ContainerStyle="{StaticResource ToolBarRadRadioButton}" />
+                    <telerikNavigation:ToolBarContainerStyle TypeName="RadDropDownButton"
+                                                             ContainerStyle="{StaticResource ToolBarRadDropDownButton}" />
+                    <telerikNavigation:ToolBarContainerStyle TypeName="RadSplitButton"
+                                                             ContainerStyle="{StaticResource ToolBarRadSplitButton}" />
+                </telerikNavigation:ToolBarContainerStyleSelector>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="MinWidth" Value="25" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerikNavigation:RadToolBar">
+                    <Grid MinHeight="24" x:Name="RootElement" SnapsToDevicePixels="True"
+                         >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="c0" Width="Auto" />
+                            <ColumnDefinition x:Name="c1" Width="*" />
+                            <ColumnDefinition x:Name="c2" Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition x:Name="r0" Height="Auto" />
+                            <RowDefinition x:Name="r1" Height="*" />
+                            <RowDefinition x:Name="r2" Height="Auto" />
+                        </Grid.RowDefinitions>
+                        
+                                <ToggleButton Visibility="{TemplateBinding OverflowButtonVisibility}"
+                                        x:Name="PART_DropdownButton" Template="{StaticResource ToolBarDropdownButtonH}"
+                                        IsEnabled="{TemplateBinding HasOverflowItems}"
+                                        IsChecked="{TemplateBinding IsOverflowOpen}"
+                                        Margin="-2 0 0 0"
+                                    Grid.Column="2" Grid.RowSpan="2" Width="12"/>
+                                    
+                                    
+                        
+                        <Grid Grid.Column="2">
+                            <Popup x:Name="PART_Overflow" AllowsTransparency="True" StaysOpen="False" Focusable="false"
+                                    Placement="Bottom"
+                                    IsOpen="{Binding Path=IsOverflowOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                                    PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}">
+                                
+                                
+                                    <Border Margin="0" MinWidth="55" MinHeight="33">
+                                        <Border BorderBrush="{StaticResource OverflowBorderInnerBrush}"
+                                                Background="{StaticResource OverflowContentBackgroundBrush}"
+                                                BorderThickness="1" Padding="1,2,1,2">
+                                            
+                                            <telerikToolBar:RadToolBarPanel 
+                                                
+                                                    x:Name="PART_OverflowPanel"
+											Orientation="Vertical" VerticalAlignment="Top" />
+                                        </Border>
+                                    </Border>
+                                </Popup>
+                                
+                        </Grid>
+                        
+                        <Border x:Name="InnerBackground" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                BorderBrush="{StaticResource ToolBar_OuterBorder}" CornerRadius="3"
+                                HorizontalAlignment="Stretch" BorderThickness="1"
+                                Background="{StaticResource ToolBar_InnerBackground}">
+                            <Border BorderThickness="1" CornerRadius="2"
+                                    BorderBrush="{StaticResource ToolBar_InnerBorder}">
+                            </Border>
+                        </Border>
+
+                        <Border x:Name="BindingBackground" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="3"
+                                HorizontalAlignment="Stretch" BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}">
+                        </Border>
+                        <Grid Visibility="{TemplateBinding GripVisibility}" Grid.RowSpan="2">
+                            <Grid x:Name="GripOrnamentH" Visibility="Visible" >
+                                <Path Fill="{StaticResource ToolBar_OuterGripOrnament}" Stretch="Fill" Margin="5,1,0,0"
+                                        Width="2" Height="14" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                        Data="M0,12 L2,12 2,14 0,14 0,12 z M0,8 L2,8 2,10 0,10 0,8 z M0,4 L2,4 2,6 0,6 0,4 z M0,0 L2,0 2,2 0,2 0,0 z" />
+                                <Path Fill="{StaticResource ToolBar_InnerGripOrnament}" Stretch="Fill"
+                                        Margin="4.4,0.4,0,0" Width="2" Height="14" VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Data="M0,12 L2,12 2,14 0,14 0,12 z M0,8 L2,8 2,10 0,10 0,8 z M0,4 L2,4 2,6 0,6 0,4 z M0,0 L2,0 2,2 0,2 0,0 z" />
+                            </Grid>
+                            <Grid x:Name="GripOrnamentV" Visibility="Collapsed">
+                                <Path Fill="{StaticResource ToolBar_OuterGripOrnament}" Stretch="Fill" Margin="1,5,0,0"
+                                        Width="14" Height="2" VerticalAlignment="Top" HorizontalAlignment="Center"
+                                        Data="M12,0 L12,2 14,2 14,0 12,0 z M8,0 L8,2 10,2 10,0 8,0 z M4,0 L4,2 6,2 6,0 4,0 z M0,0 L0,2 2,2 2,0 0,0 z" />
+                                <Path Fill="{StaticResource ToolBar_InnerGripOrnament}" Stretch="Fill"
+                                        Margin="0.4,4.4,0,0" Width="14" Height="2" VerticalAlignment="Top"
+                                        HorizontalAlignment="Center"
+                                        Data="M12,0 L12,2 14,2 14,0 12,0 z M8,0 L8,2 10,2 10,0 8,0 z M4,0 L4,2 6,2 6,0 4,0 z M0,0 L0,2 2,2 2,0 0,0 z" />
+                            </Grid>
+                        </Grid>
+                        
+                        <telerikToolBar:RadToolBarPanel 
+                        
+                            
+                                x:Name="PART_StripPanel" Grid.Column="1" Margin="0,1,4,1"
+							Orientation="Horizontal" />
+                    </Grid>
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="RootElement" Property="Opacity" Value="0.5" />
+                        </Trigger>
+                        <Trigger Property="Orientation" Value="Vertical">
+                            <Setter TargetName="c0" Property="Width" Value="*" />
+                            <Setter TargetName="c1" Property="Width" Value="Auto" />
+                            <Setter TargetName="c2" Property="Width" Value="Auto" />
+
+                            <Setter TargetName="PART_StripPanel" Property="Orientation" Value="Vertical" />
+                            <Setter TargetName="PART_StripPanel" Property="Grid.Row" Value="1" />
+                            <Setter TargetName="PART_StripPanel" Property="Grid.Column" Value="0" />
+                            <Setter TargetName="PART_StripPanel" Property="Margin" Value="1,0,1,4" />
+
+                            <Setter TargetName="PART_DropdownButton" Property="Grid.Row" Value="2" />
+                            <Setter TargetName="PART_DropdownButton" Property="Grid.Column" Value="0" />
+                            <Setter TargetName="PART_DropdownButton" Property="Margin" Value="0 -2 0 0" />
+                            <Setter TargetName="PART_DropdownButton" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="-90" CenterX="0" CenterY="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="-1" />
+                                    </TransformGroup>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Setter TargetName="GripOrnamentH" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="GripOrnamentV" Property="Visibility" Value="Visible" />
+
+                            <Setter TargetName="InnerBackground" Property="Background"
+                                    Value="{StaticResource ToolBar_InnerBackgroundV}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="telerikNavigation:RadToolBarTray"
+		
+        x:Key="{telerik:ThemeResourceKey ThemeType=
+        external:SummerThemeExternal , ElementType=telerikNavigation:RadToolBarTray}"
+         >
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <telerikToolBar:RadToolBarTrayPanel x:Name="PART_BandPanel" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerikNavigation:RadToolBarTray">
+                    <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ItemsPresenter x:Name="PART_ItemsPresenter" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+
+</ResourceDictionary>

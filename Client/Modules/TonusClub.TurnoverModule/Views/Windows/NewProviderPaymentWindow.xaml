@@ -1,0 +1,41 @@
+﻿<usr:WindowBase x:Class="TonusClub.TurnoverModule.Views.Windows.NewProviderPaymentWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:res="clr-namespace:TonusClub.UIControls.Localization;assembly=TonusClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" Title="{x:Static res:Resources.OrderPaymentRegistration}" WindowStartupLocation="CenterScreen" Width="501" ResizeMode="NoResize"  SizeToContent="Height">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="32"/>
+        </Grid.RowDefinitions>
+        <UniformGrid Columns="2">
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.Provider}"></TextBlock>
+            <TextBlock Text="{Binding Path=Order.SerializedSource}" VerticalAlignment="Center"/>
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.OrderNumber}"></TextBlock>
+            <TextBlock Text="{Binding Path=Order.Number}" VerticalAlignment="Center"/>
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.OrderDate}"></TextBlock>
+            <TextBlock Text="{Binding Date, StringFormat={}{0:d}}" VerticalAlignment="Center"/>
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.PaymentDate}"></TextBlock>
+            <telerik:RadDatePicker Margin="2" SelectedDate="{Binding Date, Mode=TwoWay}"></telerik:RadDatePicker>
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.PayWay}"></TextBlock>
+            <telerik:RadMaskedTextBox MaskType="None" Mask="" VerticalAlignment="Center" Margin="2"
+								Value="{Binding Path=PaymentType, Mode=TwoWay}" />
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.AmountRur}"></TextBlock>
+            <telerik:RadMaskedTextBox MaskType="Numeric" Mask="c" VerticalAlignment="Center" Margin="2"
+								Value="{Binding Path=Amount, Mode=TwoWay}" />
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.Notes}"></TextBlock>
+            <telerik:RadMaskedTextBox MaskType="None" Mask="" VerticalAlignment="Center" Margin="2"
+								Value="{Binding Path=Comment, Mode=TwoWay}" />
+        </UniformGrid>
+        <UniformGrid Grid.Row="1" Rows="1">
+            <Button Margin="3" Padding="5" Click="ProcessButton_Click" IsDefault="True"
+                               Content="{x:Static res:Resources.Process}"></Button>
+            <Button Margin="3" Padding="5" Click="CancelButton_Click" IsCancel="True"
+                               Content="{x:Static res:Resources.Cancel}"></Button>
+        </UniformGrid>
+    </Grid>
+</usr:WindowBase>

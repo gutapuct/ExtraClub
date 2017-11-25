@@ -1,0 +1,16 @@
+﻿@model TonusClub.ServiceModel.TicketType
+
+@{
+    ViewBag.Title = "Оформление";
+    ViewBag.BackActionUrl = Url.Action("Details", "Shop", new { id = Model.Id });
+}
+
+<h2>@Model.Name</h2>
+<p>После выбора способа оплаты на Ваше имя будет оформлен абонемент.<br />Пожалуйста, укажите удобный для Вас способ оплаты:</p>
+
+<a href="@Url.Action("PaymentSale", "Shop", new { id = Model.Id })" data-role="button" data-theme="d"  data-iconpos="right" data-ajax="false" data-icon="arrow-r">Онлайн (@Model.Price.ToString("c0"))</a>
+<a href="@Url.Action("NonPaymentSale", "Shop", new { id = Model.Id })" data-role="button" data-theme="d"  data-iconpos="right" data-icon="arrow-r">Наличными в клубе</a>
+
+<p>
+    Если Вы выберете оплату наличными, а потом захотите оплатить абонемент онлайн, это можно будет сделать в личном кабинете.
+</p>

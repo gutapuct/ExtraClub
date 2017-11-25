@@ -1,0 +1,12 @@
+﻿@model TonusClub.ServiceModel.TicketPayment
+@{
+    ViewBag.Title = "Оплата проведена";
+}
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Оплата произведена успешно</li>
+    <li data-theme="d" >
+        <p style="white-space: normal;">Обработка Вашего платежа может занять некоторое время. Как только информация о платеже поступит в систему, 
+мы отправим Вам смску!</p>
+    </li>
+    <li><a href="@Url.Action("Details", "Ticket", new { id = Model.TicketId })">К абонементу</a></li>
+</ul>

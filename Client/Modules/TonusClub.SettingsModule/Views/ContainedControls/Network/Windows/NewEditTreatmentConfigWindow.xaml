@@ -1,0 +1,46 @@
+﻿<usr:WindowBase x:Class="TonusClub.SettingsModule.Views.ContainedControls.NewEditTreatmentConfigWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize" Title="Услуга" Width="500" SizeToContent="Height">
+    <StackPanel>
+        <UniformGrid Columns="2" Margin="4">
+            <TextBlock Margin="0 2" VerticalAlignment="Center">Наименование:</TextBlock>
+            <telerik:RadMaskedTextBox MaskType="None" Value="{Binding Path=TreatmentConfig.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnDataErrors=True}" Margin="2" VerticalAlignment="Center"  />
+          <TextBlock VerticalAlignment="Center">Папка:</TextBlock>
+          <telerik:RadComboBox IsEditable="False" Margin="2"
+                      ItemsSource="{Binding SettingsFolders}"
+                      SelectedValuePath="Id"
+                      SelectedValue="{Binding Path=TreatmentConfig.SettingsFolderId, Mode=TwoWay}"
+                               ClearSelectionButtonVisibility="Visible"
+                               ClearSelectionButtonContent="Услуги"
+                      DisplayMemberPath="Name" IsReadOnly="True"/>
+          <TextBlock VerticalAlignment="Center">Тип услуги:</TextBlock>
+            <telerik:RadComboBox IsEditable="False" Margin="2" x:Name="typeBox"
+                        ItemsSource="{Binding TTView}"
+                        SelectedValuePath="Id"
+                        SelectedValue="{Binding Path=TreatmentConfig.TreatmentTypeId, Mode=TwoWay}"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+            <TextBlock VerticalAlignment="Center">Базовая длительность:</TextBlock>
+            <TextBlock VerticalAlignment="Center" Text="{Binding Path=SelectedTT.Duration}"></TextBlock>
+            <TextBlock VerticalAlignment="Center">Множитель:</TextBlock>
+            <telerik:RadNumericUpDown VerticalAlignment="Center" Margin="2" NumberDecimalDigits="0"
+                                              Value="{Binding Path=TreatmentConfig.LengthCoeff, Mode=TwoWay, ValidatesOnDataErrors=True}" Minimum="0" Maximum="2900" ValueFormat="Numeric" HorizontalContentAlignment="Left" />
+            <TextBlock Margin="0 2" VerticalAlignment="Center">Цена услуги, ед.:</TextBlock>
+            <telerik:RadNumericUpDown VerticalAlignment="Center" Margin="2" NumberDecimalDigits="0"
+                                              Value="{Binding Path=TreatmentConfig.Price, Mode=TwoWay, ValidatesOnDataErrors=True}" Minimum="0" ValueFormat="Numeric" HorizontalContentAlignment="Left" />
+            <TextBlock Margin="0 2" VerticalAlignment="Center">Ограничения по возрасту (0-15, 36, 44-80):</TextBlock>
+            <TextBox Text="{Binding Path=TreatmentConfig.DisableAges, Mode=TwoWay, ValidatesOnDataErrors=True}" Margin="2" VerticalAlignment="Center"  />
+
+        </UniformGrid>
+        <TextBlock TextWrapping="Wrap">Базовая длительность типа услуги умножается на указанный множитель, в результате получается длительность услуги.</TextBlock>
+        <CheckBox IsChecked="{Binding TreatmentConfig.IsActive}" Margin="4 2">Доступен</CheckBox>
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3" Padding="5" IsDefault="True" Click="CommitButton_Click">Сохранить</Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

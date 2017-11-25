@@ -1,0 +1,26 @@
+﻿<usr:WindowBase x:Class="TonusClub.SettingsModule.Views.ContainedControls.Franch.Windows.NewEditCompanyFolderWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+        xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize" 
+             Width="500" Title="Папка" SizeToContent="Height">
+    <StackPanel Margin="5">
+        <UniformGrid Columns="2">
+            <TextBlock VerticalAlignment="Center">Родительская папка:</TextBlock>
+            <telerik:RadComboBox IsEditable="False" Margin="0 2"
+                        ItemsSource="{Binding SettingsFolders}"
+                        SelectedValuePath="Id"
+                        SelectedValue="{Binding Path=SettingsFolder.ParentFolderId, Mode=TwoWay}"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+            <TextBlock VerticalAlignment="Center">Название:</TextBlock>
+            <TextBox Text="{Binding SettingsFolder.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="0 2"></TextBox>
+        </UniformGrid>
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3" Padding="5" IsDefault="True" Click="CommitButton_Click">Сохранить</Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

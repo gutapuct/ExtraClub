@@ -1,0 +1,15 @@
+﻿<usr:WindowBase x:Class="TonusClub.OrganizerModule.Views.Tasks.Windows.NewCallMaster.SelectOneCustomerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="Поиск клиента" ResizeMode="NoResize" SizeToContent="Height" Width="450" WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="3">
+        <usr:CustomerSearchControl Margin="3"  SelectedClientChanged="CustomerSearchControl_SelectedClientChanged"
+                                   x:Name="CustomerSearch" />
+        <UniformGrid Rows="1">
+            <Button Margin="3" Padding="10 5" Click="OkButton_Click">ОК</Button>
+            <Button Margin="3" Padding="10 5" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

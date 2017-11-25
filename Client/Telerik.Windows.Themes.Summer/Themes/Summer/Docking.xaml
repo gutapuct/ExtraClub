@@ -1,0 +1,2621 @@
+<ResourceDictionary 
+	
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mscorlib="clr-namespace:System;assembly=mscorlib"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikAnimation="clr-namespace:Telerik.Windows.Controls.Animation;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikEffects="clr-namespace:Telerik.Windows.Controls.TransitionEffects;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls.Primitives;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikNavigationPrimitives="clr-namespace:Telerik.Windows.Controls.Primitives;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikTransitonControl="clr-namespace:Telerik.Windows.Controls.TransitionControl;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikChromes="clr-namespace:Telerik.Windows.Controls.Chromes;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikTabControl="clr-namespace:Telerik.Windows.Controls.TabControl;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:animation="clr-namespace:Telerik.Windows.Controls.Animation;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+
+xmlns:telerikDocking="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Docking,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"    
+    xmlns:telerikDockingAnimations="clr-namespace:Telerik.Windows.Controls.Animations;assembly=Telerik.Windows.Controls.Docking,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+	xmlns:dock="clr-namespace:Telerik.Windows.Controls.Docking;assembly=Telerik.Windows.Controls.Docking,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:system="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+	xmlns:external="clr-namespace:Telerik.Windows.Controls.External"
+
+
+>
+
+	<CornerRadius x:Key="Compass_Indicator_CornerRadius">3</CornerRadius>
+<CornerRadius x:Key="Compass_Indicator_InnerCornerRadius">2</CornerRadius>
+<SolidColorBrush x:Key="Compass_Indicator_InnerBorderBrush" Color="#FFFCFCFC" />
+<CornerRadius x:Key="Compass_Background_CornerRadius">8</CornerRadius>
+<CornerRadius x:Key="Compass_Background_InnerCornerRadius">7</CornerRadius>
+<SolidColorBrush x:Key="Compass_Indicator_BorderBrush" Color="#FF9D9D9D" />
+<LinearGradientBrush x:Key="Compass_Indicator_Background" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#B2EEEEEE" Offset="0"/>
+		<GradientStop Color="#B2C5C5C5" Offset="1"/>
+	</LinearGradientBrush>
+<Thickness x:Key="Compass_Indicator_Arrow_Margin">6 6 7 7</Thickness>
+<SolidColorBrush x:Key="Compass_Indicator_BorderBrush_Highlighted" Color="#FF6F9DB5" />
+<LinearGradientBrush x:Key="Compass_Indicator_Background_Highlighted" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFD6E9F0"/>
+		<GradientStop Color="#FFA6C8D4" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="Compass_VisualCue_Background" Color="#330E7194" />
+<SolidColorBrush x:Key="Compass_VisualCue_BorderBrush" Color="Transparent" />
+<Thickness x:Key="Compass_VisualCue_BorderThickness">0</Thickness>
+<SolidColorBrush x:Key="Docking_Background" Color="#FFF0F0F0" />
+<SolidColorBrush x:Key="Docking_BorderBrush" Color="#FF688CAF" />
+<external:SummerThemeExternal x:Key="Theme" />
+<SolidColorBrush x:Key="GridResizer_Background_Preview" Color="#FF0E7194" />
+<SolidColorBrush x:Key="GridResizer_FocusFrame" Color="#FF0E7194" />
+<LinearGradientBrush x:Key="PaneTabBackground_Normal" EndPoint="0.5,0.92" StartPoint="0.5,0.121">
+		<GradientStop Color="#FFEBEBEB"/>
+		<GradientStop Color="#FFD2D2D2" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneTabOuterBorder_Normal" Color="#FF9C9C9C" />
+<LinearGradientBrush x:Key="PaneTabInnerBorder_Normal" EndPoint="1,0.5" StartPoint="0,0.5">
+		<GradientStop Color="#59FFFFFF" Offset="0"/>
+		<GradientStop Color="#33FFFFFF" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneTabOuterBorder_Disabled" Color="#FF989898" />
+<SolidColorBrush x:Key="PaneTabInnerBorder_Disabled" Color="#FFE0E0E0" />
+<SolidColorBrush x:Key="PaneTabBackground_Disabled" Color="#FFE0E0E0" />
+<SolidColorBrush x:Key="PaneTabOuterBorder_Highlighted" Color="#FF9C9C9C" />
+<LinearGradientBrush x:Key="PaneTabInnerBorder_Highlighted" EndPoint="1,0.5" StartPoint="0,0.5">
+		<GradientStop Color="#59FFFFFF" Offset="0"/>
+		<GradientStop Color="#33FFFFFF" Offset="1"/>
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="PaneTabBackground_Highlighted" EndPoint="0.5,0.92" StartPoint="0.5,0.121">
+		<GradientStop Color="#FFD6E9F0"/>
+		<GradientStop Color="#FFA6C8D4" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneTabOuterBorder_Selected" Color="#FF9C9C9C" />
+<LinearGradientBrush x:Key="PaneTabInnerBorder_Selected" EndPoint="1,0.5" StartPoint="0,0.5">
+		<GradientStop Color="#59FFFFFF" Offset="0"/>
+		<GradientStop Color="#33FFFFFF" Offset="1"/>
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="PaneTabBackground_Selected" EndPoint="0.5,0.92" StartPoint="0.5,0.121">
+		<GradientStop Color="#FFD6E9F0"/>
+		<GradientStop Color="#FFA6C8D4" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneTabOuterBorder_SelectedHighlighted" Color="#FF9C9C9C" />
+<LinearGradientBrush x:Key="PaneTabInnerBorder_SelectedHighlighted" EndPoint="1,0.5" StartPoint="0,0.5">
+		<GradientStop Color="#59FFFFFF" Offset="0"/>
+		<GradientStop Color="#33FFFFFF" Offset="1"/>
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="PaneTabBackground_SelectedHighlighted" EndPoint="0.5,0.95" StartPoint="0.5,0.121">
+		<GradientStop Color="#FFD6E9F0"/>
+		<GradientStop Color="#FFA6C8D4" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneTabOuterBorderVertical_Disabled" Color="#FF989898" />
+<SolidColorBrush x:Key="PaneTabInnerBorderVertical_Disabled" Color="#FFE0E0E0" />
+<SolidColorBrush x:Key="PaneTabBackgroundVertical_Disabled" Color="#FFE0E0E0" />
+<SolidColorBrush x:Key="PaneTabOuterBorderVertical_Normal" Color="#FF9C9C9C" />
+<LinearGradientBrush x:Key="PaneTabInnerBorderVertical_Normal" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#59FFFFFF" Offset="0"/>
+		<GradientStop Color="#33FFFFFF" Offset="1"/>
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="PaneTabBackgroundVertical_Normal" EndPoint="0.92,0.5" StartPoint="0.121,0.5">
+		<GradientStop Color="#FFEBEBEB"/>
+		<GradientStop Color="#FFD2D2D2" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneTabOuterBorderVertical_Highlighted" Color="#FF9C9C9C" />
+<LinearGradientBrush x:Key="PaneTabInnerBorderVertical_Highlighted" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#59FFFFFF" Offset="0"/>
+		<GradientStop Color="#33FFFFFF" Offset="1"/>
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="PaneTabBackgroundVertical_Highlighted" EndPoint="0.92,0.5" StartPoint="0.121,0.5">
+		<GradientStop Color="#FFD6E9F0"/>
+		<GradientStop Color="#FFA6C8D4" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneTabOuterBorderVertical_Selected" Color="#FF9C9C9C" />
+<LinearGradientBrush x:Key="PaneTabInnerBorderVertical_Selected" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#59FFFFFF" Offset="0"/>
+		<GradientStop Color="#33FFFFFF" Offset="1"/>
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="PaneTabBackgroundVertical_Selected" EndPoint="0.92,0.5" StartPoint="0.121,0.5">
+		<GradientStop Color="#FFD6E9F0"/>
+		<GradientStop Color="#FFA6C8D4" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneTabOuterBorderVertical_SelectedHighlighted" Color="#FF9C9C9C" />
+<LinearGradientBrush x:Key="PaneTabInnerBorderVertical_SelectedHighlighted" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#59FFFFFF" Offset="0"/>
+		<GradientStop Color="#33FFFFFF" Offset="1"/>
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="PaneTabBackgroundVertical_SelectedHighlighted" EndPoint="0.92,0.5" StartPoint="0.121,0.5">
+		<GradientStop Color="#FFD6E9F0"/>
+		<GradientStop Color="#FFA6C8D4" Offset="1"/>
+	</LinearGradientBrush>
+<LinearGradientBrush x:Key="PaneTabPinnedBackground_Normal" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Offset="0.821" Color="#FFD2D2D2"/>
+		<GradientStop Color="#FFBFBFBF" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneTabPinnedOuterBorder_Normal" Color="#FFE4E4E4" />
+<SolidColorBrush x:Key="PaneTabPinnedInnerBorder_Normal" Color="#FF9C9C9C" />
+<SolidColorBrush x:Key="PaneTabPinnedOuterBorder_Disabled" Color="#FF989898" />
+<SolidColorBrush x:Key="PaneTabPinnedInnerBorder_Disabled" Color="#FFE0E0E0" />
+<SolidColorBrush x:Key="PaneTabPinnedBackground_Disabled" Color="#FFE0E0E0" />
+<SolidColorBrush x:Key="PaneTabPinnedOuterBorder_Highlighted" Color="#FFE4E4E4" />
+<SolidColorBrush x:Key="PaneTabPinnedInnerBorder_Highlighted" Color="#FF9C9C9C" />
+<LinearGradientBrush x:Key="PaneTabPinnedBackground_Highlighted" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFD6E9F0"/>
+		<GradientStop Color="#FFA6C8D4" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneTabPinnedOuterBorder_Selected" Color="#FFE4E4E4" />
+<SolidColorBrush x:Key="PaneTabPinnedInnerBorder_Selected" Color="#FF9C9C9C" />
+<LinearGradientBrush x:Key="PaneTabPinnedBackground_Selected" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="White" Offset="0.704"/>
+		<GradientStop Color="#FFE6E6E6" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneTabPinnedOuterBorder_SelectedHighlighted" Color="#FFE4E4E4" />
+<SolidColorBrush x:Key="PaneTabPinnedInnerBorder_SelectedHighlighted" Color="#FF9C9C9C" />
+<LinearGradientBrush x:Key="PaneTabPinnedBackground_SelectedHighlighted" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="White" Offset="0.704"/>
+		<GradientStop Color="#FFE6E6E6" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneGroup_Background" Color="#FFFFFFFF" />
+<LinearGradientBrush x:Key="PaneDocumentTabBackground_Normal" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFD4D4D4" Offset="0.87"/>
+		<GradientStop Color="#FFB1B2B3"/>
+		<GradientStop Color="#FFB1B1B1" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneDocumentTabOuterBorder_Normal" Color="#FFB1B1B1" />
+<SolidColorBrush x:Key="PaneDocumentTabInnerBorder_Normal" Color="#FFFFFFFF" />
+<SolidColorBrush x:Key="PaneGroup_BorderBrush" Color="#FF9D9D9D" />
+<SolidColorBrush x:Key="PaneGroup_DocumentFrameL2_Brush" Color="#FFDEDEDE" />
+<SolidColorBrush x:Key="PaneDocumentTabOuterBorder_Disabled" Color="#FFC1C1C1" />
+<SolidColorBrush x:Key="PaneDocumentTabInnerBorder_Disabled" Color="#FFFFFFFF" />
+<LinearGradientBrush x:Key="PaneDocumentTabBackground_Disabled" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFD4D4D4" Offset="0.87"/>
+		<GradientStop Color="#FFB1B2B3"/>
+		<GradientStop Color="#FFB1B1B1" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneDocumentTabOuterBorder_Highlighted" Color="#FF6F9DB5" />
+<SolidColorBrush x:Key="PaneDocumentTabInnerBorder_Highlighted" Color="#FFFFFFFF" />
+<LinearGradientBrush x:Key="PaneDocumentTabBackground_Highlighted" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFD6E9F0" Offset="0.87"/>
+		<GradientStop Color="#FFA6C8D4"/>
+		<GradientStop Color="#FFA6C8D4" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneDocumentTabOuterBorder_Selected" Color="#FF9C9C9C" />
+<SolidColorBrush x:Key="PaneDocumentTabInnerBorder_Selected" Color="#FFFFFFFF" />
+<LinearGradientBrush x:Key="PaneDocumentTabBackground_Selected" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFD0D0D0"/>
+		<GradientStop Color="#FFEAEAEA" Offset="0.4"/>
+		<GradientStop Color="#FFEAEAEA" Offset="0.87"/>
+		<GradientStop Color="#FFDEDEDE" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneTabForeground" Color="Black" />
+<CornerRadius x:Key="PaneGroup_PaneFrame_CornerRadius">3</CornerRadius>
+<CornerRadius x:Key="PaneGroup_DocumentFrameL4_CornerRadius">3</CornerRadius>
+<Thickness x:Key="PaneGroup_DocumentFrameL3_Thickness">1</Thickness>
+<SolidColorBrush x:Key="PaneGroup_DocumentFrameL3_Brush" Color="#FFFFFFFF" />
+<CornerRadius x:Key="PaneGroup_DocumentFrameL3_CornerRadius">2</CornerRadius>
+<Thickness x:Key="PaneGroup_DocumentFrameL2_Thickness">3</Thickness>
+<CornerRadius x:Key="PaneGroup_DocumentFrameL2_CornerRadius">1</CornerRadius>
+<Thickness x:Key="PaneGroup_DocumentFrameL1_Thickness">1</Thickness>
+<SolidColorBrush x:Key="PaneGroup_DocumentFrameL1_Brush" Color="#FF848484" />
+<CornerRadius x:Key="PaneGroup_DocumentFrameL1_CornerRadius">0</CornerRadius>
+<Thickness x:Key="HeaderButtonMargin">0 1 1 1</Thickness>
+<SolidColorBrush x:Key="ButtonIconBackground_Normal" Color="Transparent" />
+<SolidColorBrush x:Key="ButtonIconForeground_Normal" Color="#FF000000" />
+<SolidColorBrush x:Key="ButtonIconForeground_MouseOver" Color="#FF000000" />
+<SolidColorBrush x:Key="ButtonIconBackground_MouseOver" Color="Transparent" />
+<SolidColorBrush x:Key="ButtonIconForeground_Pressed" Color="#FF000000" />
+<SolidColorBrush x:Key="ButtonIconBackground_Pressed" Color="Transparent" />
+<SolidColorBrush x:Key="ButtonIconForeground_Disabled" Color="#FF666666" />
+<SolidColorBrush x:Key="ButtonIconBackground_Disabled" Color="Transparent" />
+<CornerRadius x:Key="PaneHeader_CornerRadius">2 2 0 0</CornerRadius>
+<LinearGradientBrush x:Key="PaneHeader_Background_Focused" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FFEEEEEE" Offset="0"/>
+		<GradientStop Color="#FFC5C5C5" Offset="1"/>
+	</LinearGradientBrush>
+<Thickness x:Key="PaneHeader_BorderThickness">0 0 0 0</Thickness>
+<SolidColorBrush x:Key="PaneHeader_BorderBrush" Color="#FFA0A0A0" />
+<LinearGradientBrush x:Key="PaneHeader_Background" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="White" Offset="0.187"/>
+		<GradientStop Color="#FFDEDEDE" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneGroupFrameOuterBorder" Color="#FF9D9D9D" />
+<SolidColorBrush x:Key="PaneGroupFrameBackground" Color="#FFDEDEDE" />
+<LinearGradientBrush x:Key="PaneGroupFrameInnerBorder" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="White"/>
+		<GradientStop Color="#2EFFFFFF" Offset="1"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="PaneGroup_OuterBorderBrush" Color="#FFE4E4E4" />
+<Thickness x:Key="PaneGroup_OuterBorderThickness">1</Thickness>
+<SolidColorBrush x:Key="PaneGroup_InnerBorderBrush" Color="#FF9A9A9A" />
+<Thickness x:Key="PaneGroup_InnerBorderThickness">1</Thickness>
+<Thickness x:Key="PaneGroup_BorderThickness">1</Thickness>
+<LinearGradientBrush x:Key="ToolWindow_CloseButtonIconFill" EndPoint="0.5,1" StartPoint="0.5,0">
+		<GradientStop Color="#FF7E8188" Offset="0.18"/>
+		<GradientStop Color="#FF4D4E53" Offset="0.167"/>
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="ToolWindow_CloseButtonIconStroke" Color="#FFFFFFFF" />
+<SolidColorBrush x:Key="ToolWindow_OuterBorderBrush" Color="#FF9B9797" />
+<SolidColorBrush x:Key="ToolWindow_Background" Color="#FFE4E6E8" />
+<SolidColorBrush x:Key="ToolWindow_InnerBorderBrush" Color="#FFFFFFFF" />
+
+
+    <!-- Compass -->
+    
+	
+	<!-- End of Brushes -->
+	
+	<!--Compass_IndicatorSideTemplate-->
+	<ControlTemplate x:Key="Compass_IndicatorSideTemplate" TargetType="ContentControl">
+		<Border
+			x:Name="Background"
+			BorderThickness="1"
+			CornerRadius="{StaticResource Compass_Indicator_CornerRadius}"
+			BorderBrush="{TemplateBinding BorderBrush}"
+			Background="{TemplateBinding Background}">
+			
+			<Border
+				x:Name="InnerBorder"
+				BorderThickness="1"
+				CornerRadius="{StaticResource Compass_Indicator_InnerCornerRadius}"
+				BorderBrush="{StaticResource Compass_Indicator_InnerBorderBrush}">
+				
+				<ContentPresenter />
+				
+			</Border>
+		</Border>
+	</ControlTemplate>
+	
+	<!--Compass_IndicatorCenterTemplate-->
+	<ControlTemplate x:Key="Compass_IndicatorCenterTemplate" TargetType="ContentControl">
+		<Grid>
+			<Path
+				Fill="{TemplateBinding Background}"
+				Stroke="{TemplateBinding BorderBrush}" 
+				Stretch="Fill"
+				StrokeMiterLimit="0"
+				Data="M4.5,0.5 L27.5,0.5 C29.709139,0.5 31.5,2.2908103 31.5,4.4998875 L31.5,25.174112 C31.5,26.830921 30.492641,28.252453 29.05698,28.859669 L28.393,28.993717 28.393,30.5 C28.393,31.052284 27.945284,31.5 27.393,31.5 L22.471001,31.5 C21.918715,31.5 21.471001,31.052284 21.471001,30.5 L21.471001,29.174 21.400999,29.174 21.400999,30.5 C21.400999,31.052284 20.953285,31.5 20.400999,31.5 L14.549,31.5 C13.996716,31.5 13.549,31.052284 13.549,30.5 L13.549,29.174 13.479,29.174 13.479,30.5 C13.479,31.052284 13.031284,31.5 12.479,31.5 L1.5,31.5 C0.94771522,31.5 0.5,31.052284 0.5,30.5 L0.5,25.174112 0.5,11.743 0.5,4.4998875 C0.5,2.2908103 2.2908609,0.5 4.5,0.5 M13.570125,29.18675 L28.39825,29.12425 z"/>
+			
+			<Path
+				Stroke="{StaticResource Compass_Indicator_InnerBorderBrush}"
+				Margin="1"
+				Stretch="Fill"
+				StrokeMiterLimit="0"
+				Data="M3.5,0.5 L26.5,0.5 C28.156855,0.49999988 29.5,1.8431089 29.5,3.4999181 L29.5,24.174082 C29.5,25.830891 28.156855,27.174 26.5,27.174 L11.549,27.174 11.549,29.454 0.5,29.454 0.5,24.174082 0.5,9.7429999 0.5,3.4999181 C0.5,1.8431089 1.8431457,0.49999988 3.5,0.5 z"/>
+			<ContentPresenter />
+			
+		</Grid>
+	</ControlTemplate>
+	
+	<!--Compass_BackgroundTemplate-->
+	<ControlTemplate x:Key="Compass_BackgroundTemplate" TargetType="ContentControl">
+		<Border
+			x:Name="Background"
+			CornerRadius="{StaticResource Compass_Background_CornerRadius}"
+			BorderThickness="1"
+			BorderBrush="{TemplateBinding BorderBrush}"
+			Background="{TemplateBinding Background}">
+			<Border
+				x:Name="InnerBorder"
+				CornerRadius="{StaticResource Compass_Background_InnerCornerRadius}"
+				BorderThickness="1"
+				BorderBrush="{StaticResource Compass_Indicator_InnerBorderBrush}">
+				
+				<ContentPresenter />
+				
+			</Border>
+		</Border>
+	</ControlTemplate>
+	
+	
+    
+	
+	<!-- End of Brushes -->
+	
+	<Style x:Key="Compass_BackgroundStyle" TargetType="ContentControl">
+		<Setter Property="BorderBrush" Value="{StaticResource Compass_Indicator_BorderBrush}" />
+		<Setter Property="Background" Value="{StaticResource Compass_Indicator_Background}" />
+		<Setter Property="Template" Value="{StaticResource Compass_BackgroundTemplate}" />
+		<Setter Property="Margin" Value="16" />
+		<Setter Property="MinWidth" Value="72" />
+		<Setter Property="MinHeight" Value="72" />
+	</Style>
+	
+	<Style x:Key="Compass_IndicatorXSideStyle" TargetType="ContentControl">
+		<Setter Property="BorderBrush" Value="{StaticResource Compass_Indicator_BorderBrush}" />
+		<Setter Property="Background" Value="{StaticResource Compass_Indicator_Background}" />
+		<Setter Property="Template" Value="{StaticResource Compass_IndicatorSideTemplate}" />
+	</Style>
+
+	<Style x:Key="Compass_IndicatorLeftStyle" TargetType="ContentControl" BasedOn="{StaticResource Compass_IndicatorXSideStyle}">
+		<Setter Property="ContentTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<Path x:Name="ArrowLeft" Width="7" Height="7" Margin="{StaticResource Compass_Indicator_Arrow_Margin}" Stretch="None" Data="M6,0 L6,7 5,7 5,6 4,6 4,5 3,5 3,4 2,4 2,3 3,3 3,2 4,2 4,1 5,1 5,0 Z" Fill="Black" />
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="Compass_IndicatorTopStyle" TargetType="ContentControl" BasedOn="{StaticResource Compass_IndicatorXSideStyle}">
+		<Setter Property="ContentTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<Path x:Name="ArrowTop" Width="7" Height="7" Margin="{StaticResource Compass_Indicator_Arrow_Margin}" Stretch="None" Data="M0,6 L7,6 7,5 6,5 6,4 5,4 5,3 4,3 4,2 3,2 3,3 2,3 2,4 1,4 1,5 0,5 Z" Fill="Black" />
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="Compass_IndicatorRightStyle" TargetType="ContentControl" BasedOn="{StaticResource Compass_IndicatorXSideStyle}">
+		<Setter Property="ContentTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<Path x:Name="ArrowRight" Width="7" Height="7" Margin="{StaticResource Compass_Indicator_Arrow_Margin}" Stretch="None" Data="M1,0 L1,7 2,7 2,6 3,6 3,5 4,5 4,4 5,4 5,3 4,3 4,2 3,2 3,1 2,1 2,0 Z" Fill="Black" />
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="Compass_IndicatorBottomStyle" TargetType="ContentControl" BasedOn="{StaticResource Compass_IndicatorXSideStyle}">
+		<Setter Property="ContentTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<Path x:Name="ArrowBottom" Width="7" Height="7" Margin="{StaticResource Compass_Indicator_Arrow_Margin}" Stretch="None" Data="M0,1 L7,1 7,2 6,2 6,3 5,3 5,4 4,4 4,5 3,5 3,4 2,4 2,3 1,3 1,2 0,2 Z" Fill="Black" />
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="Compass_IndicatorCenterStyle" TargetType="ContentControl">
+		<Setter Property="BorderBrush" Value="{StaticResource Compass_Indicator_BorderBrush}" />
+		<Setter Property="Template" Value="{StaticResource Compass_IndicatorCenterTemplate}" />
+		<Setter Property="Margin" Value="36" />
+	</Style>
+
+	<Style x:Key="Compass_IndicatorLeftStyle_Highlighted" TargetType="ContentControl" BasedOn="{StaticResource Compass_IndicatorLeftStyle}">
+		<Setter Property="BorderBrush" Value="{StaticResource Compass_Indicator_BorderBrush_Highlighted}" />
+		<Setter Property="Background" Value="{StaticResource Compass_Indicator_Background_Highlighted}" />
+	</Style>
+	<Style x:Key="Compass_IndicatorTopStyle_Highlighted" TargetType="ContentControl" BasedOn="{StaticResource Compass_IndicatorTopStyle}">
+		<Setter Property="BorderBrush" Value="{StaticResource Compass_Indicator_BorderBrush_Highlighted}" />
+		<Setter Property="Background" Value="{StaticResource Compass_Indicator_Background_Highlighted}" />
+	</Style>
+	<Style x:Key="Compass_IndicatorRightStyle_Highlighted" TargetType="ContentControl" BasedOn="{StaticResource Compass_IndicatorRightStyle}">
+		<Setter Property="BorderBrush" Value="{StaticResource Compass_Indicator_BorderBrush_Highlighted}" />
+		<Setter Property="Background" Value="{StaticResource Compass_Indicator_Background_Highlighted}" />
+	</Style>
+	<Style x:Key="Compass_IndicatorBottomStyle_Highlighted" TargetType="ContentControl" BasedOn="{StaticResource Compass_IndicatorBottomStyle}">
+		<Setter Property="BorderBrush" Value="{StaticResource Compass_Indicator_BorderBrush_Highlighted}" />
+		<Setter Property="Background" Value="{StaticResource Compass_Indicator_Background_Highlighted}" />
+	</Style>
+	<Style x:Key="Compass_IndicatorCenterStyle_Highlighted" TargetType="ContentControl" BasedOn="{StaticResource Compass_IndicatorCenterStyle}">
+		<Setter Property="BorderBrush" Value="{StaticResource Compass_Indicator_BorderBrush_Highlighted}" />
+		<Setter Property="Background" Value="{StaticResource Compass_Indicator_Background_Highlighted}" />
+	</Style>
+	
+	
+    
+	<!--Compass Style-->
+	<Style TargetType="dock:Compass" x:Key="{telerik:ThemeResourceKey ThemeType=
+		external:SummerThemeExternal , ElementType={x:Type dock:Compass}}"
+		>
+		<Setter Property="Width" Value="105" />
+		<Setter Property="Height" Value="105" />
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="dock:Compass">
+					<Border
+						x:Name="VisualRoot"
+						Background="{TemplateBinding Background}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						Width="105" Height="105">
+
+						
+						
+						<Grid
+							x:Name="Visual"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center">
+							
+							<ContentControl
+								x:Name="PART_Center"
+								HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+								Style="{StaticResource Compass_BackgroundStyle}" />
+							<ContentControl
+								x:Name="PART_LeftIndicator" Margin="4"
+								HorizontalAlignment="Left" VerticalAlignment="Center" 
+								Style="{StaticResource Compass_IndicatorLeftStyle}"/>
+							<ContentControl
+								x:Name="PART_TopIndicator" Margin="4"
+								HorizontalAlignment="Center" VerticalAlignment="Top"
+								Style="{StaticResource Compass_IndicatorTopStyle}"/>
+							<ContentControl
+								x:Name="PART_RightIndicator" Margin="4"
+								HorizontalAlignment="Right" VerticalAlignment="Center" 
+								Style="{StaticResource Compass_IndicatorRightStyle}"/>
+							<ContentControl
+								x:Name="PART_BottomIndicator" Margin="4"
+								HorizontalAlignment="Center" VerticalAlignment="Bottom"
+								Style="{StaticResource Compass_IndicatorBottomStyle}"/>
+							<ContentControl
+								x:Name="PART_CenterIndicator"
+								HorizontalAlignment="Center" VerticalAlignment="Center"
+								Style="{StaticResource Compass_IndicatorCenterStyle}"/>
+						</Grid>
+
+
+					</Border>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="DockPosition" Value="Left">
+							<Setter TargetName="PART_LeftIndicator" Property="Style"
+									Value="{StaticResource Compass_IndicatorLeftStyle_Highlighted}" />
+						</Trigger>
+						<Trigger Property="DockPosition" Value="Top">
+							<Setter TargetName="PART_TopIndicator" Property="Style"
+									Value="{StaticResource Compass_IndicatorTopStyle_Highlighted}" />
+						</Trigger>
+						<Trigger Property="DockPosition" Value="Right">
+							<Setter TargetName="PART_RightIndicator" Property="Style"
+									Value="{StaticResource Compass_IndicatorRightStyle_Highlighted}" />
+						</Trigger>
+						<Trigger Property="DockPosition" Value="Bottom">
+							<Setter TargetName="PART_BottomIndicator" Property="Style"
+									Value="{StaticResource Compass_IndicatorBottomStyle_Highlighted}" />
+						</Trigger>
+						<Trigger Property="DockPosition" Value="Center">
+							<Setter TargetName="PART_CenterIndicator" Property="Style"
+									Value="{StaticResource Compass_IndicatorCenterStyle_Highlighted}" />
+						</Trigger>
+
+						<Trigger Property="IsLeftIndicatorVisible" Value="False">
+							<Setter TargetName="PART_LeftIndicator" Property="Visibility" Value="Collapsed" />
+						</Trigger>
+						<Trigger Property="IsTopIndicatorVisible" Value="False">
+							<Setter TargetName="PART_TopIndicator" Property="Visibility" Value="Collapsed" />
+						</Trigger>
+						<Trigger Property="IsRightIndicatorVisible" Value="False">
+							<Setter TargetName="PART_RightIndicator" Property="Visibility" Value="Collapsed" />
+						</Trigger>
+						<Trigger Property="IsBottomIndicatorVisible" Value="False">
+							<Setter TargetName="PART_BottomIndicator" Property="Visibility" Value="Collapsed" />
+						</Trigger>
+						<Trigger Property="IsCenterIndicatorVisible" Value="False">
+							<Setter TargetName="PART_CenterIndicator" Property="Visibility" Value="Collapsed" />
+							<Setter TargetName="PART_Center" Property="IsHitTestVisible" Value="False" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!--Compass Style-->
+	<Style TargetType="dock:RootCompass" x:Key="{telerik:ThemeResourceKey ThemeType=
+		external:SummerThemeExternal , ElementType={x:Type dock:RootCompass}}"
+		 >
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="dock:Compass">
+					<Border
+						x:Name="VisualRoot"
+						Background="{TemplateBinding Background}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						BorderBrush="{TemplateBinding BorderBrush}">
+                        
+                        
+                        <Grid x:Name="Visual">
+							<ContentControl
+								x:Name="PART_LeftIndicator"
+								HorizontalAlignment="Left" VerticalAlignment="Center" 
+								Style="{StaticResource Compass_IndicatorLeftStyle}"/>
+							<ContentControl
+								x:Name="PART_TopIndicator"
+								HorizontalAlignment="Center" VerticalAlignment="Top"
+								Style="{StaticResource Compass_IndicatorTopStyle}"/>
+							<ContentControl
+								x:Name="PART_RightIndicator"
+								HorizontalAlignment="Right" VerticalAlignment="Center" 
+								Style="{StaticResource Compass_IndicatorRightStyle}"/>
+							<ContentControl
+								x:Name="PART_BottomIndicator"
+								HorizontalAlignment="Center" VerticalAlignment="Bottom"
+								Style="{StaticResource Compass_IndicatorBottomStyle}"/>
+
+						</Grid>
+
+					</Border>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="DockPosition" Value="Left">
+							<Setter TargetName="PART_LeftIndicator" Property="Style"
+									Value="{StaticResource Compass_IndicatorLeftStyle_Highlighted}" />
+						</Trigger>
+						<Trigger Property="DockPosition" Value="Top">
+							<Setter TargetName="PART_TopIndicator" Property="Style"
+									Value="{StaticResource Compass_IndicatorTopStyle_Highlighted}" />
+						</Trigger>
+						<Trigger Property="DockPosition" Value="Right">
+							<Setter TargetName="PART_RightIndicator" Property="Style"
+									Value="{StaticResource Compass_IndicatorRightStyle_Highlighted}" />
+						</Trigger>
+						<Trigger Property="DockPosition" Value="Bottom">
+							<Setter TargetName="PART_BottomIndicator" Property="Style"
+									Value="{StaticResource Compass_IndicatorBottomStyle_Highlighted}" />
+						</Trigger>
+						<Trigger Property="IsLeftIndicatorVisible" Value="False">
+							<Setter TargetName="PART_LeftIndicator" Property="Visibility" Value="Collapsed" />
+						</Trigger>
+						<Trigger Property="IsTopIndicatorVisible" Value="False">
+							<Setter TargetName="PART_TopIndicator" Property="Visibility" Value="Collapsed" />
+						</Trigger>
+						<Trigger Property="IsRightIndicatorVisible" Value="False">
+							<Setter TargetName="PART_RightIndicator" Property="Visibility" Value="Collapsed" />
+						</Trigger>
+						<Trigger Property="IsBottomIndicatorVisible" Value="False">
+							<Setter TargetName="PART_BottomIndicator" Property="Visibility" Value="Collapsed" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- VisualCue Style-->
+	<Style x:Key="VisualCueStyle" TargetType="dock:VisualCue">
+		<Setter Property="Background" Value="{StaticResource Compass_VisualCue_Background}" />
+		<Setter Property="BorderBrush" Value="{StaticResource Compass_VisualCue_BorderBrush}" />
+		<Setter Property="BorderThickness" Value="{StaticResource Compass_VisualCue_BorderThickness}" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="dock:VisualCue">
+					<Border Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+    <Style TargetType="dock:VisualCue" BasedOn="{StaticResource VisualCueStyle}" x:Key="{telerik:ThemeResourceKey ThemeType=
+        external:SummerThemeExternal , ElementType={x:Type dock:VisualCue}}"
+         >
+    </Style>
+
+    
+    
+    <!-- Docking -->
+	
+    
+    <sys:TimeSpan x:Key="AutoHideInAnimationDuration">0:0:0.360</sys:TimeSpan>
+    <sys:TimeSpan x:Key="AutoHideOutAnimationDuration">0:0:0.400</sys:TimeSpan>
+
+	<Style TargetType="telerikDocking:RadDocking" x:Key="{telerik:ThemeResourceKey ThemeType=
+		external:SummerThemeExternal , ElementType={x:Type telerikDocking:RadDocking}}"
+		 >
+
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+
+        <Setter Property="VisualCueStyle" Value="{StaticResource VisualCueStyle}" />
+        
+		<Setter Property="Background" Value="{StaticResource Docking_Background}" />
+		<Setter Property="BorderBrush" Value="{StaticResource Docking_BorderBrush}" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Padding" Value="4" />
+
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerikDocking:RadDocking">
+					<Grid x:Name="Root">
+						<Border x:Name="Border" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}">
+
+							
+							
+							<DockPanel x:Name="RootDockPanel">
+
+								<dock:AutoHideArea x:Name="LeftAutoHide"
+                                        telerik:StyleManager.Theme="{StaticResource Theme}"
+                                        DockPanel.Dock="Left" BackgroundVisibility="Collapsed"
+                                        TabStripPlacement="Left" TabOrientation="Vertical" />
+                                <dock:AutoHideArea x:Name="RightAutoHide"
+                                        telerik:StyleManager.Theme="{StaticResource Theme}"
+                                        DockPanel.Dock="Right" BackgroundVisibility="Collapsed"
+                                        TabStripPlacement="Right" TabOrientation="Vertical"  />
+								<dock:AutoHideArea x:Name="TopAutoHide"
+                                        telerik:StyleManager.Theme="{StaticResource Theme}"
+                                        DockPanel.Dock="Top" BackgroundVisibility="Collapsed"
+                                        TabStripPlacement="Top"  />
+								<dock:AutoHideArea x:Name="BottomAutoHide"
+                                        telerik:StyleManager.Theme="{StaticResource Theme}"
+                                        DockPanel.Dock="Bottom" BackgroundVisibility="Collapsed"
+                                        TabStripPlacement="Bottom" />
+								<telerikDocking:DockingPanel x:Name="ContentDockPanel"
+                                        Background="{TemplateBinding Background}">
+
+									<dock:DocumentHost x:Name="DocumentHost" />
+
+								</telerikDocking:DockingPanel>
+							</DockPanel>
+							
+						</Border>
+						<!--<Canvas x:Name="PopupPanel">
+							<dock:VisualCue x:Name="PART_DragCue"
+                                    Style="{TemplateBinding VisualCueStyle}" Canvas.ZIndex="999997" />
+                                    
+							<dock:Compass x:Name="PART_Compass"
+                                    telerik:StyleManager.Theme="{StaticResource Theme}"
+                                    Style="{TemplateBinding CompassStyle}" Visibility="Collapsed"
+                                    Canvas.ZIndex="999998" />
+							
+							<dock:RootCompass x:Name="PART_RootCompass"
+                                    telerik:StyleManager.Theme="{StaticResource Theme}"
+                                    Style="{TemplateBinding RootCompassStyle}"
+                                    Visibility="Collapsed" Canvas.ZIndex="999999" />
+						</Canvas>-->
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+
+		<Setter Property="telerikAnimation:AnimationManager.AnimationSelector">
+			<Setter.Value>
+				<telerikAnimation:AnimationSelector>
+					<!-- ToolWindow, Compass, RootCompass and DragCue animations -->
+					<telerikAnimation:AnimationGroup AnimationName="Move">
+						<telerikAnimation:MoveAnimation />
+						<telerikAnimation:ResizeAnimation />
+						<telerikAnimation:FadeAnimation Direction="In" />
+						<telerikAnimation:ScaleAnimation Direction="In" 
+														 MinScale="0.7" 
+														 MaxScale="1.0" />
+					</telerikAnimation:AnimationGroup>
+
+					<telerikAnimation:AnimationGroup AnimationName="Show">
+						<telerikAnimation:FadeAnimation Direction="In" />
+						<telerikAnimation:ScaleAnimation Direction="In" 
+														 MinScale="0.95" 
+														 MaxScale="1.0" />
+					</telerikAnimation:AnimationGroup>
+					<telerikAnimation:AnimationGroup AnimationName="Hide" 
+													 SpeedRatio="0.7">
+						<telerikAnimation:FadeAnimation Direction="Out" />
+						<telerikAnimation:ScaleAnimation Direction="Out" 
+														 MinScale="0.7" 
+														 MaxScale="1.0" />
+					</telerikAnimation:AnimationGroup>
+
+					<!-- AutoHideArea animations -->
+
+					<!-- Left AutoHideArea animations -->
+					<telerikAnimation:AnimationGroup AnimationName="LeftIn">
+						<telerikAnimation:SlideAnimation SlideMode="Top"
+                                                         Duration="{StaticResource AutoHideInAnimationDuration}"
+														 TargetElementName="PopupChild" 
+														 Orientation="Horizontal"
+                                                         Direction="In" />
+                        
+						<!--<telerikAnimation:FadeAnimation TargetElementName="PopupChild" Direction="In" />-->
+					</telerikAnimation:AnimationGroup>
+
+					<telerikAnimation:AnimationGroup AnimationName="LeftOut">
+						<telerikAnimation:SlideAnimation TargetElementName="PopupChild" 
+																		SlideMode="Top" 
+                                                                        Duration="{StaticResource AutoHideOutAnimationDuration}"    
+																		Orientation="Horizontal" 
+																		Direction="Out" />
+
+                        <!--<telerikAnimation:FadeAnimation TargetElementName="PopupChild"
+														Direction="Out" />-->
+					</telerikAnimation:AnimationGroup>
+
+					<!-- Top AutoHideArea animations -->
+
+					<telerikAnimation:AnimationGroup AnimationName="TopIn">
+						<telerikAnimation:SlideAnimation Orientation="Vertical"
+                                                         Duration="{StaticResource AutoHideInAnimationDuration}"
+														 TargetElementName="PopupChild" 
+                                                         Direction="In" />
+						<!--<telerikAnimation:FadeAnimation TargetElementName="PopupChild"
+														Direction="In" />-->
+					</telerikAnimation:AnimationGroup>
+
+					<telerikAnimation:AnimationGroup AnimationName="TopOut">
+						<telerikAnimation:SlideAnimation TargetElementName="PopupChild" 
+                                                         Duration="{StaticResource AutoHideOutAnimationDuration}"
+																		Orientation="Vertical"
+																		Direction="Out" />
+						<!--<telerikAnimation:FadeAnimation TargetElementName="PopupChild"
+														Direction="Out" />-->
+					</telerikAnimation:AnimationGroup>
+
+					<!-- Right AutoHideArea animations -->
+
+					<telerikAnimation:AnimationGroup AnimationName="RightIn">
+						<telerikAnimation:SlideAnimation SlideMode="Bottom"
+																		TargetElementName="PopupChild" 
+                                                         Duration="{StaticResource AutoHideInAnimationDuration}"
+																		Orientation="Horizontal"
+																		Direction="In" />
+						<!--<telerikAnimation:FadeAnimation TargetElementName="PopupChild"
+														Direction="In" />-->
+					</telerikAnimation:AnimationGroup>
+
+					<telerikAnimation:AnimationGroup AnimationName="RightOut">
+						<telerikAnimation:SlideAnimation TargetElementName="PopupChild" SlideMode="Bottom"
+                                                         Duration="{StaticResource AutoHideOutAnimationDuration}"
+																		Orientation="Horizontal" 
+																		Direction="Out" />
+						<!--<telerikAnimation:FadeAnimation TargetElementName="PopupChild"
+														Direction="Out" />-->
+					</telerikAnimation:AnimationGroup>
+
+					<!-- Bottom AutoHideArea animations -->
+
+					<telerikAnimation:AnimationGroup AnimationName="BottomIn">
+						<telerikAnimation:SlideAnimation SlideMode="Bottom"
+                                                         Duration="{StaticResource AutoHideInAnimationDuration}"
+                                Orientation="Vertical" TargetElementName="PopupChild" Direction="In" />
+						<!--<telerikAnimation:FadeAnimation TargetElementName="PopupChild"
+                                Direction="In" />-->
+					</telerikAnimation:AnimationGroup>
+					<telerikAnimation:AnimationGroup AnimationName="BottomOut">
+						<telerikAnimation:SlideAnimation
+                            Duration="{StaticResource AutoHideOutAnimationDuration}"
+                                TargetElementName="PopupChild" Direction="Out"
+                                Orientation="Vertical" SlideMode="Bottom" />
+						<!--<telerikAnimation:FadeAnimation TargetElementName="PopupChild"
+                                Direction="Out" />-->
+					</telerikAnimation:AnimationGroup>
+				</telerikAnimation:AnimationSelector>
+			</Setter.Value>
+		</Setter>
+	</Style>
+		
+
+	<!-- Document Host -->
+	
+	
+	<!--DocumentHost Style-->
+	<Style TargetType="dock:DocumentHost" x:Key="{telerik:ThemeResourceKey ThemeType=
+		external:SummerThemeExternal , ElementType={x:Type dock:DocumentHost}}"
+		>
+		<Setter Property="HorizontalContentAlignment" Value="Stretch" />
+		<Setter Property="VerticalContentAlignment" Value="Stretch" />
+		<Setter Property="MinWidth" Value="25" />
+		<Setter Property="MinHeight" Value="25" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="dock:DocumentHost">
+					<Border Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Padding="{TemplateBinding Padding}">
+						<ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}"
+								Content="{TemplateBinding Content}"
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+
+	<!-- GridResizer -->
+	
+	<Style x:Key="GridResizerPreviewStyle" TargetType="Control">
+		<Setter Property="Background" Value="{StaticResource GridResizer_Background_Preview}" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Control">
+					<Grid x:Name="Root" Opacity=".5">
+
+						<!-- Background -->
+						<Rectangle Fill="{TemplateBinding Background}" />
+
+						<!-- Horizontal Template -->
+						<Grid x:Name="HorizontalTemplate" Height="6">
+							<!-- Just show the faint gray grid splitter rectangle with no other details -->
+						</Grid>
+
+						<!-- Vertical Template -->
+						<Grid x:Name="VerticalTemplate" Visibility="Collapsed" Width="6">
+							<!-- Just show the faint gray grid splitter rectangle with no other details -->
+						</Grid>
+
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style TargetType="dock:RadGridResizer" x:Key="{telerik:ThemeResourceKey ThemeType=external:SummerThemeExternal , ElementType={x:Type dock:RadGridResizer}}">
+		<Setter Property="Background" Value="Transparent" />
+		<Setter Property="IsTabStop" Value="true" />
+		<Setter Property="PreviewStyle" Value="{StaticResource GridResizerPreviewStyle}" />
+		<Setter Property="HorizontalAlignment" Value="Right" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="dock:RadGridResizer">
+					<Grid x:Name="Root" IsHitTestVisible="{TemplateBinding IsEnabled}">
+						
+
+						<!-- Background -->
+						<Rectangle Fill="{TemplateBinding Background}" StrokeThickness="0" />
+
+						<!-- Horizontal Template -->
+						<Grid x:Name="HorizontalTemplate" Height="10">
+							<StackPanel Height="6" VerticalAlignment="Center" />
+						</Grid>
+
+						<!-- Vertical Template -->
+						<Grid x:Name="VerticalTemplate" Visibility="Collapsed" Width="10">
+							<StackPanel Width="6" VerticalAlignment="Center" Orientation="Horizontal" />
+						</Grid>
+
+						<!-- Focus Visual -->
+						<Rectangle x:Name="FocusVisual" Stroke="{StaticResource GridResizer_FocusFrame}" StrokeThickness="1" Opacity="0" IsHitTestVisible="false" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	
+    <!--SplitContainer Style-->
+    <Style TargetType="telerikDocking:RadSplitContainer" x:Key="{telerik:ThemeResourceKey ThemeType=
+        external:SummerThemeExternal , ElementType={x:Type telerikDocking:RadSplitContainer}}"
+         >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerikDocking:RadSplitContainer">
+                    <Grid>
+                        
+
+                        <Border x:Name="border" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}">
+                            <ItemsPresenter />
+                        </Border>
+
+                        <dock:RadGridResizer x:Name="DockResizer" Placement="Left"
+                                ShowsPreview="True" Visibility="Collapsed"
+                                VerticalAlignment="Stretch" HorizontalAlignment="Left" />
+                    </Grid>
+
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="SplitterPosition">
+                            <Trigger.Value>
+                                <Dock>Left</Dock>
+                            </Trigger.Value>
+                            <Setter TargetName="DockResizer" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="DockResizer" Property="Width" Value="4" />
+                            <Setter TargetName="border" Property="Margin" Value="4 0 0 0" />
+                            <Setter TargetName="DockResizer" Property="Cursor" Value="SizeWE" />
+                        </Trigger>
+                        <Trigger Property="SplitterPosition">
+                            <Trigger.Value>
+                                <Dock>Top</Dock>
+                            </Trigger.Value>
+                            <Setter TargetName="DockResizer" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="DockResizer" Property="VerticalAlignment"
+                                    Value="Top" />
+                            <Setter TargetName="DockResizer" Property="HorizontalAlignment"
+                                    Value="Stretch" />
+                            <Setter TargetName="DockResizer" Property="Cursor" Value="SizeNS" />
+                            <Setter TargetName="DockResizer" Property="Placement">
+                                <Setter.Value>
+                                    <Dock>Top</Dock>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="DockResizer" Property="Height" Value="4" />
+                            <Setter TargetName="border" Property="Margin" Value="0 4 0 0" />
+                        </Trigger>
+                        <Trigger Property="SplitterPosition">
+                            <Trigger.Value>
+                                <Dock>Right</Dock>
+                            </Trigger.Value>
+                            <Setter TargetName="DockResizer" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="DockResizer" Property="Width" Value="4" />
+                            <Setter TargetName="border" Property="Margin" Value="0 0 4 0" />
+                            <Setter TargetName="DockResizer" Property="HorizontalAlignment"
+                                    Value="Right" />
+                            <Setter TargetName="DockResizer" Property="Cursor" Value="SizeWE" />
+                            <Setter TargetName="DockResizer" Property="Placement">
+                                <Setter.Value>
+                                    <Dock>Right</Dock>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="SplitterPosition">
+                            <Trigger.Value>
+                                <Dock>Bottom</Dock>
+                            </Trigger.Value>
+                            <Setter TargetName="DockResizer" Property="Cursor" Value="SizeNS" />
+                            <Setter TargetName="DockResizer" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="DockResizer" Property="VerticalAlignment"
+                                    Value="Bottom" />
+                            <Setter TargetName="DockResizer" Property="HorizontalAlignment"
+                                    Value="Stretch" />
+                            <Setter TargetName="DockResizer" Property="Placement">
+                                <Setter.Value>
+                                    <Dock>Bottom</Dock>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="DockResizer" Property="Height" Value="4" />
+                            <Setter TargetName="border" Property="Margin" Value="0 0 0 4" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="MinWidth" Value="15" />
+        <Setter Property="MinHeight" Value="15" />
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <telerikDocking:ProportionalStackPanel />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+
+	<!-- Pane -->
+	
+	
+	<Style x:Key="DocumentTabChromeStyle" TargetType="telerikChromes:ButtonChrome">
+		
+		<Setter Property="Background" Value="{StaticResource PaneTabBackground_Normal}" />
+		<Setter Property="BorderBrush" Value="{StaticResource PaneTabOuterBorder_Normal}" />
+		
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerikChromes:ButtonChrome">
+					<Border x:Name="OuterBorder" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{TemplateBinding CornerRadius}" Background="{TemplateBinding Background}" >
+						
+						<Border x:Name="InnerBorder" CornerRadius="{TemplateBinding InnerCornerRadius}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{StaticResource PaneTabInnerBorder_Normal}" />
+					</Border>
+					
+					<ControlTemplate.Triggers>
+						<!-- Horizontal -->
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="Orientation" Value="Horizontal" />
+								<Condition Property="RenderEnabled" Value="False" />
+								<Condition Property="RenderNormal" Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneTabOuterBorder_Disabled}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneTabInnerBorder_Disabled}" />
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneTabBackground_Disabled}" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="Orientation" Value="Horizontal" />
+								<Condition Property="RenderEnabled" Value="True" />
+								<Condition Property="RenderHighlighted" Value="True" />
+								<Condition Property="RenderSelected" Value="False" />
+								<Condition Property="RenderMouseOver" Value="False" />
+								<Condition Property="RenderPressed" Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneTabOuterBorder_Highlighted}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneTabInnerBorder_Highlighted}" />
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneTabBackground_Highlighted}" />
+						</MultiTrigger>
+						
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="Orientation" Value="Horizontal" />
+								<Condition Property="RenderEnabled" Value="True" />
+								<Condition Property="RenderHighlighted" Value="False" />
+								<Condition Property="RenderSelected" Value="True" />
+								<Condition Property="RenderMouseOver" Value="False" />
+								<Condition Property="RenderPressed" Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneTabOuterBorder_Selected}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneTabInnerBorder_Selected}" />
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneTabBackground_Selected}" />
+						</MultiTrigger>
+						
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="Orientation" Value="Horizontal" />
+								<Condition Property="RenderEnabled" Value="True" />
+								<Condition Property="RenderHighlighted" Value="True" />
+								<Condition Property="RenderSelected" Value="True" />
+								<Condition Property="RenderMouseOver" Value="False" />
+								<Condition Property="RenderPressed" Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneTabOuterBorder_SelectedHighlighted}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneTabInnerBorder_SelectedHighlighted}" />
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneTabBackground_SelectedHighlighted}" />
+						</MultiTrigger>
+
+						<!-- Vertical -->
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="Orientation" Value="Vertical" />
+								<Condition Property="RenderEnabled" Value="False" />
+								<Condition Property="RenderNormal" Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneTabOuterBorderVertical_Disabled}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneTabInnerBorderVertical_Disabled}" />
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneTabBackgroundVertical_Disabled}" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="Orientation" Value="Vertical" />
+								<Condition Property="RenderEnabled" Value="True" />
+								<Condition Property="RenderNormal" Value="True" />
+								<Condition Property="RenderMouseOver" Value="False" />
+								<Condition Property="RenderPressed" Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneTabOuterBorderVertical_Normal}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneTabInnerBorderVertical_Normal}" />
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneTabBackgroundVertical_Normal}" />
+						</MultiTrigger>
+
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="Orientation" Value="Vertical" />
+								<Condition Property="RenderEnabled" Value="True" />
+								<Condition Property="RenderHighlighted" Value="True" />
+								<Condition Property="RenderSelected" Value="False" />
+								<Condition Property="RenderMouseOver" Value="False" />
+								<Condition Property="RenderPressed" Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneTabOuterBorderVertical_Highlighted}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneTabInnerBorderVertical_Highlighted}" />
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneTabBackgroundVertical_Highlighted}" />
+						</MultiTrigger>
+
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="Orientation" Value="Vertical" />
+								<Condition Property="RenderEnabled" Value="True" />
+								<Condition Property="RenderSelected" Value="True" />
+								<Condition Property="RenderMouseOver" Value="False" />
+								<Condition Property="RenderPressed" Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneTabOuterBorderVertical_Selected}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneTabInnerBorderVertical_Selected}" />
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneTabBackgroundVertical_Selected}" />
+						</MultiTrigger>
+
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="Orientation" Value="Vertical" />
+								<Condition Property="RenderEnabled" Value="True" />
+								<Condition Property="RenderHighlighted" Value="True" />
+								<Condition Property="RenderSelected" Value="True" />
+								<Condition Property="RenderMouseOver" Value="False" />
+								<Condition Property="RenderPressed" Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneTabOuterBorderVertical_SelectedHighlighted}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneTabInnerBorderVertical_SelectedHighlighted}" />
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneTabBackgroundVertical_SelectedHighlighted}" />
+						</MultiTrigger>
+
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="DocumentPinnedTabChromeStyle" TargetType="telerikChromes:ButtonChrome">
+
+		<Setter Property="Background" Value="{StaticResource PaneTabPinnedBackground_Normal}" />
+		<Setter Property="BorderBrush" Value="{StaticResource PaneTabPinnedOuterBorder_Normal}" />
+
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerikChromes:ButtonChrome">
+					<Border x:Name="OuterBorder" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{TemplateBinding CornerRadius}" Background="{TemplateBinding Background}" >
+						
+						<Border x:Name="InnerBorder" CornerRadius="{TemplateBinding InnerCornerRadius}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{StaticResource PaneTabPinnedInnerBorder_Normal}" />
+					</Border>
+					
+					<ControlTemplate.Triggers>
+						<!-- Horizontal -->
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="Orientation" Value="Horizontal" />
+								<Condition Property="RenderEnabled" Value="False" />
+								<Condition Property="RenderNormal" Value="True" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneTabPinnedOuterBorder_Disabled}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneTabPinnedInnerBorder_Disabled}" />
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneTabPinnedBackground_Disabled}" />
+						</MultiTrigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="Orientation" Value="Horizontal" />
+								<Condition Property="RenderEnabled" Value="True" />
+								<Condition Property="RenderHighlighted" Value="True" />
+								<Condition Property="RenderSelected" Value="False" />
+								<Condition Property="RenderMouseOver" Value="False" />
+								<Condition Property="RenderPressed" Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneTabPinnedOuterBorder_Highlighted}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneTabPinnedInnerBorder_Highlighted}" />
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneTabPinnedBackground_Highlighted}" />
+						</MultiTrigger>
+
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="Orientation" Value="Horizontal" />
+								<Condition Property="RenderEnabled" Value="True" />
+								<Condition Property="RenderHighlighted" Value="False" />
+								<Condition Property="RenderSelected" Value="True" />
+								<Condition Property="RenderMouseOver" Value="False" />
+								<Condition Property="RenderPressed" Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneTabPinnedOuterBorder_Selected}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneTabPinnedInnerBorder_Selected}" />
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneTabPinnedBackground_Selected}" />
+						</MultiTrigger>
+
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="Orientation" Value="Horizontal" />
+								<Condition Property="RenderEnabled" Value="True" />
+								<Condition Property="RenderHighlighted" Value="True" />
+								<Condition Property="RenderSelected" Value="True" />
+								<Condition Property="RenderMouseOver" Value="False" />
+								<Condition Property="RenderPressed" Value="False" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneTabPinnedOuterBorder_SelectedHighlighted}" />
+							<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneTabPinnedInnerBorder_SelectedHighlighted}" />
+							<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneTabPinnedBackground_SelectedHighlighted}" />
+						</MultiTrigger>
+						
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+
+
+	
+	
+
+	<dock:InvertedBooleanConverter x:Key="invertedBooleanConverter" />
+
+	<ControlTemplate x:Key="PaneBottomTemplate" TargetType="telerikDocking:RadPane">
+		<Grid x:Name="wrapper" Margin="0 4 1 0">
+			
+
+			<telerikChromes:ButtonChrome x:Name="ChromeUnpinned" Visibility="Collapsed" Style="{StaticResource DocumentTabChromeStyle}" BorderThickness="1" CornerRadius="2" RenderSelected="{TemplateBinding IsSelected}" RenderHighlighted="{TemplateBinding IsMouseOver}" />
+			<telerikChromes:ButtonChrome x:Name="ChromePinned" Visibility="Collapsed" Style="{StaticResource DocumentPinnedTabChromeStyle}" Margin="0 1 0 0" BorderThickness="1 0 1 1" CornerRadius="0 0 2 2" RenderSelected="{TemplateBinding IsSelected}" RenderHighlighted="{TemplateBinding IsMouseOver}" />
+			
+			<Border x:Name="PaneContentBridge" Visibility="Collapsed" BorderThickness="0 1 0 0" Margin="2 0" BorderBrush="{StaticResource PaneGroup_Background}" />
+			
+			<Border x:Name="ContentBorder">
+				<telerikNavigationPrimitives:TabItemContentPresenter x:Name="HeaderElement" Margin="6 2 6 4" Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" IsTabStop="False" FocusVisualStyle="{x:Null}" >
+				</telerikNavigationPrimitives:TabItemContentPresenter>
+			</Border>
+		</Grid>
+		
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsEnabled" Value="False">
+				<Setter TargetName="HeaderElement" Property="Opacity" Value="0.33" />
+			</Trigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="IsSelected" Value="True" />
+					<Condition Property="IsPinned" Value="True" />
+				</MultiTrigger.Conditions>
+				<Setter TargetName="PaneContentBridge" Property="Visibility" Value="Visible" />
+			</MultiTrigger>
+			<Trigger Property="IsPinned" Value="False">
+				<Setter TargetName="ChromeUnpinned" Property="Visibility" Value="Visible" />
+			</Trigger>
+			<Trigger Property="IsPinned" Value="True">
+				<Setter TargetName="ChromePinned" Property="Visibility" Value="Visible" />
+				<Setter TargetName="wrapper" Property="Margin" Value="0 0 1 0" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+		
+	</ControlTemplate>
+
+	<ControlTemplate x:Key="PaneTemplate" TargetType="telerikDocking:RadPane">
+		<Grid x:Name="wrapper">
+			
+
+			<telerikChromes:ButtonChrome x:Name="ChromeUnpinned" Visibility="Collapsed" Style="{StaticResource DocumentTabChromeStyle}" BorderThickness="1" CornerRadius="2" RenderSelected="{TemplateBinding IsSelected}" RenderHighlighted="{TemplateBinding IsMouseOver}" />
+			<telerikChromes:ButtonChrome x:Name="ChromePinned" Visibility="Collapsed" Style="{StaticResource DocumentTabChromeStyle}" Margin="0 1 0 0" BorderThickness="1 0 1 1" CornerRadius="0 0 2 2" RenderSelected="{TemplateBinding IsSelected}" RenderHighlighted="{TemplateBinding IsMouseOver}" />
+			<telerikNavigationPrimitives:TabItemContentPresenter x:Name="HeaderElement" Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+		</Grid>
+		
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsEnabled" Value="False">
+				<Setter TargetName="HeaderElement" Property="Opacity" Value="0.33" />
+			</Trigger>
+			<Trigger Property="IsSelected" Value="True">
+				<Setter TargetName="ChromePinned" Property="Margin" Value="0" />
+			</Trigger>
+			<Trigger Property="IsPinned" Value="False">
+				<Setter TargetName="ChromeUnpinned" Property="Visibility" Value="Visible" />
+			</Trigger>
+			<Trigger Property="IsPinned" Value="True">
+				<Setter TargetName="ChromePinned" Property="Visibility" Value="Visible" />
+			</Trigger>
+
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="TabOrientation" Value="Horizontal" />
+					<Condition Property="TabStripPlacement" Value="Top" />
+				</MultiTrigger.Conditions>
+				<Setter TargetName="wrapper" Property="Margin" Value="0 0 -1 4" />
+				<Setter TargetName="HeaderElement" Property="Margin" Value="6 3" />
+			</MultiTrigger>
+
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="TabOrientation" Value="Horizontal" />
+					<Condition Property="TabStripPlacement" Value="Bottom" />
+				</MultiTrigger.Conditions>
+				<Setter TargetName="wrapper" Property="Margin" Value="0 4 -1 0" />
+				<Setter TargetName="HeaderElement" Property="Margin" Value="6 3" />
+			</MultiTrigger>
+
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="TabOrientation" Value="Vertical" />
+					<Condition Property="TabStripPlacement" Value="Left" />
+				</MultiTrigger.Conditions>
+				<Setter TargetName="wrapper" Property="Margin" Value="0 0 4 -1" />
+				<Setter TargetName="HeaderElement" Property="Margin" Value="3 6" />
+				<Setter TargetName="ChromeUnpinned" Property="Orientation" Value="Vertical" />
+				<Setter TargetName="ChromePinned" Property="Orientation" Value="Vertical" />
+			</MultiTrigger>
+
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="TabOrientation" Value="Vertical" />
+					<Condition Property="TabStripPlacement" Value="Right" />
+				</MultiTrigger.Conditions>
+				<Setter TargetName="wrapper" Property="Margin" Value="4 0 0 -1" />
+				<Setter TargetName="HeaderElement" Property="Margin" Value="3 6" />
+				<Setter TargetName="ChromeUnpinned" Property="Orientation" Value="Vertical" />
+				<Setter TargetName="ChromePinned" Property="Orientation" Value="Vertical" />
+			</MultiTrigger>
+		</ControlTemplate.Triggers>
+		
+	</ControlTemplate>
+
+	<!--The DocumentHostTemplate Template-->
+	<ControlTemplate TargetType="telerikDocking:RadPane" x:Key="PaneDocumentHostTemplate">
+		<Grid x:Name="wrapper" Margin="8 0 14 -1" Height="22">
+		    
+
+			<Path x:Name="RightShapeBackground" Fill="{StaticResource PaneDocumentTabBackground_Normal}" Width="32" Margin="0 0 -32 0" Stretch="None" Data="M0,1.5 C10.5,1.5 12.5,2.5 30,22 L0,22" HorizontalAlignment="Right" />
+			<Path x:Name="RightShapeOuterBorder" Stroke="{StaticResource PaneDocumentTabOuterBorder_Normal}" Width="32" Margin="0 0 -32 0" Stretch="None" Data="M0,0.5 C11.5,0.5 13,2 31.5,22" HorizontalAlignment="Right" />
+			<Path x:Name="RightShapeInnerBorder" Stroke="{StaticResource PaneDocumentTabInnerBorder_Normal}" Width="32" Margin="0 0 -32 0" Stretch="None" Data="M0,1.5 C10.5,1.5 12.5,2.5 30,22" HorizontalAlignment="Right" />
+			
+			<Border x:Name="OuterBorder" BorderThickness="1 1 0 0" BorderBrush="{StaticResource PaneDocumentTabOuterBorder_Normal}" Background="{StaticResource PaneDocumentTabBackground_Normal}">
+				<Border x:Name="InnerBorder" BorderThickness="1 1 0 0" BorderBrush="{StaticResource PaneDocumentTabInnerBorder_Normal}" />
+			</Border>
+			
+			<telerikNavigationPrimitives:TabItemContentPresenter x:Name="HeaderElement" Margin="5 3 -10 3" Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+
+			<Border x:Name="BottomBorderUnselected" Visibility="Collapsed" BorderThickness="0 0 0 1" BorderBrush="{StaticResource PaneGroup_BorderBrush}" Margin="0 0 -32 0" />
+			<Border x:Name="BottomBorderSelected" Visibility="Collapsed" BorderThickness="0 0 0 1" BorderBrush="{StaticResource PaneGroup_DocumentFrameL2_Brush}" Margin="2 0 -30 -1" />
+
+		</Grid>
+		
+        
+        <ControlTemplate.Triggers>
+			<Trigger Property="IsEnabled" Value="False">
+				<Setter TargetName="RightShapeOuterBorder" Property="Stroke" Value="{StaticResource PaneDocumentTabOuterBorder_Disabled}" />
+				<Setter TargetName="RightShapeInnerBorder" Property="Stroke" Value="{StaticResource PaneDocumentTabInnerBorder_Disabled}" />
+				<Setter TargetName="RightShapeBackground" Property="Fill" Value="{StaticResource PaneDocumentTabBackground_Disabled}" />
+				<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneDocumentTabOuterBorder_Disabled}" />
+				<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneDocumentTabInnerBorder_Disabled}" />
+				<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneDocumentTabBackground_Disabled}" />
+			</Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+				<Setter TargetName="RightShapeOuterBorder" Property="Stroke" Value="{StaticResource PaneDocumentTabOuterBorder_Highlighted}" />
+				<Setter TargetName="RightShapeInnerBorder" Property="Stroke" Value="{StaticResource PaneDocumentTabInnerBorder_Highlighted}" />
+				<Setter TargetName="RightShapeBackground" Property="Fill" Value="{StaticResource PaneDocumentTabBackground_Highlighted}" />
+				<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneDocumentTabOuterBorder_Highlighted}" />
+				<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneDocumentTabInnerBorder_Highlighted}" />
+				<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneDocumentTabBackground_Highlighted}" />
+            </Trigger>
+			<Trigger Property="IsSelected" Value="False">
+				<Setter TargetName="BottomBorderUnselected" Property="Visibility" Value="Visible" />
+			</Trigger>
+			<Trigger Property="IsSelected" Value="True">
+				<Setter TargetName="BottomBorderSelected" Property="Visibility" Value="Visible" />
+				<Setter TargetName="RightShapeOuterBorder" Property="Stroke" Value="{StaticResource PaneDocumentTabOuterBorder_Selected}" />
+				<Setter TargetName="RightShapeInnerBorder" Property="Stroke" Value="{StaticResource PaneDocumentTabInnerBorder_Selected}" />
+				<Setter TargetName="RightShapeBackground" Property="Fill" Value="{StaticResource PaneDocumentTabBackground_Selected}" />
+				<Setter TargetName="OuterBorder" Property="BorderBrush" Value="{StaticResource PaneDocumentTabOuterBorder_Selected}" />
+				<Setter TargetName="InnerBorder" Property="BorderBrush" Value="{StaticResource PaneDocumentTabInnerBorder_Selected}" />
+				<Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource PaneDocumentTabBackground_Selected}" />
+			</Trigger>
+        </ControlTemplate.Triggers>
+        
+
+    </ControlTemplate>
+
+    <Style TargetType="telerikDocking:RadPane" x:Key="{telerik:ThemeResourceKey ThemeType=external:SummerThemeExternal , ElementType={x:Type telerikDocking:RadPane}}" >
+		<Setter Property="Template" Value="{StaticResource PaneTemplate}" />
+
+		<Setter Property="LeftTemplate" Value="{StaticResource PaneTemplate}" />
+		<Setter Property="TopTemplate" Value="{StaticResource PaneTemplate}" />
+		<Setter Property="RightTemplate" Value="{StaticResource PaneTemplate}" />
+		<Setter Property="BottomTemplate" Value="{StaticResource PaneBottomTemplate}" />
+
+		<Setter Property="DocumentHostTemplate" Value="{StaticResource PaneDocumentHostTemplate}" />
+
+		<Setter Property="BorderThickness" Value="1 1 1 1" />
+		<Setter Property="BorderBrush" Value="{StaticResource PaneTabOuterBorder_Normal}" />
+		<Setter Property="Background" Value="{StaticResource PaneTabBackground_Normal}" />
+		<Setter Property="Foreground" Value="{StaticResource PaneTabForeground}" />
+
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Margin" Value="0" />
+
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        
+
+        <Setter Property="ContextMenuTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <telerikNavigation:RadContextMenu telerik:StyleManager.Theme="{StaticResource Theme}" InheritDataContext="False">
+                        <telerikNavigation:RadMenuItem IsChecked="{Binding IsFloatingOnly}" Command="telerikDocking:RadDockingCommands.Floating" CommandParameter="{Binding}" CommandTarget="{Binding}" Header="{Binding Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <telerikNavigation:RadMenuItem IsChecked="{Binding IsDockableOptionChecked}" Command="telerikDocking:RadDockingCommands.Dockable" CommandParameter="{Binding}" CommandTarget="{Binding}" Header="{Binding Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <telerikNavigation:RadMenuItem IsChecked="{Binding IsInDocumentHost}" Command="telerikDocking:RadDockingCommands.TabbedDocument" CommandParameter="{Binding}" CommandTarget="{Binding}" Header="{Binding Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <telerikNavigation:RadMenuItem IsChecked="{Binding IsPinned, Converter={StaticResource invertedBooleanConverter}}" Command="telerikDocking:RadDockingCommands.Pin" CommandParameter="{Binding}" CommandTarget="{Binding}" Header="{Binding Command.Text, RelativeSource={RelativeSource Self}}" />
+                        <telerikNavigation:RadMenuItem IsChecked="{Binding IsHidden}" Command="telerikDocking:RadDockingCommands.Close" CommandParameter="{Binding}" CommandTarget="{Binding}" Header="{Binding Command.Text, RelativeSource={RelativeSource Self}}" />
+                    </telerikNavigation:RadContextMenu>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    
+
+	<!-- PaneGroup -->
+	
+
+	<ControlTemplate x:Key="PaneGroup_PaneFrameTemplate" TargetType="ContentControl">
+		<Border
+			x:Name="Root"
+			BorderBrush="{TemplateBinding BorderBrush}"
+			Background="{TemplateBinding Background}"
+			BorderThickness="{TemplateBinding BorderThickness}"
+			CornerRadius="{StaticResource PaneGroup_PaneFrame_CornerRadius}">
+			
+			<ContentPresenter />
+			
+		</Border>
+	</ControlTemplate>
+	
+	<ControlTemplate x:Key="PaneGroup_DocumentFrameTemplate" TargetType="ContentControl">
+		<Border
+			x:Name="Root"
+			BorderBrush="{TemplateBinding BorderBrush}"
+			Background="{TemplateBinding Background}"
+			BorderThickness="{TemplateBinding BorderThickness}"
+			CornerRadius="{StaticResource PaneGroup_DocumentFrameL4_CornerRadius}">
+
+			<Border
+				x:Name="BorderLayer3"
+				BorderThickness="{StaticResource PaneGroup_DocumentFrameL3_Thickness}"
+				BorderBrush="{StaticResource PaneGroup_DocumentFrameL3_Brush}"
+				CornerRadius="{StaticResource PaneGroup_DocumentFrameL3_CornerRadius}">
+			
+				<Border
+					x:Name="BorderLayer2"
+					BorderThickness="{StaticResource PaneGroup_DocumentFrameL2_Thickness}"
+					BorderBrush="{StaticResource PaneGroup_DocumentFrameL2_Brush}"
+					CornerRadius="{StaticResource PaneGroup_DocumentFrameL2_CornerRadius}">
+				
+					<Border
+						x:Name="BorderLayer1"
+						BorderThickness="{StaticResource PaneGroup_DocumentFrameL1_Thickness}"
+						BorderBrush="{StaticResource PaneGroup_DocumentFrameL1_Brush}"
+						CornerRadius="{StaticResource PaneGroup_DocumentFrameL1_CornerRadius}">
+
+						<ContentPresenter />
+
+					</Border>
+				</Border>
+			</Border>
+		</Border>
+	</ControlTemplate>
+	
+	
+	
+	
+	<Style x:Key="PaneGroup_DocumentFrameStyle" TargetType="ContentControl">
+		<Setter Property="Template" Value="{StaticResource PaneGroup_DocumentFrameTemplate}" />
+	</Style>
+	
+	<Style x:Key="PaneGroup_PaneFrameStyle" TargetType="ContentControl">
+		<Setter Property="Template" Value="{StaticResource PaneGroup_PaneFrameTemplate}" />
+	</Style>
+	
+	
+
+	
+	
+	<Style x:Key="PaneHeader_MenuButtonStyle" TargetType="telerik:RadToggleButton">
+		<Setter Property="Width" Value="17" />
+		<Setter Property="Height" Value="17" />
+		<Setter Property="Margin" Value="{StaticResource HeaderButtonMargin}" />
+		<Setter Property="IsTabStop" Value="False" />
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadToggleButton">
+					<Grid>
+						
+						<telerikChromes:ButtonChrome x:Name="ButtonChrome" telerik:StyleManager.Theme="{StaticResource Theme}" RenderNormal="False" RenderMouseOver="{TemplateBinding IsMouseOver}" RenderPressed="{TemplateBinding IsPressed}" RenderChecked="{TemplateBinding IsChecked}" />
+						<Path x:Name="BackgroundIcon" Fill="{StaticResource ButtonIconBackground_Normal}" Margin="0 2 0 0" Width="7" Height="4" Data="M0,0 L7,0 7,1 6,1 6,2 5,2 5,3 4,3 4,4 3,4 3,3 2,3 2,2 1,2 1,1 0,1 z" />
+						<Path x:Name="ForegroundIcon" Fill="{StaticResource ButtonIconForeground_Normal}" Margin="0 1 0 1" Width="7" Height="4" Data="M0,0 L7,0 7,1 6,1 6,2 5,2 5,3 4,3 4,4 3,4 3,3 2,3 2,2 1,2 1,1 0,1 z" />
+					</Grid>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_MouseOver}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_Pressed}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_Pressed}" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_Disabled}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_Disabled}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<Style x:Key="PaneHeader_PinButtonStyle" TargetType="telerik:RadButton">
+		<Setter Property="Width" Value="17" />
+		<Setter Property="Height" Value="17" />
+		<Setter Property="Margin" Value="{StaticResource HeaderButtonMargin}" />
+		<Setter Property="IsTabStop" Value="False" />
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadButton">
+					<Grid>
+						
+						<telerikChromes:ButtonChrome telerik:StyleManager.Theme="{StaticResource Theme}" RenderNormal="False" RenderMouseOver="{TemplateBinding IsMouseOver}" RenderPressed="{TemplateBinding IsPressed}" />
+						<Path x:Name="BackgroundIcon" Stroke="{StaticResource ButtonIconBackground_Normal}" Margin="0 2 0 0" StrokeThickness="1" Width="7" Height="10" Data="M0,6.5 L7,6.5 M1.5,6.5 L1.5,1.5 L2.5,0.5 L4.5,0.5 L5.5,1.5 L5.5,6.5 M3.5,6.5 L3.5,10 M4.5,6.5 L4.5,0.5" />
+						<Path x:Name="ForegroundIcon" Stroke="{StaticResource ButtonIconForeground_Normal}" Margin="0 1 0 1" StrokeThickness="1" Width="7" Height="10" Data="M0,6.5 L7,6.5 M1.5,6.5 L1.5,1.5 L2.5,0.5 L4.5,0.5 L5.5,1.5 L5.5,6.5 M3.5,6.5 L3.5,10 M4.5,6.5 L4.5,0.5" />
+					</Grid>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Stroke" Value="{StaticResource ButtonIconForeground_MouseOver}" />
+							<Setter TargetName="BackgroundIcon" Property="Stroke" Value="{StaticResource ButtonIconBackground_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Stroke" Value="{StaticResource ButtonIconForeground_Pressed}" />
+							<Setter TargetName="BackgroundIcon" Property="Stroke" Value="{StaticResource ButtonIconBackground_Pressed}" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="ForegroundIcon" Property="Stroke" Value="{StaticResource ButtonIconForeground_Disabled}" />
+							<Setter TargetName="BackgroundIcon" Property="Stroke" Value="{StaticResource ButtonIconBackground_Disabled}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="PaneHeader_UnPinButtonStyle" TargetType="telerik:RadButton">
+		<Setter Property="Width" Value="17" />
+		<Setter Property="Height" Value="17" />
+		<Setter Property="Margin" Value="{StaticResource HeaderButtonMargin}" />
+		<Setter Property="IsTabStop" Value="False" />
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadButton">
+					<Grid>
+						
+						<telerikChromes:ButtonChrome telerik:StyleManager.Theme="{StaticResource Theme}" RenderNormal="False" RenderMouseOver="{TemplateBinding IsMouseOver}" RenderPressed="{TemplateBinding IsPressed}" />
+						<Path x:Name="BackgroundIcon" Stroke="{StaticResource ButtonIconBackground_Normal}" Margin="0 2 0 0" StrokeThickness="1" Width="10" Height="7" Data="M3.5,0 L3.5,7 M3.5,1.5 L8.5,1.5 L9.5,2.5 L9.5,4.5 L8.5,5.5 L3.5,5.5 M3.5,3.5 L0,3.5 M3.5,4.5 L9.5,4.5" />
+						<Path x:Name="ForegroundIcon" Stroke="{StaticResource ButtonIconForeground_Normal}" Margin="0 1 0 1" StrokeThickness="1" Width="10" Height="7" Data="M3.5,0 L3.5,7 M3.5,1.5 L8.5,1.5 L9.5,2.5 L9.5,4.5 L8.5,5.5 L3.5,5.5 M3.5,3.5 L0,3.5 M3.5,4.5 L9.5,4.5" />
+					</Grid>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Stroke" Value="{StaticResource ButtonIconForeground_MouseOver}" />
+							<Setter TargetName="BackgroundIcon" Property="Stroke" Value="{StaticResource ButtonIconBackground_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Stroke" Value="{StaticResource ButtonIconForeground_Pressed}" />
+							<Setter TargetName="BackgroundIcon" Property="Stroke" Value="{StaticResource ButtonIconBackground_Pressed}" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="ForegroundIcon" Property="Stroke" Value="{StaticResource ButtonIconForeground_Disabled}" />
+							<Setter TargetName="BackgroundIcon" Property="Stroke" Value="{StaticResource ButtonIconBackground_Disabled}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="PaneHeader_CloseButtonStyle" TargetType="telerik:RadButton">
+		<Setter Property="Width" Value="17" />
+		<Setter Property="Height" Value="17" />
+		<Setter Property="Margin" Value="{StaticResource HeaderButtonMargin}" />
+		<Setter Property="IsTabStop" Value="False" />
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadButton">
+					<Grid x:Name="LayoutRoot">
+						
+						<telerikChromes:ButtonChrome telerik:StyleManager.Theme="{StaticResource Theme}" RenderNormal="False" RenderMouseOver="{TemplateBinding IsMouseOver}" RenderPressed="{TemplateBinding IsPressed}" />
+						<Path x:Name="BackgroundIcon" Fill="{StaticResource ButtonIconBackground_Normal}" Margin="0 2 0 0" Width="8" Height="7" Data="M0,0 L2,0 2,1 3,1 3,2 5,2 5,1 6,1 6,0 8,0 8,1 7,1 7,2 6,2 6,3 5,3 5,4 6,4 6,5 6,5 7,5 7,6 8,6 8,7 6,7 6,6 5,6 5,5 3,5 3,6 2,6 2,7 0,7 0,6 1,6 1,5 2,5 2,4 3,4 3,3 2,3 2,2 1,2 1,1 0,1 Z" />
+						<Path x:Name="ForegroundIcon" Fill="{StaticResource ButtonIconForeground_Normal}" Margin="0 1 0 1" Width="8" Height="7" Data="M0,0 L2,0 2,1 3,1 3,2 5,2 5,1 6,1 6,0 8,0 8,1 7,1 7,2 6,2 6,3 5,3 5,4 6,4 6,5 6,5 7,5 7,6 8,6 8,7 6,7 6,6 5,6 5,5 3,5 3,6 2,6 2,7 0,7 0,6 1,6 1,5 2,5 2,4 3,4 3,3 2,3 2,2 1,2 1,1 0,1 Z" />
+					</Grid>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_MouseOver}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_Pressed}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_Pressed}" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_Disabled}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_Disabled}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	
+	
+
+	<ControlTemplate x:Key="PaneHeaderTemplate" TargetType="dock:PaneHeader">
+		<Border x:Name="Root" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{StaticResource PaneHeader_CornerRadius}">
+
+			
+
+			<Grid x:Name="Content">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<!-- Header -->
+				<ContentControl x:Name="TitleElement" Grid.Column="0"
+                        Margin="{TemplateBinding Padding}"
+                        Content="{Binding SelectedPane.Title, RelativeSource={RelativeSource TemplatedParent}}"
+                        ContentTemplate="{Binding SelectedPane.TitleTemplate, RelativeSource={RelativeSource TemplatedParent}}"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" />
+
+				<!-- Menu -->
+				<telerik:RadToggleButton x:Name="HeaderDropDownMenu" Grid.Column="1"
+                        IsThreeState="True" Style="{StaticResource PaneHeader_MenuButtonStyle}"
+                        Command="telerikDocking:RadDockingCommands.ContextMenuOpen"
+                        CommandParameter="{Binding SelectedPane, RelativeSource={RelativeSource TemplatedParent}}" />
+
+				<Grid Grid.Column="2" Visibility="{Binding SelectedPane.PinButtonVisibility, RelativeSource={RelativeSource TemplatedParent}}">
+					<!-- Pin -->
+					<telerik:RadButton x:Name="HeaderPinButton"
+                        Command="telerikDocking:RadDockingCommands.Pin"
+                        CommandParameter="{Binding SelectedPane, RelativeSource={RelativeSource TemplatedParent}}"
+                        Style="{StaticResource PaneHeader_PinButtonStyle}" />
+
+					<!-- UnPin -->
+					<telerik:RadButton x:Name="HeaderUnPinButton" Visibility="Collapsed"
+							Command="telerikDocking:RadDockingCommands.Pin"
+							CommandParameter="{Binding SelectedPane, RelativeSource={RelativeSource TemplatedParent}}"
+							Style="{StaticResource PaneHeader_UnPinButtonStyle}" />
+				</Grid>
+
+				<!-- Close -->
+				<telerik:RadButton x:Name="HeaderCloseButton" Grid.Column="3"
+                        Command="telerikDocking:RadDockingCommands.Close"
+                        CommandParameter="{Binding SelectedPane, RelativeSource={RelativeSource TemplatedParent}}"
+                        Style="{StaticResource PaneHeader_CloseButtonStyle}" />
+			</Grid>
+		</Border>
+
+		
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsHighlighted" Value="true">
+				<Setter TargetName="Content" Property="Background" Value="{StaticResource PaneHeader_Background_Focused}" />
+			</Trigger>
+			<DataTrigger Binding="{Binding SelectedPane.IsPinned, RelativeSource={RelativeSource TemplatedParent}}" Value="False">
+				<Setter TargetName="HeaderPinButton" Property="Style" Value="{StaticResource PaneHeader_UnPinButtonStyle}" />
+			</DataTrigger>
+			<DataTrigger Binding="{Binding Path=SelectedPane.(telerikNavigation:RadContextMenu.ContextMenu).HasItems, RelativeSource={RelativeSource TemplatedParent}}" Value="False">
+				<Setter TargetName="HeaderDropDownMenu" Property="Visibility" Value="Collapsed" />
+			</DataTrigger>
+			<DataTrigger Binding="{Binding Path=SelectedPane.ContextMenuTemplate, RelativeSource={RelativeSource TemplatedParent}}" Value="{x:Null}">
+				<Setter TargetName="HeaderDropDownMenu" Property="Visibility" Value="Collapsed" />
+			</DataTrigger>
+		</ControlTemplate.Triggers>
+		
+	</ControlTemplate>
+
+	<!--PaneHeader Style-->
+	<Style TargetType="dock:PaneHeader" x:Key="{telerik:ThemeResourceKey ThemeType=
+		external:SummerThemeExternal , ElementType={x:Type dock:PaneHeader}}"
+		 >
+		<Setter Property="Template" Value="{StaticResource PaneHeaderTemplate}" />
+		<Setter Property="BorderThickness" Value="{StaticResource PaneHeader_BorderThickness}" />
+		<Setter Property="BorderBrush" Value="{StaticResource PaneHeader_BorderBrush}" />
+		<Setter Property="Background" Value="{StaticResource PaneHeader_Background}" />
+		<Setter Property="Padding" Value="3 0" />
+
+		
+
+		
+		<Setter Property="dock:InputBindingsManager.InputBindings">
+			<Setter.Value>
+				<InputBindingCollection>
+					<MouseBinding Command="telerikDocking:RadDockingCommands.PaneHeaderMenuOpen">
+						<MouseBinding.Gesture>
+							<MouseGesture MouseAction="RightClick" />
+						</MouseBinding.Gesture>
+					</MouseBinding>
+				</InputBindingCollection>
+			</Setter.Value>
+		</Setter>
+		
+
+	</Style>
+	
+
+	
+
+	<Style x:Key="PaneGroup_CloseButtonStyle" TargetType="telerik:RadButton">
+		<Setter Property="Width" Value="17" />
+		<Setter Property="Height" Value="17" />
+		<Setter Property="Margin" Value="1" />
+		<Setter Property="IsTabStop" Value="False" />
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="telerik:RadButton">
+					<Grid x:Name="LayoutRoot">
+						
+						<telerikChromes:ButtonChrome telerik:StyleManager.Theme="{StaticResource Theme}" RenderNormal="False" RenderMouseOver="{TemplateBinding IsMouseOver}" RenderPressed="{TemplateBinding IsPressed}" />
+						<Path x:Name="BackgroundIcon" Fill="{StaticResource ButtonIconBackground_Normal}" Margin="0 2 0 0" Width="8" Height="7" Data="M0,0 L2,0 2,1 3,1 3,2 5,2 5,1 6,1 6,0 8,0 8,1 7,1 7,2 6,2 6,3 5,3 5,4 6,4 6,5 6,5 7,5 7,6 8,6 8,7 6,7 6,6 5,6 5,5 3,5 3,6 2,6 2,7 0,7 0,6 1,6 1,5 2,5 2,4 3,4 3,3 2,3 2,2 1,2 1,1 0,1 Z" />
+						<Path x:Name="ForegroundIcon" Fill="{StaticResource ButtonIconForeground_Normal}" Margin="0 1 0 1" Width="8" Height="7" Data="M0,0 L2,0 2,1 3,1 3,2 5,2 5,1 6,1 6,0 8,0 8,1 7,1 7,2 6,2 6,3 5,3 5,4 6,4 6,5 6,5 7,5 7,6 8,6 8,7 6,7 6,6 5,6 5,5 3,5 3,6 2,6 2,7 0,7 0,6 1,6 1,5 2,5 2,4 3,4 3,3 2,3 2,2 1,2 1,1 0,1 Z" />
+					</Grid>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_MouseOver}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_Pressed}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_Pressed}" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_Disabled}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_Disabled}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="PaneGroup_LeftScrollButtonStyle" TargetType="RepeatButton">
+		<Setter Property="Width" Value="17" />
+		<Setter Property="Height" Value="17" />
+		<Setter Property="Margin" Value="1" />
+		<Setter Property="IsTabStop" Value="False" />
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="RepeatButton">
+					<Grid x:Name="LayoutRoot">
+						
+						<telerikChromes:ButtonChrome telerik:StyleManager.Theme="{StaticResource Theme}" RenderNormal="False" RenderMouseOver="{TemplateBinding IsMouseOver}" RenderPressed="{TemplateBinding IsPressed}" />
+						<Path x:Name="BackgroundIcon" Fill="{StaticResource ButtonIconBackground_Normal}" Margin="0 2 0 0" Width="7" Height="7" Data="M6,0 L6,7 5,7 5,6 4,6 4,5 3,5 3,4 2,4 2,3 3,3 3,2 4,2 4,1 5,1 5,0 Z" />
+						<Path x:Name="ForegroundIcon" Fill="{StaticResource ButtonIconForeground_Normal}" Margin="0 1 0 1" Width="7" Height="7" Data="M6,0 L6,7 5,7 5,6 4,6 4,5 3,5 3,4 2,4 2,3 3,3 3,2 4,2 4,1 5,1 5,0 Z" />
+					</Grid>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_MouseOver}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_Pressed}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_Pressed}" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_Disabled}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_Disabled}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="PaneGroup_RightScrollButtonStyle" TargetType="RepeatButton">
+		<Setter Property="Width" Value="17" />
+		<Setter Property="Height" Value="17" />
+		<Setter Property="Margin" Value="1" />
+		<Setter Property="IsTabStop" Value="False" />
+		
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="RepeatButton">
+					<Grid x:Name="LayoutRoot">
+						
+						<telerikChromes:ButtonChrome telerik:StyleManager.Theme="{StaticResource Theme}" RenderNormal="False" RenderMouseOver="{TemplateBinding IsMouseOver}" RenderPressed="{TemplateBinding IsPressed}" />
+						<Path x:Name="BackgroundIcon" Fill="{StaticResource ButtonIconBackground_Normal}" Margin="0 2 0 0" Width="7" Height="7" Data="M1,0 L1,7 2,7 2,6 3,6 3,5 4,5 4,4 5,4 5,3 4,3 4,2 3,2 3,1 2,1 2,0 Z" />
+						<Path x:Name="ForegroundIcon" Fill="{StaticResource ButtonIconForeground_Normal}" Margin="0 1 0 1" Width="7" Height="7" Data="M1,0 L1,7 2,7 2,6 3,6 3,5 4,5 4,4 5,4 5,3 4,3 4,2 3,2 3,1 2,1 2,0 Z" />
+					</Grid>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_MouseOver}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_Pressed}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_Pressed}" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_Disabled}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_Disabled}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="PaneGroup_PaneMenuButtonStyle" TargetType="ToggleButton">
+		<Setter Property="Width" Value="17" />
+		<Setter Property="Height" Value="17" />
+		<Setter Property="Margin" Value="1" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ToggleButton">
+					<Grid>
+						
+						<telerikChromes:ButtonChrome telerik:StyleManager.Theme="{StaticResource Theme}" RenderNormal="False" RenderMouseOver="{TemplateBinding IsMouseOver}" RenderPressed="{TemplateBinding IsPressed}" RenderChecked="{TemplateBinding IsChecked}" />
+						<Path x:Name="BackgroundIcon" Fill="{StaticResource ButtonIconBackground_Normal}" Margin="0 2 0 0" Width="7" Height="7" Data="M0,2 L7,2 7,3 6,3 6,4 5,4 5,5 4,5 4,6 3,6 3,5 2,5 2,4 1,4 1,3 0,3 Z M0,0 L7,0 7,1 0,1 Z" />
+						<Path x:Name="ForegroundIcon" Fill="{StaticResource ButtonIconForeground_Normal}" Margin="0 1 0 1" Width="7" Height="7" Data="M0,2 L7,2 7,3 6,3 6,4 5,4 5,5 4,5 4,6 3,6 3,5 2,5 2,4 1,4 1,3 0,3 Z M0,0 L7,0 7,1 0,1 Z" />
+					</Grid>
+					
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_MouseOver}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_MouseOver}" />
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_Pressed}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_Pressed}" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False">
+							<Setter TargetName="ForegroundIcon" Property="Fill" Value="{StaticResource ButtonIconForeground_Disabled}" />
+							<Setter TargetName="BackgroundIcon" Property="Fill" Value="{StaticResource ButtonIconBackground_Disabled}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+					
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!--PaneGroup BottomTemplate-->
+    <ControlTemplate x:Key="PaneGroupBottomTemplate" TargetType="telerikDocking:RadPaneGroup">
+		<Grid>
+			
+			
+			<Border x:Name="ContentBackground" BorderBrush="{StaticResource PaneGroupFrameOuterBorder}" BorderThickness="1" Background="{StaticResource PaneGroupFrameBackground}" CornerRadius="3">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="*" />
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+					
+					<Border Grid.RowSpan="3" BorderThickness="1" CornerRadius="2" BorderBrush="{StaticResource PaneGroupFrameInnerBorder}" />
+
+					<Border Grid.Row="1" Margin="3" Background="{StaticResource PaneGroup_Background}" BorderBrush="{StaticResource PaneGroup_OuterBorderBrush}" BorderThickness="{StaticResource PaneGroup_OuterBorderThickness}">
+						<Border BorderBrush="{StaticResource PaneGroup_InnerBorderBrush}" BorderThickness="{StaticResource PaneGroup_InnerBorderThickness}" >
+							<ContentPresenter x:Name="ContentElement" Grid.Row="1" Content="{TemplateBinding SelectedContent}" ContentTemplate="{TemplateBinding SelectedContentTemplate}" 
+                                              
+                                              ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" 
+                                              
+                                              />
+						</Border>
+					</Border>
+					
+					<ItemsPresenter x:Name="ItemsPresenterElement" Grid.Row="2" Margin="3 -5 3 3" />
+					
+					<Border Grid.Row="0" Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedItem.PaneHeaderVisibility}" >
+						<dock:PaneHeader x:Name="HeaderElement" telerik:StyleManager.Theme="{StaticResource Theme}" Margin="1 1 1 -3" Grid.Row="0" MinHeight="16" SelectedPane="{TemplateBinding SelectedPane}" />
+					</Border>
+					
+				</Grid>
+			</Border>
+			<dock:RadGridResizer x:Name="DockResizer" Grid.RowSpan="2" Placement="Left" ShowsPreview="True" Visibility="Collapsed" VerticalAlignment="Stretch" HorizontalAlignment="Left" />
+		</Grid>
+
+        
+        <ControlTemplate.Triggers>
+			<Trigger Property="IsPaneHeaderVisible" Value="False">
+				<Setter TargetName="HeaderElement" Property="Visibility" Value="Collapsed" />
+			</Trigger>
+            <Trigger Property="SplitterPosition">
+                <Trigger.Value>
+                    <Dock>Left</Dock>
+                </Trigger.Value>
+                <Setter TargetName="DockResizer" Property="Visibility" Value="Visible" />
+                <Setter TargetName="DockResizer" Property="Cursor" Value="SizeWE" />
+                <Setter TargetName="DockResizer" Property="Width" Value="4" />
+                <Setter TargetName="ContentBackground" Property="Margin" Value="4 0 0 0" />
+            </Trigger>
+            <Trigger Property="SplitterPosition">
+                <Trigger.Value>
+                    <Dock>Top</Dock>
+                </Trigger.Value>
+                <Setter TargetName="DockResizer" Property="Visibility" Value="Visible" />
+                <Setter TargetName="DockResizer" Property="VerticalAlignment" Value="Top" />
+                <Setter TargetName="DockResizer" Property="HorizontalAlignment" Value="Stretch" />
+                <Setter TargetName="DockResizer" Property="Cursor" Value="SizeNS" />
+                <Setter TargetName="DockResizer" Property="Height" Value="4" />
+                <Setter TargetName="DockResizer" Property="Placement">
+                    <Setter.Value>
+                        <Dock>Top</Dock>
+                    </Setter.Value>
+                </Setter>
+                <Setter TargetName="ContentBackground" Property="Margin" Value="0 4 0 0" />
+            </Trigger>
+            <Trigger Property="SplitterPosition">
+                <Trigger.Value>
+                    <Dock>Right</Dock>
+                </Trigger.Value>
+                <Setter TargetName="DockResizer" Property="Visibility" Value="Visible" />
+                <Setter TargetName="DockResizer" Property="VerticalAlignment" Value="Top" />
+                <Setter TargetName="DockResizer" Property="HorizontalAlignment" Value="Stretch" />
+                <Setter TargetName="DockResizer" Property="Cursor" Value="SizeNS" />
+                <Setter TargetName="DockResizer" Property="Height" Value="4" />
+                <Setter TargetName="DockResizer" Property="Placement">
+                    <Setter.Value>
+                        <Dock>Top</Dock>
+                    </Setter.Value>
+                </Setter>
+                <Setter TargetName="ContentBackground" Property="Margin" Value="0 0 4 0" />
+            </Trigger>
+            <Trigger Property="SplitterPosition">
+                <Trigger.Value>
+                    <Dock>Bottom</Dock>
+                </Trigger.Value>
+                <Setter TargetName="DockResizer" Property="Visibility" Value="Visible" />
+                <Setter TargetName="DockResizer" Property="VerticalAlignment" Value="Top" />
+                <Setter TargetName="DockResizer" Property="HorizontalAlignment" Value="Stretch" />
+                <Setter TargetName="DockResizer" Property="Cursor" Value="SizeNS" />
+                <Setter TargetName="DockResizer" Property="Height" Value="4" />
+                <Setter TargetName="DockResizer" Property="Placement">
+                    <Setter.Value>
+                        <Dock>Top</Dock>
+                    </Setter.Value>
+                </Setter>
+                <Setter TargetName="ContentBackground" Property="Margin" Value="0 0 0 4" />
+            </Trigger>
+            <Trigger Property="IsSingleItem" Value="True">
+                <Setter TargetName="ItemsPresenterElement" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False" />
+        </ControlTemplate.Triggers>
+        
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="PaneGroupDocumentTemplate" TargetType="telerikDocking:RadPaneGroup">
+        <Grid>
+			
+			
+			<Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+			<!--Content-->
+			<ContentControl x:Name="ContentBackground" Grid.Row="1"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Background="{TemplateBinding Background}"
+                    Style="{StaticResource PaneGroup_DocumentFrameStyle}">
+
+				<ContentPresenter x:Name="ContentElement"
+                        Content="{TemplateBinding SelectedContent}"
+                        ContentTemplate="{TemplateBinding SelectedContentTemplate}"
+                        
+                        ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                        />
+			</ContentControl>
+			
+			<!--TabStrip-->
+			<Grid Grid.Row="0" x:Name="Header">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<RepeatButton x:Name="LeftScrollButtonElement" Style="{StaticResource PaneGroup_LeftScrollButtonStyle}" Grid.Column="0" Visibility="{Binding ComputedHorizontalScrollBarVisibility, ElementName=ScrollViewerElement}" />
+
+				<ScrollViewer x:Name="ScrollViewerElement" Grid.Column="1" Margin="0 -2" HorizontalScrollBarVisibility="{Binding (ScrollViewer.HorizontalScrollBarVisibility), RelativeSource={RelativeSource TemplatedParent}}">
+					<ScrollViewer.Template>
+						<ControlTemplate TargetType="ScrollViewer">
+							<ScrollContentPresenter x:Name="ScrollContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="0 0 1 0" />
+						</ControlTemplate>
+					</ScrollViewer.Template>
+					<ItemsPresenter x:Name="ItemsPresenterElement" Margin="0 2" />
+				</ScrollViewer>
+
+				<RepeatButton x:Name="RightScrollButtonElement" Style="{StaticResource PaneGroup_RightScrollButtonStyle}" Grid.Column="2" Visibility="{Binding ComputedHorizontalScrollBarVisibility, ElementName=ScrollViewerElement}" />
+
+				<ToggleButton x:Name="DropDownButtonElement" Style="{StaticResource PaneGroup_PaneMenuButtonStyle}" Grid.Column="3" Visibility="Collapsed" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+					<telerikNavigation:RadContextMenu.ContextMenu>
+
+						<telerikTabControl:DropDownMenu x:Name="DropDownMenuElement"
+								IsOpen="{Binding IsChecked, ElementName=DropDownButtonElement, Mode=Twoway}"
+								StaysOpen="False"
+								Placement="Bottom"
+								ItemTemplate="{TemplateBinding ItemDropDownContentTemplate}"
+								ItemTemplateSelector="{TemplateBinding ItemDropDownContentTemplateSelector}"
+								DisplayMemberPath="{TemplateBinding DropDownDisplayMemberPath}"
+								Style="{TemplateBinding DropDownStyle}">
+
+							
+							
+						</telerikTabControl:DropDownMenu>
+					</telerikNavigation:RadContextMenu.ContextMenu>
+				</ToggleButton>
+
+				<telerik:RadButton x:Name="CloseButton" Grid.Column="4" Style="{StaticResource PaneGroup_CloseButtonStyle}" Command="telerikDocking:RadDockingCommands.Close">
+
+				</telerik:RadButton>
+			</Grid>
+
+            <dock:RadGridResizer x:Name="DockResizer" Placement="Left" ShowsPreview="True"
+                    Visibility="Collapsed" VerticalAlignment="Stretch" HorizontalAlignment="Left"
+                    Grid.RowSpan="2" />
+           
+        </Grid>
+
+        
+        <ControlTemplate.Triggers>
+			<Trigger Property="DropDownDisplayMode" Value="Visible">
+				<Setter TargetName="DropDownButtonElement" Property="Visibility" Value="Visible" />
+			</Trigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="DropDownDisplayMode" Value="WhenNeeded" />
+					<Condition Property="ComputedHorizontalScrollBarVisibility" SourceName="ScrollViewerElement" Value="Visible" />
+				</MultiTrigger.Conditions>
+				<Setter TargetName="DropDownButtonElement" Property="Visibility" Value="Visible" />
+			</MultiTrigger>
+			<Trigger Property="SplitterPosition">
+                <Trigger.Value>
+                    <Dock>Left</Dock>
+                </Trigger.Value>
+                <Setter TargetName="DockResizer" Property="Visibility" Value="Visible" />
+                <Setter TargetName="DockResizer" Property="Cursor" Value="SizeWE" />
+                <Setter TargetName="DockResizer" Property="Width" Value="4" />
+                <Setter TargetName="ItemsPresenterElement" Property="Margin" Value="0" />
+
+                <Setter TargetName="ContentBackground" Property="Margin" Value="4 0 0 0" />
+                <Setter TargetName="ItemsPresenterElement" Property="Margin" Value="4 0 0 0" />
+            </Trigger>
+            <Trigger Property="SplitterPosition">
+                <Trigger.Value>
+                    <Dock>Top</Dock>
+                </Trigger.Value>
+                <Setter TargetName="DockResizer" Property="Visibility" Value="Visible" />
+                <Setter TargetName="DockResizer" Property="VerticalAlignment" Value="Top" />
+                <Setter TargetName="DockResizer" Property="HorizontalAlignment" Value="Stretch" />
+                <Setter TargetName="DockResizer" Property="Cursor" Value="SizeNS" />
+                <Setter TargetName="DockResizer" Property="Height" Value="4" />
+                <Setter TargetName="DockResizer" Property="system:Grid.RowSpan" Value="1" />
+                <Setter TargetName="DockResizer" Property="system:Grid.Row" Value="0" />
+                <Setter TargetName="DockResizer" Property="Margin" Value="2 0 0 0" />
+                <Setter TargetName="DockResizer" Property="Placement">
+                    <Setter.Value>
+                        <Dock>Top</Dock>
+                    </Setter.Value>
+                </Setter>
+
+                <Setter TargetName="Header" Property="Margin" Value="0 4 0 0" />
+            </Trigger>
+            <Trigger Property="SplitterPosition">
+                <Trigger.Value>
+                    <Dock>Right</Dock>
+                </Trigger.Value>
+                <Setter TargetName="DockResizer" Property="Visibility" Value="Visible" />
+                <Setter TargetName="DockResizer" Property="VerticalAlignment" Value="Top" />
+                <Setter TargetName="DockResizer" Property="HorizontalAlignment" Value="Stretch" />
+                <Setter TargetName="DockResizer" Property="Height" Value="4" />
+                <Setter TargetName="DockResizer" Property="Cursor" Value="SizeNS" />
+                <Setter TargetName="DockResizer" Property="system:Grid.RowSpan" Value="1" />
+                <Setter TargetName="DockResizer" Property="system:Grid.Row" Value="0" />
+                <Setter TargetName="DockResizer" Property="Margin" Value="2 4 0 0" />
+                <Setter TargetName="DockResizer" Property="Placement">
+                    <Setter.Value>
+                        <Dock>Top</Dock>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="SplitterPosition">
+                <Trigger.Value>
+                    <Dock>Bottom</Dock>
+                </Trigger.Value>
+                <Setter TargetName="DockResizer" Property="Visibility" Value="Visible" />
+                <Setter TargetName="DockResizer" Property="VerticalAlignment" Value="Top" />
+                <Setter TargetName="DockResizer" Property="HorizontalAlignment" Value="Stretch" />
+                <Setter TargetName="DockResizer" Property="Cursor" Value="SizeNS" />
+                <Setter TargetName="DockResizer" Property="Height" Value="4" />
+                <Setter TargetName="DockResizer" Property="system:Grid.RowSpan" Value="1" />
+                <Setter TargetName="DockResizer" Property="system:Grid.Row" Value="0" />
+                <Setter TargetName="DockResizer" Property="Margin" Value="2 4 0 0" />
+                <Setter TargetName="DockResizer" Property="Placement">
+                    <Setter.Value>
+                        <Dock>Top</Dock>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+        
+
+    </ControlTemplate>
+
+    <!--PaneGroup Style-->
+    <Style TargetType="telerikDocking:RadPaneGroup" x:Key="{telerik:ThemeResourceKey ThemeType=external:SummerThemeExternal , ElementType={x:Type telerikDocking:RadPaneGroup}}" >
+        
+        <Setter Property="Template" Value="{StaticResource PaneGroupBottomTemplate}" />
+        <Setter Property="BottomTemplate" Value="{StaticResource PaneGroupBottomTemplate}" />
+        <Setter Property="TopTemplate" Value="{StaticResource PaneGroupDocumentTemplate}" />
+        <Setter Property="DocumentHostTemplate" Value="{StaticResource PaneGroupDocumentTemplate}" />
+        <Setter Property="LeftTemplate" Value="{StaticResource PaneGroupBottomTemplate}" />
+        <Setter Property="RightTemplate" Value="{StaticResource PaneGroupBottomTemplate}" />
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <telerikNavigationPrimitives:TabStripPanel />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        
+        
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		
+
+        <Setter Property="BorderThickness" Value="{StaticResource PaneGroup_BorderThickness}" />
+        <Setter Property="BorderBrush" Value="{StaticResource PaneGroup_BorderBrush}" />
+        <Setter Property="Background" Value="{StaticResource PaneGroup_Background}" />
+
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+
+        <Setter Property="Align" Value="Left" />
+        <Setter Property="TabStripPlacement" Value="Bottom" />
+        <Setter Property="AllTabsEqualHeight" Value="True" />
+        <Setter Property="BackgroundVisibility" Value="Visible" />
+        <Setter Property="MinWidth" Value="15" />
+        <Setter Property="MinHeight" Value="15" />
+    </Style>
+    
+	
+	<!-- RadTabControl TopTemplate-->
+	<ControlTemplate x:Key="AutoHideAreaTopTemplate" TargetType="dock:AutoHideArea">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+
+			<!--TabStrip-->
+			<ItemsPresenter x:Name="ItemsPresenterElement" Grid.Row="0"/>
+
+			<!--Content-->
+			
+			<Popup x:Name="ContentPopup" Grid.Row="1" IsOpen="False" AllowsTransparency="True">
+				
+				
+					<Grid>
+						<Grid x:Name="PopupChild" MinWidth="50" MinHeight="50">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+
+							<!--Content-->
+							<ContentControl
+							x:Name="ContentBackground"
+							Grid.Row="0"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Background="{TemplateBinding Background}"
+							Style="{StaticResource PaneGroup_PaneFrameStyle}">
+
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto" />
+										<RowDefinition Height="*" />
+									</Grid.RowDefinitions>
+
+									<dock:PaneHeader
+									x:Name="HeaderElement"
+                                    Visibility="{Binding SelectedPane.PaneHeaderVisibility, RelativeSource={RelativeSource TemplatedParent}}"
+									Grid.Row="0"
+									MinHeight="16"
+									SelectedPane="{TemplateBinding SelectedPane}"
+									telerik:StyleManager.Theme="{StaticResource Theme}">
+									</dock:PaneHeader>
+									<ContentPresenter
+									x:Name="ContentElement"
+									Grid.Row="1"
+									ContentTemplate="{TemplateBinding SelectedContentTemplate}">
+									</ContentPresenter>
+								</Grid>
+							</ContentControl>
+
+							<!--Resizer-->
+							<dock:RadGridResizer
+							x:Name="Resizer"
+							telerik:StyleManager.Theme="{StaticResource Theme}"
+							Placement="Bottom"
+							Grid.Row="1"
+							Height="4" Background="#01010101"
+							HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+							Cursor="SizeNS" />
+						</Grid>
+					</Grid>
+
+					
+			</Popup>
+			
+			
+
+		</Grid>
+	</ControlTemplate>
+
+	<!-- RadTabControl Bottom Template-->
+	<ControlTemplate x:Key="AutoHideAreaBottomTemplate" TargetType="dock:AutoHideArea">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="auto" />
+			</Grid.RowDefinitions>
+
+			<!--TabStrip-->
+			<ItemsPresenter x:Name="ItemsPresenterElement" Grid.Row="1"/>
+
+			<!--Content-->
+			
+			<Popup x:Name="ContentPopup" IsOpen="False" AllowsTransparency="True" Placement="Top">
+				
+				
+					<Grid>
+						<Grid x:Name="PopupChild" MinWidth="50" MinHeight="50">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+							</Grid.RowDefinitions>
+
+							<!--Resizer-->
+							<dock:RadGridResizer
+							x:Name="Resizer"
+							telerik:StyleManager.Theme="{StaticResource Theme}"
+							Grid.Row="0"
+							Placement="Top"
+							HorizontalAlignment="Stretch" VerticalAlignment="Top"
+							Height="4" Background="#01010101"
+							Cursor="SizeNS" />
+
+							<!--Content-->
+							<ContentControl
+							x:Name="ContentBackground"
+							Grid.Row="1"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Background="{TemplateBinding Background}"
+							Style="{StaticResource PaneGroup_PaneFrameStyle}">
+
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto" />
+										<RowDefinition Height="*" />
+									</Grid.RowDefinitions>
+
+									<dock:PaneHeader
+									x:Name="HeaderElement"
+                                    Visibility="{Binding SelectedPane.PaneHeaderVisibility, RelativeSource={RelativeSource TemplatedParent}}"
+									Grid.Row="0"
+									MinHeight="16"
+									SelectedPane="{TemplateBinding SelectedPane}"
+									telerik:StyleManager.Theme="{StaticResource Theme}">
+									</dock:PaneHeader>
+									<ContentPresenter
+									x:Name="ContentElement"
+									Grid.Row="1"
+									ContentTemplate="{TemplateBinding SelectedContentTemplate}">
+									</ContentPresenter>
+								</Grid>
+							</ContentControl>
+						</Grid>
+					</Grid>
+					
+			</Popup>
+			
+			
+		</Grid>
+	</ControlTemplate>
+
+	<!-- RadTabControl LeftTemplate-->
+	<ControlTemplate x:Key="AutoHideAreaLeftTemplate" TargetType="dock:AutoHideArea">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+
+			<!--TabStrip-->
+			<ItemsPresenter x:Name="ItemsPresenterElement" />
+
+			<!--Content-->
+
+			
+			<Popup x:Name="ContentPopup" Grid.Column="1" IsOpen="False" Placement="Right" AllowsTransparency="True">
+				
+				
+					<Grid>
+						<Grid x:Name="PopupChild" MinWidth="50" MinHeight="50">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<!--Content-->
+							<ContentControl
+							x:Name="ContentBackground"
+							Grid.Column="0"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Background="{TemplateBinding Background}"
+							Style="{StaticResource PaneGroup_PaneFrameStyle}">
+
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto" />
+										<RowDefinition Height="*" />
+									</Grid.RowDefinitions>
+
+									<dock:PaneHeader
+									x:Name="HeaderElement"
+                                    Visibility="{Binding SelectedPane.PaneHeaderVisibility, RelativeSource={RelativeSource TemplatedParent}}"
+									Grid.Row="0"
+									MinHeight="16"
+									SelectedPane="{TemplateBinding SelectedPane}"
+									telerik:StyleManager.Theme="{StaticResource Theme}">
+									</dock:PaneHeader>
+									<ContentPresenter
+									x:Name="ContentElement"
+									Grid.Row="1"
+									ContentTemplate="{TemplateBinding SelectedContentTemplate}">
+									</ContentPresenter>
+								</Grid>
+							</ContentControl>
+							<!--Resizer-->
+							<dock:RadGridResizer
+							x:Name="Resizer"
+							telerik:StyleManager.Theme="{StaticResource Theme}"
+							Grid.Column="1"
+							Placement="Right"
+							HorizontalAlignment="Right" VerticalAlignment="Stretch"
+							Width="4" Background="#01010101"
+							Cursor="SizeWE" />
+						</Grid>
+					</Grid>
+					
+			</Popup>
+			
+			
+
+		</Grid>
+	</ControlTemplate>
+
+	<!-- RadTabControl RightTemplate-->
+	<ControlTemplate x:Key="AutoHideAreaRightTemplate" TargetType="dock:AutoHideArea">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+
+			<!--TabStrip-->
+			<ItemsPresenter x:Name="ItemsPresenterElement" Grid.Column="1"/>
+
+			<!--Content-->
+			
+			<Popup x:Name="ContentPopup" IsOpen="False" Placement="Left" AllowsTransparency="True">
+				
+				
+					<Grid>
+						<Grid x:Name="PopupChild" MinWidth="50" MinHeight="50">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+
+							<!--Content-->
+							<ContentControl
+							x:Name="ContentBackground"
+							Grid.Column="1"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Background="{TemplateBinding Background}"
+							Style="{StaticResource PaneGroup_PaneFrameStyle}">
+
+								<Grid>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto" />
+										<RowDefinition Height="*" />
+									</Grid.RowDefinitions>
+
+									<dock:PaneHeader
+									x:Name="HeaderElement"
+                                    Visibility="{Binding SelectedPane.PaneHeaderVisibility, RelativeSource={RelativeSource TemplatedParent}}"
+									Grid.Row="0"
+									MinHeight="16"
+									SelectedPane="{TemplateBinding SelectedPane}"
+									telerik:StyleManager.Theme="{StaticResource Theme}">
+									</dock:PaneHeader>
+									<ContentPresenter
+									x:Name="ContentElement"
+									Grid.Row="1"
+									ContentTemplate="{TemplateBinding SelectedContentTemplate}">
+									</ContentPresenter>
+								</Grid>
+							</ContentControl>
+							<dock:RadGridResizer
+							x:Name="Resizer"
+							telerik:StyleManager.Theme="{StaticResource Theme}"
+							Grid.Column="0"
+							Placement="Left"
+							HorizontalAlignment="Left" VerticalAlignment="Stretch"
+							Width="4" Background="#01010101"
+							Cursor="SizeWE" />
+						</Grid>
+					</Grid>
+					
+			</Popup>
+			
+			
+
+		</Grid>
+
+	</ControlTemplate>
+
+	<!--AutoHideArea Style-->
+	<!-- RadTabControl -->
+	<Style TargetType="dock:AutoHideArea" x:Key="{telerik:ThemeResourceKey ThemeType=
+		external:SummerThemeExternal , ElementType={x:Type dock:AutoHideArea}}"
+		 >
+
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="IsEnabled" Value="True" />
+		<Setter Property="IsTabStop" Value="True" />
+
+		<Setter Property="BorderThickness" Value="{StaticResource PaneGroup_BorderThickness}" />
+		<Setter Property="BorderBrush" Value="{StaticResource PaneGroup_BorderBrush}" />
+		<Setter Property="Background" Value="{StaticResource PaneGroup_Background}" />
+
+		<Setter Property="ItemsPanel">
+			<Setter.Value>
+				<ItemsPanelTemplate>
+					<telerikNavigationPrimitives:TabStripPanel x:Name="TabStripPanel" />
+				</ItemsPanelTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="ReorderTabRows" Value="False" />
+
+		<Setter Property="Template" Value="{StaticResource AutoHideAreaTopTemplate}" />
+		<Setter Property="TopTemplate" Value="{StaticResource AutoHideAreaTopTemplate}" />
+		<Setter Property="BottomTemplate" Value="{StaticResource AutoHideAreaBottomTemplate}" />
+		<Setter Property="RightTemplate" Value="{StaticResource AutoHideAreaRightTemplate}" />
+		<Setter Property="LeftTemplate" Value="{StaticResource AutoHideAreaLeftTemplate}" />
+	</Style>
+	
+
+	<!-- ToolWindow -->
+	
+
+	<Style
+		x:Key="ToolWindow_CloseButtonStyle" TargetType="telerik:RadButton"
+		>
+		
+		<Setter Property="Margin" Value="1 1 3 1" />
+		<Setter Property="Width" Value="19" />
+		<Setter Property="Height" Value="17" />
+		<Setter Property="ContentTemplate">
+			<Setter.Value>
+				<DataTemplate>
+					<Path
+						Stretch="None"
+						StrokeThickness="0.7"
+						HorizontalAlignment="Center" VerticalAlignment="Center"
+						Margin="2 0"
+						Fill="{StaticResource ToolWindow_CloseButtonIconFill}"
+						Stroke="{StaticResource ToolWindow_CloseButtonIconStroke}"
+						Data="M0.5,1.5 L1.5,0.5 3.5,0.5 5.5,2.5 7.5,0.5 9.5,0.5 10.5,1.5 7.5,4.5 7.5,5.5 10.5,8.5 9.5,9.5 7.5,9.5 5.5,7.5 3.5,9.5 1.5,9.5 0.5,8.5 3.5,5.5 3.5,4.5 z"
+						
+						SnapsToDevicePixels="True"
+						
+						>
+					</Path>
+				</DataTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<Style x:Key="ToolWindow_BorderStyle" TargetType="ContentControl">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ContentControl">
+					<Grid>
+						<telerikChromes:ShadowChrome telerik:StyleManager.Theme="{StaticResource Theme}" />
+						<Border Background="Transparent">
+							<Border CornerRadius="4" BorderThickness="1" BorderBrush="{StaticResource ToolWindow_OuterBorderBrush}" Background="{StaticResource ToolWindow_Background}">
+								<Border CornerRadius="3" BorderThickness="1" BorderBrush="{StaticResource ToolWindow_InnerBorderBrush}">
+									<ContentPresenter />
+								</Border>
+							</Border>
+						</Border>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<Style x:Key="ToolWindow_HeaderStyle" TargetType="ContentControl">
+		<Setter Property="Margin" Value="3 0" />
+	</Style>
+	
+	<Style x:Key="ToolWindow_ContentStyle" TargetType="ContentControl">
+		<Setter Property="Margin" Value="3 0 3 3" />
+		<Setter Property="Background" Value="Red" />
+		<Setter Property="HorizontalAlignment" Value="Stretch" />
+		<Setter Property="VerticalAlignment" Value="Stretch" />
+	</Style>
+		
+	
+	
+    <!--ToolWindow Style-->
+    <Style TargetType="dock:ToolWindow"
+		x:Key="{telerik:ThemeResourceKey ThemeType=
+        external:SummerThemeExternal ,
+		ElementType={x:Type dock:ToolWindow}}"
+         >
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="dock:ToolWindow">
+                    <ContentControl x:Name="VisualRoot" Style="{StaticResource ToolWindow_BorderStyle}">
+
+                        <Grid RenderTransformOrigin="0.5 0.5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+								x:Name="HeaderElement"
+								Grid.Row="0" Grid.Column="0"
+								Background="Transparent">
+                                
+
+                                
+                                <Border.InputBindings>
+                                    <MouseBinding Command="telerikDocking:RadDockingCommands.PaneHeaderMenuOpen">
+                                        <MouseBinding.Gesture>
+                                            <MouseGesture MouseAction="RightClick" />
+                                        </MouseBinding.Gesture>
+                                    </MouseBinding>
+                                </Border.InputBindings>
+                                
+
+                                <ContentControl
+									x:Name="Header"
+									Style="{StaticResource ToolWindow_HeaderStyle}"
+									Content="{TemplateBinding Header}"
+									ContentTemplate="{TemplateBinding HeaderTemplate}" />
+                            </Border>
+
+                            <telerik:RadButton
+								x:Name="CloseButton"
+								Grid.Row="0" Grid.Column="1"
+								Style="{StaticResource ToolWindow_CloseButtonStyle}"
+								Command="telerik:WindowCommands.Close"
+								
+                                telerik:StyleManager.Theme="{StaticResource Theme}"
+                                 >
+                            </telerik:RadButton>
+
+                            <ContentControl
+								x:Name="Content"
+								Grid.Row="1" Grid.ColumnSpan="2"
+								Content="{TemplateBinding Content}"
+								HorizontalContentAlignment="Stretch"
+								VerticalContentAlignment="Stretch"
+								Style="{StaticResource ToolWindow_ContentStyle}"/>
+
+                        </Grid>
+                    </ContentControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="MinHeight" Value="24" />
+        <Setter Property="MinWidth" Value="85" />
+        <Setter Property="IsTabStop" Value="False" />
+    </Style>
+
+    
+	
+</ResourceDictionary>

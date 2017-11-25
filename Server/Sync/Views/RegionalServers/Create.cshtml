@@ -1,0 +1,48 @@
+﻿@model Sync.Models.RegionalServerView
+@{
+    ViewBag.Title = "Регистрация сервера";
+}
+
+
+<h2>Регистрация нового промежуточного сервера</h2>
+
+@using (Html.BeginForm())
+{
+    <label>Клуб:</label>
+    <br />
+    @Html.DropDownListFor(m => m.DivisionId, (IEnumerable<SelectListItem>)ViewBag.Divisions)
+    <br /><br />
+    <label>Аппаратный ключ</label>    
+        <br />
+    <input type="text" name="HWKey" style="Width:400px" />
+    <br /><br />
+    
+    <label>Максимальный период синхронизации (срок действия лицензионного ключа) в днях</label>
+        <br />
+    <input type="text" name="MaxSyncPeriod" style="Width:400px" value="7" />
+    <br /><br />
+    
+<label>Получатели отчета об удачной синхронизации</label><br />
+<textarea type="text" name="EmailSuccess" style="Width:400px;height:100px" ></textarea>
+    <br /><br />
+<label>Получатели отчета об ошибке синхронизации</label><br />
+<textarea type="text" name="EmailFailure" style="Width:400px;height:100px" ></textarea>
+
+        <br />
+    <br />
+    <label>Лицензия действительна до</label><br />
+    <input style="Width:400px" class="calendar" id="LicenseTill" name="LicenseTill" />
+    <br /><br />
+    @Html.CheckBoxFor(i => i.IsLicenseAvailable, new { id = "chk" })
+    @*<input type="checkbox" name="IsLicenseAvailable" checked="checked" id="chk" />*@<label for="chk">Разрешить работу регионального сервера</label>
+    <br /><br />
+    <label>После регистрации регионального сервера необходимо инициировать первичную его синхронизацию с центральным сервером.</label>
+    <br />
+    <input type="submit" value="Регистрация" />
+}
+
+    <script type="text/javascript">
+        $(function () {
+            $(".calendar").datepicker({ dateFormat: 'dd.mm.yy' });
+        });
+    </script>

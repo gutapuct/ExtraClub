@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[Kinds1C] (
+    [Id]          INT            NOT NULL,
+    [Description] NVARCHAR (512) NULL,
+    [Code1C]      NVARCHAR (512) NOT NULL,
+    CONSTRAINT [PK_Kinds1C] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+GO
+ALTER TABLE [dbo].[Kinds1C] ENABLE CHANGE_TRACKING WITH (TRACK_COLUMNS_UPDATED = OFF);
+

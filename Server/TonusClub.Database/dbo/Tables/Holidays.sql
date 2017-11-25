@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[Holidays] (
+    [Id]       UNIQUEIDENTIFIER CONSTRAINT [DF_Holidays_Id] DEFAULT (newid()) ROWGUIDCOL NOT NULL,
+    [Vacation] DATE             NOT NULL,
+    CONSTRAINT [PK_Holidays] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+GO
+ALTER TABLE [dbo].[Holidays] ENABLE CHANGE_TRACKING WITH (TRACK_COLUMNS_UPDATED = OFF);
+

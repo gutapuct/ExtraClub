@@ -1,0 +1,9 @@
+﻿<Window x:Class="TonusClub.OrganizerModule.Views.Files.DownloadFileWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Загрузка файла с сервера..."
+        Width="500" WindowStartupLocation="CenterOwner" SizeToContent="Height" ResizeMode="NoResize">
+    <StackPanel Margin="10">
+        <TextBlock x:Name="text" Margin="0 0 0 10"></TextBlock>
+        <ProgressBar x:Name="progr" Height="20" Maximum="100" Margin="0 0 0 10"></ProgressBar>
+    </StackPanel>
+</Window>

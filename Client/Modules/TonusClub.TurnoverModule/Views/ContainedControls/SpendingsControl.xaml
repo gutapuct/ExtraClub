@@ -1,0 +1,68 @@
+﻿<usr:ModuleViewBase x:Class="TonusClub.TurnoverModule.Views.ContainedControls.SpendingsControl"
+             xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:res="clr-namespace:TonusClub.UIControls.Localization;assembly=TonusClub.UIControls"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="297" d:DesignWidth="742">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+            <Button Margin="2 0" Click="AddSpendingClick"
+                               usr:AuthorizationManager.AuthorizationKey="RegisterSpendingButton"
+                               Content="{x:Static res:Resources.AddSpending}"></Button>
+            <Button Margin="2 0" Click="AddSpendingByCopyClick"
+                               usr:AuthorizationManager.AuthorizationKey="RegisterSpendingButton"
+                               Content="Добавить копированием"></Button>
+            <Button Margin="2 0" Click="EditSpendingClick"
+                               usr:AuthorizationManager.AuthorizationKey="EditSpendingButton"
+                               Content="{x:Static res:Resources.EditSpending}"></Button>
+            <Button Margin="2 0" Click="DeleteSpendingClick"
+                               usr:AuthorizationManager.AuthorizationKey="RemoveSpendingButton"
+                               Content="{x:Static res:Resources.DeleteSpending}"></Button>
+          <Button Click="ExportExcel" Margin="2 0" Padding="10 0" Content="{x:Static res:Resources.ExportExcel}"></Button>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.PeriodFrom}"></TextBlock>
+            <telerik:RadDatePicker Margin="10 0 10 0" SelectedDate="{Binding SpendingsStart, Mode=TwoWay}" VerticalAlignment="Center" Width="120"></telerik:RadDatePicker>
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.PeriodTo}"></TextBlock>
+            <telerik:RadDatePicker Margin="10 0 0 0"  SelectedDate="{Binding SpendingsEnd, Mode=TwoWay}" VerticalAlignment="Center" Width="120"></telerik:RadDatePicker>
+        </StackPanel>
+        <telerik:RadGridView  HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Margin="5 5 5 5"
+                            x:Name="SpendingsGrid"
+                            RowIndicatorVisibility="Collapsed"
+                            CanUserInsertRows="False"
+                            CanUserDeleteRows="False"
+                            ShowInsertRow="False"
+                            IsReadOnly="True"
+                            AutoGenerateColumns="False"
+                            CanUserFreezeColumns="True"
+                              ShowColumnFooters="True"
+                            CanUserResizeColumns="True"
+                              MouseDoubleClick="SpendingsGrid_MouseDoubleClick"
+                            ItemsSource="{Binding SpendingsView}">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Width="2*" Header="{x:Static res:Resources.Number}" DataMemberBinding="{Binding Number}" IsFilterable="False" />
+                <telerik:GridViewDataColumn Width="3*" Header="{x:Static res:Resources.Date}"  DataMemberBinding="{Binding CreatedOn, StringFormat={}{0:dd.MM.yyyy H:mm}}" />
+                <telerik:GridViewDataColumn Width="2*" Header="{x:Static res:Resources.Club}" DataMemberBinding="{Binding DivisionName}" IsFilterable="True" />
+                <telerik:GridViewDataColumn Width="9*" Header="{x:Static res:Resources.Title}" DataMemberBinding="{Binding Name}" />
+                <telerik:GridViewDataColumn Width="6*" Header="{x:Static res:Resources.Category}" DataMemberBinding="{Binding SerializedSpendingTypeName}" />
+                <telerik:GridViewDataColumn Width="3*" Header="{x:Static res:Resources.Sum}" DataMemberBinding="{Binding Amount}" DataFormatString="{}{0:c}" IsFilterable="False" >
+                                                    <telerik:GridViewDataColumn.AggregateFunctions>
+                                                        <telerik:SumFunction Caption="Всего: " />
+                                                    </telerik:GridViewDataColumn.AggregateFunctions>
+                                                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Width="3*" Header="{x:Static res:Resources.PaymentWay}"  DataMemberBinding="{Binding PaymentType}" IsFilterable="True"  />
+                <telerik:GridViewDataColumn Width="3*" Header="{x:Static res:Resources.Employee}"  DataMemberBinding="{Binding SerializedCreatedBy}" />
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </DockPanel>
+
+    </usr:ModuleViewBase>
+

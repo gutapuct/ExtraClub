@@ -1,0 +1,120 @@
+﻿@model Sync.Models.RegionalServerView
+@{
+    ViewBag.Title = "Региональный сервер";
+}
+
+@using (Html.BeginForm())
+{
+
+@Html.HiddenFor(m => m.Id)
+
+    <table>
+<tr>
+<th>Компания</th>
+<td>@Model.CompanyName</td>
+</tr>
+<tr>
+<th>Клуб</th>
+<td>@Model.DivisionName</td>
+</tr>
+
+<tr>
+<th>Ответственное лицо</th>
+<td><textarea type="text" name="ContactPerson" style="Width:400px;height:100px" >@Model.ContactPerson</textarea>
+</td>
+</tr>
+
+<tr>
+<th>Лицензия действительна до</th>
+<td>    @if(Model.LicenseTill.HasValue) {
+@Model.LicenseTill.Value.ToString("dd.MM.yyyy")
+    }</td>
+</tr>
+<tr>
+<tr>
+<th>Новый срок действия лицензии</th>
+<td>    <input style="Width:400px" class="calendar" id="LicenseTill" name="LicenseTillUncommited" value="@if(Model.LicenseTillUncommited.HasValue) {
+@Model.LicenseTillUncommited.Value.ToString("dd.MM.yyyy")
+    }" /></td>
+</tr>
+<tr>
+<th>Аппаратный ключ</th>
+<td><input type="text" name="HWKey" value="@Model.HWKey" style="Width:400px" /></td>
+</tr>
+<tr>
+<th>Максимальный период синхронизации в днях</th>
+<td><input type="text" name="MaxSyncPeriod" value="@Model.MaxSyncPeriod" style="Width:400px" /></td>
+</tr>
+<tr>
+<th>Получатели отчета об удачной синхронизации</th>
+<td><textarea type="text" name="EmailSuccess" style="Width:400px;height:100px" >@Model.EmailSuccess</textarea>
+</td>
+</tr>
+<tr>
+<th>Получатели отчета об ошибке синхронизации</th>
+<td><textarea type="text" name="EmailFailure" style="Width:400px;height:100px" >@Model.EmailFailure</textarea>
+</td>
+</tr>
+<tr>
+<th>Разрешить работу регионального сервера</th>
+<td><input type="checkbox" name="IsLicenseAvailable" 
+@if(Model.IsLicenseAvailable)
+{
+@Html.Raw("checked=\"checked\"")
+}
+id="chk" /></td>
+</tr>
+        <tr>
+            <th>Отсылать СМС клиентам</th>
+            <td>
+                <input type="checkbox" name="SendSms"
+                       @if(Model.SendSms)
+                       { @Html.Raw("checked=\"checked\"")  }
+                       id="chkSms" />
+            </td>
+        </tr>
+        <tr>
+            <th>Отсылать СМС клиентам до</th>
+            <td>
+                <input type="text" class="calendar" name="SmsUntil" id="SmsUntil" value="@(Model.SmsUntil.HasValue? Model.SmsUntil.Value.ToString("dd.MM.yyyy") : "")" />
+            </td>
+        </tr>
+        <tr>
+            <th>Смс маркетинг</th>
+            <td>
+                <input type="checkbox" name="SmsMarketing"
+                       @if(Model.SmsMarketing) { @Html.Raw("checked=\"checked\"")    }
+                       id="chkSms" />
+
+            </td>
+        </tr>
+        <tr>
+            <th>Смс о днях рождения</th>
+            <td>
+                <input type="checkbox" name="SmsBirthday"
+                       @if(Model.SmsBirthday) { @Html.Raw("checked=\"checked\"")     }
+                       id="chkSms" />
+            </td>
+        </tr>
+        <tr>
+            <th>Смс о записи на услуги</th>
+            <td>
+                <input type="checkbox" name="SmsTreatments"
+                       @if(Model.SmsTreatments) { @Html.Raw("checked=\"checked\"")     }
+                       id="chkSms" />
+
+            </td>
+        </tr>
+</table>
+<br /><br />
+
+<input type="submit" value="Сохранить" />
+    <input type="button" onClick="history.go(-1);return false;" Value="Назад" />
+
+}
+
+    <script type="text/javascript">
+        $(function () {
+            $(".calendar").datepicker({ dateFormat: 'dd.mm.yy' });
+        });
+    </script>

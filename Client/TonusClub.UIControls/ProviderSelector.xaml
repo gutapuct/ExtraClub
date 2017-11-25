@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="TonusClub.UIControls.ProviderSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:usr="clr-namespace:TonusClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls"
+             mc:Ignorable="d"
+             d:DesignHeight="24" d:DesignWidth="300">
+    <DockPanel>
+        <Button DockPanel.Dock="Right" Width="24" Click="RadButton_Click">...</Button>
+                <TextBox VerticalAlignment="Center" x:Name="ProviderName" IsReadOnly="True"></TextBox>
+        
+    </DockPanel>
+</UserControl>

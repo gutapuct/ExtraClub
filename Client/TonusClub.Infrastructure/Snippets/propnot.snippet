@@ -1,0 +1,38 @@
+﻿<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>
+        Add OnPropertyChanged-enabled property
+      </Title>
+      <Shortcut>propnot</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>propType</ID>
+          <Default>int</Default>
+        </Literal>
+        <Object>
+          <ID>propName</ID>
+          <Default>empty</Default>
+        </Object>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[
+        private $propType$ _$propName$;
+        public $propType$ $propName$
+        {
+          get
+          {
+            return _$propName$;
+          }
+          set
+          {
+            _$propName$ = value;
+            OnPropertyChanged("$propName$");
+          }
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

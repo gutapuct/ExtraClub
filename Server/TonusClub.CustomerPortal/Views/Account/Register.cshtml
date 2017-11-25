@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Регистрация";
+}
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Персональная информация</li>
+    <li data-role="fieldcontain" id="errorDiv" data-theme="c" style="display: none"></li>
+    <li data-role="fieldcontain">
+        <label for="Phone" class="ui-input-text">Номер телефона</label>
+        <input data-val="true" id="Phone" type="text" value="@ViewBag.Phone">
+    </li>
+    <li data-role="fieldcontain">
+        <label for="FirstName" class="ui-input-text">Имя</label>
+        <input data-val="true" id="FirstName" type="text" value="">
+    </li>
+    <li data-role="fieldcontain">
+        <label for="LastName" class="ui-input-text">Фамилия</label>
+        <input data-val="true" id="LastName" type="text" value="">
+    </li>
+    <li data-role="fieldcontain">
+        <label for="Division" class="ui-input-text">Хочу ходить в клуб</label>
+        <select id="Division">
+            @foreach (var i in ViewBag.Divisions)
+            {
+                <option value="@i.Key">@i.Value</option>
+            }
+        </select>
+    </li>
+
+    <li data-role="fieldcontain">
+        <label for="Agreed" class="ui-input-text" style="width: 100%">Я согласен с целой кучей всякой чуши, которую выдумали ваши юристы</label>
+        <input id="Agreed" type="checkbox">
+    </li>
+
+    <li data-role="fieldcontain">
+        <input type="button" value="Зарегистрироваться" id="RegisterBtn" />
+    </li>
+</ul>
+
+<script>
+    $(function () {
+        $("#RegisterBtn").click(function () {
+            $("#errorDiv").hide("fade");
+            $("#RegisterBtn").attr("disabled", "disabled");
+            $("#RegisterBtn").changeButtonText("Подождите...");
+            $.ajax({
+                url: '@Url.Action("Register")',
+                type: "POST",
+                data: {
+                    phone: $("#Phone").val(),
+                    firstname: $("#FirstName").val(),
+                    lastname: $("#LastName").val(),
+                    divisionId: $("#Division").val()
+                },
+                success: function (data) {
+                    $("#RegisterBtn").removeAttr("disabled");
+                    $("#RegisterBtn").changeButtonText("Зарегистрироваться");
+
+                    if (data.error) {
+                        $("#errorDiv").html(data.error);
+                        $("#errorDiv").show("fade");
+                        return;
+                    }
+
+                    if (data.success) {
+                        document.location = '@Url.Action("Login", "Account", new { registerPhone = "regPhone" })'.replace("regPhone", $("#Phone").val());
+                        return;
+                    }
+                }
+            });
+        });
+    });
+</script>

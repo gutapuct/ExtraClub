@@ -1,0 +1,50 @@
+﻿<usr:WindowBase x:Class="TonusClub.SettingsModule.Views.ContainedControls.Network.Windows.NewEditInstalmentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize"
+        Title="Рассрочка" Width="609" WindowStartupLocation="CenterOwner" SizeToContent="Height">
+    <usr:WindowBase.Resources>
+        <usr:NullableValueConverter x:Key="nullConv" />
+    </usr:WindowBase.Resources>
+    <StackPanel Margin="5">
+        <GroupBox  Header="Рассрочка">
+            <StackPanel>
+                <UniformGrid Columns="2">
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Название</TextBlock>
+                    <TextBox Margin="0 2" VerticalAlignment="Center" Text="{Binding Instalment.Name, Mode=TwoWay}"></TextBox>
+                    <TextBlock VerticalAlignment="Center">Папка:</TextBlock>
+                    <telerik:RadComboBox IsEditable="False" Margin="2"
+                        ItemsSource="{Binding SettingsFolders}"
+                        SelectedValuePath="Id"
+                        SelectedValue="{Binding Path=Instalment.SettingsFolderId, Mode=TwoWay}"
+                                 ClearSelectionButtonVisibility="Visible"
+                                 ClearSelectionButtonContent="Информеры"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+                </UniformGrid>
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Margin="10 3" IsChecked="{Binding TwoPayments}">Два платежа</RadioButton>
+                    <RadioButton Margin="10 3" IsChecked="{Binding ThreePayments}">Три платежа</RadioButton>
+                </StackPanel>
+                <UniformGrid Columns="2">
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Первый взнос (руб.)</TextBlock>
+                    <TextBox Margin="0 2" VerticalAlignment="Center" Text="{Binding Instalment.ContribAmount, Mode=TwoWay, Converter={StaticResource ResourceKey=nullConv}}"></TextBox>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Первый взнос (%)</TextBlock>
+                    <TextBox Margin="0 2" VerticalAlignment="Center" Text="{Binding Instalment.ContribPercent, Mode=TwoWay, Converter={StaticResource ResourceKey=nullConv}}"></TextBox>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center" x:Name="firstLength">Длительность (дней)</TextBlock>
+                    <TextBox Margin="0 2" VerticalAlignment="Center" Text="{Binding Instalment.Length, Mode=TwoWay}"></TextBox>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center" Visibility="{Binding SecVis}">Второй взнос (%)</TextBlock>
+                    <TextBox Margin="0 2" VerticalAlignment="Center" Visibility="{Binding SecVis}" Text="{Binding Instalment.SecondPercent, Mode=TwoWay, Converter={StaticResource ResourceKey=nullConv}}"></TextBox>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center" Visibility="{Binding SecVis}">Длительность второго периода (дней)</TextBlock>
+                    <TextBox Margin="0 2" VerticalAlignment="Center" Visibility="{Binding SecVis}" Text="{Binding Instalment.SecondLength, Mode=TwoWay}"></TextBox>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">% единиц, которые можно потратить до оплаты</TextBlock>
+                    <TextBox Margin="0 2" VerticalAlignment="Center" Text="{Binding Instalment.AvailableUnitsPercent, Mode=TwoWay}"></TextBox>
+                </UniformGrid>
+            </StackPanel>
+        </GroupBox>
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3" Padding="5" Click="AssetButton_Click">Сохранить</Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

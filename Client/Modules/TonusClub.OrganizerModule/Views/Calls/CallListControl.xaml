@@ -1,0 +1,48 @@
+﻿<usr:ModuleViewBase x:Class="TonusClub.OrganizerModule.Views.Calls.CallListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls"
+             d:DesignHeight="300" d:DesignWidth="506">
+  <DockPanel>
+    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+      <Button Margin="2 0" Click="NewCallButton_Click" usr:AuthorizationManager.AuthorizationKey="IncomingCallButton">Входящий звонок</Button>
+            <Button Margin="2 0" Click="NewOutCallButton_Click" usr:AuthorizationManager.AuthorizationKey="IncomingCallButton">Исходящий звонок</Button>
+    </StackPanel>
+    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+      <TextBlock VerticalAlignment="Center">Период дат: с</TextBlock>
+      <telerik:RadDatePicker Margin="10 0 10 0" SelectedDate="{Binding CallsStart, Mode=TwoWay}" VerticalAlignment="Center" Width="120"></telerik:RadDatePicker>
+      <TextBlock VerticalAlignment="Center">по</TextBlock>
+      <telerik:RadDatePicker Margin="10 0 0 0"  SelectedDate="{Binding CallsEnd, Mode=TwoWay}" VerticalAlignment="Center" Width="120"></telerik:RadDatePicker>
+    </StackPanel>
+    <telerik:RadGridView
+                                    Margin="5 5 5 5"
+                                    RowIndicatorVisibility="Collapsed"
+                                    IsReadOnly="True"
+                                    AutoGenerateColumns="False"
+                                    CanUserFreezeColumns="True"
+                                    CanUserResizeColumns="True"
+                                    ActionOnLostFocus="CommitEdit"
+                                    ShowGroupPanel="False"
+                                    CanUserInsertRows="False"
+                                    ShowInsertRow="False"
+                                    IsFilteringAllowed="True"
+                                    VerticalAlignment="Stretch"
+                                    ItemsSource="{Binding CallsView}"
+                                    MouseDoubleClick="CallsGrid_MouseDoubleClick"
+                                    x:Name="CallsGrid">
+      <telerik:RadGridView.Columns>
+        <telerik:GridViewDataColumn Width="120" Header="Дата" DataMemberBinding="{Binding StartAt}" DataFormatString="{}{0:dd.MM H:mm}"/>
+        <telerik:GridViewDataColumn Width="*" Header="Направление" DataMemberBinding="{Binding TypeText}"/>
+        <telerik:GridViewDataColumn Width="2*" Header="Сотрудник" DataMemberBinding="{Binding SerializedCreatedBy}"/>
+        <telerik:GridViewDataColumn Width="2*" Header="Клиент" DataMemberBinding="{Binding SerializedCustomerName}"/>
+        <telerik:GridViewDataColumn Width="2*" Header="Цель" DataMemberBinding="{Binding Goal}"/>
+        <telerik:GridViewDataColumn Width="2*" Header="Результат" DataMemberBinding="{Binding KindText}"/>
+        <telerik:GridViewDataColumn Width="2*" IsFilterable="False" Header="Комментарии" DataMemberBinding="{Binding Comments}"/>
+      </telerik:RadGridView.Columns>
+    </telerik:RadGridView>
+  </DockPanel>
+</usr:ModuleViewBase>

@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="TonusClub.UIControls.DictionaryControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:res="clr-namespace:TonusClub.UIControls.Localization"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="409" d:DesignWidth="427">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+            <Button Margin="2 0" Click="AddNewElementButton_Click"
+                               Content="{x:Static res:Resources.Add}"></Button>
+            <Button Margin="2 0" Click="EditElementButton_Click"
+                               Content="{x:Static res:Resources.Edit}"></Button>
+            <Button Margin="2 0" Click="RemoveButton_Click"
+                               Content="{x:Static res:Resources.Delete}"></Button>
+        </StackPanel>
+        <ListView
+            SelectionMode="Single"
+            SelectionChanged="ItemsList_SelectionChanged"
+            x:Name="ItemsList"
+            Width="200"
+            ItemsSource="{Binding Path=RegisteredDictionariesView}"
+            DisplayMemberPath="DisplayName">
+        </ListView>
+            <telerik:RadGridView
+            Grid.Row="0"
+            x:Name="DictionaryGrid"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            ShowGroupPanel="False"
+            ScrollMode="RealTime"
+                MouseDoubleClick="DictionaryGrid_MouseDoubleClick"
+            ShowInsertRow="False">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Width="*" IsSortable="False" IsFilterable="False" Header="{x:Static res:Resources.Title}" DataMemberBinding="{Binding Value, Mode=TwoWay}"/>
+                </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </DockPanel>
+</UserControl>

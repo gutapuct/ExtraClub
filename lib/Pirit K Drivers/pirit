@@ -1,0 +1,4 @@
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\PIRIT OPOS Driver [1 5 7]
+HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\OLEforRetail\ServiceOPOS\FiscalPrinter\Pirit [1 5 7]
+HKEY_CURRENT_USER\Software\Classes\VirtualStore\MACHINE\SOFTWARE\OLEforRetail\ServiceOPOS\FiscalPrinter\Pirit [1 5 7]
+HKEY_LOCAL_MACHINE\SOFTWARE\OLEforRetail\ServiceOPOS\FiscalPrinter\Pirit [1 5 7]

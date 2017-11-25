@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4908C8CE-BA18-4C79-973E-27A3BB6CE199}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TonusClub.OrganizerModule</RootNamespace>
+    <AssemblyName>TonusClub.OrganizerModule</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FlagmaxControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Design\FlagmaxControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Hardcodet.Wpf.TaskbarNotification">
+      <HintPath>..\..\..\lib\Notify\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Composite">
+      <HintPath>..\..\..\lib\Prism\Microsoft.Practices.Composite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Composite.Presentation, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Prism\Microsoft.Practices.Composite.Presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Renci.SshNet">
+      <HintPath>..\..\..\lib\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2010.3.1110.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2010.3.1110.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2010.3.1110.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2011.1.419.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2011.1.315.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\CallManager.cs" />
+    <Compile Include="Business\CommentInfo.cs" />
+    <Compile Include="Business\FtmUtility.cs" />
+    <Compile Include="Business\IncomingResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ViewModels\NewsModel.cs" />
+    <Compile Include="ViewModels\OrganizerLargeViewModel.cs" />
+    <Compile Include="ViewModels\SshFilesViewModel.cs" />
+    <Compile Include="Views\Ankets\AnketsControl.xaml.cs">
+      <DependentUpon>AnketsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ankets\Windows\NewAnketDialog.xaml.cs">
+      <DependentUpon>NewAnketDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calls\CallListControl.xaml.cs">
+      <DependentUpon>CallListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calls\Windows\CallDetailsWindow.xaml.cs">
+      <DependentUpon>CallDetailsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calls\Windows\CustomWindow.xaml.cs">
+      <DependentUpon>CustomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calls\Windows\IncomingCallGeneralWindow.xaml.cs">
+      <DependentUpon>IncomingCallGeneralWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calls\Windows\IncomingNewCustomerWindow.xaml.cs">
+      <DependentUpon>IncomingNewCustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calls\Windows\IncomingNotACustomerWindow.xaml.cs">
+      <DependentUpon>IncomingNotACustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calls\Windows\IncomingOldCustomerWindow.xaml.cs">
+      <DependentUpon>IncomingOldCustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calls\Windows\OutgoingCallWindow.xaml.cs">
+      <DependentUpon>OutgoingCallWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Claims\ClaimsControl.xaml.cs">
+      <DependentUpon>ClaimsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Claims\Windows\ClaimDetails.xaml.cs">
+      <DependentUpon>ClaimDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Claims\Windows\NewClaim.xaml.cs">
+      <DependentUpon>NewClaim.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Files\CloseControl.xaml.cs">
+      <DependentUpon>CloseControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Files\DownloadFileWindow.xaml.cs">
+      <DependentUpon>DownloadFileWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrganizerLargeView.xaml.cs">
+      <DependentUpon>OrganizerLargeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\ArchivedTasksControl.xaml.cs">
+      <DependentUpon>ArchivedTasksControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\OwnedTaskListControl.xaml.cs">
+      <DependentUpon>OwnedTaskListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\TaskListControl.xaml.cs">
+      <DependentUpon>TaskListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\Windows\CashlessPaymentWindow.xaml.cs">
+      <DependentUpon>CashlessPaymentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\Windows\ClubClosingWindow.xaml.cs">
+      <DependentUpon>ClubClosingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\Windows\CustomerNotificationTaskWindow.xaml.cs">
+      <DependentUpon>CustomerNotificationTaskWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\Windows\CustomerTargetWindow.xaml.cs">
+      <DependentUpon>CustomerTargetWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\Windows\DepositOutWindow.xaml.cs">
+      <DependentUpon>DepositOutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\Windows\GenericTaskWindow.xaml.cs">
+      <DependentUpon>GenericTaskWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\Windows\NewCallMaster\SelectCustomerManagerWindow.xaml.cs">
+      <DependentUpon>SelectCustomerManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\Windows\NewCallMaster\SelectCustomerStatusesWindow.xaml.cs">
+      <DependentUpon>SelectCustomerStatusesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\Windows\NewCallMaster\SelectOneCustomerWindow.xaml.cs">
+      <DependentUpon>SelectOneCustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\Windows\NewCallsTask.xaml.cs">
+      <DependentUpon>NewCallsTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\Windows\NewTaskWindow.xaml.cs">
+      <DependentUpon>NewTaskWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tasks\Windows\TicketReturnWindow.xaml.cs">
+      <DependentUpon>TicketReturnWindow.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\TonusClub.ServiceModel\TonusClub.ServiceModel.csproj">
+      <Project>{97cc15a7-fc9a-4c5c-8098-44d11b6392db}</Project>
+      <Name>TonusClub.ServiceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TonusClub.Infrastructure\TonusClub.Infrastructure.csproj">
+      <Project>{0eac7b49-5998-4f41-ba70-33f0a636aeaa}</Project>
+      <Name>TonusClub.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TonusClub.UIControls\TonusClub.UIControls.csproj">
+      <Project>{a3082956-9ee4-4b35-9b4e-b07d0c4c8b56}</Project>
+      <Name>TonusClub.UIControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TonusClub.CashRegisterModule\TonusClub.CashRegisterModule.csproj">
+      <Project>{cd79a91a-f217-483d-8250-92c9a6d81773}</Project>
+      <Name>TonusClub.CashRegisterModule</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Ankets\AnketsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Ankets\Windows\NewAnketDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calls\CallListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calls\Windows\CallDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calls\Windows\CustomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calls\Windows\IncomingCallGeneralWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calls\Windows\IncomingNewCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calls\Windows\IncomingNotACustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calls\Windows\IncomingOldCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calls\Windows\OutgoingCallWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Claims\ClaimsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Claims\Windows\ClaimDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Claims\Windows\NewClaim.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Files\CloseControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Files\DownloadFileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OrganizerLargeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\ArchivedTasksControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\OwnedTaskListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\TaskListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\Windows\CashlessPaymentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\Windows\ClubClosingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\Windows\CustomerNotificationTaskWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\Windows\CustomerTargetWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\Windows\DepositOutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\Windows\GenericTaskWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\Windows\NewCallMaster\SelectCustomerManagerWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Tasks\Windows\NewCallMaster\SelectCustomerStatusesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\Windows\NewCallMaster\SelectOneCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\Windows\NewCallsTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\Windows\NewTaskWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tasks\Windows\TicketReturnWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\notification.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

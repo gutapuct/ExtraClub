@@ -1,0 +1,531 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		    
+    xmlns:animation="clr-namespace:Telerik.Windows.Controls.Animation;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerikChromes="clr-namespace:Telerik.Windows.Controls.Chromes;assembly=Telerik.Windows.Controls,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    
+
+	xmlns:external="clr-namespace:Telerik.Windows.Controls.External"
+	xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation,Version=2011.2.0712.35,Culture=neutral,PublicKeyToken=5803cfa389c90ce7"
+>
+	<LinearGradientBrush x:Key="MenuBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="{DynamicResource ButtonTopMouseOverColor}" Offset="0"/>
+        <GradientStop Color="{DynamicResource ButtonTopMouseOverColor}" Offset="1"/>		
+	</LinearGradientBrush>
+<SolidColorBrush x:Key="ControlForeground_Normal" Color="#FF000000" />
+    <SolidColorBrush x:Key="MenuOuterBorder" Color="{DynamicResource ControlBorderColor}" />
+<Thickness x:Key="MenuBorderThickness">1</Thickness>
+<Thickness x:Key="MenuItemSeparatorMargin">2 2 2 2</Thickness>
+<SolidColorBrush x:Key="MenuItemSeparatorTop" Color="#FFC9C9C9" />
+<SolidColorBrush x:Key="MenuItemSeparatorBottom" Color="#FFFFFFFF" />
+<Thickness x:Key="MenuTopLevelItemMargin">2</Thickness>
+<external:SummerThemeExternal x:Key="Theme" />
+<CornerRadius x:Key="SplitButton_SpanCornerRadius">2</CornerRadius>
+    <SolidColorBrush x:Key="MenuPopupOuterBorder" Color="{DynamicResource ControlBorderColor}" />
+<SolidColorBrush x:Key="MenuPopupBackground" Color="#FFF3F3F3" />
+<SolidColorBrush x:Key="MenuPopupIconsBackground" Color="Transparent" />
+<Thickness x:Key="MenuPopupIconsSeparatorMargin">0</Thickness>
+<SolidColorBrush x:Key="MenuPopupIconsSeparatorLeft" Color="#FFC9C9C9" />
+<SolidColorBrush x:Key="MenuPopupIconsSeparatorRight" Color="Transparent" />
+<Thickness x:Key="MenuSubItemMargin">2</Thickness>
+    <SolidColorBrush x:Key="ControlOuterBorder_Highlighted" Color="{DynamicResource ControlBorderColor}" />
+<LinearGradientBrush x:Key="ControlBackground_Highlighted" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="{DynamicResource ButtonTopMouseOverColor}" Offset="0"/>
+        <GradientStop Color="{DynamicResource ButtonBottomMouseOverColor}" Offset="1"/>
+	</LinearGradientBrush>
+<CornerRadius x:Key="SplitButton_SpanInnerCornerRadius">1</CornerRadius>
+<SolidColorBrush x:Key="ControlInnerBorder_Highlighted" Color="Transparent" />
+<SolidColorBrush x:Key="ButtonIconBackground_Normal" Color="Transparent" />
+    <SolidColorBrush x:Key="ButtonIconForeground_Normal" Color="{DynamicResource ControlBorderColor}" />
+<Thickness x:Key="MenuItemPadding">6 3</Thickness>
+<SolidColorBrush x:Key="PanelBorderBrush" Color="#FFB2B2B2" />
+
+	
+
+    <!-- RadMenu -->
+    <Style TargetType="telerikNavigation:RadMenu" x:Key="{telerik:ThemeResourceKey ThemeType=
+        external:SummerThemeExternal , ElementType=telerikNavigation:RadMenu}"
+         >
+
+		<Setter Property="IconColumnWidth" Value="28" />
+        <Setter Property="Background" Value="{StaticResource MenuBackground}" />
+        <Setter Property="Foreground" Value="{StaticResource ControlForeground_Normal}" />
+        <Setter Property="BorderBrush" Value="{StaticResource MenuOuterBorder}" />
+        <Setter Property="BorderThickness" Value="{StaticResource MenuBorderThickness}" />
+
+        
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        
+
+        <Setter Property="animation:AnimationManager.AnimationSelector">
+            <Setter.Value>
+                <animation:AnimationSelector>
+                    <animation:SlideAnimation Direction="In" SlideMode="Top" AnimationName="Expand"
+                            TargetElementName="PopupContentElement" />
+                    <!--<animation:SlideAnimation Direction="Out" SlideMode="Top"
+                            AnimationName="Collapse" TargetElementName="PopupContentElement" />-->
+                </animation:AnimationSelector>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    
+                    
+                    <WrapPanel
+                            Orientation="{Binding Orientation, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type telerikNavigation:RadMenu}}}" />
+                    
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerikNavigation:RadMenu">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}">
+                        <ItemsPresenter />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--SeparatorTemplate  -->
+    <ControlTemplate TargetType="telerikNavigation:RadMenuItem" x:Key="SeparatorTemplate">      
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>              
+                <Grid Grid.Column="0" HorizontalAlignment="Left" 
+                      Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Menu.IconColumnWidth}" />
+                <Grid Grid.Column="1" Height="2"
+                      Margin="{StaticResource MenuItemSeparatorMargin}">
+                    <Rectangle Height="1" VerticalAlignment="Top"
+                                Fill="{StaticResource MenuItemSeparatorTop}" />
+                    <Rectangle Height="1" VerticalAlignment="Bottom"
+                                Fill="{StaticResource MenuItemSeparatorBottom}" />
+                </Grid>
+            </Grid>
+       
+    </ControlTemplate>
+
+    <!-- TopLevelItem -->
+    <ControlTemplate x:Key="TopLevelItemTemplate" TargetType="telerikNavigation:RadMenuItem">
+        <Grid x:Name="RootElement" Margin="{StaticResource MenuTopLevelItemMargin}">
+
+            
+
+            <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}" />
+
+            <telerikChromes:ButtonChrome x:Name="SelectionChrome"
+                    
+                    telerik:StyleManager.Theme="{StaticResource Theme}" Grid.ColumnSpan="3"
+                    RenderNormal="False"
+                    CornerRadius="{StaticResource SplitButton_SpanCornerRadius}"
+                    RenderMouseOver="{TemplateBinding IsHighlighted}" />
+
+                <Grid x:Name="ContentGrid" Margin="{TemplateBinding Padding}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Path x:Name="Tick" Margin="0 0 4 0" Grid.Column="0" Visibility="Collapsed" FlowDirection="LeftToRight"
+                            VerticalAlignment="Center" Fill="{TemplateBinding Foreground}"
+                            Data="M 0,5.1 L 1.7,5.2 L 3.4,7.1 L 8,0.4 L 9.2,0 L 3.3,10.8 Z" />
+                    <ContentPresenter x:Name="Icon" Margin="0 0 4 0" Grid.Column="0" Content="{TemplateBinding Icon}" ContentTemplate="{TemplateBinding IconTemplate}" />
+                    <ContentPresenter x:Name="Content" Grid.Column="1"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Header}"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}" 
+					
+                        RecognizesAccessKey="True" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
+                         >
+                    </ContentPresenter>
+                </Grid>
+        </Grid>
+
+        
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="ContentGrid" Property="Opacity" Value="0.5" />
+            </Trigger>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter TargetName="Icon" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="IsCheckable" Value="True">
+                <Setter TargetName="Tick" Property="Visibility" Value="Visible" />
+                <Setter TargetName="Tick" Property="Opacity" Value="0" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="Tick" Property="Visibility" Value="Visible" />
+                <Setter TargetName="Tick" Property="Opacity" Value="1" />
+                <Setter TargetName="Icon" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+        
+    </ControlTemplate>
+
+    <!-- TopLevelHeader -->
+    <ControlTemplate x:Key="TopLevelHeaderTemplate" TargetType="telerikNavigation:RadMenuItem">
+        <Grid x:Name="RootElement" Margin="{StaticResource MenuTopLevelItemMargin}">
+
+            
+
+            <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}" />
+
+            <telerikChromes:ButtonChrome x:Name="SelectionChrome"
+                    telerik:StyleManager.Theme="{StaticResource Theme}" Grid.ColumnSpan="3"
+                    RenderNormal="False"
+                    CornerRadius="{StaticResource SplitButton_SpanCornerRadius}"
+                    RenderMouseOver="{TemplateBinding IsHighlighted}"
+                    RenderPressed="{TemplateBinding IsSubmenuOpen}" />
+
+            <Grid x:Name="ContentGrid" Margin="{TemplateBinding Padding}">
+                <Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Path x:Name="Tick" Margin="0 0 4 0" Grid.Column="0" Visibility="Collapsed" FlowDirection="LeftToRight"
+                        VerticalAlignment="Center" Fill="{TemplateBinding Foreground}"
+                        Data="M 0,5.1 L 1.7,5.2 L 3.4,7.1 L 8,0.4 L 9.2,0 L 3.3,10.8 Z" />
+                <ContentPresenter x:Name="Icon" Margin="0 0 4 0" Grid.Column="0" Content="{TemplateBinding Icon}" ContentTemplate="{TemplateBinding IconTemplate}"/>
+                <ContentPresenter x:Name="Content" Grid.Column="1"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                        Content="{TemplateBinding Header}"
+                        ContentTemplate="{TemplateBinding HeaderTemplate}" 
+					
+                    RecognizesAccessKey="True" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
+                     >
+                </ContentPresenter>
+            </Grid>
+
+			
+			
+			<Popup x:Name="PART_Popup" HorizontalOffset="-1" VerticalOffset="1" IsOpen="{TemplateBinding IsSubmenuOpen}" Focusable="false" AllowsTransparency="true">
+			
+                <Grid>
+                    <Grid x:Name="PopupContentElement" >
+                        
+                        <Border BorderThickness="1"
+                                BorderBrush="{StaticResource MenuPopupOuterBorder}"
+                                Background="{StaticResource MenuPopupBackground}">
+                            <Grid>
+								<Grid Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Menu.IconColumnWidth}" HorizontalAlignment="Left">
+									<Rectangle Fill="{StaticResource MenuPopupIconsBackground}"
+											Margin="0 0 2 0" />
+                                    <Grid HorizontalAlignment="Right" Margin="{StaticResource MenuPopupIconsSeparatorMargin}">
+                                        <Rectangle Width="1" HorizontalAlignment="Right" Margin="0 0 1 0" Fill="{StaticResource MenuPopupIconsSeparatorLeft}" />
+                                        <Rectangle Width="1" HorizontalAlignment="Right" Margin="0 0 0 0" Fill="{StaticResource MenuPopupIconsSeparatorRight}" />
+                                    </Grid>
+								</Grid>
+                                <ItemsPresenter Margin="1" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+			
+            </Popup>
+			
+			
+        </Grid>
+
+        
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="ContentGrid" Property="Opacity" Value="0.5" />
+            </Trigger>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter TargetName="Icon" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="IsCheckable" Value="True">
+                <Setter TargetName="Tick" Property="Visibility" Value="Visible" />
+                <Setter TargetName="Tick" Property="Opacity" Value="0" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="Tick" Property="Visibility" Value="Visible" />
+                <Setter TargetName="Tick" Property="Opacity" Value="1" />
+                <Setter TargetName="Icon" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+        
+    </ControlTemplate>
+
+    <!-- SubMenuItem -->
+    <ControlTemplate x:Key="SubMenuItemTemplate" TargetType="telerikNavigation:RadMenuItem">
+
+        <Grid x:Name="RootElement">
+
+            
+
+            <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}" />
+
+            <Grid Margin="{StaticResource MenuSubItemMargin}">
+
+				<Border x:Name="HighlightVisual" Visibility="Collapsed" CornerRadius="{StaticResource SplitButton_SpanCornerRadius}"  BorderThickness="1" BorderBrush="{StaticResource ControlOuterBorder_Highlighted}" Background="{StaticResource ControlBackground_Highlighted}">
+					<Border BorderThickness="1" CornerRadius="{StaticResource SplitButton_SpanInnerCornerRadius}" BorderBrush="{StaticResource ControlInnerBorder_Highlighted}" />
+				</Border>
+
+                <Grid x:Name="ContentGrid">
+                    <Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+					<Grid Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Menu.IconColumnWidth}">
+						<Path x:Name="Tick" Grid.Column="0" Visibility="Collapsed" FlowDirection="LeftToRight"
+                            VerticalAlignment="Center" HorizontalAlignment="Center"
+                            Fill="{TemplateBinding Foreground}"
+                            Data="M 0,5.1 L 1.7,5.2 L 3.4,7.1 L 8,0.4 L 9.2,0 L 3.3,10.8 Z" />
+                        <ContentPresenter x:Name="Icon" Grid.Column="0" Margin="2 2 10 2" Content="{TemplateBinding Icon}" ContentTemplate="{TemplateBinding IconTemplate}" />
+					</Grid>
+
+                    <ContentPresenter x:Name="Content" Grid.Column="1"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Header}"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}" 
+					    
+                        RecognizesAccessKey="True" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
+                         >
+                    </ContentPresenter>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        
+        <ControlTemplate.Triggers>
+			<Trigger Property="IsHighlighted" Value="True">
+				<Setter TargetName="HighlightVisual" Property="Visibility" Value="Visible" />
+			</Trigger>
+			<Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="ContentGrid" Property="Opacity" Value="0.5" />
+            </Trigger>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter TargetName="Icon" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <Trigger Property="IsCheckable" Value="True">
+                <Setter TargetName="Tick" Property="Visibility" Value="Visible" />
+                <Setter TargetName="Tick" Property="Opacity" Value="0" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="Tick" Property="Visibility" Value="Visible" />
+                <Setter TargetName="Tick" Property="Opacity" Value="1" />
+                <Setter TargetName="Icon" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+        
+    </ControlTemplate>
+
+    <!-- SubMenuHeader -->
+    <ControlTemplate x:Key="SubMenuHeaderTemplate" TargetType="telerikNavigation:RadMenuItem">
+
+        <Grid x:Name="RootElement">
+
+            
+
+            <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}" />
+
+            <Grid Margin="{StaticResource MenuSubItemMargin}">
+				<Border x:Name="HighlightVisual" Visibility="Collapsed" CornerRadius="{StaticResource SplitButton_SpanCornerRadius}"  BorderThickness="1" BorderBrush="{StaticResource ControlOuterBorder_Highlighted}" Background="{StaticResource ControlBackground_Highlighted}">
+					<Border BorderThickness="1" CornerRadius="{StaticResource SplitButton_SpanInnerCornerRadius}" BorderBrush="{StaticResource ControlInnerBorder_Highlighted}" />
+				</Border>
+
+				<Grid x:Name="ContentGrid">
+                    <Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+					<Grid Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Menu.IconColumnWidth}">
+                        <ContentPresenter x:Name="Icon" Margin="2 2 10 2" Content="{TemplateBinding Icon}" ContentTemplate="{TemplateBinding IconTemplate}" />
+					</Grid>
+
+
+                    <ContentPresenter x:Name="Content" Grid.Column="1"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Header}"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}" 
+					    
+                        RecognizesAccessKey="True" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
+                         >
+                    </ContentPresenter>
+
+                    <Path x:Name="ExpandIconBackground" Grid.Column="2" Margin="6 7 6 5"
+                            Fill="{StaticResource ButtonIconBackground_Normal}"
+                            VerticalAlignment="Center" Height="7" Width="4"
+                            Data="M0,0 L0,7 1,7 1,6 2,6 2,5 3,5 3,4 4,4 4,3 3,3 3,2 2,2 2,1 1,1 1,0 z" />
+                    <Path x:Name="ExpandIconForeground" Grid.Column="2" Margin="6 6 6 6"
+                            Fill="{StaticResource ButtonIconForeground_Normal}"
+                            VerticalAlignment="Center" Height="7" Width="4"
+                            Data="M0,0 L0,7 1,7 1,6 2,6 2,5 3,5 3,4 4,4 4,3 3,3 3,2 2,2 2,1 1,1 1,0 z" />
+                </Grid>
+            </Grid>
+
+			
+			
+			<Popup x:Name="PART_Popup" HorizontalOffset="1" VerticalOffset="-1" IsOpen="{TemplateBinding IsSubmenuOpen}" Focusable="false" AllowsTransparency="true">
+			
+						
+						<Grid>
+					<Grid x:Name="PopupContentElement"  >
+						
+						<Border BorderThickness="1"
+                                BorderBrush="{StaticResource MenuPopupOuterBorder}"
+                                Background="{StaticResource MenuPopupBackground}">
+							<Grid>
+								<Grid Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Menu.IconColumnWidth}" HorizontalAlignment="Left">
+									<Rectangle Fill="{StaticResource MenuPopupIconsBackground}"
+											Margin="0 0 2 0" />
+
+                                    <Grid HorizontalAlignment="Right" Margin="{StaticResource MenuPopupIconsSeparatorMargin}">
+                                        <Rectangle Width="1" HorizontalAlignment="Right" Margin="0 0 1 0" Fill="{StaticResource MenuPopupIconsSeparatorLeft}" />
+                                        <Rectangle Width="1" HorizontalAlignment="Right" Margin="0 0 0 0" Fill="{StaticResource MenuPopupIconsSeparatorRight}" />
+                                    </Grid>
+                                </Grid>
+								<ItemsPresenter Margin="1" />
+							</Grid>
+						</Border>
+					</Grid>
+				</Grid>
+			
+			</Popup>
+			
+			
+		</Grid>
+        
+        <ControlTemplate.Triggers>
+			<Trigger Property="IsHighlighted" Value="True">
+				<Setter TargetName="HighlightVisual" Property="Visibility" Value="Visible" />
+			</Trigger>
+			<Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="ContentGrid" Property="Opacity" Value="0.5" />
+            </Trigger>
+            <Trigger Property="Icon" Value="{x:Null}">
+                <Setter TargetName="Icon" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+        
+    </ControlTemplate>
+
+    <!-- RadMenuItem -->
+    <Style TargetType="telerikNavigation:RadMenuItem" x:Key="{telerik:ThemeResourceKey ThemeType=
+        external:SummerThemeExternal , ElementType=telerikNavigation:RadMenuItem}"
+         >
+
+        <Setter Property="Padding" Value="{StaticResource MenuItemPadding}" />
+
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{StaticResource PanelBorderBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+
+        <Setter Property="TopLevelHeaderTemplateKey" Value="{StaticResource TopLevelHeaderTemplate}" />
+        <Setter Property="TopLevelItemTemplateKey" Value="{StaticResource TopLevelItemTemplate}" />
+        <Setter Property="SubmenuHeaderTemplateKey" Value="{StaticResource SubMenuHeaderTemplate}" />
+        <Setter Property="SubmenuItemTemplateKey" Value="{StaticResource SubMenuItemTemplate}" />
+        <Setter Property="SeparatorTemplateKey" Value="{StaticResource SeparatorTemplate}" />
+        <Setter Property="Template" Value="{StaticResource SubMenuItemTemplate}" />
+
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+
+        
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+
+        <Style.Triggers>
+            <Trigger Property="Role" Value="TopLevelHeader">
+                <Setter Property="Template" Value="{StaticResource TopLevelHeaderTemplate}" />
+            </Trigger>
+            <Trigger Property="Role" Value="TopLevelItem">
+                <Setter Property="Template" Value="{StaticResource TopLevelItemTemplate}" />
+            </Trigger>
+            <Trigger Property="Role" Value="SubmenuHeader">
+                <Setter Property="Template" Value="{StaticResource SubMenuHeaderTemplate}" />
+            </Trigger>
+            <Trigger Property="Role" Value="Separator">
+                <Setter Property="Template" Value="{StaticResource SeparatorTemplate}" />
+            </Trigger>
+        </Style.Triggers>
+        
+    </Style>
+
+    <!-- RadContextMenu -->
+    <Style TargetType="telerikNavigation:RadContextMenu" x:Key="{telerik:ThemeResourceKey ThemeType=
+        external:SummerThemeExternal , ElementType=telerikNavigation:RadContextMenu}"
+         >
+
+        <Setter Property="IconColumnWidth" Value="28" />
+        
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="{StaticResource MenuPopupBackground}" />
+        <Setter Property="BorderBrush" Value="{StaticResource MenuPopupOuterBorder}" />
+        <Setter Property="Foreground" Value="{StaticResource ControlForeground_Normal}" />
+
+        
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerikNavigation:RadContextMenu">
+                    <Grid>
+                        <Grid x:Name="PopupContentElement" >
+                            
+                            <Border BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{StaticResource MenuPopupOuterBorder}"
+                                Background="{StaticResource MenuPopupBackground}">
+                                <Grid>
+                                    <Grid Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IconColumnWidth}" HorizontalAlignment="Left">
+                                        <Rectangle Fill="{StaticResource MenuPopupIconsBackground}"
+											Margin="0 0 2 0" />
+
+                                        <Grid HorizontalAlignment="Right" Margin="{StaticResource MenuPopupIconsSeparatorMargin}">
+                                            <Rectangle Width="1" HorizontalAlignment="Right" Margin="0 0 1 0" Fill="{StaticResource MenuPopupIconsSeparatorLeft}" />
+                                            <Rectangle Width="1" HorizontalAlignment="Right" Margin="0 0 0 0" Fill="{StaticResource MenuPopupIconsSeparatorRight}" />
+                                        </Grid>
+                                    </Grid>
+                                    <ItemsPresenter Margin="1" />
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="animation:AnimationManager.AnimationSelector">
+            <Setter.Value>
+                <animation:AnimationSelector>
+                    <animation:SlideAnimation Direction="In" SlideMode="Top" AnimationName="Expand"
+                            TargetElementName="PopupContentElement" />
+                    <!--<animation:SlideAnimation Direction="Out" SlideMode="Top"
+                            AnimationName="Collapse" TargetElementName="PopupContentElement" />-->
+                </animation:AnimationSelector>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    
+</ResourceDictionary>

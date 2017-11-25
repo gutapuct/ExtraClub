@@ -1,0 +1,57 @@
+﻿<usr:ModuleViewBase x:Class="TonusClub.TurnoverModule.Views.ContainedControls.CashInOrdersControl"
+             xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:res="clr-namespace:TonusClub.UIControls.Localization;assembly=TonusClub.UIControls"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls"
+             d:DesignHeight="297" d:DesignWidth="942">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 0" Height="25">
+            <Button Margin="2 0" Click="NewClick"
+                         Content="Новый ПКО"></Button>
+            <Button Margin="2 0" Click="ExportClick"
+                         Content="Экспорт в Pdf"/>
+          <Button Margin="2 0" Click="EditClick"
+                       Content="Редактирование"/>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.PeriodFrom}"></TextBlock>
+            <telerik:RadDatePicker Margin="10 0 10 0" SelectedDate="{Binding CioStart, Mode=TwoWay}" VerticalAlignment="Center" Width="120"></telerik:RadDatePicker>
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.PeriodTo}"></TextBlock>
+            <telerik:RadDatePicker Margin="10 0 0 0"  SelectedDate="{Binding CioEnd, Mode=TwoWay}" VerticalAlignment="Center" Width="120"></telerik:RadDatePicker>
+        </StackPanel>
+        <telerik:RadGridView
+                            Margin="5 5 5 5"
+                            x:Name="CashInOrdersView"
+                            RowIndicatorVisibility="Collapsed"
+                            IsReadOnly="True"
+                            AutoGenerateColumns="False"
+                            CanUserFreezeColumns="True"
+                            CanUserResizeColumns="True"
+                            ShowGroupPanel="False"
+                            CanUserInsertRows="False"
+                            ShowInsertRow="False"
+                            ShowColumnFooters="True"
+                            VerticalAlignment="Stretch"
+                            MouseDoubleClick="CashInOrdersView_MouseDoubleClick"
+                            ItemsSource="{Binding CashInOrders}">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Width="80" Header="{x:Static res:Resources.Number}" DataMemberBinding="{Binding Number}" />
+                <telerik:GridViewDataColumn Width="*" Header="{x:Static res:Resources.Date}" DataMemberBinding="{Binding CreatedOn}" DataFormatString="{}{0:d}" />
+                <telerik:GridViewDataColumn Width="*" Header="Дебет" DataMemberBinding="{Binding Debet}" />
+                <telerik:GridViewDataColumn Width="*" Header="{x:Static res:Resources.Amount}" DataMemberBinding="{Binding Amount}" >
+                                                    <telerik:GridViewDataColumn.AggregateFunctions>
+                                                        <telerik:SumFunction Caption="Всего: " />
+                                                    </telerik:GridViewDataColumn.AggregateFunctions>
+                                                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Width="*" Header="Принято от" DataMemberBinding="{Binding SerializedCreatedByName}" />
+                <telerik:GridViewDataColumn Width="*" Header="Получил" DataMemberBinding="{Binding SerializedReceivedByName}" />
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </DockPanel>
+</usr:ModuleViewBase>

@@ -1,0 +1,83 @@
+﻿<usr:WindowBase x:Class="TonusClub.OrganizerModule.Views.Tasks.Windows.NewTaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" WindowStartupLocation="CenterScreen"
+        Title="Новая задача" Width="757" Height="468">
+    <DockPanel Margin="5">
+        <UniformGrid Rows="1" DockPanel.Dock="Bottom">
+            <Button Height="28" Margin="2" Click="CreateButton_Click">Создать</Button>
+            <Button IsCancel="True" Margin="2" Click="CancelButton_Click">Отмена</Button>
+        </UniformGrid>
+        <GroupBox  Header="Задача" DockPanel.Dock="Bottom">
+            <StackPanel>
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center">Заголовок</TextBlock>
+                    <TextBox Text="{Binding Subject, Mode=TwoWay}" Margin="0 2"></TextBox>
+                </UniformGrid>
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center">Текст</TextBlock>
+                    <TextBox Text="{Binding Comments, Mode=TwoWay}" AcceptsReturn="True" Height="64"></TextBox>
+                </UniformGrid>
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center">Крайний срок исполнения</TextBlock>
+                    <telerik:RadDateTimePicker Margin="0 2" SelectedValue="{Binding ExpiryDate, Mode=TwoWay}"></telerik:RadDateTimePicker>
+                    <TextBlock VerticalAlignment="Center">Приоритет</TextBlock>
+                    <telerik:RadComboBox IsEditable="False" Margin="2"
+                        ItemsSource="{Binding Priorities}"
+                        SelectedValuePath="Key" x:Name="form"
+                        SelectedValue="{Binding Priority, Mode=TwoWay}"
+                        DisplayMemberPath="Value" IsReadOnly="True"/>
+                </UniformGrid>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox  Header="Исполнители (если не выбрать никого, задача будет назначена на всех сотрудников компании)" >
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+                    <Button Margin="2 0" Click="AddOneEmployeeClick">Добавить сотрудника</Button>
+                    <telerik:RadDropDownButton x:Name="EmployeeDropdownButton" Margin="2 0" Content="Добавить группу сотрудников">
+                        <telerik:RadDropDownButton.DropDownContent>
+                            <UniformGrid Columns="1">
+                                <Button HorizontalContentAlignment="Left" Padding="5 5" Click="AddAllEmployeesClick">Добавить всех сотрудников</Button>
+                                <Button HorizontalContentAlignment="Left" Padding="5 5" Click="AddInJobEmployeesClick">Добавить в доложности...</Button>
+                                <Button HorizontalContentAlignment="Left" Padding="5 5" Click="AddInUnitEmployeesClick">Добавить в подразделении...</Button>
+                                <Button HorizontalContentAlignment="Left" Padding="5 5" Click="AddTodayEmployeesClick">Добавить работающих сегодня</Button>
+                                <Button HorizontalContentAlignment="Left" Padding="5 5" Click="AddTomorrowEmployeesClick">Добавить работающих завтра</Button>
+
+                            </UniformGrid>
+                        </telerik:RadDropDownButton.DropDownContent>
+                    </telerik:RadDropDownButton >
+
+                </StackPanel>
+                <telerik:RadGridView
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ActionOnLostFocus="CommitEdit"
+                                        ShowGroupPanel="False"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        IsFilteringAllowed="False"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding Employees}"
+                                        x:Name="EmployeesGrid">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn Width="3*" Header="ФИО" DataMemberBinding="{Binding SerializedCustomer.FullName}"/>
+                        <telerik:GridViewDataColumn Width="2*" Header="Подразделение" DataMemberBinding="{Binding SerializedJobPlacement.SerializedUnit}"/>
+                        <telerik:GridViewDataColumn Width="2*" Header="Должность" DataMemberBinding="{Binding SerializedJobPlacement.SerializedJobName}"/>
+                        <telerik:GridViewColumn Width="100" Header="">
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Margin="1" Click="RemoveEmployeeClick">Убрать</Button>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewColumn>
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+            </DockPanel>
+        </GroupBox>
+    </DockPanel>
+</usr:WindowBase>

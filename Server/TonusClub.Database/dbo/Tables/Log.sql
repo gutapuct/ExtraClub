@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[Log] (
+    [Id]        UNIQUEIDENTIFIER CONSTRAINT [DF_Log_Id] DEFAULT (newid()) ROWGUIDCOL NOT NULL,
+    [UserName]  NVARCHAR (256)   NOT NULL,
+    [HostIp]    NVARCHAR (256)   NOT NULL,
+    [Message]   NVARCHAR (MAX)   NOT NULL,
+    [Date]      DATETIME         NOT NULL,
+    [CompanyId] UNIQUEIDENTIFIER NULL,
+    CONSTRAINT [PK_Log] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+

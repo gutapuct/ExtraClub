@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BonAdd" xml:space="preserve">
+    <value>Bonuses for ticket #{0}</value>
+  </data>
+  <data name="BonOnCard" xml:space="preserve">
+    <value>Bonuses for card emit/upgrade</value>
+  </data>
+  <data name="BookingCancelled" xml:space="preserve">
+    <value>Booking to {0} at {1:dd.MM.yyyy HH:mm} was cancelled</value>
+  </data>
+  <data name="CabinetFine" xml:space="preserve">
+    <value>Fine for the cabinet key #{0} loss</value>
+  </data>
+  <data name="CertFor" xml:space="preserve">
+    <value>Certificate for {0:c}</value>
+  </data>
+  <data name="ClubClose" xml:space="preserve">
+    <value>Booking cancelling due to the club closure</value>
+  </data>
+  <data name="ClubCloseCause" xml:space="preserve">
+    <value>Club closure cause</value>
+  </data>
+  <data name="ContraConfl" xml:space="preserve">
+    <value>Contra-indication "{0}"
+prohibits the treatment "{1}"</value>
+  </data>
+  <data name="DelRefs" xml:space="preserve">
+    <value>Probably there is a relationship between currently deleting object and another objects</value>
+  </data>
+  <data name="DepAdd" xml:space="preserve">
+    <value>Deposit with cash/bank card, order #{0}</value>
+  </data>
+  <data name="Deposit" xml:space="preserve">
+    <value>Deposit with cash/bank card</value>
+  </data>
+  <data name="DetTypeErr" xml:space="preserve">
+    <value>Unable to parse good type</value>
+    <comment>тип в смысле программирования</comment>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="ElementExists" xml:space="preserve">
+    <value>Element with this name has already been existed</value>
+  </data>
+  <data name="ElementRefs" xml:space="preserve">
+    <value>This element is referenced by some objects</value>
+  </data>
+  <data name="GoodRefund" xml:space="preserve">
+    <value>Good return</value>
+  </data>
+  <data name="GoodRefundNum" xml:space="preserve">
+    <value>Return of the good "{0}" from order #{1}</value>
+  </data>
+  <data name="GoodSpendings" xml:space="preserve">
+    <value>Good Spendings</value>
+  </data>
+  <data name="Guest" xml:space="preserve">
+    <value>Guest</value>
+  </data>
+  <data name="GuestTick" xml:space="preserve">
+    <value>Guest subscription #{0} registration</value>
+  </data>
+  <data name="IncorrectProg" xml:space="preserve">
+    <value>Provided treatments list is illegal.</value>
+  </data>
+  <data name="InvNoTickets" xml:space="preserve">
+    <value>Invitor does not have any
+active subscription!</value>
+  </data>
+  <data name="InvNoUnits" xml:space="preserve">
+    <value>Invitor does not have enough guest units
+on any active subscription!</value>
+  </data>
+  <data name="InvOut" xml:space="preserve">
+    <value>Inviting customer shoul be checked in</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>units</value>
+  </data>
+  <data name="mark" xml:space="preserve">
+    <value> (markdown)</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="marknum" xml:space="preserve">
+    <value> (markdown {0})</value>
+  </data>
+  <data name="MaxFreezeLen" xml:space="preserve">
+    <value>Maximum freeze length: {0} days</value>
+  </data>
+  <data name="MaxTreaLength" xml:space="preserve">
+    <value>The treatment "{0}" should not last
+longer than {1} minutes a day</value>
+  </data>
+  <data name="NoBookBefore" xml:space="preserve">
+    <value>Unable to book events on dates before club opening!</value>
+  </data>
+  <data name="NoBookingAvail" xml:space="preserve">
+    <value>Unable to created a booing with the provided conditions</value>
+  </data>
+  <data name="NoBookOther" xml:space="preserve">
+    <value>Unable to book an event using a subscription to another club!</value>
+  </data>
+  <data name="NoCashless" xml:space="preserve">
+    <value>Unable to process cashless payment for current product type</value>
+  </data>
+  <data name="NoContrasErr" xml:space="preserve">
+    <value>Customer does not have contra-indications provided.</value>
+  </data>
+  <data name="NoCustVisit" xml:space="preserve">
+    <value>No customer check in found</value>
+  </data>
+  <data name="NoDepositErr" xml:space="preserve">
+    <value>No enough bonuses on the customer's bonus account!
+{0} bonuses are needed, but there are only {1} bonuses.</value>
+  </data>
+  <data name="NoElement" xml:space="preserve">
+    <value>There is no such element.</value>
+  </data>
+  <data name="NoGuestEnough" xml:space="preserve">
+    <value>Invitor does not have enough guest units!</value>
+  </data>
+  <data name="NoInstOnBank" xml:space="preserve">
+    <value>No instalment on cashless payment is available</value>
+  </data>
+  <data name="NoTreatmentInClub" xml:space="preserve">
+    <value>One of the tratments is unavailable in the club.</value>
+  </data>
+  <data name="OldNewPassEqs" xml:space="preserve">
+    <value>Old and new passwords should not be equal</value>
+  </data>
+  <data name="OldPassErr" xml:space="preserve">
+    <value>Incoorect old password was provided</value>
+  </data>
+  <data name="OrderIsEmpty" xml:space="preserve">
+    <value>Order is empty</value>
+  </data>
+  <data name="OrderPmtNum" xml:space="preserve">
+    <value>Order #{0} Payment</value>
+  </data>
+  <data name="PayerNeeded" xml:space="preserve">
+    <value>Please provide a payer for the cashless payment</value>
+  </data>
+  <data name="ProviderPayment" xml:space="preserve">
+    <value>Supplier payment</value>
+  </data>
+  <data name="ProviderPaymentNum" xml:space="preserve">
+    <value>Paymnet for th esupplier "{0}", Order #{1}</value>
+  </data>
+  <data name="Refund" xml:space="preserve">
+    <value>Subscription Refund</value>
+  </data>
+  <data name="RefundNum" xml:space="preserve">
+    <value>Refund of the subscription #</value>
+  </data>
+  <data name="RefundRefuse" xml:space="preserve">
+    <value>Subscription refund was refused</value>
+  </data>
+  <data name="RefundSub" xml:space="preserve">
+    <value>Subscription Refund</value>
+  </data>
+  <data name="RefundTicket" xml:space="preserve">
+    <value>Subscription Refund</value>
+  </data>
+  <data name="RefundTicketNum" xml:space="preserve">
+    <value>Refund of the subscription #{0}</value>
+  </data>
+  <data name="RentPmtErr" xml:space="preserve">
+    <value>Payment amount should be equal to rent cost</value>
+  </data>
+  <data name="SafeFine" xml:space="preserve">
+    <value>Fine for the safe key #{0} loss</value>
+  </data>
+  <data name="SolChargeText" xml:space="preserve">
+    <value>Solarium "{0}" visit at {1:dd.MM.yyyy HH:mm}</value>
+  </data>
+  <data name="SuccessfulSync" xml:space="preserve">
+    <value>Syncronization was successfully completed</value>
+  </data>
+  <data name="SyncErr" xml:space="preserve">
+    <value>Syncronization eror</value>
+  </data>
+  <data name="TestVisit" xml:space="preserve">
+    <value>Trial visit, total treatments passed: {0}</value>
+  </data>
+  <data name="TicketRefunded" xml:space="preserve">
+    <value>Subscription is refunded</value>
+  </data>
+  <data name="TickPmtHigh" xml:space="preserve">
+    <value>Provided amount is too high</value>
+  </data>
+  <data name="TotalFreeze" xml:space="preserve">
+    <value>Freeze days total</value>
+  </data>
+  <data name="TotalGuest" xml:space="preserve">
+    <value>Guest units total</value>
+  </data>
+  <data name="TotalSol" xml:space="preserve">
+    <value>Solarium minutes total</value>
+  </data>
+  <data name="TotalUnits" xml:space="preserve">
+    <value>Units total</value>
+  </data>
+  <data name="TreatmentCancelling" xml:space="preserve">
+    <value>Booking cancelling due to the treatment breakdown</value>
+  </data>
+  <data name="TreatmentUnavail" xml:space="preserve">
+    <value>Treatment "{0}" is unavailable for the subscription</value>
+  </data>
+  <data name="TreatmentUp" xml:space="preserve">
+    <value>Treatment "{0}" for the subscription has been run out. Total count was {1}</value>
+  </data>
+  <data name="TreVisit" xml:space="preserve">
+    <value>Treatment "{0}" at {1:dd.MM.yyyy HH:mm}</value>
+  </data>
+  <data name="UnableToDeleteOrder" xml:space="preserve">
+    <value>Unable to delete an order for which Payments or Incomes are created!</value>
+  </data>
+  <data name="Withdrawal" xml:space="preserve">
+    <value>Deposit withdrawal ({0:c})</value>
+  </data>
+  <data name="TickUnavTre" xml:space="preserve">
+    <value>Treatment "{0}" is unavailable
+for the subscription</value>
+  </data>
+  <data name="NoEnoughUnits" xml:space="preserve">
+    <value>No enough units to make booking!</value>
+  </data>
+  <data name="UnavailTicketTimeError" xml:space="preserve">
+    <value>Visit start date does not fit into the subscription available time.</value>
+  </data>
+</root>

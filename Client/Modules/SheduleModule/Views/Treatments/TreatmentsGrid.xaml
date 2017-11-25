@@ -1,0 +1,563 @@
+﻿<usr:ModuleViewBase x:Class="TonusClub.ScheduleModule.Views.Treatments.TreatmentsGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:res="clr-namespace:TonusClub.UIControls.Localization;assembly=TonusClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+		     xmlns:vm="clr-namespace:TonusClub.ScheduleModule.ViewModels"
+		     xmlns:local="clr-namespace:TonusClub.ScheduleModule.Controls"
+             xmlns:scheduleView="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.ScheduleView"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="300" d:DesignWidth="473">
+    <usr:ModuleViewBase.Resources>
+        <vm:MySpecialSlotStyleSelector x:Key="SpecialSlotStyleSelector">
+            <vm:MySpecialSlotStyleSelector.AlternationMainHourStyle>
+                <Style TargetType="scheduleView:HighlightItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Border Background="#11000000"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </vm:MySpecialSlotStyleSelector.AlternationMainHourStyle>
+            <vm:MySpecialSlotStyleSelector.MainAlternationHourStyle>
+                <Style TargetType="scheduleView:HighlightItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Border Background="#440000FF"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </vm:MySpecialSlotStyleSelector.MainAlternationHourStyle>
+            <vm:MySpecialSlotStyleSelector.AlternationAlternationHourStyle>
+                <Style TargetType="scheduleView:HighlightItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Border Background="#330000FF"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </vm:MySpecialSlotStyleSelector.AlternationAlternationHourStyle>
+            <vm:MySpecialSlotStyleSelector.ReadonlyStyle>
+                <Style TargetType="scheduleView:HighlightItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Border Background="LightGray"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </vm:MySpecialSlotStyleSelector.ReadonlyStyle>
+        </vm:MySpecialSlotStyleSelector>
+        
+        <DataTemplate x:Key="AppointmentTemplate">
+            <Border Background="{Binding Appointment.SearchHighlightBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="2" BorderBrush="{Binding Appointment.CustomColor}"></Border>
+                <TextBlock Text="{Binding Subject}" Grid.Column="2" Foreground="{Binding Appointment.ForeColor}"></TextBlock>
+            </Grid>
+            </Border>
+        </DataTemplate>
+            <BooleanToVisibilityConverter x:Key="btv" />
+            <!--Appointment brushes-->
+        <SolidColorBrush x:Key="CoachedGameBorder_Normal" Color="#FF747474" />
+        <LinearGradientBrush x:Key="L0Background_Normal" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#80FAE7B5" />
+            <GradientStop Color="#FFFAE7B5" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="L1Background_Normal" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#80ACE5EE" Offset="0" />
+            <GradientStop Color="#FFACE5EE" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="L2Background_Normal" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#8080d2a8" Offset="0" />
+            <GradientStop Color="#FF80d2a8" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="L3Background_Normal" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#8071A6D2" Offset="0" />
+            <GradientStop Color="#FF71A6D2" Offset="1" />
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="L0Border_Normal" Color="#FFFFE135" />
+        <SolidColorBrush x:Key="L1Border_Normal" Color="#FF318CE7" />
+        <SolidColorBrush x:Key="L2Border_Normal" Color="#FF008000" />
+        <SolidColorBrush x:Key="L3Border_Normal" Color="#FF00416A" />
+
+        <LinearGradientBrush x:Key="L0Background_MouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#80FAE7B5" />
+            <GradientStop Color="#FFFAE7B5" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="L1Background_MouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#80ACE5EE" Offset="0" />
+            <GradientStop Color="#FFACE5EE" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="L2Background_MouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#8080d2a8" Offset="0.004" />
+            <GradientStop Color="#FF80d2a8" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="L3Background_MouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#8071A6D2" Offset="0" />
+            <GradientStop Color="#FF71A6D2" Offset="1" />
+        </LinearGradientBrush>
+
+        <Style x:Key="L0HorizontalStyle" TargetType="telerik:AppointmentItem">
+            <Setter Property="Background" Value="{StaticResource L0Background_Normal}" />
+            <Setter Property="BorderBrush" Value="{StaticResource L0Border_Normal}" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type telerik:AppointmentItem}">
+                        <Grid x:Name="Root">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+									BorderThickness="{TemplateBinding BorderThickness}"
+									Background="{TemplateBinding Background}" CornerRadius="2" />
+                            <Border x:Name="CommonStatesVisual" BorderThickness="{TemplateBinding BorderThickness}"
+									Background="{StaticResource L0Background_MouseOver}"
+									BorderBrush="{TemplateBinding BorderThickness}" CornerRadius="2"
+									Visibility="Collapsed" />
+
+                            <Border x:Name="PART_Category" Background="{Binding Category.CategoryBrush}" Margin="2" />
+                            <Border x:Name="PART_TimeMarker" Background="{Binding TimeMarker.TimeMarkerBrush}"
+									HorizontalAlignment="Left" Margin="2" Width="5" />
+                            <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+									Margin="{TemplateBinding Padding}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter />
+                            </Grid>
+
+                            <Grid x:Name="MouseOverOverlay" Opacity="0" Visibility="Collapsed">
+                                
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDragged" Value="True">
+                                <Setter Property="Opacity" TargetName="Root" Value="0.3" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0:0:0.4"
+													Storyboard.TargetProperty="Visibility"
+													Storyboard.TargetName="MouseOverOverlay">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation BeginTime="0:0:0.2" Duration="0:0:0.2" To="1"
+													Storyboard.TargetProperty="Opacity"
+													Storyboard.TargetName="MouseOverOverlay" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0:0:0.2"
+													Storyboard.TargetProperty="Visibility"
+													Storyboard.TargetName="MouseOverOverlay">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Collapsed</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation BeginTime="0" Duration="0:0:0.2" To="0"
+													Storyboard.TargetProperty="Opacity"
+													Storyboard.TargetName="MouseOverOverlay" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                                <Setter Property="Visibility" TargetName="CommonStatesVisual" Value="Visible" />
+                                <Setter Property="Visibility" TargetName="MouseOverOverlay" Value="Visible" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Visibility" TargetName="CommonStatesVisual" Value="Visible" />
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="L1HorizontalStyle" TargetType="telerik:AppointmentItem">
+            <Setter Property="Background" Value="{StaticResource L1Background_Normal}" />
+            <Setter Property="BorderBrush" Value="{StaticResource L1Border_Normal}" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type telerik:AppointmentItem}">
+                        <Grid x:Name="Root">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+									BorderThickness="{TemplateBinding BorderThickness}"
+									Background="{TemplateBinding Background}" CornerRadius="2" />
+                            <Border x:Name="CommonStatesVisual" BorderThickness="{TemplateBinding BorderThickness}"
+									Background="{StaticResource L1Background_MouseOver}"
+									BorderBrush="{TemplateBinding BorderThickness}" CornerRadius="2"
+									Visibility="Collapsed" />
+
+                            <Border x:Name="PART_Category" Background="{Binding Category.CategoryBrush}" Margin="2" />
+                            <Border x:Name="PART_TimeMarker" Background="{Binding TimeMarker.TimeMarkerBrush}"
+									HorizontalAlignment="Left" Margin="2" Width="5" />
+                            <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+									Margin="{TemplateBinding Padding}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter />
+                            </Grid>
+
+                            <Grid x:Name="MouseOverOverlay" Opacity="0" Visibility="Collapsed">
+                                
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDragged" Value="True">
+                                <Setter Property="Opacity" TargetName="Root" Value="0.3" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0:0:0.4"
+													Storyboard.TargetProperty="Visibility"
+													Storyboard.TargetName="MouseOverOverlay">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation BeginTime="0:0:0.2" Duration="0:0:0.2" To="1"
+													Storyboard.TargetProperty="Opacity"
+													Storyboard.TargetName="MouseOverOverlay" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0:0:0.2"
+													Storyboard.TargetProperty="Visibility"
+													Storyboard.TargetName="MouseOverOverlay">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Collapsed</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation BeginTime="0" Duration="0:0:0.2" To="0"
+													Storyboard.TargetProperty="Opacity"
+													Storyboard.TargetName="MouseOverOverlay" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                                <Setter Property="Visibility" TargetName="CommonStatesVisual" Value="Visible" />
+                                <Setter Property="Visibility" TargetName="MouseOverOverlay" Value="Visible" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Visibility" TargetName="CommonStatesVisual" Value="Visible" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="L2HorizontalStyle" TargetType="telerik:AppointmentItem">
+            <Setter Property="Background" Value="{StaticResource L2Background_Normal}" />
+            <Setter Property="BorderBrush" Value="{StaticResource L2Border_Normal}" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type telerik:AppointmentItem}">
+                        <Grid x:Name="Root">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+									BorderThickness="{TemplateBinding BorderThickness}"
+									Background="{TemplateBinding Background}" CornerRadius="2" />
+                            <Border x:Name="CommonStatesVisual" BorderThickness="{TemplateBinding BorderThickness}"
+									Background="{StaticResource L2Background_MouseOver}"
+									BorderBrush="{TemplateBinding BorderThickness}" CornerRadius="2"
+									Visibility="Collapsed" />
+
+                            <Border x:Name="PART_Category" Background="{Binding Category.CategoryBrush}" Margin="2" />
+                            <Border x:Name="PART_TimeMarker" Background="{Binding TimeMarker.TimeMarkerBrush}"
+									HorizontalAlignment="Left" Margin="2" Width="5" />
+                            <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+									Margin="{TemplateBinding Padding}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter />
+                            </Grid>
+
+                            <Grid x:Name="MouseOverOverlay" Opacity="0" Visibility="Collapsed">
+                                
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDragged" Value="True">
+                                <Setter Property="Opacity" TargetName="Root" Value="0.3" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0:0:0.4"
+													Storyboard.TargetProperty="Visibility"
+													Storyboard.TargetName="MouseOverOverlay">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation BeginTime="0:0:0.2" Duration="0:0:0.2" To="1"
+													Storyboard.TargetProperty="Opacity"
+													Storyboard.TargetName="MouseOverOverlay" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0:0:0.2"
+													Storyboard.TargetProperty="Visibility"
+													Storyboard.TargetName="MouseOverOverlay">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Collapsed</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation BeginTime="0" Duration="0:0:0.2" To="0"
+													Storyboard.TargetProperty="Opacity"
+													Storyboard.TargetName="MouseOverOverlay" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                                <Setter Property="Visibility" TargetName="CommonStatesVisual" Value="Visible" />
+                                <Setter Property="Visibility" TargetName="MouseOverOverlay" Value="Visible" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Visibility" TargetName="CommonStatesVisual" Value="Visible" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="L3HorizontalStyle" TargetType="telerik:AppointmentItem">
+            <Setter Property="Background" Value="{StaticResource L3Background_Normal}" />
+            <Setter Property="BorderBrush" Value="{StaticResource L3Border_Normal}" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type telerik:AppointmentItem}">
+                        <Grid x:Name="Root">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+									BorderThickness="{TemplateBinding BorderThickness}"
+									Background="{TemplateBinding Background}" CornerRadius="2" />
+                            <Border x:Name="CommonStatesVisual" BorderThickness="{TemplateBinding BorderThickness}"
+									Background="{StaticResource L3Background_MouseOver}"
+									BorderBrush="{TemplateBinding BorderThickness}" CornerRadius="2"
+									Visibility="Collapsed" />
+
+                            <Border x:Name="PART_Category" Background="{Binding Category.CategoryBrush}" Margin="2" />
+                            <Border x:Name="PART_TimeMarker" Background="{Binding TimeMarker.TimeMarkerBrush}"
+									HorizontalAlignment="Left" Margin="2" Width="5" />
+                            <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+									VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+									Margin="{TemplateBinding Padding}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter  />
+                            </Grid>
+
+                            <Grid x:Name="MouseOverOverlay" Opacity="0" Visibility="Collapsed">
+                               
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDragged" Value="True">
+                                <Setter Property="Opacity" TargetName="Root" Value="0.3" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0:0:0.4"
+													Storyboard.TargetProperty="Visibility"
+													Storyboard.TargetName="MouseOverOverlay">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation BeginTime="0:0:0.2" Duration="0:0:0.2" To="1"
+													Storyboard.TargetProperty="Opacity"
+													Storyboard.TargetName="MouseOverOverlay" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Duration="0:0:0.2"
+													Storyboard.TargetProperty="Visibility"
+													Storyboard.TargetName="MouseOverOverlay">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Collapsed</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation BeginTime="0" Duration="0:0:0.2" To="0"
+													Storyboard.TargetProperty="Opacity"
+													Storyboard.TargetName="MouseOverOverlay" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                                <Setter Property="Visibility" TargetName="CommonStatesVisual" Value="Visible" />
+                                <Setter Property="Visibility" TargetName="MouseOverOverlay" Value="Visible" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Visibility" TargetName="CommonStatesVisual" Value="Visible" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </usr:ModuleViewBase.Resources>
+    
+    <DockPanel>
+        <GroupBox  DockPanel.Dock="Top" Header="{x:Static res:Resources.Settings}" x:Name="ParamsGroup">
+            <StackPanel>
+                <DockPanel>
+                <TextBlock VerticalAlignment="Center" Margin="0 0 10 0" Text="{x:Static res:Resources.Zoom}"></TextBlock>
+                <Button DockPanel.Dock="Right" Width="80"
+                                    usr:AuthorizationManager.AuthorizationKey="CreateNewTreatmentScheduleAlter"
+                                   Visibility="{Binding HasNewRecords, Converter={StaticResource ResourceKey=btv}}"
+                                   Click="RejectClick"
+                                   Content="{x:Static res:Resources.Cancel}">
+                    </Button>
+                <Button DockPanel.Dock="Right" Width="80"
+                                    usr:AuthorizationManager.AuthorizationKey="CreateNewTreatmentScheduleAlter"
+                                   Visibility="{Binding HasNewRecords, Converter={StaticResource ResourceKey=btv}}"
+                                   Click="CommitClick"
+                                   Content="{x:Static res:Resources.Save}">
+                    </Button>
+                <Button Margin="0 0 20 0" DockPanel.Dock="Right" Width="80" Click="CreateUndockedWindow"
+                                   usr:AuthorizationManager.AuthorizationKey="OpenTreatmentsGridNewWindow"
+                                   Content="{x:Static res:Resources.NewWindow}"></Button>
+                <Button Margin="0 0 5 0" DockPanel.Dock="Right" Width="80" Click="ExportExcel"
+                                   Content="{x:Static res:Resources.ExportExcel}"></Button>
+                <Slider HorizontalAlignment="Stretch" Minimum="50" Maximum="7500" Margin="8 0 8 0"
+						VerticalAlignment="Center"
+						Value="{Binding ActiveViewDefinition.MinTimeRulerExtent, ElementName=TreatmentsSchedule, Mode=TwoWay}"/>
+                </DockPanel>
+                <DockPanel Margin="0 5 0 0">
+                    <TextBlock VerticalAlignment="Center" Margin="0 0 12 0" Text="{x:Static res:Resources.Search}"></TextBlock>
+                    <usr:CardInputBox Margin="2" DockPanel.Dock="Right" Width="120"
+                                      SelectedCard="{Binding SearchCardNumber, Mode=TwoWay, ValidatesOnDataErrors=True}"></usr:CardInputBox>
+                    <TextBox Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                </DockPanel>
+            </StackPanel>
+        </GroupBox>
+        <scheduleView:RadScheduleView x:Name="TreatmentsSchedule" FontSize="9"
+                                              AppointmentsSource="{Binding TreatmentsAppointmentsView}"
+                                              ResourceTypesSource="{Binding TreatmentsResourcesView}"
+                                              AppointmentEditing="TreatmentsSchedule_AppointmentEditing"
+                                              AppointmentEdited="TreatmentsSchedule_AppointmentEdited"
+                                              AppointmentSelectionChanged="TreatmentsSchedule_AppointmentSelectionChanged"
+                                              AppointmentCreating="TreatmentsSchedule_AppointmentCreating"
+                                      AppointmentItemContentTemplate="{StaticResource AppointmentTemplate}"
+                                              MouseDoubleClick="TreatmentsSchedule_MouseDoubleClick"
+                                              VisibleRangeChangedCommand="{Binding TreatmentsVisibleRangeChanged}" 
+								              VisibleRangeChangedCommandParameter="{Binding VisibleRange, RelativeSource={RelativeSource Self}}"
+                                              SpecialSlotsSource="{Binding TreatmentSlots}"
+                                      SpecialSlotStyleSelector="{StaticResource SpecialSlotStyleSelector}"
+                                              ShowDialog="TreatmentsSchedule_ShowDialog">
+            <scheduleView:RadScheduleView.DragDropBehavior>
+                <local:TreatmentDragBehavior />
+            </scheduleView:RadScheduleView.DragDropBehavior>
+            <telerik:RadContextMenu.ContextMenu>
+                <telerik:RadContextMenu x:Name="treMenu" Opened="treMenu_Opened">
+                    <telerik:RadMenuItem IsCheckable="True" x:Name="ParametersItem" IsChecked="True" Header="{x:Static res:Resources.ShowSettings}" Click="ShowParametersClick"></telerik:RadMenuItem>
+                    <telerik:RadMenuItem IsCheckable="False" x:Name="MoveLefter" Header="{x:Static res:Resources.MoveLeft}" Click="MoveLeft"></telerik:RadMenuItem>
+                    <telerik:RadMenuItem IsCheckable="False" x:Name="MoveRighter" Header="{x:Static res:Resources.MoveRigth}" Click="MoveRigth"></telerik:RadMenuItem>
+                    <telerik:RadMenuItem IsCheckable="True" x:Name="ActivesItem" IsChecked="False" Header="{x:Static res:Resources.ShowInactive}" Click="ShowActivesClick"></telerik:RadMenuItem>
+                    <telerik:RadMenuItem x:Name="AutorefreshItem" Visibility="Collapsed" IsCheckable="True" IsChecked="{Binding AutorefreshTreatments, Mode=TwoWay}"
+                                         Header="{x:Static res:Resources.Update3Mins}"></telerik:RadMenuItem>
+                    <telerik:RadMenuItem Header="{x:Static res:Resources.NavigateCard}" Click="NavigateToCustomer_Click" x:Name="navigateToCustomerAppointmentItem" Visibility="Collapsed" />
+                    <telerik:RadMenuItem Header="{x:Static res:Resources.SaveAdded}" Click="SaveAppointment_Click" x:Name="saveAppointmentItem" Visibility="Collapsed" usr:AuthorizationManager.AuthorizationKey="CreateNewTreatmentScheduleAlter"/>
+                    <telerik:RadMenuItem Header="{x:Static res:Resources.CancelAdded}" Click="RejectAppointment_Click" x:Name="rejectAppointmentItem" Visibility="Collapsed" usr:AuthorizationManager.AuthorizationKey="CreateNewTreatmentScheduleAlter"/>
+                    <telerik:RadMenuItem Header="{x:Static res:Resources.ParallelBooking}" Click="ParallelSign_Click" x:Name="parallelSignAppointmentItem" Visibility="Collapsed" usr:AuthorizationManager.AuthorizationKey="CreateNewTreatmentScheduleAlter"/>
+                    <telerik:RadMenuItem Header="{x:Static res:Resources.CancelBooking}" Click="CancelAppointment_Click" x:Name="cancelAppointmentItem" Visibility="Collapsed" usr:AuthorizationManager.AuthorizationKey="CancelTreatmentEvent"/>
+                    <telerik:RadMenuItem Header="Пометить посещенной" Click="ChangeToVisited_Click" x:Name="changeToVisitedAppointmentItem" Visibility="Collapsed" usr:AuthorizationManager.AuthorizationKey="CancelTreatmentEvent"/>
+                    <telerik:RadMenuItem Header="{x:Static res:Resources.Color}" x:Name="ColorsMenu" Visibility="Collapsed">
+                        <telerik:RadMenuItem Header="{x:Static res:Resources.NoColor}" Tag="-1" Click="ColorMenuItem_Click"></telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="{x:Static res:Resources.Red}" Tag="0" Click="ColorMenuItem_Click"></telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="{x:Static res:Resources.Green}" Tag="1" Click="ColorMenuItem_Click"></telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="{x:Static res:Resources.Blue}" Tag="2" Click="ColorMenuItem_Click"></telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="{x:Static res:Resources.Gold}" Tag="3" Click="ColorMenuItem_Click"></telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="{x:Static res:Resources.Orange}" Tag="4" Click="ColorMenuItem_Click"></telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="{x:Static res:Resources.Violet}" Tag="5" Click="ColorMenuItem_Click"></telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="{x:Static res:Resources.Pink}" Tag="6" Click="ColorMenuItem_Click"></telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="{x:Static res:Resources.Pistachio}" Tag="7" Click="ColorMenuItem_Click"></telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="{x:Static res:Resources.Cyan}" Tag="8" Click="ColorMenuItem_Click"></telerik:RadMenuItem>
+                    </telerik:RadMenuItem>
+                </telerik:RadContextMenu>
+            </telerik:RadContextMenu.ContextMenu>
+            <scheduleView:RadScheduleView.ViewDefinitions>
+                <scheduleView:DayViewDefinition Title="DayVer" DayStartTime="{Binding Path=Division.OpenTime}" DayEndTime="{Binding Path=Division.CloseTime}" TimerulerMajorTickStringFormat="{}{0:H:mm}" MajorTickLength="30min" MinorTickLength="5min" Orientation="Vertical"/>
+                <scheduleView:DayViewDefinition Title="DayHor" Orientation="Horizontal" DayStartTime="{Binding Path=Division.OpenTime}" DayEndTime="{Binding Path=Division.CloseTime}" MajorTickLength="30min" MinorTickLength="5min" TimerulerMajorTickStringFormat="{}{0:H:mm}" />
+            </scheduleView:RadScheduleView.ViewDefinitions>
+            <scheduleView:RadScheduleView.GroupDescriptionsSource>
+                <scheduleView:GroupDescriptionCollection>
+                    <scheduleView:DateGroupDescription />
+                    <scheduleView:ResourceGroupDescription ResourceType="Treatment" />
+                </scheduleView:GroupDescriptionCollection>
+            </scheduleView:RadScheduleView.GroupDescriptionsSource>
+            <telerik:RadScheduleView.AppointmentStyleSelector>
+                <local:AppointmentStyleSelector L0HorizontalStyle="{StaticResource L0HorizontalStyle}"
+												L1HorizontalStyle="{StaticResource L1HorizontalStyle}"
+												L2HorizontalStyle="{StaticResource L2HorizontalStyle}"
+												L3HorizontalStyle="{StaticResource L3HorizontalStyle}"
+
+												HorizontalStyle="{StaticResource L0HorizontalStyle}"/>
+            </telerik:RadScheduleView.AppointmentStyleSelector>
+        </scheduleView:RadScheduleView>
+    </DockPanel>
+</usr:ModuleViewBase>

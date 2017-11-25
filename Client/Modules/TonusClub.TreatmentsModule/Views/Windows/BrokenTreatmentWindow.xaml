@@ -1,0 +1,24 @@
+﻿<usr:WindowBase x:Class="TonusClub.TreatmentsModule.Views.Windows.BrokenTreatmentWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Title="Поломка оборудования"
+             Width="506" SizeToContent="Height">
+    <StackPanel>
+        <UniformGrid Columns="2" Margin="0 0 0 5">
+            <TextBlock VerticalAlignment="Center">Тренажер:</TextBlock>
+            <telerik:RadComboBox IsEditable="False" Margin="2"
+                        ItemsSource="{Binding TreatmentsView}"
+                        SelectedValuePath="Id" x:Name="type"
+                        SelectedValue="{Binding SelectedTreatmentId, Mode=TwoWay}"
+                        DisplayMemberPath="NameWithTag" IsReadOnly="True"/>
+        </UniformGrid>
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3" Padding="5" IsDefault="True" Click="CommitButtonClick">Сделать неактивным</Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButtonClick">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

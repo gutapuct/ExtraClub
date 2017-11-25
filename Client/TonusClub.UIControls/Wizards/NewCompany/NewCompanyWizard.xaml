@@ -1,0 +1,116 @@
+﻿<Window x:Class="TonusClub.ClientDal.Wizards.NewCompany.NewCompanyWizard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:usr="clr-namespace:TonusClub.UIControls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             Width="800" Title="Мастер нового франчайзи" Height="550">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="32"/>
+        </Grid.RowDefinitions>
+    
+        <StackPanel Margin="0 22 0 0">
+            <TextBlock x:Name="Text1" Padding="10 0 0 0" Margin="0 3 0 0" Background="CornflowerBlue">1. Общие параметры</TextBlock>
+            <TextBlock x:Name="Text2" Padding="10 0 0 0" Margin="0 3 0 0">2. Карты</TextBlock>
+            <TextBlock x:Name="Text3" Padding="10 0 0 0" Margin="0 3 0 0">3. Абонементы</TextBlock>
+        </StackPanel>
+        
+        <GroupBox  Header="Общие параметры" Grid.Column="2" x:Name="CommonTab">
+            <StackPanel>
+                <TextBlock FontStyle="Italic" Margin="0 0 0 10">Заполните данные, они будут использоваться при формировании документов.</TextBlock>
+            <UniformGrid Columns="2">
+                <TextBlock Margin="0 2" VerticalAlignment="Center">Название франчайзи</TextBlock>
+                <TextBox Text="{Binding Company.CompanyName}" Margin="0 2"></TextBox>
+                <TextBlock Margin="0 2" VerticalAlignment="Center">Организационно-правовая форма</TextBlock>
+                <TextBox Text="{Binding Company.OrgForm}" Margin="0 2"></TextBox>
+                <TextBlock Margin="0 2" VerticalAlignment="Center">ИНН</TextBlock>
+                <TextBox Text="{Binding Company.INN}" Margin="0 2"></TextBox>
+                <TextBlock Margin="0 2" VerticalAlignment="Center">КПП</TextBlock>
+                <TextBox Text="{Binding Company.KPP}" Margin="0 2"></TextBox>
+                <TextBlock Margin="0 2" VerticalAlignment="Center">Расчетный счет в банке</TextBlock>
+                <TextBox Text="{Binding Company.RSBank}" Margin="0 2"></TextBox>
+                <TextBlock Margin="0 2" VerticalAlignment="Center">К/с</TextBlock>
+                <TextBox Text="{Binding Company.KSBank}" Margin="0 2"></TextBox>
+                <TextBlock Margin="0 2" VerticalAlignment="Center">Наименование банка</TextBlock>
+                <TextBox Text="{Binding Company.BankName}" Margin="0 2"></TextBox>
+                <TextBlock Margin="0 2" VerticalAlignment="Center">БИК банка</TextBlock>
+                <TextBox Text="{Binding Company.BIK}" Margin="0 2"></TextBox>
+                <TextBlock Margin="0 2" VerticalAlignment="Center">Город банка</TextBlock>
+                <TextBox Text="{Binding Company.BankCity}" Margin="0 2"></TextBox>
+                <TextBlock Margin="0 2" VerticalAlignment="Center">Телефон 1</TextBlock>
+                <TextBox Text="{Binding Company.Phone1}" Margin="0 2"></TextBox>
+                <TextBlock Margin="0 2" VerticalAlignment="Center">Телефон 2</TextBlock>
+                <TextBox Text="{Binding Company.Phone2}" Margin="0 2"></TextBox>
+                <TextBlock Margin="0 2" VerticalAlignment="Center">ФИО руководителя</TextBlock>
+                <TextBox Text="{Binding Company.GeneralManagerName}" Margin="0 2"></TextBox>
+                <TextBlock Margin="0 2" VerticalAlignment="Center">ФИО руководителя (род. падеж)</TextBlock>
+                <TextBox Text="{Binding Company.GeneralManagerRod}" Margin="0 2"></TextBox>
+                <TextBlock Margin="0 2" VerticalAlignment="Center">Наименование должности руководителя</TextBlock>
+                <TextBox Text="{Binding Company.GeneralManagerPos}" Margin="0 2"></TextBox>
+                <TextBlock Margin="0 2" VerticalAlignment="Center">Основание действия руководителя (род. падеж)</TextBlock>
+                <TextBox Text="{Binding Company.GeneralManagerBaseRod}" Margin="0 2"></TextBox>
+            </UniformGrid>
+
+        </StackPanel>
+        </GroupBox>
+
+        <GroupBox  Header="Карты" Grid.Column="2" x:Name="CardsTab" Visibility="Collapsed">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Top" FontStyle="Italic" Margin="0 0 0 10" TextWrapping="Wrap">Выберите карты, доступные в ваших клубах. Кнопка "Далее" не будет доступна, пока не выбрано хотя бы по одной простой, гостевой и обзорной карте.</TextBlock>
+                <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Cards}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding Helper}" VerticalAlignment="Center">
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding TextDescription}"  Margin="0 4"></TextBlock>
+                                </CheckBox>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </DockPanel>
+        </GroupBox>
+
+        <GroupBox  Header="Абонементы" Grid.Column="2" x:Name="TicketsTab" Visibility="Collapsed">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Top" FontStyle="Italic" Margin="0 0 0 10" TextWrapping="Wrap">Выберите абонементы, доступные в ваших клубах. Кнопка "Готово" не будет доступна, пока не выбрано хотя бы по одному простому, гостевому и обзорному абонементу.</TextBlock>
+                <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Tickets}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding Helper}" VerticalAlignment="Center">
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding TextDescription}"  Margin="0 4"></TextBlock>
+                                </CheckBox>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </DockPanel>
+        </GroupBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right">
+            <Button Margin="3" Padding="5" Click="BackButton_Click" Width="80" IsEnabled="{Binding CanBack}">Назад</Button>
+            <Button Margin="3" Padding="5" Click="FwdButton_Click" Width="80" IsEnabled="{Binding CanFwd}">Далее</Button>
+            <Button Margin="3" Padding="5" Click="FinishButton_Click" Width="80" IsEnabled="{Binding CanFinish}">Готово</Button>
+            <Button Margin="3" Padding="5" Click="CancelButton_Click" Width="80">Отмена</Button>
+        </StackPanel>
+    </Grid>
+</Window>
