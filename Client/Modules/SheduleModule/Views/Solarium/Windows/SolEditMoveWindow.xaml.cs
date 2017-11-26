@@ -10,13 +10,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using TonusClub.ServiceModel;
-using TonusClub.Infrastructure.Interfaces;
+using ExtraClub.ServiceModel;
+using ExtraClub.Infrastructure.Interfaces;
 using Telerik.Windows.Controls;
-using TonusClub.UIControls;
-using TonusClub.UIControls.Windows;
+using ExtraClub.UIControls;
+using ExtraClub.UIControls.Windows;
 
-namespace TonusClub.ScheduleModule.Views.Windows
+namespace ExtraClub.ScheduleModule.Views.Windows
 {
     /// <summary>
     /// Interaction logic for SolEditMoveWindow.xaml
@@ -156,7 +156,7 @@ namespace TonusClub.ScheduleModule.Views.Windows
             var res = _context.GetSolariumProposal(Customer.Id, VisitDate, Length, SolariumId, SolariumVisit.Id);
             if (res.Value != VisitDate)
             {
-                TonusWindow.Confirm(UIControls.Localization.Resources.SolariumBook,
+                ExtraWindow.Confirm(UIControls.Localization.Resources.SolariumBook,
                      String.Format(UIControls.Localization.Resources.SolBookMessage2, res.Value),
                     e1 =>
                     {

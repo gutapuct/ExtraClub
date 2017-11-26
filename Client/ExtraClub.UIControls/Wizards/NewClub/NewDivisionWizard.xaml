@@ -1,0 +1,112 @@
+﻿<Window x:Class="ExtraClub.ClientDal.Wizards.NewClub.NewDivisionWizard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usrL="clr-namespace:ExtraClub.ClientDal.Wizards.NewClub"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             Width="800" Title="Мастер нового клуба" Height="550">
+    <Window.Resources>
+        <usr:EmptyStringToZeroConverter x:Key="nC"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="32"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="0 22 0 0">
+            <TextBlock x:Name="Text1" Background="CornflowerBlue" Margin="0 3 0 0" Padding="10 0 0 0">1. Конфигурация клуба</TextBlock>
+            <TextBlock x:Name="Text2" Padding="10 0 0 0" Margin="0 3 0 0">2. Оборудование</TextBlock>
+            <TextBlock x:Name="Text3" Padding="10 0 0 0" Margin="0 3 0 0">3. Солярии</TextBlock>
+            <TextBlock x:Name="Text4" Padding="10 0 0 0" Margin="0 3 0 0">4. Склады</TextBlock>
+        </StackPanel>
+
+        <GroupBox  Header="Общие параметры" Grid.Column="2" x:Name="CommonTab">
+            <StackPanel>
+                <TextBlock FontStyle="Italic" Margin="0 0 0 10" TextWrapping="Wrap">Заполните данные. Это необходимо для начала работы в клубе. Все введённые данные можно будет изменить позже.</TextBlock>
+                <UniformGrid Columns="2">
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Название Клуба:</TextBlock>
+                    <TextBox Text="{Binding Division.Name, UpdateSourceTrigger=PropertyChanged}" Margin="0 2"></TextBox>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Город:</TextBlock>
+                    <TextBox Text="{Binding Division.CityName, UpdateSourceTrigger=PropertyChanged}" Margin="0 2"></TextBox>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Улица:</TextBlock>
+                    <TextBox Text="{Binding Division.Street, UpdateSourceTrigger=PropertyChanged}" Margin="0 2"></TextBox>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Дом:</TextBlock>
+                    <TextBox Text="{Binding Division.Building, UpdateSourceTrigger=PropertyChanged}" Margin="0 2"></TextBox>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Геопозиция:</TextBlock>
+                    <TextBox Text="{Binding Division.GeoCoordinates, UpdateSourceTrigger=PropertyChanged}" Margin="0 2"></TextBox>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Адрес на сайте Extraclub.ru:</TextBlock>
+                    <TextBox Text="{Binding Division.SitePath, UpdateSourceTrigger=PropertyChanged}" Margin="0 2"></TextBox>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Отображать на сайте Extraclub.ru</TextBlock>
+                    <CheckBox IsChecked="{Binding Division.ShowOnSite}" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Есть ли в городе метро</TextBlock>
+                    <CheckBox IsChecked="{Binding Division.HasSubway}" VerticalAlignment="Center"></CheckBox>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Дата открытия клуба:</TextBlock>
+                    <telerik:RadDatePicker Margin="0 2" SelectedDate="{Binding Division.OpenDate, Mode=TwoWay}" VerticalAlignment="Center"></telerik:RadDatePicker>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Дата начала предпродажи:</TextBlock>
+                    <telerik:RadDatePicker Margin="0 2" SelectedDate="{Binding Division.PresellDate, Mode=TwoWay}" VerticalAlignment="Center"></telerik:RadDatePicker>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Начало работы</TextBlock>
+                    <telerik:RadTimePicker Margin="0 2" SelectedTime="{Binding Path=Division.OpenTime, Mode=TwoWay}"></telerik:RadTimePicker>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Окончание работы</TextBlock>
+                    <telerik:RadTimePicker Margin="0 2" SelectedTime="{Binding Path=Division.CloseTime, Mode=TwoWay}"></telerik:RadTimePicker>
+                </UniformGrid>
+                <UniformGrid Columns="2">
+                    <CheckBox Margin="0 3" VerticalAlignment="Center" IsChecked="{Binding Division.RCashRegister, Mode=TwoWay}">Использовать кассовый аппарат для чеков</CheckBox>
+                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Division.RBankCards, Mode=TwoWay}">Принимать банковские карты (терминал)</CheckBox>
+                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Division.RReceiptOnBank, Mode=TwoWay}">Печатать чек при оплате картами</CheckBox>
+                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Division.RCashless, Mode=TwoWay}">Абонементы и бар по безналу</CheckBox>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Комиссия за оплату банк.картами при возврате (%)</TextBlock>
+                    <TextBox Text="{Binding Path=Division.BankCardReturnComissionP, Mode=TwoWay, Converter={StaticResource ResourceKey=nC}, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Margin="0 2" HorizontalAlignment="Stretch" VerticalAlignment="Center"  />
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Стоимость минуты солярия:</TextBlock>
+                    <TextBox Text="{Binding Division.SolariumPrice, StringFormat={}{0:n2}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ResourceKey=nC}, ValidatesOnDataErrors=True}" Margin="0 2" HorizontalAlignment="Stretch" VerticalAlignment="Center"  />
+
+                </UniformGrid>
+                <UniformGrid Columns="2">
+                    <TextBlock Margin="0 2" VerticalAlignment="Top">Список шкафчиков:</TextBlock>
+                    <TextBox Text="{Binding Division.ShelvesRepository, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Height="40" Margin="0 2"></TextBox>
+                </UniformGrid>
+                <UniformGrid Columns="2">
+                    <TextBlock Margin="0 2" VerticalAlignment="Top">Список сейфов:</TextBlock>
+                    <TextBox Text="{Binding Division.SafesRepository, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Height="40" Margin="0 2"></TextBox>
+                </UniformGrid>
+
+            </StackPanel>
+            
+        </GroupBox>
+
+        <GroupBox  Header="Оборудование" Grid.Column="2" x:Name="TreatmentTab" Visibility="Collapsed">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Top" FontStyle="Italic" Margin="0 0 0 10" TextWrapping="Wrap">Укажите тренажеры, доступные для занятий в данном клубе.</TextBlock>
+                <usrL:TreatmentsControl />
+            </DockPanel>
+        </GroupBox>
+
+        <GroupBox  Header="Солярии" Grid.Column="2" x:Name="SolariumsTab" Visibility="Collapsed">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Top" FontStyle="Italic" Margin="0 0 0 10" TextWrapping="Wrap">Более не поддерживается.</TextBlock>
+                <!--<usrL:DivisionSolariumsControl />-->
+            </DockPanel>
+        </GroupBox>
+
+        <GroupBox  Header="Склады" Grid.Column="2" x:Name="StoresTab" Visibility="Collapsed">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Top" FontStyle="Italic" Margin="0 0 0 10" TextWrapping="Wrap">Более не поддерживается.</TextBlock>
+                <!--<usrL:StorehousesControl />-->
+            </DockPanel>
+        </GroupBox>
+
+
+        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right">
+            <Button Margin="3" Padding="5" Click="BackButton_Click" Width="80" IsEnabled="{Binding CanBack}">Назад</Button>
+            <Button Margin="3" Padding="5" Click="FwdButton_Click" Width="80" IsEnabled="{Binding CanFwd}">Далее</Button>
+            <Button Margin="3" Padding="5" x:Name="CancelBtn" Click="CancelButton_Click" Width="80">Отмена</Button>
+        </StackPanel>
+    </Grid>
+    </Window>

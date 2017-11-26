@@ -12,16 +12,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Telerik.Windows.Controls;
-using TonusClub.ScheduleModule.ViewModels;
+using ExtraClub.ScheduleModule.ViewModels;
 using Telerik.Windows.Controls.ScheduleView;
 using Microsoft.Practices.Unity;
-using TonusClub.Infrastructure.ParameterClasses;
-using TonusClub.ScheduleModule.Views.Windows;
-using TonusClub.UIControls.Windows;
-using TonusClub.UIControls;
-using TonusClub.Infrastructure;
+using ExtraClub.Infrastructure.ParameterClasses;
+using ExtraClub.ScheduleModule.Views.Windows;
+using ExtraClub.UIControls.Windows;
+using ExtraClub.UIControls;
+using ExtraClub.Infrastructure;
 
-namespace TonusClub.ScheduleModule.Views.Solarium
+namespace ExtraClub.ScheduleModule.Views.Solarium
 {
     /// <summary>
     /// Interaction logic for SolariumGrid.xaml
@@ -117,7 +117,7 @@ namespace TonusClub.ScheduleModule.Views.Solarium
                 var app = (Appointment)SolariumSchedule.SelectedAppointment;
                 if (LocateRes(app.Resources, "Status") != "0") return;
 
-                TonusWindow.Confirm(UIControls.Localization.Resources.CancelBooking,
+                ExtraWindow.Confirm(UIControls.Localization.Resources.CancelBooking,
                     UIControls.Localization.Resources.CancelBookingMsg,
                     e1 =>
                     {

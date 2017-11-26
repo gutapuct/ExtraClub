@@ -1,0 +1,42 @@
+﻿<usr:WindowBase x:Class="ExtraClub.Clients.Views.ContainedControls.NewEditTargetWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen"
+             xmlns:res="clr-namespace:ExtraClub.UIControls.Localization;assembly=ExtraClub.UIControls"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             ResizeMode="NoResize" Title="{x:Static res:Resources.Objective}" Width="500" SizeToContent="Height">
+    <StackPanel Margin="5">
+        <GroupBox  Header="{x:Static res:Resources.CustomerInfo}">
+            <UniformGrid Columns="2">
+                <TextBlock Margin="0 2" VerticalAlignment="Center" Text="{x:Static res:Resources.CustomerName}"></TextBlock>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Path=CustomerTarget.Customer.FullName}"></TextBlock>
+                <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.CardNumber}"></TextBlock>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Path=CustomerTarget.Customer.ActiveCard.CardBarcode}"></TextBlock>
+            </UniformGrid>
+        </GroupBox>
+
+        <UniformGrid Columns="2">
+            <TextBlock VerticalAlignment="Center" Text="Цель"></TextBlock>
+            <telerik:RadComboBox Margin="2 0 2 0" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"
+                                 DisplayMemberPath="Value"
+                                 IsEditable="False"
+                                 IsReadOnly="True"
+                                 ItemsSource="{Binding TargetTypes}"
+                                 SelectedValue="{Binding CustomerTarget.TargetTypeId, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 SelectedValuePath="Key"/>
+            <TextBlock VerticalAlignment="Center" Text="Комментарий"></TextBlock>
+            <telerik:RadMaskedTextBox Margin="0 2" MaskType="None" Value="{Binding Path=CustomerTarget.TargetText, Mode=TwoWay, ValidatesOnDataErrors=True}" VerticalAlignment="Center"  />
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.SetUpOn}"></TextBlock>
+            <TextBlock VerticalAlignment="Center" Text="{Binding CustomerTarget.CreatedOn, StringFormat={}{0:d}}"></TextBlock>
+            <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.Term}"></TextBlock>
+            <telerik:RadDatePicker Margin="0 2" SelectedDate="{Binding Path=CustomerTarget.TargetDate, Mode=TwoWay}" x:Name="TargetDateInput"/>
+        </UniformGrid>
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3,0,3,3" Padding="5" IsDefault="True" Click="CommitButton_Click" Content="{x:Static res:Resources.Save}" Height="26" VerticalAlignment="Bottom"></Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click" Content="{x:Static res:Resources.Cancel}"></Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

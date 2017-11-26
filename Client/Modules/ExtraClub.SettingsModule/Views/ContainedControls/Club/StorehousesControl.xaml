@@ -1,0 +1,65 @@
+﻿<usr:ModuleViewBase x:Class="ExtraClub.SettingsModule.Views.ContainedControls.Club.StorehousesControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="300" d:DesignWidth="699">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25" usr:AuthorizationManager.AuthorizationKey="ClubStoresMgmt">
+            <Button Click="NewFolderClick">Новая папка</Button>
+            <Button Margin="6 0 0 0" Click="EditFolderClick">Редактировать папку</Button>
+            <Button Margin="6 0 12 0" Click="RemoveFolder_Click">Удалить папку</Button>
+            <Button Margin="2 0" Click="NewStorehouseButton_Click">Новый склад</Button>
+            <Button Margin="2 0" Click="EditStorehouseButton_Click">Редактировать выделенный</Button>
+            <Button Margin="2 0" Click="DeleteStorehouseButton_Click" IsEnabled="False">Удалить выделенный</Button>
+        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="3" />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <telerik:RadTreeView ItemsSource="{Binding StoreFoldersView}" Selected="StoreTree_Selected" SelectedItem="{Binding CurrentStoreTreeItem}" x:Name="StoreTree">
+                <telerik:RadTreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding CompanySettingsFolders1}">
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                    </HierarchicalDataTemplate>
+                </telerik:RadTreeView.ItemTemplate>
+
+            </telerik:RadTreeView>
+            <GridSplitter Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{DynamicResource ControlBorder}"/>
+
+            <telerik:RadGridView Grid.Column="2"
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ShowGroupPanel="False"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding StorehousesView}"
+                                        MouseDoubleClick="StorehousesGrid_MouseDoubleClick"
+                                        x:Name="StorehousesGrid">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Width="4*" Header="Продажа из бара" DataMemberBinding="{Binding BarSale}" >
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox HorizontalAlignment="Center" IsChecked="{Binding BarSale, Mode=OneWay}" IsEnabled="False"/>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Width="7*" Header="Название" DataMemberBinding="{Binding Name}" IsFilterable="False"/>
+                    <telerik:GridViewDataColumn Width="7*" Header="Адрес" DataMemberBinding="{Binding Address}"  IsFilterable="False"/>
+                    <telerik:GridViewDataColumn Width="7*" Header="Ответственный" DataMemberBinding="{Binding Responsible}" />
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+        </Grid>
+    </DockPanel>
+</usr:ModuleViewBase>

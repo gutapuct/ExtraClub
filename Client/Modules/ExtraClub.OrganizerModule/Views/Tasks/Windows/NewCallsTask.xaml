@@ -1,0 +1,122 @@
+﻿<usr:WindowBase x:Class="ExtraClub.OrganizerModule.Views.Tasks.Windows.NewCallsTask"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" WindowStartupLocation="CenterScreen"
+        Title="Задача на звонок" Width="757" Height="600">
+    <DockPanel Margin="5">
+        <UniformGrid Rows="1" DockPanel.Dock="Bottom">
+            <Button Height="28" Margin="2" Click="CreateButton_Click">Создать</Button>
+            <Button IsCancel="True" Margin="2" Click="CancelButton_Click">Отмена</Button>
+        </UniformGrid>
+        <GroupBox  Header="Цель звонка" DockPanel.Dock="Bottom">
+            <StackPanel>
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center">Цель звонка</TextBlock>
+                    <TextBox Text="{Binding Comments, Mode=TwoWay}" AcceptsReturn="True" Height="64"></TextBox>
+                </UniformGrid>
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center">Дата и время постановки</TextBlock>
+                    <telerik:RadDateTimePicker Margin="0 2" SelectedValue="{Binding RunDate, Mode=TwoWay}"></telerik:RadDateTimePicker>
+                    <TextBlock VerticalAlignment="Center">Крайний срок исполнения</TextBlock>
+                    <telerik:RadDateTimePicker Margin="0 2" SelectedValue="{Binding ExpiryDate, Mode=TwoWay}"></telerik:RadDateTimePicker>
+                </UniformGrid>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox  Header="Кто звонит (если не выбрать никого, задача будет назначена на всех сотрудников)" DockPanel.Dock="Bottom">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+                    <Button Margin="2 0" Click="AddOneEmployeeClick">Добавить сотрудника</Button>
+                    <telerik:RadDropDownButton x:Name="EmployeeDropdownButton" Margin="2 0" Content="Добавить группу сотрудников">
+                        <telerik:RadDropDownButton.DropDownContent>
+                            <UniformGrid Columns="1">
+                                <Button HorizontalContentAlignment="Left" Padding="5 5" Click="AddAllEmployeesClick">Добавить всех сотрудников</Button>
+                                <Button HorizontalContentAlignment="Left" Padding="5 5" Click="AddInJobEmployeesClick">Добавить в доложности...</Button>
+                                <Button HorizontalContentAlignment="Left" Padding="5 5" Click="AddInUnitEmployeesClick">Добавить в подразделении...</Button>
+                                <Button HorizontalContentAlignment="Left" Padding="5 5" Click="AddTodayEmployeesClick">Добавить работающих сегодня</Button>
+                                <Button HorizontalContentAlignment="Left" Padding="5 5" Click="AddTomorrowEmployeesClick">Добавить работающих завтра</Button>
+
+                            </UniformGrid>
+                        </telerik:RadDropDownButton.DropDownContent>
+                    </telerik:RadDropDownButton >
+
+                </StackPanel>
+                <telerik:RadGridView
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ActionOnLostFocus="CommitEdit"
+                                        ShowGroupPanel="False"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        IsFilteringAllowed="False"
+                                        VerticalAlignment="Stretch"
+                                        Height="150"
+                                        ItemsSource="{Binding Employees}"
+                                        x:Name="EmployeesGrid">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn Width="3*" Header="ФИО" DataMemberBinding="{Binding SerializedCustomer.FullName}"/>
+                        <telerik:GridViewDataColumn Width="2*" Header="Подразделение" DataMemberBinding="{Binding SerializedJobPlacement.SerializedUnit}"/>
+                        <telerik:GridViewDataColumn Width="2*" Header="Должность" DataMemberBinding="{Binding SerializedJobPlacement.SerializedJobName}"/>
+                        <telerik:GridViewColumn Width="100" Header="">
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Margin="1" Click="RemoveEmployeeClick">Убрать</Button>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewColumn>
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+            </DockPanel>
+        </GroupBox>
+        <GroupBox  Header="Кому звоним">
+            <DockPanel>
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+                    <Button Margin="2 0" Click="AddOneClientClick">Добавить клиента</Button>
+                    <telerik:RadDropDownButton x:Name="DropdownButton" Margin="2 0" Content="Добавить группу клиентов">
+                        <telerik:RadDropDownButton.DropDownContent>
+                            <UniformGrid Columns="1">
+                                <Button HorizontalContentAlignment="Left" Padding="5 5" Click="AddAllCustomersClick">Добавить всех клиентов</Button>
+                                <Button HorizontalContentAlignment="Left" Padding="5 3" Click="AddPotentialCustomersClick">Добавить потенциальных клиентов</Button>
+                                <Button HorizontalContentAlignment="Left" Padding="5 3" Click="AddInactiveCustomersClick">Добавить клиентов без активного абонемента</Button>
+                                <Button HorizontalContentAlignment="Left" Padding="5 3" Click="AddActiveCustomersClick">Добавить клиентов с активным абонементом</Button>
+                                <Button HorizontalContentAlignment="Left" Padding="5 3" Click="AddStatusClick">Добавить клиентов со статусом...</Button>
+                                <Button HorizontalContentAlignment="Left" Padding="5 3" Click="AddManagerClick">Добавить клиентов по менеджеру...</Button>
+                            </UniformGrid>
+                        </telerik:RadDropDownButton.DropDownContent>
+                    </telerik:RadDropDownButton >
+                </StackPanel>
+                    <telerik:RadGridView
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ActionOnLostFocus="CommitEdit"
+                                        ShowGroupPanel="False"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        IsFilteringAllowed="False"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding Customers}"
+                                        x:Name="CustomersGrid">
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Width="*" Header="Карта" DataMemberBinding="{Binding ActiveCard.CardBarcode}"/>
+                            <telerik:GridViewDataColumn Width="3*" Header="ФИО" DataMemberBinding="{Binding FullName}"/>
+                        <telerik:GridViewColumn Width="100" Header="">
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Margin="1" Click="RemoveCustomerClick">Убрать</Button>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewColumn>
+                    </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+            </DockPanel>
+        </GroupBox>
+    </DockPanel>
+</usr:WindowBase>

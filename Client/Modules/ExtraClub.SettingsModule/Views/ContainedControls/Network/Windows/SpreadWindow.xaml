@@ -1,0 +1,21 @@
+﻿<usr:WindowBase x:Class="ExtraClub.SettingsModule.Views.ContainedControls.Network.Windows.SpreadWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize" Title="Распространить разрешение" Width="400" SizeToContent="Height">
+    <StackPanel>
+        <TextBlock TextWrapping="Wrap" Margin="5">Выбранное разрешение будет распространено на все роли, отмеченные флажком:</TextBlock>
+        <CheckBox IsChecked="{Binding Maximum}" Margin="4 2">Максимальные</CheckBox>
+        <CheckBox IsChecked="{Binding Franch}" Margin="4 2">Франчайзи</CheckBox>
+        <CheckBox IsChecked="{Binding Upravl}" Margin="4 2">Управляющие</CheckBox>
+        <CheckBox IsChecked="{Binding Admins}" Margin="4 2">Администраторы</CheckBox>
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3" Padding="5" IsDefault="True" Click="CommitButton_Click">Распространить</Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+    </usr:WindowBase>
+

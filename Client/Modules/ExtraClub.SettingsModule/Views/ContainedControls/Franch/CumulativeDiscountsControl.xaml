@@ -1,0 +1,41 @@
+﻿<usr:ModuleViewBase x:Class="ExtraClub.SettingsModule.Views.ContainedControls.Franch.CumulativeDiscountsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="348" d:DesignWidth="600">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25" usr:AuthorizationManager.AuthorizationKey="FranchCorpsMgmt">
+            <Button Margin="2 0" Click="NewButton_Click">Добавить</Button>
+            <Button Margin="2 0" Click="EditButton_Click" Height="25" VerticalAlignment="Top">Редактировать выделенную</Button>
+            <Button Margin="2 0" Click="DeleteButton_Click" Height="25" VerticalAlignment="Bottom">Удалить выделенную</Button>
+        </StackPanel>
+            <telerik:RadGridView
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ShowGroupPanel="False"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        IsFilteringAllowed="False"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding CumulativesView}"
+                                        MouseDoubleClick="Grid_MouseDoubleClick"
+                                        x:Name="CumulativesGrid">
+                <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Width="*" Header="Тип" DataMemberBinding="{Binding TypeText}"/>
+                <telerik:GridViewDataColumn Width="*" Header="Значение от" DataMemberBinding="{Binding ValueFrom}" DataFormatString="{}{0:N0}"/>
+                <telerik:GridViewDataColumn Width="*" Header="Значение до" DataMemberBinding="{Binding ValueTo}" DataFormatString="{}{0:N0}"/>
+                <telerik:GridViewDataColumn Width="*" Header="% скидки" DataMemberBinding="{Binding DiscountPercent}" DataFormatString="{}{0:N2}"/>
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+    </DockPanel>
+    </usr:ModuleViewBase>

@@ -1,0 +1,68 @@
+﻿<usr:WindowBase x:Class="ExtraClub.EmployeesModule.Views.ContainedControls.Employees.Windows.NewEditSalarySheetWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:glb="clr-namespace:System.Globalization;assembly=mscorlib"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" WindowState="Maximized"
+             Width="958" Title="Зарплатная ведомость" d:DesignHeight="216">
+    <usr:WindowBase.Resources>
+        <usr:BoolToOppositeBoolConverter x:Key="bto" />
+    </usr:WindowBase.Resources>
+    <DockPanel>
+        <GroupBox  x:Name="VedGroup" Header="Ведомость" DockPanel.Dock="Top">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center" Margin="0 2">Период</TextBlock>
+                <telerik:RadDatePicker x:Name="GenPicker" VerticalAlignment="Center" Margin="0 2" SelectedDate="{Binding GenDate, Mode=TwoWay}" DateSelectionMode="Month" />
+                <TextBlock></TextBlock>
+                <Button Margin="0 2" Click="GenerateClick">Сгенерировать</Button>
+            </UniformGrid>
+        </GroupBox>
+        <UniformGrid DockPanel.Dock="Bottom" Rows="1" Height="32">
+            <Button Margin="3" Padding="5" IsEnabled="{Binding CanSalaryChange}" Click="AssetButton_Click">Провести</Button>
+            <Button Margin="3" Padding="5" Click="PrintButton_Click" x:Name="PrintBtn" Visibility="Collapsed">Экспорт в Excel</Button>
+            <Button x:Name="CancelButton" Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+        <GroupBox  Header="Ведомость">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="6 0 0 0">
+                    <TextBlock Margin="0 2" VerticalAlignment="Center" Width="200" Text="ФИО"></TextBlock>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center" Width="70" Text="Начислено"></TextBlock>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center" Width="70" Text="Премия"></TextBlock>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center" Width="70" Text="Итого"></TextBlock>
+                    <TextBlock Margin="0 2" Width="70" Text="НДФЛ"></TextBlock>
+                    <TextBlock Margin="0 2" Width="70" Text="Вед 10"></TextBlock>
+                    <TextBlock Margin="0 2" Width="70" Text="Вед 25"></TextBlock>
+                    <TextBlock Margin="0 2" Width="70" Text="Выплачено"></TextBlock>
+                    <TextBlock Margin="0 2" Width="100" Text="Итого к выплате"></TextBlock>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+                    <TextBlock Margin="570 0 0 0">Итого: </TextBlock>
+                    <TextBlock Margin="23 0 0 0" Width="70" Text="{Binding TotalPayed}"></TextBlock>
+                    <TextBlock Margin="0 0 0 0" Text="{Binding TotalToPay}"></TextBlock>
+                </StackPanel>
+                <ListBox ItemsSource="{Binding SheetView}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0 2" VerticalAlignment="Center" Width="200" Text="{Binding SerializedEmployeeName}"></TextBlock>
+                                <TextBlock Margin="0 2" VerticalAlignment="Center" Width="70" Text="{Binding Salary, StringFormat={}{0:c}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}"></TextBlock>
+                                <TextBox Margin="0 2" IsEnabled="{Binding CanSalaryChange}" Width="70" Text="{Binding Bonus}"></TextBox>
+                                <TextBlock Margin="0 2" VerticalAlignment="Center" Width="70" Text="{Binding SalaryTotal, StringFormat={}{0:c}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}"></TextBlock>
+                                <TextBox Margin="0 2" IsEnabled="{Binding CanSalaryChange}" Width="70" Text="{Binding NDFL}"></TextBox>
+                                <TextBox Margin="0 2" IsEnabled="{Binding CanSalaryChange}" Width="70" Text="{Binding Ved10}"></TextBox>
+                                <TextBox Margin="0 2" IsEnabled="{Binding CanSalaryChange}" Width="70" Text="{Binding Ved25}"></TextBox>
+                                <TextBlock Margin="0 2" VerticalAlignment="Center" Width="70" Text="{Binding SerializedAdvance, StringFormat={}{0:c}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}"></TextBlock>
+                                <TextBlock Margin="0 2" VerticalAlignment="Center" Width="100" Text="{Binding TotalToPay, StringFormat={}{0:c}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}"></TextBlock>
+                                <Button Margin="5 2 0 2" Padding="5 0" Click="ShowLogClick">Отчет</Button>
+                                <Button Margin="5 2 0 2" Padding="5 0" Click="PayClick" IsEnabled="{Binding CanSalaryChange, Converter={StaticResource ResourceKey=bto}}">Выплата</Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+        </GroupBox>
+    </DockPanel>
+</usr:WindowBase>

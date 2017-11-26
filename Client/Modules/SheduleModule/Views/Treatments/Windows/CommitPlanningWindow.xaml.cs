@@ -12,16 +12,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Practices.Unity;
-using TonusClub.Infrastructure.Interfaces;
-using TonusClub.ServiceModel;
+using ExtraClub.Infrastructure.Interfaces;
+using ExtraClub.ServiceModel;
 using System.ComponentModel;
 using Telerik.Windows.Controls.ScheduleView;
-using TonusClub.ScheduleModule.ViewModels;
-using TonusClub.UIControls.Windows;
+using ExtraClub.ScheduleModule.ViewModels;
+using ExtraClub.UIControls.Windows;
 using System.ServiceModel;
-using TonusClub.UIControls;
+using ExtraClub.UIControls;
 
-namespace TonusClub.ScheduleModule.Views.Treatments.Windows
+namespace ExtraClub.ScheduleModule.Views.Treatments.Windows
 {
     public partial class CommitPlanningWindow
     {
@@ -73,12 +73,12 @@ namespace TonusClub.ScheduleModule.Views.Treatments.Windows
         {
             if (Customer == null)
             {
-                TonusWindow.Alert(UIControls.Localization.Resources.Error, UIControls.Localization.Resources.ProvideCustomer);
+                ExtraWindow.Alert(UIControls.Localization.Resources.Error, UIControls.Localization.Resources.ProvideCustomer);
                 return;
             }
             if (TicketsView.CurrentItem == null)
             {
-                TonusWindow.Alert(UIControls.Localization.Resources.Error, UIControls.Localization.Resources.ProvideTicket);
+                ExtraWindow.Alert(UIControls.Localization.Resources.Error, UIControls.Localization.Resources.ProvideTicket);
                 return;
             }
             try
@@ -87,14 +87,14 @@ namespace TonusClub.ScheduleModule.Views.Treatments.Windows
                 SetScheduleProposalElements(res);
                 if (res.Any(i => i.MovedByRules))
                 {
-                    TonusWindow.Alert("Корректировка","Некоторые процедуры были передвинуты из-за правил планирования!");
+                    ExtraWindow.Alert("Корректировка","Некоторые процедуры были передвинуты из-за правил планирования!");
                 }
                 TestButton.Visibility = System.Windows.Visibility.Collapsed;
                 AuthorizationManager.SetElementVisible(CommitButton);
             }
             catch (FaultException ex)
             {
-                TonusWindow.Alert(UIControls.Localization.Resources.Error, ex.Message);
+                ExtraWindow.Alert(UIControls.Localization.Resources.Error, ex.Message);
             }
         }
 
@@ -155,7 +155,7 @@ namespace TonusClub.ScheduleModule.Views.Treatments.Windows
             }
             catch (FaultException ex)
             {
-                TonusWindow.Alert(UIControls.Localization.Resources.Error, ex.Message);
+                ExtraWindow.Alert(UIControls.Localization.Resources.Error, ex.Message);
                 return;
             }
             DialogResult = true;

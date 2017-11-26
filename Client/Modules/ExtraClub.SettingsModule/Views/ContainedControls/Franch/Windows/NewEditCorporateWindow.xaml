@@ -1,0 +1,32 @@
+﻿<usr:WindowBase x:Class="ExtraClub.SettingsModule.Views.ContainedControls.Franch.Windows.NewEditCorporateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize" Title="Корпоративный договор" Width="493" SizeToContent="Height">
+    <StackPanel>
+        <GroupBox  Header="Общие параметры">
+            <StackPanel>
+                <UniformGrid Columns="2" Margin="4">
+                    <TextBlock VerticalAlignment="Center">Папка:</TextBlock>
+                    <telerik:RadComboBox IsEditable="False" Margin="2"
+                        ItemsSource="{Binding SettingsFolders}"
+                        SelectedValuePath="Id"
+                        SelectedValue="{Binding Path=Corporate.SettingsFolderId, Mode=TwoWay}"
+                        ClearSelectionButtonVisibility="Visible"
+                        ClearSelectionButtonContent="Информеры"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Наименование:</TextBlock>
+                    <TextBox Text="{Binding Path=Corporate.Name, Mode=TwoWay}" Margin="2"></TextBox>
+                </UniformGrid>
+            </StackPanel>
+        </GroupBox>
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3" Padding="5" IsDefault="True" Click="CommitButton_Click">Сохранить</Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+    </usr:WindowBase>

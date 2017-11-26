@@ -15,17 +15,17 @@ using System.Windows.Threading;
 using Microsoft.Practices.Unity;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.ScheduleView;
-using TonusClub.Infrastructure;
-using TonusClub.ScheduleModule.Controls;
-using TonusClub.ScheduleModule.Views.Solarium;
-using TonusClub.ScheduleModule.Views.Treatments.Windows;
-using TonusClub.ServiceModel;
-using TonusClub.UIControls;
-using TonusClub.UIControls.Localization;
-using TonusClub.UIControls.Windows;
-using ViewModelBase = TonusClub.UIControls.BaseClasses.ViewModelBase;
+using ExtraClub.Infrastructure;
+using ExtraClub.ScheduleModule.Controls;
+using ExtraClub.ScheduleModule.Views.Solarium;
+using ExtraClub.ScheduleModule.Views.Treatments.Windows;
+using ExtraClub.ServiceModel;
+using ExtraClub.UIControls;
+using ExtraClub.UIControls.Localization;
+using ExtraClub.UIControls.Windows;
+using ViewModelBase = ExtraClub.UIControls.BaseClasses.ViewModelBase;
 
-namespace TonusClub.ScheduleModule.ViewModels
+namespace ExtraClub.ScheduleModule.ViewModels
 {
     public class ScheduleLargeViewModel : ViewModelBase
     {
@@ -643,7 +643,7 @@ namespace TonusClub.ScheduleModule.ViewModels
                     }
                     catch
                     {
-                        TonusWindow.Alert(Resources.Error,
+                        ExtraWindow.Alert(Resources.Error,
                             Resources.ParallelImossible);
                     }
                 });
@@ -660,7 +660,7 @@ namespace TonusClub.ScheduleModule.ViewModels
             {
                 var item = ClientContext.GetTreatmentEventById(eventId);
 
-                TonusWindow.Prompt(Resources.Comment,
+                ExtraWindow.Prompt(Resources.Comment,
                      Resources.ProvideComment,
                     item.Comment ?? "",
                     ev =>

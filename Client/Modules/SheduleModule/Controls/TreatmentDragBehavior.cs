@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Telerik.Windows.Controls;
-using TonusClub.ScheduleModule.Views.Solarium;
+using ExtraClub.ScheduleModule.Views.Solarium;
 using Telerik.Windows.Controls.ScheduleView;
 
-namespace TonusClub.ScheduleModule.Controls
+namespace ExtraClub.ScheduleModule.Controls
 {
     public class TreatmentDragBehavior : ScheduleViewDragDropBehavior
     {

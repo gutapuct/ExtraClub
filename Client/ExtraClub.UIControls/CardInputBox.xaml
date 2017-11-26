@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="ExtraClub.UIControls.CardInputBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:res="clr-namespace:ExtraClub.UIControls.Localization"
+             xmlns:local="clr-namespace:ExtraClub.UIControls"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls"  d:DesignHeight="48" d:DesignWidth="236" >
+    <DockPanel>
+        <Button Width="22" Padding="0" DockPanel.Dock="Right" Click="ManualInput">...</Button>
+        <telerik:RadToggleButton ToolTip="{x:Static res:Resources.SelectCardTooltip}"
+                                 IsChecked="{Binding IsListening, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CardInputBox}}}"
+                                 Content="{Binding ToggleCaption, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:CardInputBox}}}">
+        </telerik:RadToggleButton>
+    </DockPanel>
+</UserControl>

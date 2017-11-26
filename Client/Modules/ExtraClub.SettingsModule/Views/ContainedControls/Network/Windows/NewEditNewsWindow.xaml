@@ -1,0 +1,37 @@
+﻿<usr:WindowBase x:Class="ExtraClub.SettingsModule.Views.ContainedControls.Network.Windows.NewEditNewsWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize" 
+             Width="757" Title="Новость" SizeToContent="Height">
+    <StackPanel>
+        <UniformGrid Columns="2">
+            <TextBlock VerticalAlignment="Center" Margin="2">Заголовок</TextBlock>
+            <TextBox Margin="2" Text="{Binding News.Subject}"></TextBox>
+        </UniformGrid>
+      <UniformGrid Columns="2">
+        <TextBlock VerticalAlignment="Center" Margin="2">Ссылка</TextBlock>
+        <TextBox Margin="2" Text="{Binding News.Url}"></TextBox>
+      </UniformGrid>
+      <UniformGrid Columns="2">
+        <TextBlock VerticalAlignment="Center" Margin="2">Название ссылки</TextBlock>
+        <TextBox Margin="2" Text="{Binding News.UrlTitle}"></TextBox>
+      </UniformGrid>
+        <UniformGrid Columns="2">
+            <TextBlock VerticalAlignment="Top" Margin="2">Текст</TextBlock>
+            <TextBox Margin="2" Text="{Binding News.Message}" AcceptsReturn="True" Height="200"></TextBox>
+        </UniformGrid>
+        <UniformGrid Columns="2">
+            <TextBlock VerticalAlignment="Center" Margin="2">Дата размещения</TextBlock>
+            <telerik:RadDatePicker Margin="0 2" x:Name="CreatedPicker" SelectedDate="{Binding News.CreatedOn, Mode=TwoWay}"></telerik:RadDatePicker>
+        </UniformGrid>
+      <UniformGrid Rows="1">
+            <Button Margin="3" Padding="5" Click="AssetButton_Click">ОК</Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+    </usr:WindowBase>
+

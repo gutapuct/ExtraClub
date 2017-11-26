@@ -11,18 +11,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TonusClub.Infrastructure.Interfaces;
-using TonusClub.ServiceModel;
+using ExtraClub.Infrastructure.Interfaces;
+using ExtraClub.ServiceModel;
 using System.ComponentModel;
 using Telerik.Windows.Controls;
-using TonusClub.Infrastructure.ParameterClasses;
-using TonusClub.UIControls.Windows;
+using ExtraClub.Infrastructure.ParameterClasses;
+using ExtraClub.UIControls.Windows;
 using System.ServiceModel;
-using TonusClub.ScheduleModule.Views.Windows;
+using ExtraClub.ScheduleModule.Views.Windows;
 using Microsoft.Practices.Unity;
-using TonusClub.UIControls;
+using ExtraClub.UIControls;
 
-namespace TonusClub.ScheduleModule.Views.Solarium
+namespace ExtraClub.ScheduleModule.Views.Solarium
 {
     /// <summary>
     /// Interaction logic for NewBooking.xaml
@@ -217,19 +217,19 @@ namespace TonusClub.ScheduleModule.Views.Solarium
             {
                 if ((VisitDate.Date - DateTime.Today).TotalDays > 30)
                 {
-                    TonusWindow.Alert(UIControls.Localization.Resources.Error,
+                    ExtraWindow.Alert(UIControls.Localization.Resources.Error,
                         UIControls.Localization.Resources.Solarium30DaysWarn);
                     return;
                 }
                 if (VisitDate.Date.Add(VisitTime) < DateTime.Now)
                 {
-                    TonusWindow.Alert(UIControls.Localization.Resources.Error,
+                    ExtraWindow.Alert(UIControls.Localization.Resources.Error,
                         UIControls.Localization.Resources.SolariumBackDateWarn);
                     return;
                 }
 
                 var res = _context.GetSolariumProposal(Customer.Id, VisitDate.Add(VisitTime), MinutesAmount, SelectedSolariumId, Guid.Empty);
-                TonusWindow.Confirm(UIControls.Localization.Resources.SolariumBook,
+                ExtraWindow.Confirm(UIControls.Localization.Resources.SolariumBook,
                     String.Format(UIControls.Localization.Resources.SolBookMessage, AvailSolariums[res.Key], res.Value),
                     e1 =>
                     {
@@ -250,7 +250,7 @@ namespace TonusClub.ScheduleModule.Views.Solarium
 
                             if ((res.Value - DateTime.Now).TotalMinutes < 10)
                             {
-                                TonusWindow.Confirm(UIControls.Localization.Resources.Process,
+                                ExtraWindow.Confirm(UIControls.Localization.Resources.Process,
                                     UIControls.Localization.Resources.PaySolMessage,
                                     w1 =>
                                     {
@@ -269,7 +269,7 @@ namespace TonusClub.ScheduleModule.Views.Solarium
             }
             catch (FaultException ex)
             {
-                TonusWindow.Alert(new DialogParameters { Header = UIControls.Localization.Resources.Error, Content = ex.Message });
+                ExtraWindow.Alert(new DialogParameters { Header = UIControls.Localization.Resources.Error, Content = ex.Message });
             }
         }
 

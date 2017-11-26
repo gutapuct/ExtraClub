@@ -1,0 +1,40 @@
+﻿<usr:WindowBase x:Class="ExtraClub.SettingsModule.Views.ContainedControls.Network.Windows.NewEditTargetWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize" Title="Цель" Width="500">
+    <usr:WindowBase.Resources>
+        <usr:SpanStringConverter x:Key="spanConv" />
+    </usr:WindowBase.Resources>
+    <DockPanel Margin="5">
+        <UniformGrid Columns="2" IsEnabled="{Binding TicketType.IsActive}" DockPanel.Dock="Top">
+            <TextBlock VerticalAlignment="Center">Название:</TextBlock>
+            <telerik:RadMaskedTextBox MaskType="None" Value="{Binding Path=CustomerTargetType.Name, Mode=TwoWay, ValidatesOnDataErrors=True}" Margin="2" VerticalAlignment="Center"  />
+        </UniformGrid>
+        <UniformGrid Rows="1" DockPanel.Dock="Bottom">
+            <Button x:Name="CommitButton" Margin="3" Padding="5" IsDefault="True" Click="CommitButton_Click">Сохранить</Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed">
+            <TabItem Header="Рекомендуемые услуги">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" IsEnabled="{Binding TicketType.IsActive}">
+                    <ItemsControl Margin="5"
+                        ItemsSource="{Binding TreatmentConfigs}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding Helper}">
+                                    <TextBlock  Margin="0 3" Text="{Binding Name}"></TextBlock>
+                                </CheckBox>
+
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+    </usr:WindowBase>

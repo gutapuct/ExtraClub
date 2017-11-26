@@ -1,0 +1,20 @@
+﻿<usr:ModuleViewBase x:Class="ExtraClub.EmployeesModule.Views.EmployeesControl"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+            xmlns:usrCE="clr-namespace:ExtraClub.EmployeesModule.Views.ContainedControls.Employees">
+    <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="EmployeesTabPanel">
+        <TabItem Header="Журнал сотрудников" usr:AuthorizationManager.AuthorizationKey="EmployeeListTab">
+                <usrCE:EmployeesControl />
+        </TabItem>
+        <TabItem Header="Кадровые документы" usr:AuthorizationManager.AuthorizationKey="EmployeeDocumentsTab">
+                <usrCE:EmployeeDocumentsControl />
+        </TabItem>
+        <TabItem Header="Ведомости на зарплату" usr:AuthorizationManager.AuthorizationKey="SalarySheetsBar">
+                <usrCE:SalaryControl />
+        </TabItem>
+        <TabItem Header="Расчеты" usr:AuthorizationManager.AuthorizationKey="EmployeesRaschetyBar">
+                <usrCE:EmployeeCashflowControl />
+        </TabItem>
+    </TabControl>
+</usr:ModuleViewBase>

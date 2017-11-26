@@ -1,0 +1,209 @@
+﻿<usr:WindowBase x:Class="ExtraClub.EmployeesModule.Views.ContainedControls.SalarySchemes.Windows.NewEditSubschemeWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize" 
+             Width="757" Title="Подпремия" SizeToContent="Height">
+    <usr:WindowBase.Resources>
+        <usr:BoolToOppositeBoolConverter x:Key="bto" />
+        <usr:IntWriterConverter x:Key="intWriter" />
+    </usr:WindowBase.Resources>
+    <StackPanel>
+        <GroupBox  Header="Тип подпремии">
+            <telerik:RadComboBox IsEditable="False" Margin="0 2"
+                        ItemsSource="{Binding SubTypes}"
+                        SelectedValue="{Binding CoeffResult.CoeffTypeId, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 SelectedValuePath="Key"
+                        DisplayMemberPath="Value" IsReadOnly="True"/>
+        </GroupBox>
+        <GroupBox  Header="Выручка по группе продаж" x:Name="g2">
+            <StackPanel>
+                <RadioButton GroupName="gr2" IsChecked="{Binding Path=CoeffResult.Int1, Mode=TwoWay, 
+                                 Converter={StaticResource intWriter},
+                                 ConverterParameter=0}" >Товары</RadioButton>
+                <RadioButton GroupName="gr2" IsChecked="{Binding Path=CoeffResult.Int1, Mode=TwoWay, 
+                                 Converter={StaticResource intWriter},
+                                 ConverterParameter=1}" >Абонементы</RadioButton>
+                <RadioButton GroupName="gr2" IsChecked="{Binding Path=CoeffResult.Int1, Mode=TwoWay, 
+                                 Converter={StaticResource intWriter},
+                                 ConverterParameter=2}" >Солярий</RadioButton>
+                <RadioButton GroupName="gr2" IsChecked="{Binding Path=CoeffResult.Int1, Mode=TwoWay, 
+                                 Converter={StaticResource intWriter},
+                                 ConverterParameter=3}" >Всё, кроме абонементов</RadioButton>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox  Header="Количество абонементов, проданных со скидкой" x:Name="g4">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Скидка</TextBlock>
+                <TextBox Margin="0 2" Text="{Binding Money1}"></TextBox>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox  Header="Количество проданных абонементов определенного типа" x:Name="g6">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Тип абонементов</TextBlock>
+                <telerik:RadComboBox IsEditable="False" Margin="0 2"
+                        ItemsSource="{Binding TicketTypes}"
+                        SelectedValue="{Binding CoeffResult.Guid1, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 SelectedValuePath="Id"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox  Header="Количество проданных карт определенного типа" x:Name="g7">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Тип карт</TextBlock>
+                <telerik:RadComboBox IsEditable="False" Margin="0 2"
+                        ItemsSource="{Binding CardTypes}"
+                        SelectedValue="{Binding CoeffResult.Guid1, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 SelectedValuePath="Id"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox  Header="Количество проданных товаров определенной группы" x:Name="g8">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Категория</TextBlock>
+                <telerik:RadComboBox IsEditable="False" Margin="0 2"
+                        ItemsSource="{Binding Categories}"
+                        SelectedValue="{Binding CoeffResult.Guid1, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 SelectedValuePath="Key"
+                        DisplayMemberPath="Value" IsReadOnly="True"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox  Header="Количество проданного товара" x:Name="g9">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Товар</TextBlock>
+                <telerik:RadComboBox IsEditable="False" Margin="0 2"
+                        ItemsSource="{Binding Goods}"
+                        SelectedValue="{Binding CoeffResult.Guid1, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 SelectedValuePath="Id"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox  Header="Количество клиентов, принявших участие в акции бара" x:Name="g10">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Акция</TextBlock>
+                <telerik:RadComboBox IsEditable="False" Margin="0 2"
+                        ItemsSource="{Binding Actions}"
+                        SelectedValue="{Binding CoeffResult.Guid1, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 SelectedValuePath="Id"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox  Header="Посещаемость вида услуг (% от макс. загрузки)" x:Name="g15">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Вид услуг</TextBlock>
+                <telerik:RadComboBox IsEditable="False" Margin="0 2"
+                        ItemsSource="{Binding TreatmentTypes}"
+                        SelectedValue="{Binding CoeffResult.Guid1, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 SelectedValuePath="Id"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox  Header="Посещаемость услуги (тренажера) (% от макс. загрузки)" x:Name="g16">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Услуга</TextBlock>
+                <telerik:RadComboBox IsEditable="False" Margin="0 2"
+                        ItemsSource="{Binding Treatments}"
+                        SelectedValue="{Binding CoeffResult.Guid1, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 SelectedValuePath="Id"
+                        DisplayMemberPath="Tag" IsReadOnly="True"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox  Header="Посещаемость клуба по дням недели/часам" x:Name="g17">
+            <StackPanel>
+                <UniformGrid Rows="2">
+                    <CheckBox Margin="0 3" IsChecked="{Binding d1}">Понедельник</CheckBox>
+                    <CheckBox Margin="0 3" IsChecked="{Binding d2}">Вторник</CheckBox>
+                    <CheckBox Margin="0 3" IsChecked="{Binding d3}">Среда</CheckBox>
+                    <CheckBox Margin="0 3" IsChecked="{Binding d4}">Четверг</CheckBox>
+                    <CheckBox Margin="0 3" IsChecked="{Binding d5}">Пятница</CheckBox>
+                    <CheckBox Margin="0 3" IsChecked="{Binding d6}">Суббота</CheckBox>
+                    <CheckBox Margin="0 3" IsChecked="{Binding d7}">Воскресенье</CheckBox>
+                </UniformGrid>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5 0" VerticalAlignment="Center" >Время: с</TextBlock>
+                    <telerik:RadTimePicker Width="100" SelectedTime="{Binding CoeffResult.TimeSpan1, Mode=TwoWay, ValidatesOnDataErrors=True}" Margin="2"/>
+                    <TextBlock Margin="5 0" VerticalAlignment="Center">по</TextBlock>
+                    <telerik:RadTimePicker Width="100" SelectedTime="{Binding CoeffResult.TimeSpan2, Mode=TwoWay, ValidatesOnDataErrors=True}" Margin="2"/>
+                </StackPanel>
+                </StackPanel>
+        </GroupBox>
+        <GroupBox  Header="Количество проданных сертификатов определенного типа" x:Name="g18">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Категория</TextBlock>
+                <telerik:RadComboBox IsEditable="False" Margin="0 2"
+                        ItemsSource="{Binding Categories}"
+                        SelectedValue="{Binding CoeffResult.Guid1, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 SelectedValuePath="Key"
+                        DisplayMemberPath="Value" IsReadOnly="True"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox  Header="Продажи группе клиентов" x:Name="g2021">
+            <UniformGrid Columns="2">
+            <usr:RadioButtonExtended GroupName="gr3" VerticalAlignment="Center" IsCheckedReal="{Binding Path=CoeffResult.Int1, Mode=TwoWay, 
+                                 Converter={StaticResource intWriter},
+                                 ConverterParameter=0}" x:Name="AdvRadio">Канал рекламы</usr:RadioButtonExtended>
+                <telerik:RadComboBox IsEditable="False" Margin="0 2" IsEnabled="{Binding ElementName=AdvRadio, Path=IsChecked}"
+                        ItemsSource="{Binding AdvertTypes}"
+                        SelectedValue="{Binding CoeffResult.Guid1, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 SelectedValuePath="Id"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+                <usr:RadioButtonExtended GroupName="gr3" VerticalAlignment="Center" IsCheckedReal="{Binding Path=CoeffResult.Int1, Mode=TwoWay, 
+                                 Converter={StaticResource intWriter},
+                                 ConverterParameter=1}" x:Name="StatRadio">Статус</usr:RadioButtonExtended>
+                <telerik:RadComboBox IsEditable="False" Margin="0 2" IsEnabled="{Binding ElementName=StatRadio, Path=IsChecked}"
+                        ItemsSource="{Binding CustStatuses}"
+                        SelectedValue="{Binding CoeffResult.Guid1, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 SelectedValuePath="Key"
+                        DisplayMemberPath="Value" IsReadOnly="True"/>
+                <usr:RadioButtonExtended GroupName="gr3" VerticalAlignment="Center" IsCheckedReal="{Binding Path=CoeffResult.Int1, Mode=TwoWay, 
+                                 Converter={StaticResource intWriter},
+                                 ConverterParameter=2}" x:Name="CorpRadio">Корпоративный
+                    </usr:RadioButtonExtended>
+                <telerik:RadComboBox IsEditable="False" Margin="0 2" IsEnabled="{Binding ElementName=CorpRadio, Path=IsChecked}"
+                        ItemsSource="{Binding Corporates}"
+                        SelectedValue="{Binding CoeffResult.Guid1, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 SelectedValuePath="Id"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox  Header="Продажи клиентам с определенным видом карт" x:Name="g22p">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Тип карт</TextBlock>
+                <telerik:RadComboBox IsEditable="False" Margin="0 2"
+                        ItemsSource="{Binding CardTypes}"
+                        SelectedValue="{Binding CoeffResult.Guid1, Mode=TwoWay, ValidatesOnDataErrors=True}"
+                                 SelectedValuePath="Id"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+            </UniformGrid>
+        </GroupBox>
+
+        <GroupBox  Header="Размер премии">
+            <ListView ItemsSource="{Binding RateTable}" MaxHeight="200">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="0 0 5 0" VerticalAlignment="Center">При величине критерия от</TextBlock>
+                            <TextBox Margin="0 4" Width="60" Text="{Binding FromValue, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, StringFormat={}{0:n0}}" IsEnabled="{Binding IsFirst, Converter={StaticResource bto}}"></TextBox>
+                            <TextBlock Margin="5 0 5 0" VerticalAlignment="Center">до</TextBlock>
+                            <TextBox Margin="0 4" Width="60" Text="{Binding ToValue, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, StringFormat={}{0:n0}}"></TextBox>
+                            <TextBlock Margin="5 0 5 0" VerticalAlignment="Center">включительно премия составит</TextBlock>
+                            <TextBox Margin="0 4" Width="60" Text="{Binding Result, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:n0}}"></TextBox>
+                            <TextBlock Margin="5 0 5 0" VerticalAlignment="Center" Text="{Binding PremUnit, Mode=OneWay}"></TextBlock>
+                            <Button Height="24" Padding="10 0" Click="RemoveRateClick" IsEnabled="{Binding IsFirst, Converter={StaticResource bto}}">Убрать</Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </GroupBox>
+        
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3" Padding="5" Click="AssetButton_Click">ОК</Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+    </usr:WindowBase>
+

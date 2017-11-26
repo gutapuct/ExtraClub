@@ -11,14 +11,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TonusClub.Infrastructure.Interfaces;
+using ExtraClub.Infrastructure.Interfaces;
 using Telerik.Windows.Controls.ScheduleView;
-using TonusClub.ServiceModel;
-using TonusClub.ScheduleModule.Views.Solarium;
-using TonusClub.UIControls.Windows;
-using TonusClub.UIControls;
+using ExtraClub.ServiceModel;
+using ExtraClub.ScheduleModule.Views.Solarium;
+using ExtraClub.UIControls.Windows;
+using ExtraClub.UIControls;
 
-namespace TonusClub.ScheduleModule.Views.Treatments.Windows
+namespace ExtraClub.ScheduleModule.Views.Treatments.Windows
 {
     /// <summary>
     /// Interaction logic for TreatmentEventEditWindow.xaml
@@ -40,7 +40,7 @@ namespace TonusClub.ScheduleModule.Views.Treatments.Windows
             DataContext = this;
             if (!TreatmentEvent.TicketId.HasValue)
             {
-                TonusWindow.Alert("Ошибка", "Редактирование записи без абонемента невозможно!");
+                ExtraWindow.Alert("Ошибка", "Редактирование записи без абонемента невозможно!");
             }
         }
 
@@ -60,7 +60,7 @@ namespace TonusClub.ScheduleModule.Views.Treatments.Windows
         {
             if (!TreatmentEvent.TicketId.HasValue)
             {
-                TonusWindow.Alert("Ошибка", "Невозможно провести подобное перемещение!");
+                ExtraWindow.Alert("Ошибка", "Невозможно провести подобное перемещение!");
                 return;
             }
             var sp = _context.FixSchedule(Customer.Id,
@@ -86,7 +86,7 @@ namespace TonusClub.ScheduleModule.Views.Treatments.Windows
             }
             else
             {
-                TonusWindow.Alert("Ошибка", "Невозможно провести подобное перемещение!");
+                ExtraWindow.Alert("Ошибка", "Невозможно провести подобное перемещение!");
             }
 
         }

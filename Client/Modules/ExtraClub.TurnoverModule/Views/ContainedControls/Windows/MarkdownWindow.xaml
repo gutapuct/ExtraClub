@@ -1,0 +1,42 @@
+﻿<usr:WindowBase x:Class="ExtraClub.TurnoverModule.Views.ContainedControls.Windows.MarkdownWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:glb="clr-namespace:System.Globalization;assembly=mscorlib"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:res="clr-namespace:ExtraClub.UIControls.Localization;assembly=ExtraClub.UIControls"
+             Width="500" Title="{x:Static res:Resources.PriceDownMaster}" SizeToContent="Height">
+    <StackPanel>
+        <GroupBox  Header="{x:Static res:Resources.GoodInfo}">
+            <UniformGrid Columns="2">
+                <TextBlock Margin="0 4" VerticalAlignment="Center" Text="{x:Static res:Resources.GoodName}"></TextBlock>
+                <TextBlock Margin="0 4" VerticalAlignment="Center" Text="{Binding GoodName}" />
+                <TextBlock Margin="0 4" VerticalAlignment="Center" Text="{x:Static res:Resources.CurrentPrice}"></TextBlock>
+                <TextBlock Margin="0 4" VerticalAlignment="Center" Text="{Binding Price, StringFormat={}{0:c}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}" />
+                <TextBlock Margin="0 4" VerticalAlignment="Center" Text="{x:Static res:Resources.AvailAtBar}"></TextBlock>
+                <TextBlock Margin="0 4" VerticalAlignment="Center" Text="{Binding Amount, StringFormat={}{0:n0}}" />
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox  Header="{x:Static res:Resources.PriceDownData}">
+            <UniformGrid Columns="2">
+                <TextBlock Margin="0 4" VerticalAlignment="Center" Text="{x:Static res:Resources.NewGoodName}"></TextBlock>
+                <TextBox Margin="0 2" VerticalAlignment="Center" Text="{Binding NewName}"></TextBox>
+                <TextBlock Margin="0 4" VerticalAlignment="Center" Text="{x:Static res:Resources.NewPrice}"></TextBlock>
+                <TextBox Margin="0 2" VerticalAlignment="Center" Text="{Binding NewPrice}"></TextBox>
+                <TextBlock Margin="0 4" VerticalAlignment="Center" Text="{x:Static res:Resources.PricedownAmount}"></TextBlock>
+                <TextBox Margin="0 2" VerticalAlignment="Center" Text="{Binding NewAmount}"></TextBox>
+                <TextBlock Margin="0 4" VerticalAlignment="Center" Text="{x:Static res:Resources.PricedownProvider}"></TextBlock>
+                <usr:ProviderSelector x:Name="ProviderSelector" Margin="0 2"   SelectedId="{Binding ProviderId, Mode=TwoWay}"></usr:ProviderSelector>
+            </UniformGrid>
+        </GroupBox>
+        <UniformGrid Rows="1" Height="32">
+            <Button IsDefault="True" Margin="3" Padding="5" Click="AssetButton_Click"
+                               Content="{x:Static res:Resources.Process}"></Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click"
+                               Content="{x:Static res:Resources.Cancel}"></Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

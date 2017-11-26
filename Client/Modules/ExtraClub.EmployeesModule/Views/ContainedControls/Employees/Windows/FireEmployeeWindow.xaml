@@ -1,0 +1,63 @@
+﻿<usr:WindowBase x:Class="ExtraClub.EmployeesModule.Views.ContainedControls.Employees.Windows.FireEmployeeWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize" 
+                xmlns:glb="clr-namespace:System.Globalization;assembly=mscorlib"
+             Width="540" Title="Увольнение" SizeToContent="Height">
+    <usr:WindowBase.Resources>
+        <usr:EmptyStringToZeroConverter x:Key="nC"/>
+    </usr:WindowBase.Resources>
+    <StackPanel>
+        <GroupBox  Header="Сотрудник">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center" Margin="0 2">ФИО</TextBlock>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Employee.SerializedCustomer.FullName}"></TextBlock>
+                <TextBlock VerticalAlignment="Center" Margin="0 2">Текущая должность</TextBlock>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Employee.SerializedJobPlacement.SerializedJobName}"></TextBlock>
+                <TextBlock VerticalAlignment="Center" Margin="0 2">Дата назначения</TextBlock>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Employee.SerializedJobPlacement.ApplyDate, StringFormat={}{0:d}}"></TextBlock>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox  Header="Увольнение">
+            <StackPanel>
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center" Margin="0 2">Дата</TextBlock>
+                    <telerik:RadDatePicker x:Name="FireDateBox" VerticalAlignment="Center" Margin="0 2" SelectedDate="{Binding FireDate, Mode=TwoWay}" />
+                    <TextBlock VerticalAlignment="Center" Margin="0 2">Основание</TextBlock>
+                    <TextBox Margin="0 2" Text="{Binding FireCause}"></TextBox>
+                </UniformGrid>
+                <CheckBox x:Name="CardReturnBox" Margin="0 2" VerticalAlignment="Center">123</CheckBox>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox  Header="Расчет">
+            <StackPanel>
+                <TextBlock Margin="0 2">После проведения увольнения сумма расчета будет отмечена как выданная!</TextBlock>
+                <UniformGrid Columns="2" Margin="0 2">
+                    <TextBlock VerticalAlignment="Center">Сумма расчетная</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding PayAmount, StringFormat={}{0:c}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}"></TextBlock>
+                    <TextBlock></TextBlock>
+                    <Button Margin="0 2" Click="ShowLogClick">Отчет о формировании</Button>
+                    <TextBlock VerticalAlignment="Center">Премия за текущий месяц</TextBlock>
+                    <TextBox Margin="0 2" Text="{Binding Bonus, Converter={StaticResource ResourceKey=nC}}"></TextBox>
+                    <TextBlock VerticalAlignment="Center">З/п по бухгалтерии+НДФЛ</TextBlock>
+                    <TextBox Margin="0 2" Text="{Binding NDFL, Converter={StaticResource ResourceKey=nC}}"></TextBox>
+                    <TextBlock VerticalAlignment="Center">Сумма к выдаче</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding TotalToPay, StringFormat={}{0:c}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}"></TextBlock>
+                </UniformGrid>
+              </StackPanel>
+        </GroupBox>
+        <GroupBox  Header="После проведения">
+            <StackPanel>
+                <CheckBox Margin="0 2" x:Name="PrintFireOrderBox">Распечатать приказ об увольнении</CheckBox>
+            </StackPanel>
+        </GroupBox>
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3" Padding="5" Click="AssetButton_Click">Провести</Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

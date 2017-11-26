@@ -11,9 +11,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TonusClub.ServiceModel;
+using ExtraClub.ServiceModel;
 
-namespace TonusClub.ScheduleModule.Controls
+namespace ExtraClub.ScheduleModule.Controls
 {
     /// <summary>
     /// Interaction logic for TimelineControl.xaml

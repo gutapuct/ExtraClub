@@ -1,0 +1,53 @@
+﻿<usr:WindowBase x:Class="ExtraClub.OrganizerModule.Views.Tasks.Windows.CustomerNotificationTaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize"
+        Title="Оповещение клиента" SizeToContent="Height" WindowStartupLocation="CenterScreen" Width="601">
+    <StackPanel Margin="5">
+        <GroupBox  Header="Информация о клиенте">
+            <GroupBox  Header="Клиент">
+                <StackPanel>
+                    <UniformGrid Columns="2">
+                        <TextBlock VerticalAlignment="Center" Margin="0 2">ФИО клиента</TextBlock>
+                        <TextBlock VerticalAlignment="Center" Text="{Binding Path=Customer.FullName}" />
+                        <TextBlock VerticalAlignment="Center">№ карты</TextBlock>
+                        <TextBlock VerticalAlignment="Center" Text="{Binding Path=Customer.Card}" />
+                        <TextBlock VerticalAlignment="Center">Мобильный телефон</TextBlock>
+                        <TextBlock VerticalAlignment="Center" Text="{Binding Path=Customer.Phone2}" />
+                    </UniformGrid>
+                    <!--<UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center">Абонементы</TextBlock>
+                    <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding Path=Customer.TicketsText}" />
+                    </UniformGrid>-->
+                </StackPanel>
+            </GroupBox>
+        </GroupBox>
+        <GroupBox  Header="Оповещение">
+            <StackPanel>
+            <TextBlock Text="{Binding Notify.Message}"></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Padding="10 2" Click="Button_Click_2" Visibility="{Binding CanConsult}">Записать на консультацию</Button>
+                    <Button Padding="10 2" Click="Button_Click_1">Записать на услуги</Button>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox  Header="Исполнение задачи">
+            <StackPanel>
+                <UniformGrid Columns="2">
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Результат звонка</TextBlock>
+                    <telerik:RadComboBox IsEditable="True" ItemsSource="{Binding Results}" Text="{Binding Result, Mode=TwoWay}" Margin="2"/>
+                </UniformGrid>
+                <UniformGrid Columns="2">
+                    <TextBlock Margin="0 2">Комментарий исполнителя</TextBlock>
+                    <TextBox Height="48" AcceptsReturn="True" Text="{Binding Notify.CompletionComment}"></TextBox>
+                </UniformGrid>
+            </StackPanel>
+        </GroupBox>
+        <UniformGrid Rows="1">
+            <Button Padding="10 5" Click="IncorrectPhoneClick">Неверный номер телефона</Button>
+            <Button Margin="5 0" Padding="10 5" Click="CompletedClick">Отметить как выполненную</Button>
+            <Button Padding="10 10" Click="CancelClick">Закрыть</Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

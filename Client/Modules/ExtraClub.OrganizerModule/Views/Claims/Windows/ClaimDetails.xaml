@@ -1,0 +1,120 @@
+﻿<usr:WindowBase x:Class="ExtraClub.OrganizerModule.Views.Claims.Windows.ClaimDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+        WindowStartupLocation="CenterScreen"
+        Title="Просмотр запроса" SizeToContent="Height" Width="650" ResizeMode="CanResize">
+    <usr:WindowBase.Resources>
+        <BooleanToVisibilityConverter x:Key="boolToVis" />
+    </usr:WindowBase.Resources>
+
+    <StackPanel Margin="5">
+        <GroupBox Header="Общие параметры"  >
+            <StackPanel>
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center">Тип запроса:</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding ClaimTypeText}" Margin="0 5"></TextBlock>
+                    <TextBlock VerticalAlignment="Center">Номер</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Claim.FtmId}" TextWrapping="Wrap"></TextBlock>
+                    <TextBlock VerticalAlignment="Center">Статус</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Claim.StatusDescription}" TextWrapping="Wrap"></TextBlock>
+                    <TextBlock VerticalAlignment="Center">Тема</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Claim.Subject}" TextWrapping="Wrap"></TextBlock>
+                </UniformGrid>
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Top" Margin="0 5 0 0">Описание</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Claim.Message}" TextWrapping="Wrap" Margin="0 5"></TextBlock>
+                </UniformGrid>
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center">Желаемый срок выполнения</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Claim.PrefFinishDate}" Margin="0 5"></TextBlock>
+                </UniformGrid>
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center">Оценка</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Claim.ActualScore}" Margin="0 5"></TextBlock>
+                </UniformGrid>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Контактное лицо" >
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">ФИО инициатора запроса</TextBlock>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Claim.ContactInfo}" Margin="0 5"></TextBlock>
+                <TextBlock VerticalAlignment="Center">Email инициатора запроса</TextBlock>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Claim.ContactEmail}"></TextBlock>
+                <TextBlock VerticalAlignment="Center">Контактный телефон</TextBlock>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Claim.ContactPhone}"></TextBlock>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox  Visibility="{Binding EqVisible}" Header="Оборудование и сервис"  >
+            <StackPanel>
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center">Оборудование</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Equipment}" Margin="0 5"></TextBlock>
+                    <TextBlock VerticalAlignment="Center">Дата приобретения оборудования</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Claim.Eq_BuyDate}" Margin="0 5"></TextBlock>
+                    <TextBlock VerticalAlignment="Center">Серийный номер</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Claim.Eq_Serial}" Margin="0 5"></TextBlock>
+                    <TextBlock VerticalAlignment="Center">Почта, телефон техника</TextBlock>
+                    <TextBlock Margin="0 5" Text="{Binding Claim.Eq_TechContact}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center">Дата приобретения оборудования</TextBlock>
+                    <TextBlock Margin="0 5" Text="{Binding Claim.Eq_BuyDate}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center">Серийный номер производителя</TextBlock>
+                    <TextBlock Margin="0 5" Text="{Binding Claim.Eq_Serial}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center">Серийный номер ГУТВЕЛ</TextBlock>
+                    <TextBlock Margin="0 5" Text="{Binding Claim.Eq_SerialGutwell, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center">Модель оборудования</TextBlock>
+                    <TextBlock Margin="0 5" Text="{Binding Claim.Eq_Model}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" x:Name="addrText">Страна. Точный адрес клуба (с индексом)</TextBlock>
+                    <TextBlock Margin="0 5" Text="{Binding Claim.Eq_ClubAddr}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center">Адрес почтовый (для корреспонденции)</TextBlock>
+                    <TextBlock Margin="0 5" Text="{Binding Claim.Eq_PostAddr}"></TextBlock>
+                </UniformGrid>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox  Visibility="{Binding TiVisible}" Header="Тираж"  >
+            <StackPanel>
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center">Желаемый тираж</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Claim.Circulation}" Margin="0 5"></TextBlock>
+                </UniformGrid>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox  Visibility="{Binding ResVisible}" Header="Информация об исполнении"  >
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Дата исполнения запроса</TextBlock>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Claim.FinishDate, StringFormat={}{0:dd MMMM yyyy}}" Margin="0 5"></TextBlock>
+                <TextBlock VerticalAlignment="Center">ФИО исполнителя</TextBlock>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Claim.FinishedByName}" Margin="0 5"></TextBlock>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox Header="Комментарии">
+            <ItemsControl ItemsSource="{Binding Comments}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Author}"></TextBlock>
+                            <TextBlock Text="{Binding Date}" Grid.Column="1"></TextBlock>
+                            <TextBlock Text="{Binding Text}" FontStyle="Italic" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap"></TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </GroupBox>
+        <UniformGrid Rows="2" Margin="0 10 0 0">
+            <Button Margin="2" Click="Comment_Click" Name="AddCommentButton" Height="28">Добавить комментарий</Button>
+            <Button Margin="2" Click="Complaint_Click" Name="AddComplaintButton" Height="28">Оставить жалобу</Button>
+            <Button Margin="2" Click="Cancel_Click" Height="28">Закрыть</Button>
+            <Button Margin="2" Click="Submit_Click" Height="28" Visibility="{Binding CommitExecVisible}" >Подтвердить выполнение</Button>
+            <Button Margin="2" Click="Reopen_Click" Height="28" Visibility="{Binding CommitExecVisible}" >Вернуть на доработку</Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

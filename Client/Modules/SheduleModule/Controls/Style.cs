@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Media;
 
-namespace TonusClub.ScheduleModule.Controls
+namespace ExtraClub.ScheduleModule.Controls
 {
     internal static class Styles    
     {

@@ -11,13 +11,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TonusClub.ServiceModel;
-using TonusClub.ScheduleModule.ViewModels;
-using TonusClub.UIControls.Windows;
+using ExtraClub.ServiceModel;
+using ExtraClub.ScheduleModule.ViewModels;
+using ExtraClub.UIControls.Windows;
 using System.ServiceModel;
-using TonusClub.UIControls;
+using ExtraClub.UIControls;
 
-namespace TonusClub.ScheduleModule.Views.Windows
+namespace ExtraClub.ScheduleModule.Views.Windows
 {
     public partial class ParallelSigningWindow
     {
@@ -55,7 +55,7 @@ namespace TonusClub.ScheduleModule.Views.Windows
         {
             if (AdditionalSignList.SelectedItem == null)
             {
-                TonusWindow.Alert(UIControls.Localization.Resources.Error, UIControls.Localization.Resources.AppendWarn);
+                ExtraWindow.Alert(UIControls.Localization.Resources.Error, UIControls.Localization.Resources.AppendWarn);
                 return;
             }
             var pe = AdditionalSignList.SelectedItem as PlanningElement;
@@ -65,7 +65,7 @@ namespace TonusClub.ScheduleModule.Views.Windows
             }
             catch (FaultException ex)
             {
-                TonusWindow.Alert(UIControls.Localization.Resources.Error, ex.Message);
+                ExtraWindow.Alert(UIControls.Localization.Resources.Error, ex.Message);
                 return;
             }
             catch

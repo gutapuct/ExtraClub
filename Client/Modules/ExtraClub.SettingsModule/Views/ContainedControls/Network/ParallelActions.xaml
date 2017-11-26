@@ -1,0 +1,39 @@
+﻿<usr:ModuleViewBase x:Class="ExtraClub.SettingsModule.Views.ContainedControls.ParallelActions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="300" d:DesignWidth="700">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25" usr:AuthorizationManager.AuthorizationKey="PlanningMgmgt">
+            <Button Margin="2 0" Click="NewRuleButton_Click">Новое правило</Button>
+            <Button Margin="2 0" Click="EditRuleButton_Click">Редактировать выделенное правило</Button>
+            <Button Margin="2 0" Click="DeleteRuleButton_Click">Удалить выделенное правило</Button>
+        </StackPanel>
+        <telerik:RadGridView
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ActionOnLostFocus="CommitEdit"
+                                        ShowGroupPanel="False"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        IsFilteringAllowed="False"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding ParallelRulesView}"
+                                        MouseDoubleClick="ParallelRulesGrid_MouseDoubleClick"
+                                        x:Name="ParallelRulesGrid">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Width="Auto" Header="Базовая процедура" DataMemberBinding="{Binding Type1}"/>
+                <telerik:GridViewDataColumn Width="Auto" Header="Включаемая процедура" DataMemberBinding="{Binding Type2}"/>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </DockPanel>
+</usr:ModuleViewBase>

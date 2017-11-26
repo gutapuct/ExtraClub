@@ -8,17 +8,17 @@ using Microsoft.Practices.Unity;
 using Telerik.Windows;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.ScheduleView;
-using TonusClub.Infrastructure;
-using TonusClub.ScheduleModule.Controls;
-using TonusClub.ScheduleModule.ViewModels;
-using TonusClub.ScheduleModule.Views.Solarium;
-using TonusClub.ScheduleModule.Views.Treatments.Windows;
-using TonusClub.ScheduleModule.Views.Windows;
-using TonusClub.UIControls;
-using TonusClub.UIControls.Localization;
-using TonusClub.UIControls.Windows;
+using ExtraClub.Infrastructure;
+using ExtraClub.ScheduleModule.Controls;
+using ExtraClub.ScheduleModule.ViewModels;
+using ExtraClub.ScheduleModule.Views.Solarium;
+using ExtraClub.ScheduleModule.Views.Treatments.Windows;
+using ExtraClub.ScheduleModule.Views.Windows;
+using ExtraClub.UIControls;
+using ExtraClub.UIControls.Localization;
+using ExtraClub.UIControls.Windows;
 
-namespace TonusClub.ScheduleModule.Views.Treatments
+namespace ExtraClub.ScheduleModule.Views.Treatments
 {
     public partial class TreatmentsGrid
     {
@@ -65,7 +65,7 @@ namespace TonusClub.ScheduleModule.Views.Treatments
                 var availEvents = ClientContext.GetAvailableParallels(e.Guid);
                 if (availEvents.Count == 0)
                 {
-                    TonusWindow.Alert("Ошибка", "Дозапись к данной услуге невозможна!");
+                    ExtraWindow.Alert("Ошибка", "Дозапись к данной услуге невозможна!");
                 }
                 else
                 {
@@ -74,7 +74,7 @@ namespace TonusClub.ScheduleModule.Views.Treatments
             }
             catch (FaultException ex)
             {
-                TonusWindow.Alert("Ошибка", ex.Message);
+                ExtraWindow.Alert("Ошибка", ex.Message);
             }
         }
 
@@ -209,7 +209,7 @@ namespace TonusClub.ScheduleModule.Views.Treatments
         {
             if (!ClientContext.CheckPermission("CancelTreatmentEvent")) return;
 
-            TonusWindow.Confirm(UIControls.Localization.Resources.CancelBooking, UIControls.Localization.Resources.CancelBookingMsg,
+            ExtraWindow.Confirm(UIControls.Localization.Resources.CancelBooking, UIControls.Localization.Resources.CancelBookingMsg,
                 w =>
                 {
                     if (w.DialogResult ?? false)
@@ -223,7 +223,7 @@ namespace TonusClub.ScheduleModule.Views.Treatments
         {
             if (!ClientContext.CheckPermission("CancelTreatmentEvent")) return;
 
-            TonusWindow.Confirm("Отметка о посещении", "Пометить процедуру посещенной?",
+            ExtraWindow.Confirm("Отметка о посещении", "Пометить процедуру посещенной?",
                 w =>
                 {
                     if (w.DialogResult ?? false)

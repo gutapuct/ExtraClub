@@ -1,0 +1,33 @@
+﻿<usr:ModuleViewBase x:Class="ExtraClub.TurnoverModule.Views.TurnoverAndProvidersControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             xmlns:res="clr-namespace:ExtraClub.UIControls.Localization;assembly=ExtraClub.UIControls"
+             xmlns:usrC="clr-namespace:ExtraClub.TurnoverModule.Views.ContainedControls"
+             usr:AuthorizationManager.AuthorizationKey="TurnoverFlowPanel">
+    <TabControl x:Name="ProvidersTabControl">
+        <TabItem   x:Name="ConsignmentsTabItem"
+                                                       Header="{x:Static res:Resources.Consignments}"
+                                                       usr:AuthorizationManager.AuthorizationKey="ConsignmentsTab">
+            <TabItem.Content>
+                <usrC:ConsignmentsControl  />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem   Header="{x:Static res:Resources.Orders}"
+                                                       usr:AuthorizationManager.AuthorizationKey="ProviderOrdersTab">
+            <TabItem.Content>
+                <usrC:ProviderOrders  />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem   Header="{x:Static res:Resources.Providers}"
+                                                       usr:AuthorizationManager.AuthorizationKey="ProvidersTab">
+            <TabItem.Content>
+                <usrC:ProvidersControl  />
+            </TabItem.Content>
+        </TabItem>
+    </TabControl>
+</usr:ModuleViewBase>

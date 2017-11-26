@@ -1,0 +1,37 @@
+﻿<usr:ModuleViewBase x:Class="ExtraClub.TurnoverModule.Views.ContainedControls.CashierBookControl"
+             xmlns:grid="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.GridView"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:glb="clr-namespace:System.Globalization;assembly=mscorlib"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:res="clr-namespace:ExtraClub.UIControls.Localization;assembly=ExtraClub.UIControls"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls"
+             d:DesignHeight="297" d:DesignWidth="942">
+  <StackPanel>
+    <GroupBox Header="Баланс" MinWidth="350" MaxWidth="500" HorizontalAlignment="Left">
+      <UniformGrid Columns="2">
+        <TextBlock VerticalAlignment="Center">Текущий баланс в кассе</TextBlock>
+                <TextBlock VerticalAlignment="Center" Text="{Binding Amount, StringFormat={}{0:c}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}"></TextBlock>
+      </UniformGrid>
+    </GroupBox>
+    <GroupBox Header="Формирование листа кассовой книги" MinWidth="350" MaxWidth="500" HorizontalAlignment="Left">
+      <UniformGrid Columns="2">
+        <TextBlock VerticalAlignment="Center">Сформировать лист за дату</TextBlock>
+        <telerik:RadDatePicker x:Name="GenPicker" VerticalAlignment="Center" Margin="0 2" SelectedDate="{Binding GenDate, Mode=TwoWay}" />
+                <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.Club}"></TextBlock>
+        <telerik:RadComboBox IsEditable="False" Margin="0 2"
+            ItemsSource="{Binding Divisions}"
+                             SelectedValuePath="Id"
+                             DisplayMemberPath="Name"
+                             Name="DivPicker"
+            IsReadOnly="True"/>
+        <TextBlock></TextBlock>
+        <Button Margin="0 2" Click="Button_Click_1">Вывести в Pdf</Button>
+      </UniformGrid>
+    </GroupBox>
+  </StackPanel>
+</usr:ModuleViewBase>

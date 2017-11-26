@@ -1,0 +1,85 @@
+﻿    <Window x:Class="ExtraClub.OrganizerModule.Views.Calls.Windows.IncomingOldCustomerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:glb="clr-namespace:System.Globalization;assembly=mscorlib"
+        Title="Входящий звонок - старый клиент" SizeToContent="Height" Width="700" WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="10">
+        <TextBlock Margin="5" FontSize="18" Text="{Binding Company.IncomingNewCusomerCallText}"></TextBlock>
+        <ListView ItemsSource="{Binding Links}" BorderThickness="0" Margin="0 5">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Button Margin="5" Content="{Binding Filename}" Cursor="Hand" Click="LinkClicked">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <TextBlock TextDecorations="Underline">
+                                    <ContentPresenter />
+                                </TextBlock>
+                            </ControlTemplate>
+                        </Button.Template>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Foreground" Value="{DynamicResource ControlBorder}" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Foreground" Value="#FF1e9a38" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <GroupBox  Header="Клиент">
+            <StackPanel>
+            <usr:CustomerSearchControl x:Name="CustomerSearch" AllowInput="True" SelectedClientChanged="CustomerSearch_SelectedClientChanged" ></usr:CustomerSearchControl>
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center" Margin="0 2">ФИО</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="0 2" Text="{Binding Customer.FullName}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="0 2">Клиентская карта</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="0 2" Text="{Binding Customer.ActiveCard.CardBarcode}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="0 2">Тип карты</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="0 2" Text="{Binding Customer.ActiveCard.SerializedCustomerCardType.Name}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="0 2">Состояние депозита</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="0 2" Text="{Binding Customer.RurDepositValue, StringFormat={}{0:c}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="0 2">Состояние бонусного счета</TextBlock>
+                    <TextBlock VerticalAlignment="Center" Margin="0 2" Text="{Binding Customer.BonusDepositValue, StringFormat={}{0:c}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}"></TextBlock>
+                </UniformGrid>
+              <!--
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center" Margin="0 2">Активные абонементы</TextBlock>
+                    <TextBlock VerticalAlignment="Center" TextWrapping="Wrap" Margin="0 2" Text="{Binding Customer.TicketsText}"></TextBlock>
+                </UniformGrid>-->
+            </StackPanel>
+        </GroupBox>
+        <UniformGrid Rows="1" Margin="0 5">
+            <Button Padding="5 10" Margin="0 0 5 0" Click="NewTreatmentsClick" usr:AuthorizationManager.AuthorizationKey="CreateNewTreatmentSchedule">Запись на услуги</Button>
+            <Button Padding="5 10" Margin="0 0 5 0" Click="TreatmentsWindowClick">Часовая сетка услуг</Button>
+            <Button Margin="0 0 5 0" Click="NewSolariumClick" usr:AuthorizationManager.AuthorizationKey="NewSolariumEvent">Запись в солярий</Button>
+            <Button Margin="0 0 5 0" Click="SolariumWindowClick">Часовая сетка солярия</Button>
+            <Button Click="CustomerCardClick">Карточка клиента</Button>
+        </UniformGrid>
+        <GroupBox  Header="Комментарии">
+            <TextBox Text="{Binding Comments, Mode=TwoWay}" AcceptsReturn="True" Height="64"></TextBox>
+        </GroupBox>
+        <UniformGrid Rows="1">
+            <Button Margin="5 0" Padding="5 10" Click="NewCustomerClick" usr:AuthorizationManager.AuthorizationKey="NewCustomerCallButton">Новый клиент</Button>
+            <Button Margin="5 0" Padding="5 10" Click="NewScrenarioClick" usr:AuthorizationManager.AuthorizationKey="NewCustomerScrenarioCallButton">
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock HorizontalAlignment="Center">Новый клиент</TextBlock>
+                    <TextBlock HorizontalAlignment="Center">(сценарий)</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Margin="5 0" Padding="5 10" Click="NotACustomerClick" usr:AuthorizationManager.AuthorizationKey="NotCustomerCallButton">Не клиент</Button>
+            <Button Margin="5 0" Padding="5 10" Click="SaveClick">Сохранить</Button>
+            <Button Margin="5 0" Padding="5 10" Click="CancelClick">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+    </Window>

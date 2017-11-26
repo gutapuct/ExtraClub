@@ -1,0 +1,33 @@
+﻿<usr:WindowBase x:Class="ExtraClub.SettingsModule.Views.NewEditTreatmentIntRestWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize" 
+             Width="500" Title="Ограничение промежутка" SizeToContent="Height">
+    <StackPanel Margin="5">
+        <UniformGrid Columns="2">
+            <TextBlock VerticalAlignment="Center">Тип первой процедуры:</TextBlock>
+            <telerik:RadComboBox IsEditable="False" Margin="2"
+                        ItemsSource="{Binding TreatmentTypesView1}"
+                        SelectedValuePath="Id"
+                        SelectedValue="{Binding Path=TreatmentSR.TreatmentType1Id, Mode=TwoWay}"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+            <TextBlock VerticalAlignment="Center">Тип второй процедуры:</TextBlock>
+            <telerik:RadComboBox IsEditable="False" Margin="2"
+                        ItemsSource="{Binding TreatmentTypesView2}"
+                        SelectedValuePath="Id"
+                        SelectedValue="{Binding Path=TreatmentSR.TreatmentType2Id, Mode=TwoWay}"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+            <TextBlock VerticalAlignment="Center" >Минимальный промежуток:</TextBlock>
+            <telerik:RadNumericUpDown VerticalAlignment="Center" Margin="2" x:Name="maxCustEdit"
+                                              Value="{Binding Path=TreatmentSR.Interval, Mode=TwoWay}" Minimum="0" Maximum="130000" ValueFormat="Numeric" HorizontalContentAlignment="Left" />
+        </UniformGrid>
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3" Padding="5" IsDefault="True" Click="CommitButton_Click">Сохранить</Button>
+            <Button Margin="3,3,3,0" Padding="5" IsCancel="True" Click="Button_Click_1" Height="26" VerticalAlignment="Top">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

@@ -1,0 +1,42 @@
+﻿<usr:ModuleViewBase x:Class="ExtraClub.Clients.Views.ContainedControls.CallsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:res="clr-namespace:ExtraClub.UIControls.Localization;assembly=ExtraClub.UIControls" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="409" d:DesignWidth="756">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+            <Button Margin="2 0" Click="NewCallClick" usr:AuthorizationManager.AuthorizationKey="NewCallFromCustCardButton" Content="Задача на звонок"></Button>
+            <Button Margin="2 0" Click="NewOutCallClick" usr:AuthorizationManager.AuthorizationKey="OutgoingCallButton" Content="Исходящий звонок"/>
+            <Button Margin="2 0" Click="NewEventClick" Content="Новое событие"/>
+        </StackPanel>
+        <telerik:RadGridView HorizontalAlignment="Stretch"
+                                Margin="5 5 5 5"
+                                x:Name="CallsViewGrid"
+                                RowIndicatorVisibility="Collapsed"
+                                IsReadOnly="True"
+                                AutoGenerateColumns="False"
+                                CanUserFreezeColumns="True"
+                                CanUserResizeColumns="True"
+                                CanUserInsertRows="False"
+                                ShowInsertRow="False"
+                                ShowGroupPanel="False"
+                                IsFilteringAllowed="True"
+                                MouseDoubleClick="CallsViewGrid_MouseDoubleClick"
+                                ItemsSource="{Binding CustomerEventsView}">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Width="120" IsFilterable="False" Header="{x:Static res:Resources.Date}" DataMemberBinding="{Binding Date}" DataFormatString="{}{0:dd.MM.yyyy H:mm}"/>
+                <telerik:GridViewDataColumn Width="*" Header="Тип" DataMemberBinding="{Binding TypeText}"/>
+                <telerik:GridViewDataColumn Width="2*" IsFilterable="False" Header="{x:Static res:Resources.Employee}" DataMemberBinding="{Binding Employee}"/>
+                <telerik:GridViewDataColumn Width="2*" IsFilterable="False" Header="{x:Static res:Resources.Result}" TextWrapping="Wrap" DataMemberBinding="{Binding Result}"/>
+                <telerik:GridViewDataColumn Width="2*" IsFilterable="False" Header="{x:Static res:Resources.Comment}" TextWrapping="Wrap" DataMemberBinding="{Binding Comments}"/>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </DockPanel>
+
+    </usr:ModuleViewBase>
+

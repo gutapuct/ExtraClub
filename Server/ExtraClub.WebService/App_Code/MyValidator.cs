@@ -56,8 +56,8 @@ namespace ExtraClub.WebService
                     if(user == null)
                     {
 
-                        Logger.Log(String.Format("Неуспешная попытка подключения: {0} {1}", userName, password));
-                        throw new FaultException("Неверное имя пользователя или пароль!");
+                        Logger.Log(String.Format("Неуспешная попытка подключения ({2}): {0} {1}", userName, password, DateTime.Now));
+                        throw new FaultException("Неверное имя пользователя или пароль!!!");
                     }
 
                     user.LastLoginDate = DateTime.Now;

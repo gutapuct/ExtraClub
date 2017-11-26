@@ -1,0 +1,42 @@
+﻿<usr:WindowBase x:Class="ExtraClub.SettingsModule.Views.ContainedControls.Network.Windows.NewCompanyWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize" 
+             Width="757" Title="Новый франчайзи" SizeToContent="Height">
+    <StackPanel>
+        <GroupBox  Header="Параметры франчайзи">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center" Margin="0 2">Название франчайзи</TextBlock>
+                <TextBox Margin="0 2" Text="{Binding CompName, Mode=TwoWay}"></TextBox>
+                <TextBlock VerticalAlignment="Center" Margin="0 2">Имя пользователя системного администратора</TextBlock>
+                <TextBox Margin="0 2" Text="{Binding Login, Mode=TwoWay}"></TextBox>
+                <TextBlock VerticalAlignment="Center" Margin="0 2">Пароль системного администратора</TextBlock>
+                <TextBox Margin="0 2" Text="{Binding Password, Mode=TwoWay}"></TextBox>
+                <TextBlock VerticalAlignment="Center">Роль</TextBlock>
+                <telerik:RadComboBox IsEditable="False" Margin="2"
+                        ItemsSource="{Binding Roles}"
+                        SelectedValuePath="RoleId"
+                        SelectedValue="{Binding Path=RoleId, Mode=TwoWay}"
+                        DisplayMemberPath="RoleName" IsReadOnly="True"/>
+                <TextBlock VerticalAlignment="Center" Margin="0 2">Адрес для отсылки отчетов</TextBlock>
+                <TextBox Margin="0 2" Text="{Binding ReportEmail, Mode=TwoWay}"></TextBox>
+                <TextBlock VerticalAlignment="Center" Margin="0 2">Отклонение часового пояса</TextBlock>
+                <TextBox Margin="0 2" Text="{Binding UtcCorr, Mode=TwoWay}"></TextBox>
+                <TextBlock VerticalAlignment="Center" Margin="0 2">Префикс имен пользователей</TextBlock>
+                <TextBox Margin="0 2" Text="{Binding UserPrefix, Mode=TwoWay}"></TextBox>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox  Header="Описание процесса создания">
+            <TextBlock TextWrapping="Wrap">Будет создан несконфигурированный франчайзи. Для него будут скопированы и доступны для редактирования им программы занятий, отмеченные как "фиксированные", и роли, отмеченные как "фиксированные". Будет добавлен новый пользователь, подписанный на указанную роль. Эта роль также будет скопирована и будет содержать максимальную функциональность, доступную для франчайзи. При входе в систему с его учетной записи будет запущен мастер "Создание нового франчайзи".</TextBlock>
+        </GroupBox>
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3" Padding="5" Click="AssetButton_Click">ОК</Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+    </usr:WindowBase>
+

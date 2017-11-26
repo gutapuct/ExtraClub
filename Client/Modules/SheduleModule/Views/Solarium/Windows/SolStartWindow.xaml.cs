@@ -10,15 +10,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using TonusClub.CashRegisterModule;
-using TonusClub.Infrastructure.Interfaces;
-using TonusClub.ServiceModel;
-using TonusClub.ServiceModel.Turnover;
-using TonusClub.UIControls;
+using ExtraClub.CashRegisterModule;
+using ExtraClub.Infrastructure.Interfaces;
+using ExtraClub.ServiceModel;
+using ExtraClub.ServiceModel.Turnover;
+using ExtraClub.UIControls;
 using System.Windows.Markup;
 using System.Globalization;
 
-namespace TonusClub.ScheduleModule.Views.Windows
+namespace ExtraClub.ScheduleModule.Views.Windows
 {
     public partial class SolStartWindow
     {

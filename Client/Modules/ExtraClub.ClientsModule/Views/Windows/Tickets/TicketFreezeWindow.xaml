@@ -1,0 +1,77 @@
+﻿<usr:WindowBase x:Class="ExtraClub.Clients.Views.TicketFreezeWindow"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:glb="clr-namespace:System.Globalization;assembly=mscorlib"
+            xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+            xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+            xmlns:res="clr-namespace:ExtraClub.UIControls.Localization;assembly=ExtraClub.UIControls"
+            WindowStartupLocation="CenterScreen"
+            Width="500" ResizeMode="NoResize" SizeToContent="Height" 
+            Title="{x:Static res:Resources.TicketFreeze}">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="32"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <GroupBox  Header="{x:Static res:Resources.CustomerInfo}">
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center" Margin="0 3" Text="{x:Static res:Resources.CustomerName}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Path=Customer.FullName}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.CardNumber}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Path=Customer.ActiveCard.CardBarcode}"
+                       Background="{Binding Path=Customer.ActiveCard.SerializedCustomerCardType.Color, Mode=OneWay}"
+                       HorizontalAlignment="Left"/>
+                </UniformGrid>
+            </GroupBox>
+            <GroupBox  Header="{x:Static res:Resources.CurrentTicketInfo}">
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center" Margin="0 3" Text="{x:Static res:Resources.TicketNumber}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Path=Ticket.Number, StringFormat={}{0:n0}}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.UnitsTotal}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Path=Ticket.UnitsAmount, StringFormat={}{0:n0}}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.UnitsLeft}" ></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Path=Ticket.UnitsLeft, StringFormat={}{0:n0}}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.GuestTotal}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Path=Ticket.GuestUnitsAmount, StringFormat={}{0:n0}}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.GuestLeft}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Path=Ticket.GuestUnitsLeft, StringFormat={}{0:n0}}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.ExpiryDate}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Path=Ticket.FinishDate, StringFormat={}{0:d}}"></TextBlock>
+                </UniformGrid>
+            </GroupBox>
+            <GroupBox  Header="{x:Static res:Resources.TicketFreeze}">
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.Reason}"></TextBlock>
+                    <telerik:RadComboBox IsEditable="False" Margin="2"
+                        ItemsSource="{Binding TicketFreezeReasons}"
+                        SelectedItem="{Binding Path=TicketFreezeReason, Mode=TwoWay}"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+                    <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.FreezeStart}"></TextBlock>
+                    <telerik:RadDatePicker Margin="2" SelectedDate="{Binding Path=StartDate, Mode=TwoWay}" SelectableDateStart="{Binding AllowedStartSate}" SelectableDateEnd="{Binding EndDate, Mode=OneWay}" />
+                    <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.FreezeEnd}"></TextBlock>
+                    <telerik:RadDatePicker Margin="2" SelectedDate="{Binding Path=EndDate, Mode=TwoWay}" SelectableDateStart="{Binding StartDate, Mode=OneWay}"/>
+                    <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.FreezeLength}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Path=FreezeLength}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.Comment}"></TextBlock>
+                    <telerik:RadMaskedTextBox MaskType="None" Margin="2" Grid.Row="7" Value="{Binding Path=Comment}"/>
+                    <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.Cost}"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Text="{Binding Path=FreezeCost, StringFormat={}{0:c}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}"></TextBlock>
+                </UniformGrid>
+            </GroupBox>
+            <Button Margin="3" Height="26"
+                               Click="PrintStatementButton_Click"
+                               Content="{x:Static res:Resources.PrintClause}"></Button>
+        </StackPanel>
+        <UniformGrid Rows="1" Grid.Row="2">
+            <Button Margin="3" Padding="5"
+                               Content="{x:Static res:Resources.Process}"
+                               Click="CreateButton_Click"></Button>
+            <Button Margin="3" Padding="5"
+                               Content="{x:Static res:Resources.Cancel}"
+                               Click="CancelButton_Click"></Button>
+        </UniformGrid>
+    </Grid>
+</usr:WindowBase>

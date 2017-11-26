@@ -11,13 +11,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TonusClub.UIControls;
-using TonusClub.ServiceModel;
+using ExtraClub.UIControls;
+using ExtraClub.ServiceModel;
 using Telerik.Windows.Controls;
 
-namespace TonusClub.ScheduleModule.Views.Treatments.Windows
+namespace ExtraClub.ScheduleModule.Views.Treatments.Windows
 {
-    public partial class SelectConfigWindow : TonusClub.UIControls.WindowBase
+    public partial class SelectConfigWindow : ExtraClub.UIControls.WindowBase
     {
         public TreatmentConfig TcResult;
 

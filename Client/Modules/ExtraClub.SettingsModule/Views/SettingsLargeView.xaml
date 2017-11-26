@@ -1,0 +1,192 @@
+﻿<usr:ModuleViewBase x:Class="ExtraClub.SettingsModule.Views.SettingsLargeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:usrC="clr-namespace:ExtraClub.SettingsModule.Views.ContainedControls"
+             xmlns:usrCC="clr-namespace:ExtraClub.SettingsModule.Views.ContainedControls.Club"
+             xmlns:usrCN="clr-namespace:ExtraClub.SettingsModule.Views.ContainedControls.Network"
+             xmlns:usrCF="clr-namespace:ExtraClub.SettingsModule.Views.ContainedControls.Franch"
+             xmlns:res="clr-namespace:ExtraClub.UIControls.Localization;assembly=ExtraClub.UIControls"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="440" d:DesignWidth="730" >
+    <TabControl HorizontalAlignment="Stretch"
+                                                      VerticalAlignment="Stretch">
+        <!--<TabItem Header="Франчайзи" usr:AuthorizationManager.AuthorizationKey="FranchTab">
+            <TabItem.Content>
+                <usrCN:FranchControl />
+            </TabItem.Content>
+        </TabItem>-->
+        <TabItem Header="Типы карт" usr:AuthorizationManager.AuthorizationKey="GeneralCardTypesTab">
+            <TabItem.Content>
+                <usrC:OrgCardTypesControl />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Типы Абонементов" usr:AuthorizationManager.AuthorizationKey="GeneralTickTypesTab">
+            <TabItem.Content>
+                <usrC:OrgTicketTypesControl />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Процедуры" usr:AuthorizationManager.AuthorizationKey="GeneralTreatsTab">
+            <TabItem.Content>
+                <usrC:OrgTreatmentTypesControl />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Типы рассрочек" usr:AuthorizationManager.AuthorizationKey="FranchInstalmentsTab">
+            <TabItem.Content>
+                <usrCN:InstalmentsControl />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Правила планирования" usr:AuthorizationManager.AuthorizationKey="GeneralPlanRulesTab">
+            <TabItem.Content>
+                <TabControl HorizontalAlignment="Stretch"
+                                                      VerticalAlignment="Stretch">
+                    <TabItem Header="Ограничения: промежуток">
+                        <TabItem.Content>
+                            <DockPanel>
+                                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25" usr:AuthorizationManager.AuthorizationKey="PlanningMgmgt">
+                                    <Button Margin="2 0" Click="NewIntRestButton_Click">Новое ограничение</Button>
+                                    <Button Margin="2 0" Click="EditTreatmentIRButton_Click">Редактировать</Button>
+                                    <Button Margin="2 0" Click="DeleteTreatmentIRButton_Click">Удалить</Button>
+                                </StackPanel>
+                                <TextBlock DockPanel.Dock="Top" Margin="5 0 5 0" TextWrapping="Wrap">При записи посетителя на две указанные процедуры в один день, между процедурами будет соблюден перерыв.</TextBlock>
+                                <telerik:RadGridView
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ShowGroupPanel="True"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding TreatmentIntRestView}"
+                                        MouseDoubleClick="IntRestGrid_MouseDoubleClick"
+                                        x:Name="IntRestGrid">
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewDataColumn Header="Процедура 1" DataMemberBinding="{Binding Path=SerializedTreatment1Type.Name}"/>
+                                        <telerik:GridViewDataColumn Header="Процедура 2" DataMemberBinding="{Binding Path=SerializedTreatment2Type.Name}"/>
+                                        <telerik:GridViewDataColumn Header="Промежуток, мин" DataMemberBinding="{Binding Interval}"/>
+                                    </telerik:RadGridView.Columns>
+                                </telerik:RadGridView>
+                            </DockPanel>
+                        </TabItem.Content>
+                    </TabItem>
+                    <TabItem Header="Ограничения: последовательность">
+                        <TabItem.Content>
+                            <DockPanel>
+                                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25" usr:AuthorizationManager.AuthorizationKey="PlanningMgmgt">
+                                    <Button Margin="2 0" Click="NewSeqRestButton_Click">Новое ограничение</Button>
+                                    <Button Margin="2 0" Click="EditTreatmentSRButton_Click">Редактировать</Button>
+                                    <Button Margin="2 0" Click="DeleteTreatmentSRButton_Click">Удалить</Button>
+                                </StackPanel>
+                                <TextBlock DockPanel.Dock="Top" Margin="5 0 5 0" TextWrapping="Wrap">При записи посетителя на две указанные процедуры в один день будет запрещен данный порядок их следования (после "процедуры 1" "процедура 2" невозможна)</TextBlock>
+                                <telerik:RadGridView
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ShowGroupPanel="True"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding TreatmentSeqRestView}"
+                                        MouseDoubleClick="SeqRestGrid_MouseDoubleClick"
+                                        x:Name="SeqRestGrid">
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewDataColumn Header="Процедура 1" DataMemberBinding="{Binding Path=SerializedTreatment1Type.Name}"/>
+                                        <telerik:GridViewDataColumn Header="Процедура 2" DataMemberBinding="{Binding Path=SerializedTreatment2Type.Name}"/>
+                                    </telerik:RadGridView.Columns>
+                                </telerik:RadGridView>
+                            </DockPanel>
+                        </TabItem.Content>
+                    </TabItem>
+                    <TabItem Header="Ограничения: количество">
+                        <TabItem.Content>
+                            <DockPanel>
+                                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25" usr:AuthorizationManager.AuthorizationKey="PlanningMgmgt">
+                                    <Button Margin="2 0" Click="NewAmRestButton_Click">Новое ограничение</Button>
+                                    <Button Margin="2 0" Click="EditTreatmentARButton_Click">Редактировать</Button>
+                                    <Button Margin="2 0" Click="DeleteTreatmentARButton_Click">Удалить</Button>
+                                </StackPanel>
+                                <TextBlock DockPanel.Dock="Top" Margin="5 0 5 0" TextWrapping="Wrap">Максимальная длительность пребывания посетителя на процедуре в день</TextBlock>
+                                <telerik:RadGridView
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ShowGroupPanel="True"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding TreatmentAmRestView}"
+                                        MouseDoubleClick="AmRestGrid_MouseDoubleClick"
+                                        x:Name="AmRestGrid">
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewDataColumn Header="Процедура" DataMemberBinding="{Binding Path=SerializedTreatment1Type.Name}"/>
+                                        <telerik:GridViewDataColumn Header="Длительность, мин" DataMemberBinding="{Binding Amount}"/>
+                                    </telerik:RadGridView.Columns>
+                                </telerik:RadGridView>
+                            </DockPanel>
+                        </TabItem.Content>
+                    </TabItem>
+                    <TabItem Header="Параллельные процедуры" usr:AuthorizationManager.AuthorizationKey="PlanningMgmgt">
+                        <TabItem.Content>
+                            <usrC:ParallelActions />
+                        </TabItem.Content>
+                    </TabItem>
+                </TabControl>
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Противопоказания" usr:AuthorizationManager.AuthorizationKey="GeneralContrasTab">
+            <TabItem.Content>
+                <usrC:ContraIndicationsControl />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Словари" usr:AuthorizationManager.AuthorizationKey="GeneralDictsTab">
+            <TabItem.Content>
+                <usrC:DictionariesControl  x:Name="DictionariesControl"/>
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Солярий" usr:AuthorizationManager.AuthorizationKey="GeneralSolarsTab">
+            <TabItem.Content>
+                <usrCN:OrgSolarium x:Name="OrgSolarium" />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Сценарий звонка от нового клиента" usr:AuthorizationManager.AuthorizationKey="GeneralCallsTab">
+            <TabItem.Content>
+                <usrCN:CallScrenario />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Рекламные каналы">
+            <TabItem.Content>
+                <usrCN:AdvertSettings />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Новости">
+            <TabItem.Content>
+                <usrCN:NewsControl />
+            </TabItem.Content>
+        </TabItem>
+        <TabItem Header="Типы целей">
+            <TabItem.Content>
+                <TabControl HorizontalAlignment="Stretch"
+                                                      VerticalAlignment="Stretch">
+                    <TabItem Header="Цели">
+                        <usrCN:TargetsConrol />
+                    </TabItem>
+                    <TabItem Header="Программы занятий" x:Name="TargetPrograms">
+                    </TabItem>
+                </TabControl>
+            </TabItem.Content>
+        </TabItem>
+    </TabControl>
+</usr:ModuleViewBase>

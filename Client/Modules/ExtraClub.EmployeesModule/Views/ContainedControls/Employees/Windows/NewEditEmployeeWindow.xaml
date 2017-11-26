@@ -1,0 +1,122 @@
+﻿<usr:WindowBase x:Class="ExtraClub.EmployeesModule.Views.ContainedControls.Employees.Windows.NewEditEmployeeWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize" 
+             Width="540" Title="Карточка сотрудника" SizeToContent="Height">
+    <usr:WindowBase.Resources>
+        <BooleanToVisibilityConverter x:Key="boolToVis" />
+    </usr:WindowBase.Resources>
+    <StackPanel Margin="5">
+        <GroupBox  Header="Анкетные данные" Margin="2">
+            <StackPanel>
+                <UniformGrid Columns="2">
+                    <TextBlock VerticalAlignment="Center">Фамилия:</TextBlock>
+                    <telerik:RadMaskedTextBox MaskType="None" Margin="2" VerticalAlignment="Center" Value="{Binding Customer.LastName, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
+                    <TextBlock VerticalAlignment="Center">Имя:</TextBlock>
+                    <telerik:RadMaskedTextBox MaskType="None" Margin="2" VerticalAlignment="Center" Value="{Binding Customer.FirstName, Mode=TwoWay, ValidatesOnDataErrors=True}" x:Name="firstName" />
+                    <TextBlock VerticalAlignment="Center">Отчество:</TextBlock>
+                    <telerik:RadMaskedTextBox MaskType="None" Margin="2" VerticalAlignment="Center" Value="{Binding Customer.MiddleName, Mode=TwoWay}" />
+                    <TextBlock VerticalAlignment="Center">Пол:</TextBlock>
+                    <UniformGrid Columns="2" VerticalAlignment="Center">
+                        <RadioButton IsChecked="{Binding Path=Customer.Gender, Mode=TwoWay}">Мужской</RadioButton>
+                        <RadioButton IsChecked="True">Женский</RadioButton>
+                    </UniformGrid>
+                    <TextBlock VerticalAlignment="Center">Дата рождения:</TextBlock>
+                    <telerik:RadDatePicker x:Name="date2" VerticalAlignment="Center" Margin="2 0" SelectedDate="{Binding Path=Customer.Birthday, Mode=TwoWay, ValidatesOnDataErrors=True}" />
+                </UniformGrid>
+            </StackPanel>
+        </GroupBox>
+        <Expander IsExpanded="True"  Header="Паспортные данные" Margin="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="16" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="26"/>
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Center">Серия и номер:</TextBlock>
+                <telerik:RadMaskedTextBox Grid.Column="1" MaskType="Standard" Mask="0000 000 000" Value="{Binding Path=Customer.PasspNumber, Mode=TwoWay}" Margin="2" VerticalAlignment="Center"/>
+                <Image Source="/ExtraClub.ClientsModule;component/Views/Resources/exclamation.png" Grid.Column="2" Visibility="{Binding Path=Customer.PasspNumberValid, Converter={StaticResource boolToVis}}" ToolTip="Не соответствует формату паспорта РФ"/>
+                <TextBlock VerticalAlignment="Center" Grid.Row="1">Дата выдачи:</TextBlock>
+                <telerik:RadDatePicker Grid.Row="1" Grid.Column="1" x:Name="date1" VerticalAlignment="Center" Margin="2 0" SelectedDate="{Binding Path=Customer.PasspEmitDate, Mode=TwoWay}" />
+                <TextBlock VerticalAlignment="Center" Grid.Row="2">Кем выдан:</TextBlock>
+                <telerik:RadMaskedTextBox Grid.Row="2" Grid.Column="1" MaskType="None" Margin="2" Value="{Binding Path=Customer.PasspEmitPlace, Mode=TwoWay}" VerticalAlignment="Center"/>
+            </Grid>
+        </Expander>
+        <Expander IsExpanded="True"  Header="Контактные данные" Margin="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="16" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="26"/>
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Center">Домашний телефон:</TextBlock>
+                <telerik:RadMaskedTextBox MaskType="None" Value="{Binding Path=Customer.Phone1, Mode=TwoWay}" Margin="2" VerticalAlignment="Center" Grid.Column="1"/>
+                <Image Source="/ExtraClub.ClientsModule;component/Views/Resources/exclamation.png" Grid.Column="2" Visibility="{Binding Path=Customer.Phone1Valid, Converter={StaticResource boolToVis}}" ToolTip="Не соответствует СНГ"/>
+                <TextBlock VerticalAlignment="Center" Grid.Row="1">Мобильный телефон:</TextBlock>
+                <telerik:RadMaskedTextBox MaskType="Standard" Mask="+0 (000) 000-00-00" Value="{Binding Path=Customer.Phone2, Mode=TwoWay, ValidatesOnDataErrors=True}" Margin="2" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" />
+                <Image Source="/ExtraClub.ClientsModule;component/Views/Resources/exclamation.png" Grid.Column="2" Grid.Row="1" Visibility="{Binding Path=Customer.Phone2Valid, Converter={StaticResource boolToVis}}" ToolTip="Не соответствует СНГ"/>
+                <TextBlock VerticalAlignment="Center" Grid.Row="2">Электронная почта:</TextBlock>
+                <telerik:RadMaskedTextBox MaskType="None" Grid.Row="2" Grid.Column="1" Value="{Binding Path=Customer.Email, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" Margin="2" VerticalAlignment="Center" />
+                <Image Source="/ExtraClub.ClientsModule;component/Views/Resources/exclamation.png" Grid.Column="2" Grid.Row="2" Visibility="{Binding Path=Customer.EmailValid, Converter={StaticResource boolToVis}}" ToolTip="Введите один или несколько адресов электронной почты"/>
+            </Grid>
+        </Expander>
+        <Expander IsExpanded="True"  Header="Адрес регистрации" Margin="2">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Индекс:</TextBlock>
+                <telerik:RadMaskedTextBox MaskType="Standard" Mask="000000" Value="{Binding Path=Customer.AddrIndex, Mode=TwoWay}" Margin="2" VerticalAlignment="Center" />
+                <TextBlock VerticalAlignment="Center">Город:</TextBlock>
+                <telerik:RadComboBox IsEditable="True"
+                        ItemsSource="{Binding Cities}"
+                                         Text="{Binding Path=Customer.AddrCity, Mode=TwoWay}"
+                        Margin="2"/>
+                <TextBlock VerticalAlignment="Center">Улица:</TextBlock>
+                <telerik:RadComboBox IsEditable="True"
+                        ItemsSource="{Binding Streets}"
+                                         Text="{Binding Path=Customer.AddrStreet, Mode=TwoWay}"
+                        Margin="2"/>
+                <TextBlock VerticalAlignment="Center">Дом, квартира:</TextBlock>
+                <telerik:RadMaskedTextBox MaskType="None" Value="{Binding Path=Customer.AddrOther, Mode=TwoWay}" Margin="2" VerticalAlignment="Center"  />
+            </UniformGrid>
+        </Expander>
+        <Expander IsExpanded="True"  Header="Адрес проживания" Margin="2">
+            <UniformGrid Columns="2">
+                <TextBlock VerticalAlignment="Center">Индекс:</TextBlock>
+                <telerik:RadMaskedTextBox MaskType="Standard" Mask="000000" Value="{Binding Path=Employee.FactIndex, Mode=TwoWay}" Margin="2" VerticalAlignment="Center" />
+                <TextBlock VerticalAlignment="Center">Город:</TextBlock>
+                <telerik:RadComboBox IsEditable="True"
+                        ItemsSource="{Binding Cities}"
+                                         Text="{Binding Path=Employee.FactCity, Mode=TwoWay}"
+                        Margin="2"/>
+                <TextBlock VerticalAlignment="Center">Улица:</TextBlock>
+                <telerik:RadComboBox IsEditable="True"
+                        ItemsSource="{Binding Streets}"
+                                         Text="{Binding Path=Employee.FactStreet, Mode=TwoWay}"
+                        Margin="2"/>
+                <TextBlock VerticalAlignment="Center">Дом, квартира:</TextBlock>
+                <telerik:RadMaskedTextBox MaskType="None" Value="{Binding Path=Employee.FactOther, Mode=TwoWay}" Margin="2" VerticalAlignment="Center"  />
+            </UniformGrid>
+        </Expander>
+        <Expander IsExpanded="False"  Header="Комментарии" Margin="2">
+            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="48" Text="{Binding Customer.Comments, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        </Expander>
+        <CheckBox Margin="5" x:Name="addJob">Перейти к оформлению после сохранения</CheckBox>
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3" Padding="5" IsDefault="True" Click="CommitButton_Click">Сохранить</Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+    </usr:WindowBase>

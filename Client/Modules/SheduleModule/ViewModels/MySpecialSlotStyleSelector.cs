@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Telerik.Windows.Controls;
 using System.Windows;
-using TonusClub.ScheduleModule.Controls;
+using ExtraClub.ScheduleModule.Controls;
 
-namespace TonusClub.ScheduleModule.ViewModels
+namespace ExtraClub.ScheduleModule.ViewModels
 {
     public class MySpecialSlotStyleSelector : SpecialSlotStyleSelector
     {

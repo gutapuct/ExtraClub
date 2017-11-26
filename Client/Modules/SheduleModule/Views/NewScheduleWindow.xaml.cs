@@ -7,17 +7,17 @@ using System.Windows.Data;
 using System.Windows.Input;
 using Microsoft.Practices.Unity;
 using System.ComponentModel;
-using TonusClub.ServiceModel;
+using ExtraClub.ServiceModel;
 using System.Collections.ObjectModel;
-using TonusClub.UIControls;
+using ExtraClub.UIControls;
 using System.Diagnostics;
 using System.ServiceModel;
-using TonusClub.ScheduleModule.Controls;
-using TonusClub.Infrastructure;
-using TonusClub.UIControls.Windows;
+using ExtraClub.ScheduleModule.Controls;
+using ExtraClub.Infrastructure;
+using ExtraClub.UIControls.Windows;
 using System.Windows.Media;
 
-namespace TonusClub.ScheduleModule.Views
+namespace ExtraClub.ScheduleModule.Views
 {
     public partial class NewScheduleWindow : INotifyPropertyChanged
     {
@@ -513,7 +513,7 @@ namespace TonusClub.ScheduleModule.Views
                 infoMessage = "\nАбонемент заморожен в выделенный промежуток времени и будет автоматически разморожен, начиная с " + prop.MinTime.Date.ToString("d MMMM yyyy");
             }
 
-            TonusWindow.ConfirmOuter(UIControls.Localization.Resources.CustomerBooking,
+            ExtraWindow.ConfirmOuter(UIControls.Localization.Resources.CustomerBooking,
                 UIControls.Localization.Resources.MakeBookingMessage + infoMessage,
                 e1 =>
                 {

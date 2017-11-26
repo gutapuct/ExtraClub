@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.ScheduleView;
 
-namespace TonusClub.ScheduleModule.Controls
+namespace ExtraClub.ScheduleModule.Controls
 {
 	public class AppointmentStyleSelector : OrientedAppointmentItemStyleSelector
 	{

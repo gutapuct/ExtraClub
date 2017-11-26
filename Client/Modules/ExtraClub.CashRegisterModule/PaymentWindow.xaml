@@ -1,0 +1,108 @@
+﻿<usr:WindowBase x:Class="ExtraClub.CashRegisterModule.PaymentWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:res="clr-namespace:ExtraClub.UIControls.Localization;assembly=ExtraClub.UIControls"
+             xmlns:telerikInput="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls"
+             xmlns:glb="clr-namespace:System.Globalization;assembly=mscorlib"   
+             Width="481" FontSize="14" Padding="10">
+    <usr:WindowBase.Resources>
+        <BooleanToVisibilityConverter x:Key="boolToVis" />
+    </usr:WindowBase.Resources>
+    <StackPanel Margin="10">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" Text="{x:Static res:Resources.CustomerName}"></TextBlock>
+        <TextBlock VerticalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Path=Customer.FullName}"/>
+            <TextBlock VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Right" Margin="5" Text="{x:Static res:Resources.CardNumber}"></TextBlock>
+        <TextBlock VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Path=Customer.ActiveCard.CardBarcode}"/>
+            <TextBlock VerticalAlignment="Center" Grid.Row="2" HorizontalAlignment="Right" Margin="5" Text="{x:Static res:Resources.Deposit}"></TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding Path=Customer.RurDepositValue, StringFormat={}{0:C}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}"/>
+        
+        <ListView Grid.Row="3" MinHeight="100" Grid.ColumnSpan="4" Margin="3" ItemsSource="{Binding GoodsList}">
+            <ListView.View>
+                <GridView>
+                        <GridViewColumn Header="{x:Static res:Resources.Product}" Width="Auto" DisplayMemberBinding="{Binding Path=Name}" />
+                        <GridViewColumn Header="{x:Static res:Resources.Price}" Width="Auto" DisplayMemberBinding="{Binding Path=Price, StringFormat={}{0:C}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}" />
+                        <GridViewColumn Header="{x:Static res:Resources.Amount}" Width="Auto" DisplayMemberBinding="{Binding Path=InBasketText}" />
+                        <GridViewColumn Header="{x:Static res:Resources.Cost}" Width="Auto" DisplayMemberBinding="{Binding Path=Cost, StringFormat={}{0:C}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+            <TextBlock VerticalAlignment="Center" Grid.Row="4" HorizontalAlignment="Right" Margin="5" Text="{x:Static res:Resources.Certificate}"></TextBlock>
+            <usr:CardInputBox Grid.Column="2" Grid.Row="4" Margin="2" Height="22" SelectedCard="{Binding CardNumber, Mode=TwoWay, ValidatesOnDataErrors=True}"></usr:CardInputBox>
+            <TextBlock VerticalAlignment="Center" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" Grid.ColumnSpan="1" Text="{Binding Path=PaymentDetails.CertificateDicsount, StringFormat={}{0:C}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}"/>
+
+            <TextBlock VerticalAlignment="Center" Grid.Row="5" HorizontalAlignment="Right" Margin="5" Text="{x:Static res:Resources.SumToPay}"></TextBlock>
+            <TextBlock VerticalAlignment="Center" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" Grid.ColumnSpan="2" Text="{Binding Path=PaymentDetails.RequestedAmountTotal, StringFormat={}{0:C}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}"/>
+        </Grid>
+        <UniformGrid Columns="3" Visibility="{Binding PaymentDetails.Cash, Converter={StaticResource ResourceKey=boolToVis}}">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" Text="{x:Static res:Resources.PayWay}"></TextBlock>
+        <RadioButton Visibility="{Binding PaymentDetails.Cash, Converter={StaticResource ResourceKey=boolToVis}}"
+                     x:Name="cashRadio" IsChecked="True" Margin="0 0 5 0"
+                     Content="{x:Static res:Resources.Cash}" VerticalAlignment="Center" Checked="CashRadioButton_Checked" />
+        <telerik:RadMaskedTextBox MaskType="None" Value="{Binding Path=PaymentDetails.CashPayment, Mode=TwoWay}"
+								VerticalAlignment="Center" IsEnabled="{Binding IsChecked, ElementName=cashRadio}"/>
+
+                <TextBlock Visibility="{Binding IsChecked, ElementName=cashRadio, Converter={StaticResource boolToVis}}"/>
+            <TextBlock Margin="0 0 5 0" Text="{x:Static res:Resources.CashChange}" VerticalAlignment="Center"
+                           Visibility="{Binding IsChecked, ElementName=cashRadio, Converter={StaticResource boolToVis}}"/>
+            <TextBlock Text="{Binding Path=PaymentDetails.Change, StringFormat={}{0:C}, ConverterCulture={x:Static glb:CultureInfo.CurrentUICulture}}" VerticalAlignment="Center" Visibility="{Binding IsChecked, ElementName=cashRadio, Converter={StaticResource boolToVis}}"/>
+                <TextBlock />
+            <RadioButton x:Name="DepositRadio" Content="{x:Static res:Resources.Deposit}" VerticalAlignment="Center" Checked="DepositRadioButton_Checked" />
+                <TextBlock />
+                <TextBlock />
+            <RadioButton x:Name="CardRadio" Content="{x:Static res:Resources.BankCard}" VerticalAlignment="Center" Checked="CardRadioButton_Checked" />
+            </UniformGrid>
+        <CheckBox Visibility="{Binding PaymentDetails.Cash, Converter={StaticResource ResourceKey=boolToVis}}"
+                  VerticalAlignment="Center" x:Name="PrintTov" Content="{x:Static res:Resources.TovReceipt}"></CheckBox>
+        <CheckBox usr:AuthorizationManager.AuthorizationKey="PayWithFR"
+                  VerticalAlignment="Center" Content="Провести чек по кассе" IsChecked="{Binding PayWithFR}"></CheckBox>
+        <Grid  Visibility="{Binding PaymentDetails.Cashless, Converter={StaticResource ResourceKey=boolToVis}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Right" Margin="0 2 5 0" Text="{x:Static res:Resources.Contragent}"></TextBlock>
+            <usr:ProviderSelector Grid.Column="1"    SelectedId="{Binding Path=PaymentDetails.ProviderId, Mode=TwoWay}"></usr:ProviderSelector>
+
+        </Grid>
+        <Grid Visibility="{Binding SectionSelectionVisible}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Right" Margin="0 2 5 0" Text="{x:Static res:Resources.Section}"></TextBlock>
+            <telerik:RadComboBox Margin="0 4" Grid.Column="1" VerticalAlignment="Center"
+                                 DisplayMemberPath="Value"
+                                 IsEditable="False"
+                                 IsReadOnly="True"
+                                 ItemsSource="{Binding Sections}"
+                                 SelectedValuePath="Key"
+                                 SelectedValue="{Binding PaymentDetails.SectionNumber, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
+        </Grid>
+        <UniformGrid Rows="1" Margin="0 10 0 0">
+            <Button Height="30" Padding="5 0" Click="RadButton_Click"
+                               IsEnabled="{Binding Path=PaymentDetails.IsPaymentAllowed}"
+                               Content="{x:Static res:Resources.Pay}"></Button>
+            <Button Margin="3 0 0 0" Padding="5 0" Click="CancelButton_Click"
+                               Content="{x:Static res:Resources.Cancel}"></Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

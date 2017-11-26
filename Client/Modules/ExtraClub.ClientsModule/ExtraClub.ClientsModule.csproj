@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7DF3EA67-39B2-4433-9BAE-EE86851A3B7A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExtraClub.Clients</RootNamespace>
+    <AssemblyName>ExtraClub.ClientsModule</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\ExtraClub.ClientsModule.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\ExtraClub.ClientsModule.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.76.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ClosedXML.0.76.0\lib\net40-client\ClosedXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FlagmaxControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Design\FlagmaxControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Composite">
+      <HintPath>..\..\..\lib\Prism\Microsoft.Practices.Composite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Composite.Presentation">
+      <HintPath>..\..\..\lib\Prism\Microsoft.Practices.Composite.Presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Windows.Controls, Version=2010.1.319.35, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2010.2.812.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2010.2.812.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2010.2.812.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2010.2.812.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Telerik\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\Tickets.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ClientLargeViewModel.cs" />
+    <Compile Include="ViewModels\ContraView.cs" />
+    <Compile Include="ViewModels\StatusView.cs" />
+    <Compile Include="Views\ClientLargeView.xaml.cs">
+      <DependentUpon>ClientLargeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\BarSalesControl.xaml.cs">
+      <DependentUpon>BarSalesControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\BonusFlowControl.xaml.cs">
+      <DependentUpon>BonusFlowControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\CallsControl.xaml.cs">
+      <DependentUpon>CallsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\CustomerVisitsControl.xaml.cs">
+      <DependentUpon>CustomerVisitsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\DepositFlowControl.xaml.cs">
+      <DependentUpon>DepositFlowControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\ExtraTreatmentsControl.xaml.cs">
+      <DependentUpon>ExtraTreatmentsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\GoodsReserve.xaml.cs">
+      <DependentUpon>GoodsReserve.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\NewEditAnthropometricWindow.xaml.cs">
+      <DependentUpon>NewEditAnthropometricWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\NewEditDoctorWindow.xaml.cs">
+      <DependentUpon>NewEditDoctorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\NewEditMeasureWindow.xaml.cs">
+      <DependentUpon>NewEditMeasureWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\NewEditNutritionWindow.xaml.cs">
+      <DependentUpon>NewEditNutritionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\NewEditTargetWindow.xaml.cs">
+      <DependentUpon>NewEditTargetWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UploadImage.xaml.cs">
+      <DependentUpon>UploadImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\CompensateWindow.xaml.cs">
+      <DependentUpon>CompensateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\CustomerAndCards\AddBonusWindow.xaml.cs">
+      <DependentUpon>AddBonusWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\CustomerAndCards\ChangeInvitorDialog.xaml.cs">
+      <DependentUpon>ChangeInvitorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\GoodOutWindow.xaml.cs">
+      <DependentUpon>GoodOutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewEditCrmEventWindow.xaml.cs">
+      <DependentUpon>NewEditCrmEventWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\RegisterComeIn.xaml.cs">
+      <DependentUpon>RegisterComeIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\RegisterComeOut.xaml.cs">
+      <DependentUpon>RegisterComeOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\RentControl.xaml.cs">
+      <DependentUpon>RentControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContainedControls\ExtraDiaries.xaml.cs">
+      <DependentUpon>ExtraDiaries.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\CustomerAndCards\NewCustomerCard.xaml.cs">
+      <DependentUpon>NewCustomerCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\CustomerAndCards\NewCustomerWindow.xaml.cs">
+      <DependentUpon>NewCustomerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Tickets\CreditPaymentDialog.xaml.cs">
+      <DependentUpon>CreditPaymentDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Tickets\EditTicketWindow.xaml.cs">
+      <DependentUpon>EditTicketWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Tickets\NewTicketWindow.xaml.cs">
+      <DependentUpon>NewTicketWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Tickets\TicketChangeWindow.xaml.cs">
+      <DependentUpon>TicketChangeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Tickets\TicketFreezeWindow.xaml.cs">
+      <DependentUpon>TicketFreezeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Tickets\TicketRebillWindow.xaml.cs">
+      <DependentUpon>TicketRebillWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\Tickets\TicketReturnWindow.xaml.cs">
+      <DependentUpon>TicketReturnWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\CustomerAndCards\UpgradeCustomerCardWindow.xaml.cs">
+      <DependentUpon>UpgradeCustomerCardWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\AddDepositPayment.xaml.cs">
+      <DependentUpon>AddDepositPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\CloseRentWindow.xaml.cs">
+      <DependentUpon>CloseRentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\DepositOutWindow.xaml.cs">
+      <DependentUpon>DepositOutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\NewRentWindow.xaml.cs">
+      <DependentUpon>NewRentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\VisitCorrectionWindow.xaml.cs">
+      <DependentUpon>VisitCorrectionWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\ExtraClub.ServiceModel\ExtraClub.ServiceModel.csproj">
+      <Project>{97CC15A7-FC9A-4C5C-8098-44D11B6392DB}</Project>
+      <Name>ExtraClub.ServiceModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExtraClub.Infrastructure\ExtraClub.Infrastructure.csproj">
+      <Project>{0EAC7B49-5998-4F41-BA70-33F0A636AEAA}</Project>
+      <Name>ExtraClub.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExtraClub.UIControls\ExtraClub.UIControls.csproj">
+      <Project>{A3082956-9EE4-4B35-9B4E-B07D0C4C8B56}</Project>
+      <Name>ExtraClub.UIControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExtraClub.CashRegisterModule\ExtraClub.CashRegisterModule.csproj">
+      <Project>{cd79a91a-f217-483d-8250-92c9a6d81773}</Project>
+      <Name>ExtraClub.CashRegisterModule</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\ClientLargeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\BarSalesControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\BonusFlowControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\CallsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\CustomerVisitsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\DepositFlowControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\ExtraTreatmentsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\GoodsReserve.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\NewEditAnthropometricWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\NewEditDoctorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\NewEditMeasureWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\NewEditNutritionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\NewEditTargetWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UploadImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\CompensateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\CustomerAndCards\AddBonusWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\CustomerAndCards\ChangeInvitorDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\GoodOutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewEditCrmEventWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\RegisterComeIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\RegisterComeOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\RentControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContainedControls\ExtraDiaries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\CustomerAndCards\NewCustomerCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\CustomerAndCards\NewCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Tickets\CreditPaymentDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Tickets\EditTicketWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Tickets\NewTicketWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Tickets\TicketChangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Tickets\TicketFreezeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Tickets\TicketRebillWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\Tickets\TicketReturnWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\CustomerAndCards\UpgradeCustomerCardWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\AddDepositPayment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\CloseRentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\DepositOutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewRentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\VisitCorrectionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Resources\exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Resources\tile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

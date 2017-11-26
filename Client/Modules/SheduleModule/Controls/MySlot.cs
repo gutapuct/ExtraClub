@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Telerik.Windows.Controls.ScheduleView;
 
-namespace TonusClub.ScheduleModule.Controls
+namespace ExtraClub.ScheduleModule.Controls
 {
     public class MySlot : Slot
     {

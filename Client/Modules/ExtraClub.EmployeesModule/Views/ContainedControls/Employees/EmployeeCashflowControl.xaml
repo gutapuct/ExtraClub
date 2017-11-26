@@ -1,0 +1,36 @@
+﻿<usr:ModuleViewBase x:Class="ExtraClub.EmployeesModule.Views.ContainedControls.Employees.EmployeeCashflowControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="328" d:DesignWidth="613">
+    <DockPanel>
+        <telerik:RadGridView
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ActionOnLostFocus="CommitEdit"
+                                        ShowGroupPanel="False"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        IsFilteringAllowed="True"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding EmployeeCashlowView}"
+                                        x:Name="EmployeeCashlowGrid">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Width="*" IsFilterable="True" Header="Дата" DataMemberBinding="{Binding CreatedOn}" DataFormatString="{}{0:dd.MM.yyyy HH:mm}"/>
+                <telerik:GridViewDataColumn Width="3*" IsFilterable="True" Header="Сотрудник" DataMemberBinding="{Binding SerializedEmployeeName}" />
+                <telerik:GridViewDataColumn Width="3*" IsFilterable="True" Header="Выплатил" DataMemberBinding="{Binding SerializedPaidName}" />
+                <telerik:GridViewDataColumn Width="2*" IsFilterable="True" Header="Тип платежа" DataMemberBinding="{Binding PaymentTypeText}" />
+                <telerik:GridViewDataColumn Width="*" IsFilterable="False" Header="Сумма" DataMemberBinding="{Binding Amount}" DataFormatString="{}{0:c}" />
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </DockPanel>
+    </usr:ModuleViewBase>
+

@@ -1,0 +1,74 @@
+﻿<usr:ModuleViewBase x:Class="ExtraClub.EmployeesModule.Views.ContainedControls.Employees.EmployeesControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" 
+             d:DesignHeight="328" d:DesignWidth="713">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 5" Height="25">
+            <Button Margin="2 0" Click="NewButtonClick" usr:AuthorizationManager.AuthorizationKey="NewEmployeeButton">Новый сотрудник</Button>
+            <Button Margin="2 0" Click="TripButtonClick" usr:AuthorizationManager.AuthorizationKey="EmployeeTripBar">Командировка</Button>
+            <Button Margin="2 0" Click="CategoryButtonClick" usr:AuthorizationManager.AuthorizationKey="EmployeesCategoryChangeBar">Категории</Button>
+
+            <Button Margin="2 0" Click="ActiveButtonClick" IsEnabled="{Binding CanEmployeeBeActivated}">Сделать активным</Button>
+            <Button Margin="2 0" Click="InactiveButtonClick" IsEnabled="{Binding CanEmployeeBeDeactivated}">Сделать неактивным</Button>
+            <CheckBox VerticalAlignment="Center" Margin="10 0 0 0" IsChecked="{Binding ShowActiveEmpsOnly, Mode=TwoWay}">Отображать только активных</CheckBox>
+        </StackPanel>
+        <telerik:RadGridView
+                                        Margin="5 5 5 5"
+                                        RowIndicatorVisibility="Collapsed"
+                                        IsReadOnly="True"
+                                        AutoGenerateColumns="False"
+                                        CanUserFreezeColumns="True"
+                                        CanUserResizeColumns="True"
+                                        ActionOnLostFocus="CommitEdit"
+                                        ShowGroupPanel="False"
+                                        CanUserInsertRows="False"
+                                        ShowInsertRow="False"
+                                        IsFilteringAllowed="True"
+                                        VerticalAlignment="Stretch"
+                                        ItemsSource="{Binding EmployeesView}"
+                                        x:Name="EmployeesViewGrid">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Width="*" Header="№" IsFilterable="False" DataMemberBinding="{Binding Number}"/>
+                <telerik:GridViewDataColumn Width="*" IsFilterable="False"  Header="Карта" DataMemberBinding="{Binding SerializedCardNumber}"/>
+                <telerik:GridViewDataColumn Width="2*" IsFilterable="False"  Header="ФИО" DataMemberBinding="{Binding SerializedCustomer.FullName}"/>
+                <telerik:GridViewDataColumn Width="*" IsFilterable="True" Header="Должность" DataMemberBinding="{Binding SerializedJobPlacement.SerializedJobName}"/>
+                <telerik:GridViewDataColumn Width="*" IsFilterable="True" Header="Договор" DataMemberBinding="{Binding SerializedContractText}" />
+                <telerik:GridViewDataColumn Width="*" IsFilterable="True" Header="Подразделение" DataMemberBinding="{Binding SerializedJobPlacement.SerializedUnit}"/>
+                <telerik:GridViewDataColumn Width="*" IsFilterable="True" Header="Принят" DataMemberBinding="{Binding SerializedJobPlacement.ApplyDate}" DataFormatString="{}{0:dd.MM.yyyy}"/>
+                <telerik:GridViewDataColumn Width="*" IsFilterable="True" Header="Уволен" DataMemberBinding="{Binding SerializedJobPlacement.FireDate}" DataFormatString="{}{0:dd.MM.yyyy}"/>
+                <telerik:GridViewDataColumn Width="2*" IsFilterable="False" Header="Комментарии" DataMemberBinding="{Binding SerializedCustomer.Comments}"/>
+            </telerik:RadGridView.Columns>
+            <telerik:RadContextMenu.ContextMenu>
+                <telerik:RadContextMenu Opened="RadContextMenuOpened" ItemClick="RadContextMenuItemClick">
+                    <telerik:RadContextMenu.Items>
+                        <telerik:RadMenuItem Header="Анкетные данные" x:Name="CardItem" usr:AuthorizationManager.AuthorizationKey="EmployeeAnketEditMenu"/>
+                        <telerik:RadMenuItem Header="Прием на работу" x:Name="JobApplyItem" usr:AuthorizationManager.AuthorizationKey="EmployeeJobApplyMenu"/>
+                        <telerik:RadMenuItem Header="Перевести на другую должность" x:Name="ChangeJobItem" usr:AuthorizationManager.AuthorizationKey="EmployeeJobChangeMenu"/>
+                        <telerik:RadMenuItem Header="Выдать карту" x:Name="EmitCardItem" usr:AuthorizationManager.AuthorizationKey="EmployeeEmitCardMenu" />
+                        <telerik:RadMenuItem Header="Перейти к должности" x:Name="NavigateToJobItem" usr:AuthorizationManager.AuthorizationKey="EmployeeNavigateToJobMenu"/>
+                        <telerik:RadMenuItem Header="Больничный" x:Name="IllItem" usr:AuthorizationManager.AuthorizationKey="EmployeeIllnessMenu"/>
+                        <telerik:RadMenuItem Header="Отгул" x:Name="MissItem" usr:AuthorizationManager.AuthorizationKey="EmployeeMissMenu"/>
+                        <telerik:RadMenuItem Header="Отпуск" x:Name="VacationItem" usr:AuthorizationManager.AuthorizationKey="EmployeeVacationMenu"/>
+                        <telerik:RadMenuItem Header="Уволить" x:Name="FireItem" usr:AuthorizationManager.AuthorizationKey="EmployeeFireMenu"/>
+                        <telerik:RadMenuItem Header="Печать" usr:AuthorizationManager.AuthorizationKey="EmployeePrintMenu">
+                            <!--<telerik:RadMenuItem Header="Приказ о приеме на работу" x:Name="PrintJobApplyItem"/>
+                            <telerik:RadMenuItem Header="Приказ о переводе" x:Name="PrintJobChangeItem"/>-->
+                            <telerik:RadMenuItem Header="Трудовой договор" x:Name="PrintJobAgreementItem"/>
+                            <telerik:RadMenuItem Header="Договор о мат. ответственности" x:Name="PrintResonsibilityItem"/>
+                            <telerik:RadMenuItem Header="Подписка о неразглашении" x:Name="PrintSecurityItem"/>
+                            <telerik:RadMenuItem Header="Должностная инструкция" x:Name="JobDescriptionItem"/>
+                        </telerik:RadMenuItem>
+                        <telerik:RadMenuItem Header="Пожелания" x:Name="PreferencesItem" usr:AuthorizationManager.AuthorizationKey="EmployeePreferencesMenu"/>
+                        <telerik:RadMenuItem Header="Расчеты" x:Name="Cashflow" usr:AuthorizationManager.AuthorizationKey="EmployeeCashflowMenu"/>
+                        <telerik:RadMenuItem Header="Доступ к АСУ" x:Name="LoginInfo" usr:AuthorizationManager.AuthorizationKey="EmployeeLoginMenu"/>
+                    </telerik:RadContextMenu.Items>
+                </telerik:RadContextMenu>
+            </telerik:RadContextMenu.ContextMenu>
+        </telerik:RadGridView>
+    </DockPanel>
+</usr:ModuleViewBase>

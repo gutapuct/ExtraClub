@@ -5,7 +5,7 @@ using System.Text;
 using Telerik.Windows.Controls.ScheduleView;
 using System.Windows.Media;
 
-namespace TonusClub.ScheduleModule.Controls
+namespace ExtraClub.ScheduleModule.Controls
 {
     public class CustomAppointment : Appointment
     {

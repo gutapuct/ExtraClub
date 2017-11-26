@@ -1,9 +1,9 @@
-﻿<usr:WindowBase x:Class="TonusClub.ScheduleModule.Views.Windows.SolEditMoveWindow"
+﻿<usr:WindowBase x:Class="ExtraClub.ScheduleModule.Views.Windows.SolEditMoveWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:usr="clr-namespace:TonusClub.UIControls;assembly=TonusClub.UIControls"
+        xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
-        xmlns:res="clr-namespace:TonusClub.UIControls.Localization;assembly=TonusClub.UIControls"
+        xmlns:res="clr-namespace:ExtraClub.UIControls.Localization;assembly=ExtraClub.UIControls"
         Title="{x:Static res:Resources.SolariumEventEdit}" SizeToContent="Height" Width="562" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <StackPanel>
         <GroupBox  Header="{x:Static res:Resources.CustomerInfo}" Padding="3">

@@ -1,0 +1,57 @@
+﻿<usr:WindowBase x:Class="ExtraClub.SettingsModule.Views.ContainedControls.NewEditTextActionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:usr="clr-namespace:ExtraClub.UIControls;assembly=ExtraClub.UIControls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerikNavigation="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+             mc:Ignorable="d" xmlns:fmc="clr-namespace:FlagmaxControls;assembly=FlagmaxControls" WindowStartupLocation="CenterScreen" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" ResizeMode="NoResize" Title="Информер" Width="493" SizeToContent="Height">
+    <StackPanel>
+        <GroupBox  Header="Общие параметры">
+            <StackPanel>
+                <UniformGrid Columns="2" Margin="4">
+                    <TextBlock VerticalAlignment="Center">Папка:</TextBlock>
+                    <telerik:RadComboBox IsEditable="False" Margin="2"
+                        ItemsSource="{Binding SettingsFolders}"
+                        SelectedValuePath="Id"
+                        SelectedValue="{Binding Path=TextAction.SettingsFolderId, Mode=TwoWay}"
+                        ClearSelectionButtonVisibility="Visible"
+                        ClearSelectionButtonContent="Информеры"
+                        DisplayMemberPath="Name" IsReadOnly="True"/>
+                    <TextBlock Margin="0 2" VerticalAlignment="Center">Дата начала отображения:</TextBlock>
+                    <telerik:RadDatePicker SelectedValue="{Binding Path=TextAction.StartDate, Mode=TwoWay}" Margin="2"></telerik:RadDatePicker>
+                    <TextBlock VerticalAlignment="Center">Дата окончания отображения:</TextBlock>
+                    <telerik:RadDatePicker SelectedValue="{Binding Path=TextAction.FinishDate, Mode=TwoWay}" Margin="2"></telerik:RadDatePicker>
+                </UniformGrid>
+                <Grid Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="0 2">Текст:</TextBlock>
+                    <TextBox Grid.Column="1" Text="{Binding Path=TextAction.ActionText}" TextWrapping="Wrap" Height="80" AcceptsReturn="True"></TextBox>
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox  Header="Клубы" x:Name="gclubs">
+            <StackPanel Margin="4">
+                <TextBlock x:Name="tclubs" TextWrapping="Wrap">Если в данном разделе не выбрано ни одного клуба, информер будет отображаться во всех клубах.</TextBlock>
+                <ItemsControl Margin="5"
+                        ItemsSource="{Binding Divisions}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Helper}">
+                                <TextBlock  Margin="0 3" Text="{Binding Name}"></TextBlock>
+                            </CheckBox>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </GroupBox>
+        <UniformGrid Rows="1" Height="32">
+            <Button Margin="3" Padding="5" IsDefault="True" Click="CommitButton_Click">Сохранить</Button>
+            <Button Margin="3" Padding="5" IsCancel="True" Click="RadButton_Click">Отмена</Button>
+        </UniformGrid>
+    </StackPanel>
+</usr:WindowBase>

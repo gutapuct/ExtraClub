@@ -7,13 +7,13 @@ using System.ServiceModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Data;
-using TonusClub.Infrastructure;
-using TonusClub.ServiceModel;
-using TonusClub.ServiceModel.Schedule;
-using TonusClub.UIControls;
-using TonusClub.UIControls.Windows;
+using ExtraClub.Infrastructure;
+using ExtraClub.ServiceModel;
+using ExtraClub.ServiceModel.Schedule;
+using ExtraClub.UIControls;
+using ExtraClub.UIControls.Windows;
 
-namespace TonusClub.ScheduleModule.Views
+namespace ExtraClub.ScheduleModule.Views
 {
     public partial class SmartScheduleWindow : INotifyPropertyChanged
     {
