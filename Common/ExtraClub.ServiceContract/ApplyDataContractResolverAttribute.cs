@@ -3,7 +3,7 @@ using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.Data.Objects;
 
-namespace TonusClub.ServiceContract
+namespace ExtraClub.ServiceContract
 {
     public class ApplyDataContractResolverAttribute : Attribute, IOperationBehavior
     {

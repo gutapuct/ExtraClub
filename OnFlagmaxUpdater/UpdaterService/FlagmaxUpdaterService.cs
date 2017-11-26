@@ -7,13 +7,13 @@ using Timer = System.Timers.Timer;
 
 namespace UpdaterService
 {
-    public partial class FlagmaxUpdaterService : ServiceBase
+    public partial class ExtraUpdaterService : ServiceBase
     {
         readonly Timer _timer;
         CancellationTokenSource _cancelSource;
         Task _currentTask;
 
-        public FlagmaxUpdaterService()
+        public ExtraUpdaterService()
         {
             _cancelSource = new CancellationTokenSource();
             _timer = new Timer(180000);

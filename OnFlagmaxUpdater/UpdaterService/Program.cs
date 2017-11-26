@@ -23,7 +23,7 @@ namespace UpdaterService
                 ServiceBase[] ServicesToRun;
                 ServicesToRun = new ServiceBase[]
                 {
-                new FlagmaxUpdaterService()
+                new ExtraUpdaterService()
                 };
                 ServiceBase.Run(ServicesToRun);
             }

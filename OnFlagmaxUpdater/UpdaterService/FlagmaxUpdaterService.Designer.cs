@@ -1,6 +1,6 @@
 ﻿namespace UpdaterService
 {
-    partial class FlagmaxUpdaterService
+    partial class ExtraUpdaterService
     {
         /// <summary> 
         /// Required designer variable.

@@ -29,12 +29,12 @@ namespace UpdaterService
 
         public UpdaterCore()
         {
-            _key = Registry.LocalMachine.CreateSubKey("Software\\Flagmax\\");
+            _key = Registry.LocalMachine.CreateSubKey("Software\\Extra\\");
             _client = new WebClient { Encoding = Encoding.UTF8 };
 
-            _wfPath = _key.GetValue("WfPath", @"c:\program files\flagmax\").ToString();
+            _wfPath = _key.GetValue("WfPath", @"c:\program files\Extra\").ToString();
             _wsPath = _key.GetValue("WsPath", @"c:\inetpub\wwwroot\ws\").ToString();
-            _connectionString = _key.GetValue("ConnectionString", "Data Source=localhost\\sqlexpress;Initial Catalog=Tonusclub;Persist Security Info=True;User ID=sa;Password=sa;").ToString();
+            _connectionString = _key.GetValue("ConnectionString", "Data Source=localhost\\sqlexpress;Initial Catalog=ExtraClub;Persist Security Info=True;User ID=sa;Password=sa;").ToString();
 
             ServicePointManager.Expect100Continue = false;
         }
@@ -122,15 +122,15 @@ namespace UpdaterService
         private void InitVersions()
         {
             WfVersion = (int)_key.GetValue("WfVersion", -1);
-            var serverVer = _client.DownloadString("http://asu.flagmax.ru/Updater/GetCurrentWFVersion");
+            var serverVer = _client.DownloadString("http://asu.Extra.ru/Updater/GetCurrentWFVersion");
             ServerWfVersion = Int32.Parse(serverVer);
 
             WsVersion = (int)_key.GetValue("WsVersion", -1);
-            serverVer = _client.DownloadString("http://asu.flagmax.ru/Updater/GetCurrentWSVersion");
+            serverVer = _client.DownloadString("http://asu.Extra.ru/Updater/GetCurrentWSVersion");
             ServerWsVersion = Int32.Parse(serverVer);
 
             DbVersion = (int)_key.GetValue("DbVersion", -1);
-            serverVer = _client.DownloadString("http://asu.flagmax.ru/Updater/GetCurrentDBVersionEx");
+            serverVer = _client.DownloadString("http://asu.Extra.ru/Updater/GetCurrentDBVersionEx");
             ServerDbVersion = Int32.Parse(serverVer);
         }
 
@@ -153,7 +153,7 @@ namespace UpdaterService
                 di.Create();
             }
 
-            Unzip(_client.DownloadData("http://asu.flagmax.ru/Updater/GetCurrentWF"), _wfPath);
+            Unzip(_client.DownloadData("http://asu.Extra.ru/Updater/GetCurrentWF"), _wfPath);
 
             _key.SetValue("WfVersion", ServerWfVersion);
 
@@ -179,7 +179,7 @@ namespace UpdaterService
                 CleanDirectory(wsBinDir);
             }
 
-            Unzip(_client.DownloadData("http://asu.flagmax.ru/Updater/GetCurrentWS"), _wsPath);
+            Unzip(_client.DownloadData("http://asu.Extra.ru/Updater/GetCurrentWS"), _wsPath);
 
             _key.SetValue("WsVersion", ServerWsVersion);
 
@@ -248,9 +248,9 @@ namespace UpdaterService
             var tempPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
             Directory.CreateDirectory(tempPath);
 
-            Unzip(_client.DownloadData("http://asu.flagmax.ru/Updater/GetCurrentDb"), tempPath);
+            Unzip(_client.DownloadData("http://asu.Extra.ru/Updater/GetCurrentDb"), tempPath);
 
-            var package = DacPackage.Load(Path.Combine(tempPath, "Tonusclub.Database.dacpac"));
+            var package = DacPackage.Load(Path.Combine(tempPath, "ExtraClub.Database.dacpac"));
 
             var options = new DacDeployOptions
             {
@@ -261,7 +261,7 @@ namespace UpdaterService
             var dbServices = new DacServices(_connectionString);
             dbServices.Message += DbServices_Message;
 
-            dbServices.Deploy(package, "tonusclub", true, options);
+            dbServices.Deploy(package, "ExtraClub", true, options);
 
             _key.SetValue("DbVersion", ServerDbVersion);
 
@@ -305,7 +305,7 @@ namespace UpdaterService
 
         private ServiceController GetService()
         {
-            return ServiceController.GetServices().FirstOrDefault(s => s.ServiceName == "FlagmaxWorkflowService");
+            return ServiceController.GetServices().FirstOrDefault(s => s.ServiceName == "ExtraWorkflowService");
         }
 
         private bool StartWorkflow()
@@ -334,7 +334,7 @@ namespace UpdaterService
             vals.Add("Part", component);
             vals.Add("Version", version.ToString());
 
-            _client.UploadValues("http://asu.flagmax.ru/Updater/Success/", vals);
+            _client.UploadValues("http://asu.Extra.ru/Updater/Success/", vals);
         }
 
         private string GetClubId()

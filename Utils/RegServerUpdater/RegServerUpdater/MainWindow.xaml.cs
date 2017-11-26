@@ -38,7 +38,7 @@ namespace RegServerUpdater
 
         private void TestConnection(object sender, RoutedEventArgs e)
         {
-            var conn = new SqlConnection(String.Format("Data Source={0};Initial Catalog=TonusClub;User Id={1};Password={2};", SqlAddr, SqlLogin, SqlPassword));
+            var conn = new SqlConnection(String.Format("Data Source={0};Initial Catalog=ExtraClub;User Id={1};Password={2};", SqlAddr, SqlLogin, SqlPassword));
             try
             {
                 conn.Open();
@@ -53,7 +53,7 @@ namespace RegServerUpdater
 
         private void StartPatch(object sender, RoutedEventArgs e)
         {
-            var conn = new SqlConnection(String.Format("Data Source={0};Initial Catalog=TonusClub;User Id={1};Password={2};", SqlAddr, SqlLogin, SqlPassword));
+            var conn = new SqlConnection(String.Format("Data Source={0};Initial Catalog=ExtraClub;User Id={1};Password={2};", SqlAddr, SqlLogin, SqlPassword));
             conn.Open();
             var trans = conn.BeginTransaction();
             try
@@ -75,14 +75,14 @@ namespace RegServerUpdater
             log("Загрузка и замена файлов сервиса");
             var filelist = new List<string>
             {
-                "TonusClub.Entities.dll",
-                "TonusClub.ServerCore.dll",
-                "TonusClub.ServerDataModule.dll",
-                "TonusClub.ServiceModel.dll",
-                "TonusClub.Entities.pdb",
-                "TonusClub.ServerCore.pdb",
-                "TonusClub.ServerDataModule.pdb",
-                "TonusClub.ServiceModel.pdb",
+                "ExtraClub.Entities.dll",
+                "ExtraClub.ServerCore.dll",
+                "ExtraClub.ServerDataModule.dll",
+                "ExtraClub.ServiceModel.dll",
+                "ExtraClub.Entities.pdb",
+                "ExtraClub.ServerCore.pdb",
+                "ExtraClub.ServerDataModule.pdb",
+                "ExtraClub.ServiceModel.pdb",
                 "App_Code.dll"
             };
             var wc = new WebClient();

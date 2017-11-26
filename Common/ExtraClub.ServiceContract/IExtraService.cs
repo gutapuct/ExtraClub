@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ServiceModel;
-using TonusClub.ServiceModel;
-using TonusClub.Entities;
+using ExtraClub.ServiceModel;
+using ExtraClub.Entities;
 using System.Collections;
 using System.Data;
 using System.Runtime.Serialization;
 using System.Net.Security;
 
-namespace TonusClub.ServiceContract
+namespace ExtraClub.ServiceContract
 {
 
     [ServiceContract]
-    public interface ITonusService
+    public interface IExtraService
     {
         /// <summary>
         /// Validates user in system

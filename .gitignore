@@ -4,7 +4,7 @@
 **/packages/*
 **/.vs/*
 *.user
-Server/TonusClub.WebService/wspub/*
+Server/ExtraClub.WebService/wspub/*
 Server/Sync/pub_sync/*
 *.dbmdl
-Server/TonusClub.Database/TonusClub.Database.jfm
+Server/ExtraClub.Database/ExtraClub.Database.jfm

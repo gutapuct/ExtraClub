@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TonusClub.ServiceContract")]
+[assembly: AssemblyTitle("ExtraClub.ServiceContract")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TonusClub.ServiceContract")]
+[assembly: AssemblyProduct("ExtraClub.ServiceContract")]
 [assembly: AssemblyCopyright("Copyright ©  2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("98ec3d15-ecb4-4191-a3a8-2dbed9742404")]
+[assembly: Guid("99ec3d15-ecb4-4191-a3a8-2dbed9742404")]
 
 // Version information for an assembly consists of the following four values:
 //
