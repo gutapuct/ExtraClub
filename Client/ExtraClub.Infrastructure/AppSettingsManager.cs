@@ -14,7 +14,7 @@ namespace ExtraClub.Infrastructure
 #if BEAUTINIKA
             var readKey = Registry.CurrentUser.OpenSubKey("software\\beautinika");
 #else
-            var readKey = Registry.CurrentUser.OpenSubKey("software\\flagmax");
+            var readKey = Registry.CurrentUser.OpenSubKey("software\\Extra");
 #endif
             if (readKey != null)
             {
@@ -36,7 +36,7 @@ namespace ExtraClub.Infrastructure
 #if BEAUTINIKA
             RegistryKey saveKey = Registry.CurrentUser.CreateSubKey("software\\beautinika");
 #else
-            RegistryKey saveKey = Registry.CurrentUser.CreateSubKey("software\\flagmax");
+            RegistryKey saveKey = Registry.CurrentUser.CreateSubKey("software\\Extra");
 #endif
             saveKey.SetValue(settingName, settingValue);
             saveKey.Close();
@@ -54,7 +54,7 @@ namespace ExtraClub.Infrastructure
 #if BEAUTINIKA
             var readKey = Registry.CurrentUser.OpenSubKey("software\\beautinika");
 #else
-            var readKey = Registry.CurrentUser.OpenSubKey("software\\flagmax");
+            var readKey = Registry.CurrentUser.OpenSubKey("software\\Extra");
 #endif
             if (readKey != null)
             {

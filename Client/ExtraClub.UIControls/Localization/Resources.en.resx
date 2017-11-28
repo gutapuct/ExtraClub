@@ -2196,7 +2196,7 @@ Please provide the refund amount:</value>
     <value>Application crash</value>
   </data>
   <data name="ApplicationBreakdown1" xml:space="preserve">
-    <value>The Flagmax application has crashed/</value>
+    <value>The Extra application has crashed/</value>
   </data>
   <data name="ApplicationBreakdown2" xml:space="preserve">
     <value>The application crashed due to an exception.</value>

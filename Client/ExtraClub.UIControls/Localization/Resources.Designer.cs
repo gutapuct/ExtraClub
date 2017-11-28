@@ -431,7 +431,7 @@ namespace ExtraClub.UIControls.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Работа приложения Flagmax завершена..
+        ///   Looks up a localized string similar to Работа приложения Extra завершена..
         /// </summary>
         public static string ApplicationBreakdown1 {
             get {

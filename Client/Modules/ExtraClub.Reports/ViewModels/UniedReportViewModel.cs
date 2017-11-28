@@ -369,7 +369,7 @@ namespace ExtraClub.Reports.ViewModels
             //    var lic = ls.LicenseExpiry;
             //    if (lic.HasValue && DateTime.Today.AddDays(7) >= lic)
             //    {
-            //        LicenceText = String.Format("Лицензия на использование Flagmax Direction истекает {0:d MMMM yyyy}", lic.Value);
+            //        LicenceText = String.Format("Лицензия на использование Extra Direction истекает {0:d MMMM yyyy}", lic.Value);
             //        LicenseVisibility = Visibility.Visible;
             //        OnPropertyChanged("LicenceText");
             //    }

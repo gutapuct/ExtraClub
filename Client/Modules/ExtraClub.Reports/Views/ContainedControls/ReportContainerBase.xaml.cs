@@ -379,7 +379,7 @@ namespace ExtraClub.Reports.Views.ContainedControls
                 //using (var wc = new WebClient())
                 //{
                 //    wc.DownloadStringAsync(new Uri(
-                //        "http://asu.flagmax.ru/publicapi/externallog?"
+                //        "http://asu.Extra.ru/publicapi/externallog?"
                 //        + $"companyid={ClientContext.CurrentCompany.CompanyId}"
                 //        + $"&userid={ClientContext.CurrentUser.UserId}"
                 //        + $"&message={_reportInfo.Name}")
