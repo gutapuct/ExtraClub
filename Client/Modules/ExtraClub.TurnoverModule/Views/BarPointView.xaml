@@ -180,7 +180,7 @@
                                 BorderBrush="{DynamicResource ControlBorder}" BorderThickness="1" Padding="2" Margin="1"
                                 Background="{DynamicResource ButtonNormalBackground}" HorizontalAlignment="Stretch">
                             <DockPanel>
-                                <Button DockPanel.Dock="Right" Width="50"
+                                <Button DockPanel.Dock="Bottom" Width="100"
                                                    Content="{x:Static res:Resources.Remove}" Margin="2 2" Visibility="{Binding ClearVisible}"
                                                    Click="BasketRemoveButton_Click"/>
 
@@ -201,6 +201,7 @@
                                             <RowDefinition Height="*" />
                                             <RowDefinition Height="*" />
                                             <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
 
                                         <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static res:Resources.Price}" Opacity="0.8"></TextBlock>
@@ -217,9 +218,6 @@
                                             <TextBlock Text="{Binding Amount}" ></TextBlock>
                                             <TextBlock Text="{Binding UnitName}" Margin="5 0 0 0" ></TextBlock>
                                         </StackPanel>
-
-                                        <TextBlock Grid.Row="3" Grid.Column="0" Text="{x:Static res:Resources.Storehouse}"  Opacity="0.8"></TextBlock>
-                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding StorehouseName}" HorizontalAlignment="Right" ></TextBlock>
                                     </Grid>
                                 </DockPanel>
                             </DockPanel>

@@ -114,18 +114,6 @@
         </usr:ModuleViewBase.Resources>
     <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
         <StackPanel>
-            <Border Background="#07508B">
-                <TextBlock Margin="15" FontSize="22" Foreground="White" TextWrapping="Wrap" FontWeight="SemiBold" TextAlignment="Center" HorizontalAlignment="Center">Мы работаем, чтобы женщины чувствовали себя счастливыми!</TextBlock>
-            </Border>
-            <!-- Убираю старый материал
-            <Border Background="yellow">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock Margin="15 15 15 5" FontSize="20" Foreground="Black" TextWrapping="Wrap" FontWeight="SemiBold" TextAlignment="Center" HorizontalAlignment="Center">Напоминаем Вам о заполнении ежемесячного фотоотчёта (Органайзер -> Фотоотчет) до 10 числа каждого месяца</TextBlock>
-               </StackPanel>
-            </Border>-->
-            <Border Background="LightYellow" Visibility="{Binding LicenseVisibility}">
-                <TextBlock Foreground="DarkRed" Margin="15" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding LicenceText}"></TextBlock>
-            </Border>
             <Grid HorizontalAlignment="Stretch" Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />

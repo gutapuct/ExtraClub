@@ -36,7 +36,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl></UpdateUrl>
+    <UpdateUrl>
+    </UpdateUrl>
     <TargetCulture>ru</TargetCulture>
     <ProductName>ExtraClub</ProductName>
     <PublisherName>EC</PublisherName>
@@ -345,7 +346,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\CryPanda.png" />
     <EmbeddedResource Include="Images\SplashScreen1.png" />
     <Resource Include="Images\title.png" />
     <Resource Include="Images\icon_bar.png" />

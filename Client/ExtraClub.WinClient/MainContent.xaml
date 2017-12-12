@@ -181,15 +181,15 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="20"></ColumnDefinition>
+                <!--<ColumnDefinition Width="20"></ColumnDefinition>-->
             </Grid.ColumnDefinitions>
 
             <fmc:TransitableContentControl Name="tCC" ></fmc:TransitableContentControl>
-            <Border Grid.Column="1" BorderBrush="Black" x:Name="NewsWhole" Margin="2 0 0 0">
+            <!--<Border Grid.Column="1" BorderBrush="Black" x:Name="NewsWhole" Margin="2 0 0 0">
                 <Border.Background>
                     <LinearGradientBrush EndPoint="1 1">
                         <GradientStop Color="#1e1e1e"></GradientStop>
-                        <!--<GradientStop Color="#444" Offset="1"></GradientStop>-->
+                        --><!--<GradientStop Color="#444" Offset="1"></GradientStop>--><!--
                     </LinearGradientBrush>
                 </Border.Background>
                 <DockPanel>
@@ -225,7 +225,7 @@
                     </Popup>
                 </DockPanel>
                 <Border.Triggers>
-                    <!--<EventTrigger SourceName="hideBorder" RoutedEvent="MouseEnter">
+                    --><!--<EventTrigger SourceName="hideBorder" RoutedEvent="MouseEnter">
                         <EventTrigger.Actions>
                             <BeginStoryboard>
                                 <Storyboard>
@@ -236,7 +236,7 @@
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger.Actions>
-                    </EventTrigger>-->
+                    </EventTrigger>--><!--
                     <EventTrigger SourceName="NewsPopup" RoutedEvent="MouseLeave">
                         <EventTrigger.Actions>
                             <BeginStoryboard>
@@ -262,7 +262,7 @@
                         </EventTrigger.Actions>
                     </EventTrigger>
                 </Border.Triggers>
-            </Border>
+            </Border>-->
 
         </Grid>
     </DockPanel>

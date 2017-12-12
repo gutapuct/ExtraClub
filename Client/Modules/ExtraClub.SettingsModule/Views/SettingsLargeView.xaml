@@ -171,11 +171,11 @@
                 <usrCN:AdvertSettings />
             </TabItem.Content>
         </TabItem>
-        <TabItem Header="Новости">
+        <!--<TabItem Header="Новости">
             <TabItem.Content>
                 <usrCN:NewsControl />
             </TabItem.Content>
-        </TabItem>
+        </TabItem>-->
         <TabItem Header="Типы целей">
             <TabItem.Content>
                 <TabControl HorizontalAlignment="Stretch"

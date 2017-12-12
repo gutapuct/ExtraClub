@@ -160,7 +160,7 @@ namespace ExtraClub.TurnoverModule.ViewModels
                     {
                         DivisionGoods.Add(p);
                         //p.BackColor = "Transparent";
-                        p.ClearVisible = "Collapsed";
+                        p.ClearVisible = "Hidden";
                     }
                 });
             DivisionGoods.Sort();
@@ -190,7 +190,7 @@ namespace ExtraClub.TurnoverModule.ViewModels
                 good.Amount += good.InBasket;
                 good.InBasket = 0;
                 //good.BackColor = "Transparent";
-                good.ClearVisible = "Collapsed";
+                good.ClearVisible = "Hidden";
             }
         }
 

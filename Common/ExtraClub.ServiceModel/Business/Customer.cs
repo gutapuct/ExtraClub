@@ -347,8 +347,6 @@ namespace ExtraClub.ServiceModel
                     case "LastName":
                     case "FirstName":
                     case "AdvertTypeId":
-                    case "HasEmail":
-                    case "IsWork":
                         var pi = GetType().GetProperty(columnName);
                         if (pi == null) return null;
                         var obj = pi.GetValue(this, null);

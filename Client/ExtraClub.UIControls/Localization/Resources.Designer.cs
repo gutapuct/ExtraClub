@@ -2595,7 +2595,7 @@ namespace ExtraClub.UIControls.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Тонусные дневники.
+        ///   Looks up a localized string similar to Дополнительная информация.
         /// </summary>
         public static string ExtraDiaries {
             get {

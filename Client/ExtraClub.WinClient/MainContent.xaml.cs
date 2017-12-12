@@ -303,7 +303,7 @@ namespace ExtraClub.WinClient
                     }
                 }
 
-                NewsPopup.DataContext = newsModel; 
+                //NewsPopup.DataContext = newsModel; 
                 
 
                 if (!ApplicationDispatcher.UnityContainer.Resolve<ClientContext>().CheckPermission("KKMOperationsInMedium"))

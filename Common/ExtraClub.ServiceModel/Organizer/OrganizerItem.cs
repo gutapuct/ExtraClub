@@ -147,7 +147,7 @@ namespace ExtraClub.ServiceModel
             {
                 Data = target,
                 AppearDate = target.CreatedOn,
-                Category = String.Format("Тонусные дневники - цель ({0})", target.CustomerTargetType.Name),
+                Category = String.Format("Цель ({0})", target.CustomerTargetType.Name),
                 Status = target.Status,
                 Text = target.Customer.FullName + ": " + target.TargetText,
                 SerializedCreatedBy = "Автоматически",
